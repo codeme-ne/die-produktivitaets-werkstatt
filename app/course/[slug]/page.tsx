@@ -4,14 +4,11 @@ import { getLessonBySlug, getNextLesson, getPreviousLesson, getNextOpenLesson, l
 import { isLessonCompleted, readProgress } from '@/libs/progress';
 import LessonControls from '@/components/LessonControls';
 
-// Temporarily disable static generation to debug MDX issue
-// export async function generateStaticParams() {
-//   return lessons.map((lesson) => ({
-//     slug: lesson.slug,
-//   }));
-// }
-
-export const dynamic = 'force-dynamic';
+export async function generateStaticParams() {
+  return lessons.map((lesson) => ({
+    slug: lesson.slug,
+  }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
