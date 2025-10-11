@@ -1,186 +1,179 @@
-# Claude Instructions for ShipFast TypeScript SaaS Boilerplate
+# Claude Instructions for AI Course Platform
 
 ## Project Context
-You are working with a production-ready Next.js 15+ TypeScript SaaS boilerplate called ShipFast. This is a complete starter template for building SaaS applications with payments, authentication, and modern web technologies.
+You are working with a German AI course platform built on Next.js 15 with simplified authentication via JWT cookies. This is NOT the ShipFast SaaS boilerplate – it's a focused course-selling platform without NextAuth or MongoDB.
 
 ## Architecture Overview
 
 ### Core Technologies
-- **Frontend**: Next.js 15+ with App Router, React 19+, TypeScript 5.9+
-- **Styling**: TailwindCSS 4.1+ with DaisyUI 5.0+ component library
-- **Database**: MongoDB with Mongoose ODM
-- **Authentication**: NextAuth v5 (beta) with Google OAuth and Email providers
-- **Payments**: Stripe integration with webhooks for subscriptions and one-time payments
-- **Email**: Resend for transactional emails
-- **Blog**: MDX support for content management
+- **Frontend**: Next.js 15 (App Router), React 19, TypeScript 5.9
+- **Styling**: TailwindCSS 4 with DaisyUI 5
+- **Database**: None (stateless; JWT-based access)
+- **Authentication**: JWT stored in HTTP-only cookies
+- **Payments**: Stripe (one-time checkout, lookup key: `ai_course_eur`)
+- **Email**: Resend (magic links to success page)
+- **Content**: MDX lessons in `content/lessons/`
 
 ### Project Structure
 ```
-├── app/                    # Next.js App Router pages and API routes
-│   ├── api/               # API routes (auth, stripe, webhooks, leads)
-│   ├── blog/              # Blog pages with MDX content
-│   ├── dashboard/         # Protected user dashboard
-│   └── (auth)/           # Authentication pages
-├── components/            # Reusable UI components
-├── libs/                 # Utility libraries and configurations
-├── models/               # MongoDB/Mongoose models
-├── types/                # TypeScript type definitions
-└── config.ts            # Centralized configuration
+├── app/
+│   ├── api/
+│   │   ├── auth/logout/        # Clears JWT cookie
+│   │   ├── stripe/
+│   │   │   └── create-checkout/ # Creates Stripe session
+│   │   └── webhook/stripe/      # Handles payment webhooks
+│   ├── checkout/success/        # Sets JWT cookie after payment
+│   ├── course/                  # Protected: requires JWT
+│   │   └── [slug]/             # Individual lesson pages
+│   ├── impressum/              # German imprint
+│   ├── widerruf/               # Revocation policy
+│   ├── privacy-policy/         # GDPR privacy
+│   ├── tos/                    # Terms of service
+│   └── page.tsx               # Landing page
+├── components/
+│   ├── Header.tsx             # Course header (no auth)
+│   ├── ButtonCheckout.tsx     # Legal checkboxes + checkout
+│   └── LayoutClient.tsx       # Client-side layout wrapper
+├── content/lessons/
+│   ├── manifest.ts            # Course structure
+│   └── *.mdx                  # Lesson files
+├── libs/
+│   ├── jwt.ts                 # JWT sign/verify
+│   └── stripe.ts              # Stripe client
+├── middleware.ts              # Protects /course routes
+└── config.ts                  # Centralized config (no auth/stripe.plans)
 ```
+
+## Key Differences from ShipFast
+
+| ShipFast | AI Course Platform |
+|----------|-------------------|
+| NextAuth v5 | JWT cookies |
+| MongoDB + Mongoose | No database |
+| Multiple plans | Single product (€97) |
+| Recurring subscriptions | One-time payment |
+| Dashboard pages | Course lessons (MDX) |
 
 ## Development Guidelines
 
-### When Writing Code
-1. **Always use TypeScript**: Provide proper type definitions for all functions, components, and data structures
-2. **Follow Next.js 15+ patterns**: Use App Router, Server Components by default, and "use client" only when necessary
-3. **Use existing patterns**: Study existing components and API routes to maintain consistency
-4. **Implement proper error handling**: Always use try-catch blocks and provide meaningful error messages
-5. **Follow the config pattern**: All configuration should reference `/config.ts`
-
-### Component Development
-- Use functional components with hooks
-- Implement proper TypeScript interfaces for props
-- Use DaisyUI classes for consistent styling
-- Include loading states and error handling
-- Make components responsive with Tailwind breakpoints
-- Follow accessibility best practices
-
-### API Route Development
-- Always connect to MongoDB using `connectMongo()` before database operations
-- Validate request bodies and return proper HTTP status codes
-- Use NextAuth session for authentication when needed
-- Implement proper error handling with descriptive messages
-- Follow RESTful conventions
-
-### Database Operations
-- Use Mongoose models defined in `/models/`
-- Always handle async operations properly
-- Implement proper error handling for database failures
-- Use proper validation in schemas
-
 ### Authentication Flow
-- NextAuth v5 is configured with Google OAuth and Email providers
-- User sessions are stored in JWT tokens
-- Protected routes should check authentication status
-- User data is stored in MongoDB with proper schema
+1. User completes Stripe checkout
+2. Webhook fires `checkout.session.completed`
+3. Email sent with magic link: `/checkout/success?session_id=...`
+4. Success page verifies session with Stripe, sets JWT cookie
+5. Middleware checks cookie on `/course/*` requests
+6. Logout clears cookie via `/api/auth/logout`
+
+**No user accounts. No password. No OAuth.**
+
+### Middleware (`middleware.ts`)
+- Protects `/course` and `/course/*`
+- Verifies JWT from `course_access` cookie
+- Redirects to `/` if missing/invalid
 
 ### Stripe Integration
-- Webhooks are handled in `/app/api/webhook/stripe/route.ts`
-- Always verify webhook signatures for security
-- Update user access based on payment events
-- Handle all relevant Stripe events (checkout completed, subscription deleted, etc.)
+- **Checkout**: Uses Stripe Price lookup key `ai_course_eur`
+- **Webhook**: Verifies signature, sends email on success
+- **Email**: Contains magic link to `/checkout/success?session_id=...`
 
-### Styling Guidelines
-- Use TailwindCSS v4 utility classes with CSS-first configuration
-- Leverage DaisyUI components: `btn`, `card`, `modal`, `dropdown`, etc.
-- Implement responsive design with Tailwind breakpoints
-- Use semantic HTML elements
-- Include proper ARIA attributes for accessibility
-- Configure theme variables in CSS using `@theme` directive
-- Use `@import "tailwindcss"` instead of `@tailwind` directives
+### Config (`config.ts`)
+Removed fields from ShipFast:
+- ❌ `stripe.plans` (single product, not in config)
+- ❌ `auth` (no NextAuth)
+- ❌ `aws` (not used)
 
-## Common Tasks and Patterns
+Kept fields:
+- ✅ `appName`, `appDescription`, `domainName`
+- ✅ `resend` (email config)
+- ✅ `colors` (theme)
+- ✅ `crisp` (optional support chat)
 
-### Adding a New Component
-1. Create component in `/components/ComponentName.tsx`
-2. Use PascalCase for component names
-3. Define TypeScript interface for props
-4. Use DaisyUI classes for styling
-5. Export default the main component
+### Component Development
+- Use DaisyUI 5 classes (e.g., `btn`, `card`, `collapse`)
+- All text in German
+- No auth UI components (no ButtonSignin, no user menus)
+- Simple header with links to `/#curriculum`, `/#pricing`, `/#faq`
 
-### Creating an API Route
-1. Create route in `/app/api/[feature]/route.ts`
-2. Export named functions for HTTP methods (GET, POST, etc.)
-3. Connect to MongoDB if database operations are needed
-4. Validate inputs and handle errors properly
-5. Return consistent JSON responses
+### API Route Development
+- No MongoDB connection needed
+- Validate Stripe webhooks with `stripe.webhooks.constructEvent`
+- Use `libs/jwt.ts` for signing/verifying tokens
+- Return JSON with proper HTTP status codes
 
-### Adding a New Page
-1. Create page in `/app/[route]/page.tsx`
-2. Use Server Components by default
-3. Implement proper SEO with metadata
-4. Include proper error boundaries
-5. Use the layout system appropriately
+### Content Management
+- Lessons defined in `content/lessons/manifest.ts`
+- Each lesson exports MDX content
+- Rendered in `/course/[slug]/page.tsx`
+- No CMS, no admin panel – edit MDX directly
 
-### Working with the Database
-1. Define models in `/models/` using Mongoose schemas
-2. Use TypeScript interfaces for type safety
-3. Always use `connectMongo()` before operations
-4. Handle connection errors gracefully
-5. Use proper validation and error handling
+## Common Tasks
 
-### Implementing Authentication
-1. Use `auth()` from `/libs/next-auth` to get session
-2. Check authentication in API routes when needed
-3. Redirect unauthenticated users appropriately
-4. Use proper session handling patterns
+### Adding a New Lesson
+1. Create `content/lessons/08-new-topic.mdx`
+2. Add entry to `content/lessons/manifest.ts`:
+   ```ts
+   {
+     order: 8,
+     slug: '08-new-topic',
+     title: 'New Topic Title',
+     summary: 'Short description',
+     module: () => import('./08-new-topic.mdx'),
+   }
+   ```
+3. Lesson automatically appears in curriculum and course nav
 
-## Configuration Management
-- All app configuration is centralized in `/config.ts`
-- Environment variables are properly typed and validated
-- Use the `ConfigProps` interface for type safety
-- Access config throughout the app using `import config from "@/config"`
+### Updating Legal Pages
+- Edit `app/impressum/page.tsx` (replace `[PLACEHOLDER]` text)
+- Edit `app/widerruf/page.tsx` if policy changes
+- Edit `app/privacy-policy/page.tsx` for privacy updates
+- Edit `app/tos/page.tsx` for terms updates
 
-## Error Handling Patterns
-- Use try-catch blocks in all async operations
-- Log errors with descriptive context
-- Return proper HTTP status codes in API routes
-- Use toast notifications for user-facing errors
-- Implement proper loading states in components
+### Changing Price
+1. Update Stripe Price (keep lookup key `ai_course_eur`)
+2. Update display price in `app/page.tsx` (Pricing section)
+3. No config changes needed
+
+### Testing Checkout Flow
+1. Start dev server: `npm run dev`
+2. Use Stripe test card: `4242 4242 4242 4242`
+3. Use Stripe CLI for webhook testing:
+   ```bash
+   stripe listen --forward-to localhost:3000/api/webhook/stripe
+   ```
+4. Check email delivery in Resend dashboard
 
 ## Security Considerations
-- Always validate user inputs
-- Verify webhook signatures (especially Stripe)
-- Use proper authentication checks
-- Sanitize data before database operations
-- Follow OWASP security guidelines
+- JWT secret must be strong (32+ bytes)
+- Stripe webhook signature verification required
+- HTTP-only cookies prevent XSS
+- No sensitive data in JWT payload (only `sessionId`)
+- Middleware prevents unauthorized course access
 
-## Performance Optimization
-- Use Next.js Image component for optimized images
-- Implement proper lazy loading
-- Use Server Components when possible
-- Optimize bundle size with proper imports
-- Use proper caching strategies
+## Deployment Checklist
+1. Set all env vars (Stripe keys, Resend key, JWT secret)
+2. Create Stripe Price with lookup key `ai_course_eur`
+3. Configure Stripe webhook endpoint
+4. Update `config.ts` with production domain/emails
+5. Fill in `app/impressum/page.tsx` with real company data
+6. Test full flow in Stripe test mode
+7. Switch to Stripe live mode
 
-## Testing Approach
-- Write unit tests for utility functions
-- Test API routes with proper mocking
-- Test components with React Testing Library
-- Use proper TypeScript types in tests
-- Mock external services (Stripe, MongoDB, etc.)
+## Common Pitfalls
+- ❌ Don't try to use NextAuth (not installed)
+- ❌ Don't try to connect to MongoDB (not used)
+- ❌ Don't reference `config.stripe.plans` (removed)
+- ❌ Don't reference `config.auth` (removed)
+- ❌ Don't skip Stripe webhook signature verification
+- ✅ Always verify JWT before serving course content
+- ✅ Use lookup key `ai_course_eur` in checkout creation
+- ✅ Keep legal pages (impressum, widerruf) up to date
 
-## Deployment Considerations
-- Environment variables must be properly configured
-- Database connections should be optimized for production
-- Webhook endpoints must be accessible
-- Static assets should be optimized
-- Error monitoring should be implemented
+## Key Files Reference
+- `middleware.ts` - Course access protection
+- `libs/jwt.ts` - JWT utilities
+- `app/api/webhook/stripe/route.ts` - Payment handling
+- `app/checkout/success/page.tsx` - Cookie setter
+- `content/lessons/manifest.ts` - Course structure
+- `config.ts` - App configuration (simplified)
 
-## Common Pitfalls to Avoid
-- Don't use `any` type unless absolutely necessary
-- Don't forget to connect to MongoDB in API routes
-- Don't skip webhook signature verification
-- Don't hardcode configuration values
-- Don't bypass TypeScript strict mode
-- Don't forget error handling in async operations
-- Don't create components without proper TypeScript interfaces
-
-## When Helping with This Codebase
-1. **Understand the context**: This is a production SaaS boilerplate with real payment processing
-2. **Follow existing patterns**: Study how similar functionality is implemented
-3. **Maintain consistency**: Use the same coding style and architecture patterns
-4. **Consider security**: Always validate inputs and handle sensitive operations properly
-5. **Think about user experience**: Implement proper loading states and error handling
-6. **Use proper TypeScript**: Provide type safety throughout the application
-7. **Follow Next.js best practices**: Use App Router patterns and proper component architecture
-
-## Key Files to Reference
-- `/config.ts` - Central configuration
-- `/libs/next-auth.ts` - Authentication setup
-- `/libs/stripe.ts` - Stripe integration
-- `/libs/mongoose.ts` - Database connection
-- `/types/config.ts` - Configuration types
-- `/components/LayoutClient.tsx` - Client-side layout wrapper
-- `/app/api/webhook/stripe/route.ts` - Stripe webhook handling
-
-Remember: This is a complete SaaS boilerplate that handles real payments and user data. Always prioritize security, proper error handling, and user experience in any modifications or additions. 
+Remember: This is a focused course platform, not a full SaaS boilerplate. Keep it simple: one product, JWT-based access, MDX content, German legal compliance.

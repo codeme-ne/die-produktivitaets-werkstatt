@@ -1,0 +1,359 @@
+# Evaluation: AI-Qualität messen
+
+"You can't improve what you don't measure" - Evaluation ist essentiell für produktive AI-Systeme. Lerne, wie du Qualität, Performance und Kosten systematisch misst.
+
+## Warum Evaluation?
+
+AI-Systeme sind nicht-deterministisch:
+- Verschiedene Antworten auf gleiche Fragen
+- Schwer vorhersagbares Verhalten
+- Subtile Quality-Probleme
+
+**Lösung**: Systematisches Testing und Monitoring
+
+## Evaluation-Dimensionen
+
+### 1. Correctness (Korrektheit)
+
+Ist die Antwort faktisch richtig?
+
+```typescript
+const testCases = [
+  {
+    input: 'Was ist die Hauptstadt von Frankreich?',
+    expected: 'Paris',
+    category: 'factual',
+  },
+  {
+    input: '2 + 2 = ?',
+    expected: '4',
+    category: 'math',
+  },
+];
+
+async function evaluateCorrectness(testCase) {
+  const output = await aiSystem.run(testCase.input);
+  
+  // Exaktes Match
+  if (output.toLowerCase().includes(testCase.expected.toLowerCase())) {
+    return { passed: true, score: 1.0 };
+  }
+  
+  // Semantisches Match mit LLM-Judge
+  const judge = await llmJudge({
+    question: testCase.input,
+    expected: testCase.expected,
+    actual: output,
+  });
+  
+  return { passed: judge.score > 0.8, score: judge.score };
+}
+```
+
+### 2. Relevance (Relevanz)
+
+Beantwortet das System die eigentliche Frage?
+
+```typescript
+async function evaluateRelevance(query: string, response: string) {
+  const prompt = `
+Rate die Relevanz dieser Antwort auf einer Skala von 1-5:
+
+Frage: ${query}
+Antwort: ${response}
+
+Kriterien:
+- 5: Direkt und vollständig beantwortet
+- 4: Beantwortet mit kleinen Abweichungen
+- 3: Teilweise relevant
+- 2: Wenig relevant
+- 1: Nicht relevant
+
+Bewertung (nur Zahl):
+`;
+
+  const rating = await llm.call(prompt);
+  return parseInt(rating.trim());
+}
+```
+
+### 3. Faithfulness (Treue zum Kontext)
+
+Bei RAG: Bleibt das System beim gegebenen Kontext?
+
+```typescript
+async function evaluateFaithfulness(context: string, response: string) {
+  const prompt = `
+Kontext: ${context}
+
+Antwort: ${response}
+
+Frage: Basiert die Antwort NUR auf dem gegebenen Kontext?
+Antworte mit "yes" oder "no" und begründe kurz.
+`;
+
+  const judgment = await llm.call(prompt);
+  return judgment.toLowerCase().includes('yes');
+}
+```
+
+### 4. Tone & Style
+
+Passt der Ton zur gewünschten Brand Voice?
+
+```typescript
+const brandGuidelines = {
+  tone: 'professional, friendly, helpful',
+  avoid: ['slang', 'jargon', 'overly casual'],
+  maxLength: 200,
+};
+
+async function evaluateTone(response: string) {
+  const checks = {
+    length: response.length <= brandGuidelines.maxLength,
+    noSlang: !containsSlang(response),
+    professional: await checkProfessionalTone(response),
+  };
+  
+  return Object.values(checks).every(v => v);
+}
+```
+
+## Evaluation-Metriken
+
+### Precision & Recall
+
+Für klassifikations-ähnliche Tasks:
+
+```typescript
+function calculateMetrics(predictions: string[], groundTruth: string[]) {
+  const tp = predictions.filter(p => groundTruth.includes(p)).length;
+  const fp = predictions.filter(p => !groundTruth.includes(p)).length;
+  const fn = groundTruth.filter(g => !predictions.includes(g)).length;
+  
+  const precision = tp / (tp + fp);
+  const recall = tp / (tp + fn);
+  const f1 = 2 * (precision * recall) / (precision + recall);
+  
+  return { precision, recall, f1 };
+}
+```
+
+### BLEU/ROUGE
+
+Für Text-Generierung:
+
+```typescript
+import { bleu } from 'bleu-score';
+
+function evaluateGeneration(reference: string, hypothesis: string) {
+  const bleuScore = bleu(hypothesis, [reference]);
+  return bleuScore;
+}
+```
+
+### Custom Metrics
+
+Definiere eigene Metriken:
+
+```typescript
+const customMetrics = {
+  citationsPresent: (response: string) => {
+    return (response.match(/\[\d+\]/g) || []).length > 0;
+  },
+  
+  codeBlocksFormatted: (response: string) => {
+    const codeBlocks = response.match(/```[\s\S]*?```/g) || [];
+    return codeBlocks.every(block => 
+      block.includes('javascript') || 
+      block.includes('python') ||
+      block.includes('typescript')
+    );
+  },
+  
+  noHallucinations: async (response: string, context: string) => {
+    // LLM-basierte Hallucination Detection
+    const check = await llm.call(`
+      Kontext: ${context}
+      Antwort: ${response}
+      
+      Enthält die Antwort Informationen, die NICHT im Kontext sind?
+      Antworte nur mit "yes" oder "no".
+    `);
+    
+    return check.trim().toLowerCase() === 'no';
+  },
+};
+```
+
+## LLM-as-Judge
+
+Nutze LLMs zur Evaluation:
+
+```typescript
+async function llmJudge(params: {
+  question: string;
+  response: string;
+  criteria: string[];
+}) {
+  const prompt = `
+Du bist ein strenger Evaluator. Bewerte die folgende Antwort:
+
+Frage: ${params.question}
+Antwort: ${params.response}
+
+Kriterien:
+${params.criteria.map((c, i) => `${i + 1}. ${c}`).join('\n')}
+
+Gib für jedes Kriterium eine Bewertung von 0-10.
+Format: JSON { "criterion1": score, "criterion2": score, ... }
+`;
+
+  const evaluation = await llm.call(prompt);
+  return JSON.parse(evaluation);
+}
+```
+
+## A/B Testing
+
+Vergleiche verschiedene Prompts/Modelle:
+
+```typescript
+interface ABTest {
+  variantA: AISystem;
+  variantB: AISystem;
+  testCases: TestCase[];
+}
+
+async function runABTest(test: ABTest) {
+  const results = {
+    A: { wins: 0, avgScore: 0, totalCost: 0 },
+    B: { wins: 0, avgScore: 0, totalCost: 0 },
+  };
+
+  for (const testCase of test.testCases) {
+    const [resultA, resultB] = await Promise.all([
+      test.variantA.run(testCase.input),
+      test.variantB.run(testCase.input),
+    ]);
+
+    const [scoreA, scoreB] = await Promise.all([
+      evaluate(resultA, testCase.expected),
+      evaluate(resultB, testCase.expected),
+    ]);
+
+    if (scoreA > scoreB) results.A.wins++;
+    if (scoreB > scoreA) results.B.wins++;
+    
+    results.A.avgScore += scoreA;
+    results.B.avgScore += scoreB;
+    results.A.totalCost += estimateCost(resultA);
+    results.B.totalCost += estimateCost(resultB);
+  }
+
+  results.A.avgScore /= test.testCases.length;
+  results.B.avgScore /= test.testCases.length;
+
+  return results;
+}
+```
+
+## Continuous Evaluation
+
+Produktions-Monitoring:
+
+```typescript
+class EvaluationPipeline {
+  async monitor(interaction: Interaction) {
+    const metrics = await Promise.all([
+      this.evaluateLatency(interaction),
+      this.evaluateCost(interaction),
+      this.evaluateQuality(interaction),
+    ]);
+
+    await this.logMetrics(metrics);
+    
+    if (metrics.quality < THRESHOLD) {
+      await this.alert('Quality degradation detected');
+    }
+  }
+}
+```
+
+## Evaluation-Tools
+
+### LangSmith
+- Tracing & Debugging
+- Dataset Management
+- Automated Evals
+
+### Phoenix (Arize AI)
+- Open Source
+- LLM Observability
+- Drift Detection
+
+### Braintrust
+- Prompt Playground
+- Eval Management
+- CI/CD Integration
+
+## Evaluation-Workflow
+
+```
+1. Create Test Dataset
+   ├─ Real user queries
+   ├─ Edge cases
+   └─ Known failure modes
+
+2. Define Metrics
+   ├─ Correctness
+   ├─ Relevance
+   └─ Custom metrics
+
+3. Run Evaluations
+   ├─ Automated runs
+   └─ Manual review samples
+
+4. Analyze Results
+   ├─ Identify patterns
+   └─ Find failure modes
+
+5. Iterate
+   ├─ Update prompts
+   ├─ Tune parameters
+   └─ Re-evaluate
+```
+
+## Cost Tracking
+
+```typescript
+function estimateCost(interaction: {
+  inputTokens: number;
+  outputTokens: number;
+  model: string;
+}) {
+  const pricing = {
+    'gpt-4': { input: 0.03, output: 0.06 }, // per 1K tokens
+    'gpt-3.5-turbo': { input: 0.001, output: 0.002 },
+  };
+
+  const modelPricing = pricing[interaction.model];
+  const cost = 
+    (interaction.inputTokens / 1000) * modelPricing.input +
+    (interaction.outputTokens / 1000) * modelPricing.output;
+
+  return cost;
+}
+```
+
+## Best Practices
+
+1. **Start Simple**: Beginne mit einfachen Metriken
+2. **Human Eval**: Sample regelmäßig manuell
+3. **Version Everything**: Prompts, Modelle, Test-Daten
+4. **CI/CD Integration**: Automatische Evals bei jedem Deployment
+5. **Monitor Production**: Real-User Feedback einbeziehen
+
+## Nächste Schritte
+
+In der letzten Lektion lernst du, wie du AI-Systeme produktiv deployst und betreibst.

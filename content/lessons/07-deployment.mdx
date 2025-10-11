@@ -1,0 +1,524 @@
+# Deployment: AI-Systeme produktiv betreiben
+
+Der letzte Schritt: Vom Prototyp zur produktiven AI-Anwendung. Lerne Best Practices für Deployment, Monitoring und Betrieb.
+
+## Deployment-Architekturen
+
+### Serverless (Empfohlen für Start)
+
+**Vorteile**:
+- Kein Server-Management
+- Automatisches Scaling
+- Pay-per-Use
+- Schnelles Deployment
+
+**Plattformen**:
+- **Vercel**: Next.js, Edge Functions
+- **AWS Lambda**: Flexible, viele Integrationen
+- **Cloudflare Workers**: Ultra-niedrige Latenz
+- **Google Cloud Run**: Container-basiert
+
+Beispiel Vercel:
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel --prod
+
+# Umgebungsvariablen setzen
+vercel env add OPENAI_API_KEY
+```
+
+### Container-basiert
+
+Für mehr Kontrolle:
+
+```dockerfile
+# Dockerfile
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci --only=production
+
+COPY . .
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+```
+
+Deploy mit Fly.io:
+
+```bash
+flyctl launch
+flyctl deploy
+```
+
+### Dedicated Server
+
+Für spezielle Requirements (GPU, große Modelle):
+
+- **RunPod**: GPU-Instanzen on-demand
+- **Lambda Labs**: Günstige GPU-Cloud
+- **AWS EC2 / GCP Compute**: Volle Kontrolle
+
+## Environment Management
+
+### Umgebungsvariablen
+
+```bash
+# .env.production
+NODE_ENV=production
+
+# APIs
+OPENAI_API_KEY=sk-...
+ANTHROPIC_API_KEY=sk-ant-...
+
+# Database
+DATABASE_URL=postgresql://...
+REDIS_URL=redis://...
+
+# Monitoring
+SENTRY_DSN=https://...
+LANGSMITH_API_KEY=...
+
+# Feature Flags
+ENABLE_RAG=true
+ENABLE_AGENTS=false
+```
+
+### Secrets Management
+
+**Nie** Secrets im Code:
+
+```typescript
+// ❌ FALSCH
+const apiKey = 'sk-abc123...';
+
+// ✅ RICHTIG
+const apiKey = process.env.OPENAI_API_KEY;
+if (!apiKey) {
+  throw new Error('OPENAI_API_KEY not configured');
+}
+```
+
+Tools:
+- **Doppler**: Secrets Manager
+- **AWS Secrets Manager**: AWS-native
+- **Vault**: Self-hosted
+
+## Performance-Optimierung
+
+### Caching-Strategien
+
+```typescript
+import { Redis } from 'ioredis';
+
+const redis = new Redis(process.env.REDIS_URL);
+
+async function cachedLLMCall(prompt: string) {
+  const cacheKey = `llm:${hash(prompt)}`;
+  
+  // Check cache
+  const cached = await redis.get(cacheKey);
+  if (cached) {
+    return JSON.parse(cached);
+  }
+  
+  // LLM call
+  const result = await openai.chat.completions.create({
+    model: 'gpt-4',
+    messages: [{ role: 'user', content: prompt }],
+  });
+  
+  // Cache for 1 hour
+  await redis.setex(cacheKey, 3600, JSON.stringify(result));
+  
+  return result;
+}
+```
+
+### Streaming
+
+Für bessere UX:
+
+```typescript
+export async function POST(req: Request) {
+  const { messages } = await req.json();
+
+  const stream = await openai.chat.completions.create({
+    model: 'gpt-4',
+    messages,
+    stream: true,
+  });
+
+  // Stream to client
+  const encoder = new TextEncoder();
+  const readable = new ReadableStream({
+    async start(controller) {
+      for await (const chunk of stream) {
+        const text = chunk.choices[0]?.delta?.content || '';
+        controller.enqueue(encoder.encode(text));
+      }
+      controller.close();
+    },
+  });
+
+  return new Response(readable, {
+    headers: {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+    },
+  });
+}
+```
+
+### Request Batching
+
+Optimiere API-Calls:
+
+```typescript
+class BatchProcessor {
+  private queue: Array<{ prompt: string; resolve: Function }> = [];
+  private timeout: NodeJS.Timeout | null = null;
+
+  async process(prompt: string): Promise<string> {
+    return new Promise((resolve) => {
+      this.queue.push({ prompt, resolve });
+      
+      if (!this.timeout) {
+        this.timeout = setTimeout(() => this.flush(), 100);
+      }
+    });
+  }
+
+  private async flush() {
+    const batch = this.queue.splice(0, 10); // Max 10 per batch
+    this.timeout = null;
+
+    const results = await openai.chat.completions.create({
+      model: 'gpt-4',
+      messages: batch.map(item => ({
+        role: 'user',
+        content: item.prompt,
+      })),
+    });
+
+    batch.forEach((item, i) => {
+      item.resolve(results.choices[i].message.content);
+    });
+  }
+}
+```
+
+## Monitoring & Observability
+
+### Error Tracking
+
+```typescript
+import * as Sentry from '@sentry/nextjs';
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+  tracesSampleRate: 0.1,
+});
+
+async function aiHandler(req: Request) {
+  try {
+    const result = await runAI(req);
+    return Response.json(result);
+  } catch (error) {
+    Sentry.captureException(error, {
+      tags: { component: 'ai-handler' },
+      extra: { request: req.body },
+    });
+    
+    return Response.json(
+      { error: 'AI processing failed' },
+      { status: 500 }
+    );
+  }
+}
+```
+
+### Metrics
+
+```typescript
+import { Counter, Histogram } from 'prom-client';
+
+const aiRequestsTotal = new Counter({
+  name: 'ai_requests_total',
+  help: 'Total AI requests',
+  labelNames: ['model', 'status'],
+});
+
+const aiLatency = new Histogram({
+  name: 'ai_latency_seconds',
+  help: 'AI request latency',
+  buckets: [0.1, 0.5, 1, 2, 5, 10],
+});
+
+async function trackedAICall(model: string, prompt: string) {
+  const start = Date.now();
+  
+  try {
+    const result = await llm.call(prompt);
+    
+    aiRequestsTotal.inc({ model, status: 'success' });
+    aiLatency.observe((Date.now() - start) / 1000);
+    
+    return result;
+  } catch (error) {
+    aiRequestsTotal.inc({ model, status: 'error' });
+    throw error;
+  }
+}
+```
+
+### Logging
+
+Strukturiertes Logging:
+
+```typescript
+import pino from 'pino';
+
+const logger = pino({
+  level: process.env.LOG_LEVEL || 'info',
+  formatters: {
+    level: (label) => ({ level: label }),
+  },
+});
+
+logger.info({
+  event: 'ai_request',
+  model: 'gpt-4',
+  userId: user.id,
+  tokensUsed: 150,
+  latencyMs: 1250,
+}, 'AI request completed');
+```
+
+## Rate Limiting
+
+Schütze deine API:
+
+```typescript
+import { Ratelimit } from '@upstash/ratelimit';
+import { Redis } from '@upstash/redis';
+
+const ratelimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.slidingWindow(10, '1 m'), // 10 requests per minute
+});
+
+export async function POST(req: Request) {
+  const ip = req.headers.get('x-forwarded-for') || 'anonymous';
+  
+  const { success, remaining } = await ratelimit.limit(ip);
+  
+  if (!success) {
+    return Response.json(
+      { error: 'Rate limit exceeded' },
+      { 
+        status: 429,
+        headers: { 'X-RateLimit-Remaining': remaining.toString() },
+      }
+    );
+  }
+  
+  // Process request...
+}
+```
+
+## Cost Optimization
+
+### Budget Guards
+
+```typescript
+class BudgetGuard {
+  private dailyLimit = 100; // $100/day
+  
+  async checkBudget(userId: string, estimatedCost: number) {
+    const today = new Date().toISOString().slice(0, 10);
+    const key = `budget:${userId}:${today}`;
+    
+    const spent = parseFloat(await redis.get(key) || '0');
+    
+    if (spent + estimatedCost > this.dailyLimit) {
+      throw new Error('Daily budget exceeded');
+    }
+    
+    await redis.incrby(key, estimatedCost * 100); // Store cents
+    await redis.expire(key, 86400); // 24h TTL
+  }
+}
+```
+
+### Model Selection
+
+```typescript
+function selectModel(task: Task): string {
+  if (task.complexity === 'simple') {
+    return 'gpt-3.5-turbo'; // Günstiger
+  }
+  
+  if (task.requiresReasoning) {
+    return 'gpt-4'; // Teurer, aber besser
+  }
+  
+  return 'gpt-3.5-turbo-16k'; // Mittelweg
+}
+```
+
+## Security Best Practices
+
+### Input Validation
+
+```typescript
+import { z } from 'zod';
+
+const promptSchema = z.object({
+  message: z.string().min(1).max(4000),
+  model: z.enum(['gpt-4', 'gpt-3.5-turbo']),
+  temperature: z.number().min(0).max(2).optional(),
+});
+
+export async function POST(req: Request) {
+  const body = await req.json();
+  
+  const validated = promptSchema.safeParse(body);
+  if (!validated.success) {
+    return Response.json(
+      { error: 'Invalid request', details: validated.error },
+      { status: 400 }
+    );
+  }
+  
+  // Process validated data...
+}
+```
+
+### Prompt Injection Prevention
+
+```typescript
+function sanitizePrompt(userInput: string): string {
+  // Entferne potentielle Injection-Versuche
+  const dangerous = [
+    'ignore previous instructions',
+    'system:',
+    'assistant:',
+    '---',
+  ];
+  
+  let sanitized = userInput;
+  for (const pattern of dangerous) {
+    sanitized = sanitized.replace(new RegExp(pattern, 'gi'), '[REMOVED]');
+  }
+  
+  return sanitized;
+}
+```
+
+## CI/CD Pipeline
+
+```yaml
+# .github/workflows/deploy.yml
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm ci
+      - run: npm test
+      - run: npm run eval # Run evaluations
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: vercel/actions@latest
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.ORG_ID }}
+          vercel-project-id: ${{ secrets.PROJECT_ID }}
+```
+
+## Disaster Recovery
+
+### Backups
+
+```typescript
+// Backup kritischer Daten
+async function backupConversations() {
+  const conversations = await db.conversations.findMany({
+    where: {
+      createdAt: {
+        gte: new Date(Date.now() - 24 * 60 * 60 * 1000),
+      },
+    },
+  });
+  
+  await s3.putObject({
+    Bucket: 'backups',
+    Key: `conversations-${new Date().toISOString()}.json`,
+    Body: JSON.stringify(conversations),
+  });
+}
+```
+
+### Fallback Strategies
+
+```typescript
+async function resilientAICall(prompt: string) {
+  const providers = [
+    { name: 'openai', client: openai },
+    { name: 'anthropic', client: anthropic },
+  ];
+  
+  for (const provider of providers) {
+    try {
+      return await provider.client.complete(prompt);
+    } catch (error) {
+      logger.warn(`${provider.name} failed, trying next`);
+    }
+  }
+  
+  throw new Error('All AI providers failed');
+}
+```
+
+## Gratulation!
+
+Du hast den AI-Kurs abgeschlossen! 🎉
+
+**Du kannst jetzt**:
+- ✅ AI-Systeme effektiv promten
+- ✅ RAG-Systeme bauen
+- ✅ Autonome Agents entwickeln
+- ✅ Qualität systematisch messen
+- ✅ Produktiv deployen und betreiben
+
+**Nächste Schritte**:
+1. Baue dein erstes Projekt
+2. Teile es mit der Community
+3. Lerne kontinuierlich weiter
+
+**Ressourcen**:
+- Discord Community: [Link]
+- GitHub Repos: [Link]
+- Newsletter: [Link]
+
+**Viel Erfolg mit AI! 🚀**

@@ -1,0 +1,294 @@
+# AI-Agents: Autonome Systeme aufbauen
+
+AI-Agents sind autonome Systeme, die selbstständig Tools nutzen, Entscheidungen treffen und mehrstufige Aufgaben lösen. Sie sind die Zukunft der AI-Anwendungen.
+
+## Was ist ein AI-Agent?
+
+Ein Agent besteht aus:
+
+1. **LLM Core**: Das "Gehirn" für Reasoning
+2. **Tools**: Funktionen, die der Agent nutzen kann
+3. **Memory**: Kontext über mehrere Interaktionen
+4. **Planning**: Fähigkeit, Aufgaben in Schritte zu zerlegen
+
+## Agent-Architekturen
+
+### 1. ReAct (Reasoning + Acting)
+
+Der Agent denkt laut und handelt iterativ:
+
+```
+Thought: Ich muss die aktuelle Temperatur in Berlin herausfinden
+Action: weather_api
+Action Input: {"city": "Berlin"}
+Observation: 15°C, bewölkt
+
+Thought: Ich habe die Temperatur. Jetzt kann ich antworten.
+Final Answer: Die aktuelle Temperatur in Berlin ist 15°C und es ist bewölkt.
+```
+
+### 2. Plan-and-Execute
+
+Der Agent plant erst, führt dann aus:
+
+```
+Plan:
+1. Finde alle offenen PRs im Repo
+2. Prüfe welche Reviews brauchen
+3. Erstelle Zusammenfassung
+
+Execution:
+[Task 1] github.list_prs(state='open')
+[Task 2] For each PR: github.get_reviews(pr_id)
+[Task 3] Aggregiere und formatiere Ergebnisse
+```
+
+## Tools definieren
+
+Agents brauchen gut definierte Tools:
+
+```typescript
+const tools = [
+  {
+    name: 'web_search',
+    description: 'Sucht im Internet nach aktuellen Informationen',
+    parameters: {
+      type: 'object',
+      properties: {
+        query: {
+          type: 'string',
+          description: 'Die Suchanfrage',
+        },
+      },
+      required: ['query'],
+    },
+    execute: async ({ query }: { query: string }) => {
+      // Implementierung hier
+      const results = await searchAPI(query);
+      return JSON.stringify(results);
+    },
+  },
+  {
+    name: 'calculator',
+    description: 'Führt mathematische Berechnungen aus',
+    parameters: {
+      type: 'object',
+      properties: {
+        expression: {
+          type: 'string',
+          description: 'Mathematischer Ausdruck, z.B. "2 + 2"',
+        },
+      },
+      required: ['expression'],
+    },
+    execute: async ({ expression }: { expression: string }) => {
+      return eval(expression).toString();
+    },
+  },
+];
+```
+
+## Agent-Loop implementieren
+
+```typescript
+async function runAgent(userQuery: string, maxIterations = 5) {
+  const messages = [{ role: 'user', content: userQuery }];
+  
+  for (let i = 0; i < maxIterations; i++) {
+    // LLM aufrufen mit Tools
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4',
+      messages,
+      tools,
+      tool_choice: 'auto',
+    });
+
+    const message = response.choices[0].message;
+    messages.push(message);
+
+    // Wenn keine Tool-Calls, sind wir fertig
+    if (!message.tool_calls) {
+      return message.content;
+    }
+
+    // Tool-Calls ausführen
+    for (const toolCall of message.tool_calls) {
+      const tool = tools.find(t => t.name === toolCall.function.name);
+      const args = JSON.parse(toolCall.function.arguments);
+      const result = await tool.execute(args);
+
+      // Tool-Ergebnis zu Messages hinzufügen
+      messages.push({
+        role: 'tool',
+        tool_call_id: toolCall.id,
+        content: result,
+      });
+    }
+  }
+
+  throw new Error('Max iterations reached');
+}
+```
+
+## Frameworks
+
+### LangChain
+
+```typescript
+import { ChatOpenAI } from 'langchain/chat_models/openai';
+import { AgentExecutor, createReactAgent } from 'langchain/agents';
+import { SerpAPI } from 'langchain/tools';
+
+const llm = new ChatOpenAI({ temperature: 0 });
+const tools = [new SerpAPI()];
+
+const agent = await createReactAgent({ llm, tools });
+const executor = new AgentExecutor({ agent, tools });
+
+const result = await executor.invoke({
+  input: 'Was ist die Hauptstadt von Deutschland?',
+});
+```
+
+### LangGraph
+
+Für komplexere Workflows:
+
+```typescript
+import { StateGraph } from 'langgraph';
+
+const workflow = new StateGraph({
+  channels: {
+    messages: [],
+    nextStep: null,
+  }
+});
+
+workflow.addNode('planner', plannerNode);
+workflow.addNode('researcher', researcherNode);
+workflow.addNode('writer', writerNode);
+
+workflow.addEdge('planner', 'researcher');
+workflow.addEdge('researcher', 'writer');
+
+const app = workflow.compile();
+```
+
+## Multi-Agent-Systeme
+
+Mehrere spezialisierte Agents arbeiten zusammen:
+
+```typescript
+const agents = {
+  researcher: createAgent({
+    role: 'Researcher',
+    goal: 'Finde relevante Informationen',
+    tools: [webSearch, fileRead],
+  }),
+  
+  analyst: createAgent({
+    role: 'Analyst',
+    goal: 'Analysiere Daten und ziehe Schlüsse',
+    tools: [calculator, dataViz],
+  }),
+  
+  writer: createAgent({
+    role: 'Writer',
+    goal: 'Erstelle professionelle Reports',
+    tools: [markdown, export],
+  }),
+};
+
+// Orchestrator
+async function runTeam(task: string) {
+  const research = await agents.researcher.run(task);
+  const analysis = await agents.analyst.run(research);
+  const report = await agents.writer.run(analysis);
+  return report;
+}
+```
+
+## Memory-Strategien
+
+### Short-Term Memory
+Konversations-Kontext innerhalb einer Session
+
+### Long-Term Memory
+Persistente Speicherung wichtiger Informationen:
+
+```typescript
+import { BufferMemory } from 'langchain/memory';
+
+const memory = new BufferMemory({
+  returnMessages: true,
+  memoryKey: 'chat_history',
+});
+
+// Speichern
+await memory.saveContext(
+  { input: 'Hallo' },
+  { output: 'Hallo! Wie kann ich helfen?' }
+);
+
+// Abrufen
+const history = await memory.loadMemoryVariables({});
+```
+
+## Safety & Guardrails
+
+Sichere Agent-Systeme:
+
+```typescript
+function validateToolCall(toolCall: ToolCall) {
+  // 1. Whitelist überprüfen
+  if (!ALLOWED_TOOLS.includes(toolCall.name)) {
+    throw new Error('Tool not allowed');
+  }
+
+  // 2. Parameter validieren
+  const schema = TOOL_SCHEMAS[toolCall.name];
+  if (!validateSchema(toolCall.args, schema)) {
+    throw new Error('Invalid parameters');
+  }
+
+  // 3. Rate Limiting
+  if (rateLimiter.isExceeded(toolCall.name)) {
+    throw new Error('Rate limit exceeded');
+  }
+
+  // 4. Cost Guard
+  if (estimateCost(toolCall) > MAX_COST) {
+    throw new Error('Cost limit exceeded');
+  }
+}
+```
+
+## Debugging Agents
+
+```typescript
+// Ausführliche Logs
+const debugAgent = {
+  onToolStart: (tool, input) => {
+    console.log(`🔧 Tool: ${tool.name}`);
+    console.log(`📥 Input:`, input);
+  },
+  onToolEnd: (tool, output) => {
+    console.log(`📤 Output:`, output);
+  },
+  onLLMStart: (prompt) => {
+    console.log(`🤖 LLM Prompt:`, prompt);
+  },
+};
+```
+
+## Best Practices
+
+1. **Klare Tool-Beschreibungen**: LLM muss verstehen, wann welches Tool zu nutzen ist
+2. **Error Handling**: Tools sollten graceful degradation haben
+3. **Timeouts**: Verhindere endlose Loops
+4. **Observability**: Logge alle Agent-Entscheidungen
+5. **Human-in-the-Loop**: Kritische Aktionen require Bestätigung
+
+## Nächste Schritte
+
+In der nächsten Lektion lernst du, wie du AI-Systeme evaluierst und deren Qualität misst.

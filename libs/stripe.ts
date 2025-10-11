@@ -1,125 +1,93 @@
 import Stripe from "stripe";
 
-interface CreateCheckoutParams {
-  priceId: string;
-  mode: "payment" | "subscription";
-  successUrl: string;
-  cancelUrl: string;
-  couponId?: string | null;
-  clientReferenceId?: string;
-  user?: {
-    customerId?: string;
-    email?: string;
-  };
-}
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2023-08-16",
+  typescript: true,
+});
 
-interface CreateCustomerPortalParams {
-  customerId: string;
-  returnUrl: string;
-}
-
-// This is used to create a Stripe Checkout for one-time payments. It's usually triggered with the <ButtonCheckout /> component. Webhooks are used to update the user's state in the database.
-export const createCheckout = async ({
-  user,
-  mode,
-  clientReferenceId,
-  successUrl,
-  cancelUrl,
-  priceId,
-  couponId,
-}: CreateCheckoutParams): Promise<string> => {
+/**
+ * Get the course price ID from Stripe using lookup_key
+ * Falls back to env var if lookup fails
+ */
+export async function getCoursePriceId(): Promise<string> {
   try {
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: "2023-08-16", // TODO: update this when Stripe updates their API
-      typescript: true,
+    const prices = await stripe.prices.list({
+      lookup_keys: ['ai_course_eur'],
+      active: true,
+      limit: 1,
     });
 
-    const extraParams: {
-      customer?: string;
-      customer_creation?: "always";
-      customer_email?: string;
-      invoice_creation?: { enabled: boolean };
-      payment_intent_data?: { setup_future_usage: "on_session" };
-      tax_id_collection?: { enabled: boolean };
-    } = {};
-
-    if (user?.customerId) {
-      extraParams.customer = user.customerId;
-    } else {
-      if (mode === "payment") {
-        extraParams.customer_creation = "always";
-        // The option below costs 0.4% (up to $2) per invoice. Alternatively, you can use https://zenvoice.io/ to create unlimited invoices automatically.
-        // extraParams.invoice_creation = { enabled: true };
-        extraParams.payment_intent_data = { setup_future_usage: "on_session" };
-      }
-      if (user?.email) {
-        extraParams.customer_email = user.email;
-      }
-      extraParams.tax_id_collection = { enabled: true };
+    if (prices.data.length > 0) {
+      return prices.data[0].id;
     }
 
-    const stripeSession = await stripe.checkout.sessions.create({
-      mode,
-      allow_promotion_codes: true,
-      client_reference_id: clientReferenceId,
+    // Fallback to env var
+    if (process.env.STRIPE_PRICE_ID_COURSE_EUR) {
+      return process.env.STRIPE_PRICE_ID_COURSE_EUR;
+    }
+
+    throw new Error('Course price not configured - set lookup_key "ai_course_eur" in Stripe or STRIPE_PRICE_ID_COURSE_EUR env var');
+  } catch (error) {
+    console.error('Error fetching course price:', error);
+    throw error;
+  }
+}
+
+/**
+ * Create a simplified checkout session for the course
+ */
+export async function createCheckout({
+  successUrl,
+  cancelUrl,
+}: {
+  successUrl: string;
+  cancelUrl: string;
+}): Promise<string> {
+  try {
+    const priceId = await getCoursePriceId();
+
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
       line_items: [
         {
           price: priceId,
           quantity: 1,
         },
       ],
-      discounts: couponId
-        ? [
-            {
-              coupon: couponId,
-            },
-          ]
-        : [],
       success_url: successUrl,
       cancel_url: cancelUrl,
-      ...extraParams,
+      allow_promotion_codes: false,
+      customer_creation: 'always',
+      payment_intent_data: {
+        setup_future_usage: 'on_session',
+      },
     });
 
-    return stripeSession.url;
-  } catch (e) {
-    console.error(e);
-    return null;
+    if (!session.url) {
+      throw new Error('Failed to create checkout session URL');
+    }
+
+    return session.url;
+  } catch (error) {
+    console.error('Error creating checkout:', error);
+    throw error;
   }
-};
+}
 
-// This is used to create Customer Portal sessions, so users can manage their subscriptions (payment methods, cancel, etc..)
-export const createCustomerPortal = async ({
-  customerId,
-  returnUrl,
-}: CreateCustomerPortalParams): Promise<string> => {
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: "2023-08-16", // TODO: update this when Stripe updates their API
-    typescript: true,
-  });
-
-  const portalSession = await stripe.billingPortal.sessions.create({
-    customer: customerId,
-    return_url: returnUrl,
-  });
-
-  return portalSession.url;
-};
-
-// This is used to get the uesr checkout session and populate the data so we get the planId the user subscribed to
-export const findCheckoutSession = async (sessionId: string) => {
+/**
+ * Find and expand a checkout session by ID
+ */
+export async function findCheckoutSession(sessionId: string) {
   try {
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: "2023-08-16", // TODO: update this when Stripe updates their API
-      typescript: true,
-    });
-
     const session = await stripe.checkout.sessions.retrieve(sessionId, {
-      expand: ["line_items"],
+      expand: ['line_items', 'customer'],
     });
 
     return session;
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error('Error finding checkout session:', error);
     return null;
   }
-};
+}
+
+export default stripe;
