@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getLessonBySlug, getNextLesson, getPreviousLesson, lessons } from '@/content/lessons/manifest';
+import { getLessonBySlug, getNextLesson, getPreviousLesson } from '@/content/lessons/manifest';
+import { isLessonCompleted } from '@/libs/progress';
+import LessonControls from '@/components/LessonControls';
 
 // Temporarily disable static generation to debug MDX issue
 // export async function generateStaticParams() {
@@ -37,7 +39,8 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
 
   const nextLesson = getNextLesson(slug);
   const previousLesson = getPreviousLesson(slug);
-  
+  const isCompleted = await isLessonCompleted(slug);
+
   // Dynamically import the MDX content
   const MdxContent = (await lesson.module()).default;
   
@@ -67,6 +70,11 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
         <div className="card-body prose prose-lg max-w-none">
           <MdxContent />
         </div>
+      </div>
+
+      {/* Completion Controls */}
+      <div className="mb-8">
+        <LessonControls slug={slug} isCompleted={isCompleted} />
       </div>
 
       {/* Navigation */}

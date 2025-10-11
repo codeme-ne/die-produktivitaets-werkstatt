@@ -26,9 +26,14 @@ const links: {
 ];
 
 const cta: JSX.Element = (
-  <Link href="/#pricing" className="btn btn-primary">
-    Jetzt einschreiben
-  </Link>
+  <>
+    <Link href="/dashboard" className="btn btn-ghost btn-sm">
+      Dashboard
+    </Link>
+    <Link href="/#pricing" className="btn btn-primary">
+      Jetzt einschreiben
+    </Link>
+  </>
 );
 
 /**
@@ -103,7 +108,7 @@ const Header = () => {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden lg:flex lg:justify-end lg:flex-1">{cta}</div>
+        <div className="hidden lg:flex lg:justify-end lg:flex-1 lg:gap-2">{cta}</div>
       </nav>
 
       {/* Mobile menu */}
@@ -170,7 +175,7 @@ const Header = () => {
             </div>
             <div className="divider"></div>
             {/* Mobile CTA */}
-            <div className="flex flex-col">{cta}</div>
+            <div className="flex flex-col gap-2">{cta}</div>
           </div>
         </div>
       </div>
