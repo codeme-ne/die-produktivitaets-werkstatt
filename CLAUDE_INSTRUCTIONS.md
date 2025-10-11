@@ -22,9 +22,11 @@ You are working with a German AI course platform built on Next.js 15 with simpli
 │   │   ├── stripe/
 │   │   │   └── create-checkout/ # Creates Stripe session
 │   │   └── webhook/stripe/      # Handles payment webhooks
-│   ├── checkout/success/        # Sets JWT cookie after payment
+│   ├── checkout/success/        # Sets JWT cookie after payment (route.ts)
 │   ├── course/                  # Protected: requires JWT
+│   │   ├── components.tsx      # MDX callout components (Tip, Warning, Note)
 │   │   └── [slug]/             # Individual lesson pages
+│   ├── dashboard/              # Protected: user progress dashboard
 │   ├── impressum/              # German imprint
 │   ├── widerruf/               # Revocation policy
 │   ├── privacy-policy/         # GDPR privacy
@@ -33,13 +35,21 @@ You are working with a German AI course platform built on Next.js 15 with simpli
 ├── components/
 │   ├── Header.tsx             # Course header (no auth)
 │   ├── ButtonCheckout.tsx     # Legal checkboxes + checkout
-│   └── LayoutClient.tsx       # Client-side layout wrapper
+│   ├── LayoutClient.tsx       # Client-side layout wrapper
+│   ├── ProgressRing.tsx       # DaisyUI radial progress indicator
+│   ├── LessonsList.tsx        # Lesson list with completion status
+│   └── LessonControls.tsx     # Mark complete/undo buttons
 ├── content/lessons/
 │   ├── manifest.ts            # Course structure
 │   └── *.mdx                  # Lesson files
 ├── libs/
 │   ├── jwt.ts                 # JWT sign/verify
-│   └── stripe.ts              # Stripe client
+│   ├── stripe.ts              # Stripe client
+│   ├── progress.ts            # Progress tracking (cookie-based)
+│   └── resend.ts              # Email sending utility
+├── emails/
+│   ├── welcome.ts             # Welcome email after purchase
+│   └── completion.ts          # Completion email at 100%
 ├── middleware.ts              # Protects /course routes
 └── config.ts                  # Centralized config (no auth/stripe.plans)
 ```
@@ -67,9 +77,31 @@ You are working with a German AI course platform built on Next.js 15 with simpli
 **No user accounts. No password. No OAuth.**
 
 ### Middleware (`middleware.ts`)
-- Protects `/course` and `/course/*`
-- Verifies JWT from `course_access` cookie
+- Protects `/course`, `/course/*`, `/dashboard`
+- Verifies JWT from `access_token` cookie
 - Redirects to `/` if missing/invalid
+
+### Progress Tracking (`libs/progress.ts`)
+Cookie name: **`progress`** (httpOnly, 365 days)
+
+```typescript
+interface ProgressData {
+  completed: string[];        // Completed lesson slugs
+  flags?: {
+    notifiedComplete?: boolean; // Completion email sent
+  };
+}
+```
+
+**Server Actions:**
+- `completeLessonAction(slug)` - Mark complete, send email at 100%
+- `undoLessonAction(slug)` - Unmark lesson
+- `getProgress()` - Read current progress
+
+**Idempotent Completion Email:**
+- Sent once when all lessons completed
+- Flag `notifiedComplete` prevents duplicates
+- Gets email from JWT `access_token` cookie
 
 ### Stripe Integration
 - **Checkout**: Uses Stripe Price lookup key `ai_course_eur`
@@ -169,11 +201,16 @@ Kept fields:
 - ✅ Keep legal pages (impressum, widerruf) up to date
 
 ## Key Files Reference
-- `middleware.ts` - Course access protection
+- `middleware.ts` - Course and dashboard protection
 - `libs/jwt.ts` - JWT utilities
+- `libs/progress.ts` - Progress cookie management
 - `app/api/webhook/stripe/route.ts` - Payment handling
-- `app/checkout/success/page.tsx` - Cookie setter
+- `app/checkout/success/route.ts` - Cookie setter (JWT + redirect)
+- `app/dashboard/page.tsx` - User progress dashboard
+- `app/actions.ts` - Server actions for progress
 - `content/lessons/manifest.ts` - Course structure
+- `components/ProgressRing.tsx` - Progress visualization
+- `emails/completion.ts` - Completion email template
 - `config.ts` - App configuration (simplified)
 
 Remember: This is a focused course platform, not a full SaaS boilerplate. Keep it simple: one product, JWT-based access, MDX content, German legal compliance.

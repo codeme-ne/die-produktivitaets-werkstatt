@@ -77,3 +77,10 @@ export function getPreviousLesson(currentSlug: string): Lesson | undefined {
   }
   return lessons[currentIndex - 1];
 }
+
+/**
+ * Get the first lesson that is not completed (for "Weiterlernen" feature)
+ */
+export function getNextOpenLesson(completed: Set<string>): Lesson | undefined {
+  return lessons.find((lesson) => !completed.has(lesson.slug));
+}

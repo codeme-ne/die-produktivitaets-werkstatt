@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getLessonBySlug, getNextLesson, getPreviousLesson } from '@/content/lessons/manifest';
-import { isLessonCompleted } from '@/libs/progress';
+import { getLessonBySlug, getNextLesson, getPreviousLesson, getNextOpenLesson, lessons } from '@/content/lessons/manifest';
+import { isLessonCompleted, readProgress } from '@/libs/progress';
 import LessonControls from '@/components/LessonControls';
 
 // Temporarily disable static generation to debug MDX issue
@@ -40,6 +40,12 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
   const nextLesson = getNextLesson(slug);
   const previousLesson = getPreviousLesson(slug);
   const isCompleted = await isLessonCompleted(slug);
+  
+  // Get progress for "Weiterlernen" feature
+  const progress = await readProgress();
+  const completedSet = new Set(progress.completed);
+  const nextOpenLesson = getNextOpenLesson(completedSet);
+  const allCompleted = completedSet.size === lessons.length;
 
   // Dynamically import the MDX content
   const MdxContent = (await lesson.module()).default;
@@ -76,6 +82,43 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
       <div className="mb-8">
         <LessonControls slug={slug} isCompleted={isCompleted} />
       </div>
+
+      {/* Weiterlernen CTA */}
+      {nextOpenLesson && nextOpenLesson.slug !== slug && (
+        <div className="card bg-primary text-primary-content shadow-xl mb-8">
+          <div className="card-body">
+            <h2 className="card-title">Weiterlernen →</h2>
+            <p>Bereit für die nächste Lektion?</p>
+            <div className="card-actions justify-end">
+              <Link
+                href={`/course/${nextOpenLesson.slug}`}
+                className="btn btn-secondary"
+              >
+                {nextOpenLesson.title}
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {allCompleted && (
+        <div className="alert alert-success mb-8">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span className="font-bold">Kurs abgeschlossen! 🎉</span>
+        </div>
+      )}
 
       {/* Navigation */}
       <div className="flex justify-between items-center gap-4">

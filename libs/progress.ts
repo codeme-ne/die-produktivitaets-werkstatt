@@ -5,6 +5,9 @@ import { cookies } from 'next/headers';
  */
 export interface ProgressData {
   completed: string[]; // Array of completed lesson slugs
+  flags?: {
+    notifiedComplete?: boolean; // Track if completion email was sent
+  };
 }
 
 const PROGRESS_COOKIE_NAME = 'progress';
@@ -32,7 +35,13 @@ export async function readProgress(): Promise<ProgressData> {
     // Validate all items are strings
     const validated = data.completed.filter((item: unknown) => typeof item === 'string');
 
-    return { completed: validated };
+    // Validate flags if present
+    const flags = data.flags && typeof data.flags === 'object' ? data.flags : undefined;
+
+    return { 
+      completed: validated,
+      flags: flags as ProgressData['flags'],
+    };
   } catch {
     return { completed: [] };
   }
@@ -55,22 +64,44 @@ export async function writeProgress(data: ProgressData): Promise<void> {
 
 /**
  * Mark a lesson as completed (idempotent)
+ * Returns: { progress, shouldNotifyCompletion } where shouldNotifyCompletion
+ * indicates if completion email should be sent
  */
-export async function completeLesson(slug: string): Promise<ProgressData> {
+export async function completeLesson(
+  slug: string,
+  totalLessons: number
+): Promise<{ progress: ProgressData; shouldNotifyCompletion: boolean }> {
   // Input validation
   if (!slug || typeof slug !== 'string' || slug.trim().length === 0) {
     throw new Error('Invalid lesson slug');
   }
 
   const progress = await readProgress();
+  const beforeCount = progress.completed.length;
 
   // Idempotent: only add if not already completed
   if (!progress.completed.includes(slug)) {
     progress.completed.push(slug);
-    await writeProgress(progress);
   }
 
-  return progress;
+  const afterCount = progress.completed.length;
+
+  // Check if course just completed and notification not sent
+  const justCompleted = beforeCount < totalLessons && afterCount === totalLessons;
+  const notificationNotSent = !progress.flags?.notifiedComplete;
+  const shouldNotifyCompletion = justCompleted && notificationNotSent;
+
+  // Set flag if sending notification
+  if (shouldNotifyCompletion) {
+    progress.flags = {
+      ...progress.flags,
+      notifiedComplete: true,
+    };
+  }
+
+  await writeProgress(progress);
+
+  return { progress, shouldNotifyCompletion };
 }
 
 /**

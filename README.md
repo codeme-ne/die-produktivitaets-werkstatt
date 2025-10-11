@@ -1,68 +1,3 @@
-# AI Course Platform
-
-Deutsche Kurs-Landing mit Stripe-Checkout, Cookie-basiertem Kurszugang und MDX-Lessons.
-
-## Quick Start
-
-### 1. Environment Setup
-
-```bash
-# Copy environment template
-cp .env.local.example .env.local
-
-# Fill in your values:
-# - STRIPE_SECRET_KEY (from https://dashboard.stripe.com/apikeys)
-# - STRIPE_WEBHOOK_SECRET (create webhook endpoint)
-# - RESEND_API_KEY (from https://resend.com/api-keys)
-# - JWT_SECRET (generate with: openssl rand -base64 32)
-```
-
-### 2. Stripe Configuration
-
-Create a **Price** with **Lookup Key**: `ai_course_eur` in your [Stripe Dashboard](https://dashboard.stripe.com/products).
-
-```
-Product: AI Course
-Price: €97 (one-time)
-Lookup Key: ai_course_eur
-```
-
-### 3. Run Dev Server
-
-```bash
-npm install
-npm run dev
-```
-
-Visit `http://localhost:3000`
-
-## Architecture
-
-**No NextAuth. No MongoDB.**
-
-### Stack
-- Next.js 15 + App Router
-- TypeScript 5.9
-- TailwindCSS 4 + DaisyUI 5
-- Stripe (one-time payments)
-- Resend (emails)
-- JWT (course access via HTTP-only cookie)
-
-### Flow
-
-```
-Landing (/) → Checkout → Success → Email (Magic Link) → /course → Lessons
-```
-
-1. User visits `/`, clicks "Jetzt einschreiben"
-2. User checks legal boxes, clicks "Jetzt kaufen"
-3. Stripe Checkout opens, user pays
-4. Webhook receives `checkout.session.completed`
-5. Email sent with magic link to `/checkout/success?session_id=...`
-6. Success page sets JWT cookie
-7. User accesses `/course` (middleware checks cookie)
-8. User can view all lessons in `content/lessons/`
-
 ### Key Files
 
 | File | Purpose |
@@ -70,10 +5,62 @@ Landing (/) → Checkout → Success → Email (Magic Link) → /course → Less
 | `app/page.tsx` | Landing (Hero, Curriculum, Pricing, FAQ) |
 | `app/api/stripe/create-checkout/route.ts` | Creates Stripe session |
 | `app/api/webhook/stripe/route.ts` | Handles payments, sends email |
-| `app/checkout/success/page.tsx` | Sets JWT cookie after payment |
-| `middleware.ts` | Protects `/course/*` routes |
+| `app/checkout/success/route.ts` | Sets JWT cookie after payment |
+| `app/dashboard/page.tsx` | User dashboard with progress tracking |
+| `middleware.ts` | Protects `/course/*` and `/dashboard` routes |
 | `content/lessons/manifest.ts` | Course structure |
 | `libs/jwt.ts` | JWT signing/verification |
+| `libs/progress.ts` | Progress tracking (cookie-based) |
+| `components/ProgressRing.tsx` | DaisyUI radial progress component |
+| `components/LessonsList.tsx` | Lesson list with completion status |
+
+## Dashboard & Progress Tracking
+
+### Cookie Structure
+
+Progress is tracked via **`progress` cookie** (httpOnly):
+
+```typescript
+{
+  completed: string[];        // Array of completed lesson slugs
+  flags?: {
+    notifiedComplete?: boolean; // Completion email sent flag
+  };
+}
+```
+
+**Limitations**: Cookie-based = device-specific (no multi-device sync).
+
+### Server Actions
+
+- `getProgress()` - Read current progress
+- `completeLessonAction(slug)` - Mark lesson complete (sends completion email on 100%)
+- `undoLessonAction(slug)` - Unmark lesson
+
+### "Weiterlernen" Logic
+
+- `getNextOpenLesson(completed: Set<string>)` returns first incomplete lesson
+- Shows CTA on lesson pages when next lesson available
+- Shows "Kurs abgeschlossen! 🎉" badge when all done
+
+### Completion Email
+
+When user completes final lesson:
+- Idempotent check via `flags.notifiedComplete`
+- Sends congratulations email once per device
+- Includes link back to dashboard
+
+### MDX Callout Components
+
+Use in lesson MDX files:
+
+```mdx
+<Tip>Helpful hint for learners</Tip>
+<Warning>Important warning or caveat</Warning>
+<Note>Additional information</Note>
+```
+
+Import via `app/course/components.tsx`.
 
 ## Deployment Checklist
 

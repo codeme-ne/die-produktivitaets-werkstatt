@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
+import React from 'react';
 
 /**
  * MDX components for styling lesson content
@@ -70,3 +71,72 @@ export const components: MDXComponents = {
     <em className="italic">{children}</em>
   ),
 };
+
+/**
+ * Custom callout components for MDX content
+ */
+export function Tip({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="alert alert-info my-4" role="note">
+      <svg
+        className="w-6 h-6 shrink-0"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+      <div>{children}</div>
+    </div>
+  );
+}
+
+export function Warning({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="alert alert-warning my-4" role="alert">
+      <svg
+        className="w-6 h-6 shrink-0"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+        />
+      </svg>
+      <div>{children}</div>
+    </div>
+  );
+}
+
+export function Note({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="alert my-4" role="note">
+      <svg
+        className="w-6 h-6 shrink-0"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+        />
+      </svg>
+      <div>{children}</div>
+    </div>
+  );
+}
