@@ -2,31 +2,8 @@ import Link from "next/link";
 import { getSEOTags } from "@/libs/seo";
 import config from "@/config";
 
-// CHATGPT PROMPT TO GENERATE YOUR PRIVACY POLICY — replace with your own data 👇
-
-// 1. Go to https://chat.openai.com/
-// 2. Copy paste bellow
-// 3. Replace the data with your own (if needed)
-// 4. Paste the answer from ChatGPT directly in the <pre> tag below
-
-// You are an excellent lawyer.
-
-// I need your help to write a simple privacy policy for my website. Here is some context:
-// - Website: https://shipfa.st
-// - Name: ShipFast
-// - Description: A JavaScript code boilerplate to help entrepreneurs launch their startups faster
-// - User data collected: name, email and payment information
-// - Non-personal data collection: web cookies
-// - Purpose of Data Collection: Order processing
-// - Data sharing: we do not share the data with any other parties
-// - Children's Privacy: we do not collect any data from children
-// - Updates to the Privacy Policy: users will be updated by email
-// - Contact information: marc@shipfa.st
-
-// Please write a simple privacy policy for my site. Add the current date.  Do not add or explain your reasoning. Answer:
-
 export const metadata = getSEOTags({
-  title: `Privacy Policy | ${config.appName}`,
+  title: `Datenschutzerklärung | ${config.appName}`,
   canonicalUrlRelative: "/privacy-policy",
 });
 
@@ -46,62 +23,120 @@ const PrivacyPolicy = () => {
               d="M15 10a.75.75 0 01-.75.75H7.612l2.158 1.96a.75.75 0 11-1.04 1.08l-3.5-3.25a.75.75 0 010-1.08l3.5-3.25a.75.75 0 111.04 1.08L7.612 9.25h6.638A.75.75 0 0115 10z"
               clipRule="evenodd"
             />
-          </svg>{" "}
-          Back
+          </svg>
+          Zurück
         </Link>
         <h1 className="text-3xl font-extrabold pb-6">
-          Privacy Policy for {config.appName}
+          Datenschutzerklärung für {config.appName}
         </h1>
 
         <pre
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: 2023-08-25
+          {`Stand: ${new Date().toLocaleDateString('de-DE')}
 
-Thank you for visiting ShipFast ("we," "us," or "our"). This Privacy Policy outlines how we collect, use, and protect your personal and non-personal information when you use our website located at https://shipfa.st (the "Website").
+Vielen Dank für Ihren Besuch bei ${config.appName}. Diese Datenschutzerklärung
+beschreibt, wie wir Ihre personenbezogenen und nicht-personenbezogenen Daten
+erheben, verwenden und schützen, wenn Sie unsere Website unter ${config.domainName}
+nutzen.
 
-By accessing or using the Website, you agree to the terms of this Privacy Policy. If you do not agree with the practices described in this policy, please do not use the Website.
+Durch die Nutzung der Website erklären Sie sich mit den in dieser
+Datenschutzerklärung beschriebenen Praktiken einverstanden. Wenn Sie mit
+diesen Praktiken nicht einverstanden sind, nutzen Sie bitte nicht unsere
+Website.
 
-1. Information We Collect
+1. VERANTWORTLICHER
 
-1.1 Personal Data
+Verantwortlich für die Datenverarbeitung auf dieser Website ist:
 
-We collect the following personal information from you:
+[FIRMENNAME / VOLLSTÄNDIGER NAME]
+[ADRESSE]
+E-Mail: ${config.resend.supportEmail || '[IHRE E-MAIL]'}
 
-Name: We collect your name to personalize your experience and communicate with you effectively.
-Email: We collect your email address to send you important information regarding your orders, updates, and communication.
-Payment Information: We collect payment details to process your orders securely. However, we do not store your payment information on our servers. Payments are processed by trusted third-party payment processors.
+2. ERHOBENE DATEN
 
-1.2 Non-Personal Data
+2.1 Personenbezogene Daten
 
-We may use web cookies and similar technologies to collect non-personal information such as your IP address, browser type, device information, and browsing patterns. This information helps us to enhance your browsing experience, analyze trends, and improve our services.
+Wir erheben folgende personenbezogene Daten:
 
-2. Purpose of Data Collection
+- Name: Zur Personalisierung Ihrer Erfahrung und effektiven Kommunikation
+- E-Mail-Adresse: Zum Versand wichtiger Informationen zu Bestellungen,
+  Updates und Kurszugang
+- Zahlungsinformationen: Zur sicheren Abwicklung Ihrer Bestellungen.
+  Wir speichern keine Zahlungsinformationen auf unseren Servern.
+  Zahlungen werden von vertrauenswürdigen Drittanbietern (Stripe) verarbeitet.
 
-We collect and use your personal data for the sole purpose of order processing. This includes processing your orders, sending order confirmations, providing customer support, and keeping you updated about the status of your orders.
+2.2 Nicht-personenbezogene Daten
 
-3. Data Sharing
+Wir verwenden Cookies und ähnliche Technologien zur Erhebung nicht-personen-
+bezogener Daten wie IP-Adresse, Browsertyp, Geräteinformationen und
+Browsing-Muster. Diese Informationen helfen uns, Ihr Nutzererlebnis zu
+verbessern, Trends zu analysieren und unsere Dienste zu optimieren.
 
-We do not share your personal data with any third parties except as required for order processing (e.g., sharing your information with payment processors). We do not sell, trade, or rent your personal information to others.
+3. ZWECK DER DATENERHEBUNG
 
-4. Children's Privacy
+Wir erheben und nutzen Ihre personenbezogenen Daten ausschließlich für:
+- Bereitstellung des Kurszugangs
+- Abwicklung von Bestellungen
+- Versand von Bestätigungen und Zugangslinks
+- Kundensupport
+- Benachrichtigung über wichtige Updates
 
-ShipFast is not intended for children under the age of 13. We do not knowingly collect personal information from children. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us at the email address provided below.
+4. WEITERGABE VON DATEN
 
-5. Updates to the Privacy Policy
+Wir geben Ihre personenbezogenen Daten nicht an Dritte weiter, außer soweit
+dies zur Bestellabwicklung erforderlich ist (z. B. Weitergabe an
+Zahlungsdienstleister wie Stripe). Wir verkaufen, handeln oder vermieten
+Ihre persönlichen Daten nicht.
 
-We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Any updates will be posted on this page, and we may notify you via email about significant changes.
+5. SPEICHERDAUER
 
-6. Contact Information
+Wir speichern Ihre Daten nur so lange, wie es für die Erfüllung der
+beschriebenen Zwecke erforderlich ist oder gesetzliche Aufbewahrungs-
+fristen bestehen.
 
-If you have any questions, concerns, or requests related to this Privacy Policy, you can contact us at:
+6. IHRE RECHTE (DSGVO)
 
-Email: marc@shipfa.st
+Nach der DSGVO haben Sie folgende Rechte:
+- Auskunftsrecht über Ihre gespeicherten Daten
+- Recht auf Berichtigung unrichtiger Daten
+- Recht auf Löschung Ihrer Daten ("Recht auf Vergessenwerden")
+- Recht auf Einschränkung der Verarbeitung
+- Recht auf Datenübertragbarkeit
+- Widerspruchsrecht gegen die Verarbeitung
+- Recht auf Beschwerde bei einer Aufsichtsbehörde
 
-For all other inquiries, please visit our Contact Us page on the Website.
+7. DATENSCHUTZ FÜR KINDER
 
-By using ShipFast, you consent to the terms of this Privacy Policy.`}
+${config.appName} richtet sich nicht an Kinder unter 16 Jahren. Wir erheben
+wissentlich keine personenbezogenen Daten von Kindern. Wenn Sie Elternteil
+oder Erziehungsberechtigter sind und glauben, dass Ihr Kind uns personen-
+bezogene Daten zur Verfügung gestellt hat, kontaktieren Sie uns bitte.
+
+8. COOKIES
+
+Wir verwenden technisch notwendige Cookies für die Funktionalität der
+Website (z. B. Session-Management, Kurszugang). Sie können Cookies in
+Ihren Browser-Einstellungen deaktivieren, dies kann jedoch die
+Funktionalität der Website einschränken.
+
+9. ÄNDERUNGEN DER DATENSCHUTZERKLÄRUNG
+
+Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren, um
+Änderungen in unseren Praktiken oder aus anderen betrieblichen, rechtlichen
+oder regulatorischen Gründen widerzuspiegeln. Wesentliche Änderungen werden
+per E-Mail mitgeteilt.
+
+10. KONTAKT
+
+Wenn Sie Fragen oder Anliegen zu dieser Datenschutzerklärung haben,
+kontaktieren Sie uns bitte unter:
+
+E-Mail: ${config.resend.supportEmail || '[IHRE E-MAIL]'}
+
+Durch die Nutzung von ${config.appName} stimmen Sie den Bedingungen dieser
+Datenschutzerklärung zu.`}
         </pre>
       </div>
     </main>

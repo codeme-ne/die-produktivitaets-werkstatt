@@ -1,0 +1,154 @@
+# Effektive Prompting-Techniken
+
+Prompting ist die Kunst, AI-Systeme durch präzise Anweisungen zu steuern. In dieser Lektion lernst du bewährte Techniken für optimale Ergebnisse.
+
+## Grundprinzipien
+
+### 1. Sei spezifisch
+
+❌ **Schlecht**: "Schreibe einen Text über AI"
+
+✅ **Gut**: "Schreibe eine 300-Wörter Einführung in Machine Learning für Anfänger mit 3 praktischen Beispielen"
+
+### 2. Gib Kontext
+
+Je mehr relevanter Kontext, desto besser das Ergebnis:
+
+```
+Du bist ein erfahrener Python-Entwickler.
+Zielgruppe: Junior-Entwickler
+Aufgabe: Erkläre List Comprehensions
+Format: Tutorial mit Code-Beispielen
+```
+
+### 3. Nutze Beispiele (Few-Shot Learning)
+
+Zeige der AI, was du willst:
+
+```
+Konvertiere Produktnamen in URLs:
+
+Beispiel 1:
+Input: "Premium Coffee Beans"
+Output: "premium-coffee-beans"
+
+Beispiel 2:
+Input: "Organic Green Tea"
+Output: "organic-green-tea"
+
+Jetzt du:
+Input: "Italian Espresso Machine"
+Output: ?
+```
+
+## Fortgeschrittene Techniken
+
+### Chain-of-Thought (CoT)
+
+Lass die AI Schritt für Schritt denken:
+
+```
+Löse diese Aufgabe Schritt für Schritt:
+
+Problem: Ein Laden verkauft Äpfel für 2€/kg.
+Bei Kauf von mehr als 5kg gibt es 10% Rabatt.
+Wie viel kostet der Kauf von 7kg?
+
+Denke laut:
+1. Basispreis berechnen
+2. Rabatt prüfen
+3. Endpreis ermitteln
+```
+
+### Role Prompting
+
+Weise der AI eine spezifische Rolle zu:
+
+```
+Du bist ein kritischer Code-Reviewer mit 15 Jahren Erfahrung.
+Überprüfe folgenden Code auf:
+- Security-Probleme
+- Performance-Issues
+- Best Practices
+
+[Code hier einfügen]
+```
+
+### Constraint Prompting
+
+Setze klare Grenzen:
+
+```
+Erkläre Quantencomputing in genau 3 Sätzen.
+Nutze keine Fachbegriffe.
+Zielgruppe: 10-jährige Kinder.
+```
+
+## Prompt-Templates
+
+Bewährte Strukturen für verschiedene Aufgaben:
+
+### Analyse-Template
+```
+Kontext: [Was analysiert werden soll]
+Fokus: [Worauf achten]
+Format: [Wie das Ergebnis aussehen soll]
+Constraints: [Einschränkungen]
+```
+
+### Code-Generation-Template
+```
+Sprache: [Python/JS/etc.]
+Aufgabe: [Was der Code tun soll]
+Input: [Erwartete Eingaben]
+Output: [Erwartete Ausgaben]
+Constraints: [Libraries, Style, etc.]
+Tests: [Erwartete Test-Cases]
+```
+
+## Anti-Patterns vermeiden
+
+### ❌ Zu vage
+"Mach es besser"
+
+### ❌ Widersprüchlich
+"Schreibe einen langen, kurzen Text"
+
+### ❌ Zu komplex in einem Prompt
+Besser: Teile in mehrere Schritte auf
+
+## Praktische Übung
+
+Verbessere diesen Prompt:
+
+**Vorher**:
+```
+Schreib mir was über AI
+```
+
+**Nachher**:
+```
+Erstelle einen strukturierten Überblick über AI-Anwendungen:
+
+Zielgruppe: Business-Entscheider ohne technischen Hintergrund
+Umfang: 500 Wörter
+Struktur:
+1. Einleitung (Was ist AI?)
+2. 5 konkrete Business-Anwendungen mit ROI-Beispielen
+3. Zusammenfassung und Handlungsempfehlungen
+
+Ton: Professional, optimistisch, praxisnah
+```
+
+## Iteratives Prompting
+
+Verfeinere Ergebnisse schrittweise:
+
+1. **Erster Prompt**: Grundversion erstellen
+2. **Zweiter Prompt**: "Mach es konkreter mit mehr Beispielen"
+3. **Dritter Prompt**: "Füge Metriken und Zahlen hinzu"
+4. **Vierter Prompt**: "Optimiere für SEO"
+
+## Nächste Schritte
+
+In der nächsten Lektion lernst du RAG (Retrieval Augmented Generation) - wie du AI mit deinen eigenen Daten erweiterst.

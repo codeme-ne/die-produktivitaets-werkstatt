@@ -1,38 +1,85 @@
-# ShipFast — Typescript
+### Key Files
 
-Hey maker 👋 it's Marc from [ShipFast](https://shipfa.st/docs). Let's get your startup off the ground, FAST ⚡️
+| File | Purpose |
+|------|---------|
+| `app/page.tsx` | Landing (Hero, Curriculum, Pricing, FAQ) |
+| `app/api/stripe/create-checkout/route.ts` | Creates Stripe session |
+| `app/api/webhook/stripe/route.ts` | Handles payments, sends email |
+| `app/checkout/success/route.ts` | Sets JWT cookie after payment |
+| `app/dashboard/page.tsx` | User dashboard with progress tracking |
+| `middleware.ts` | Protects `/course/*` and `/dashboard` routes |
+| `content/lessons/manifest.ts` | Course structure |
+| `libs/jwt.ts` | JWT signing/verification |
+| `libs/progress.ts` | Progress tracking (cookie-based) |
+| `components/ProgressRing.tsx` | DaisyUI radial progress component |
+| `components/LessonsList.tsx` | Lesson list with completion status |
 
-<sub>**Watch/Star the repo to be notified when updates are pushed**</sub>
+## Dashboard & Progress Tracking
 
-## Get Started
+### Cookie Structure
 
-1. Follow the [Get Started Tutorial](https://shipfa.st/docs) to clone the repo and run your local server 💻
+Progress is tracked via **`progress` cookie** (httpOnly):
 
-<sub>**Looking for the /pages router version?** Use this [documentation](https://shipfa.st/docs-old) instead</sub>
+```typescript
+{
+  completed: string[];        // Array of completed lesson slugs
+  flags?: {
+    notifiedComplete?: boolean; // Completion email sent flag
+  };
+}
+```
 
-2. Follow the [Ship In 5 Minutes Tutorial](https://shipfa.st/docs/tutorials/ship-in-5-minutes) to learn the foundation and ship your app quickly ⚡️
+**Limitations**: Cookie-based = device-specific (no multi-device sync).
 
-## Links
+### Server Actions
 
--   [📚 Documentation](https://shipfa.st/docs)
--   [📣 Updates](https://shipfast.beehiiv.com/)
--   [🧑‍💻 Discord](https://shipfa.st/dashboard)
--   [🥇 Leaderboard](https://shipfa.st/leaderboard)
+- `getProgress()` - Read current progress
+- `completeLessonAction(slug)` - Mark lesson complete (sends completion email on 100%)
+- `undoLessonAction(slug)` - Unmark lesson
+
+### "Weiterlernen" Logic
+
+- `getNextOpenLesson(completed: Set<string>)` returns first incomplete lesson
+- Shows CTA on lesson pages when next lesson available
+- Shows "Kurs abgeschlossen! 🎉" badge when all done
+
+### Completion Email
+
+When user completes final lesson:
+- Idempotent check via `flags.notifiedComplete`
+- Sends congratulations email once per device
+- Includes link back to dashboard
+
+### MDX Callout Components
+
+Use in lesson MDX files:
+
+```mdx
+<Tip>Helpful hint for learners</Tip>
+<Warning>Important warning or caveat</Warning>
+<Note>Additional information</Note>
+```
+
+Import via `app/course/components.tsx`.
+
+## Deployment Checklist
+
+- [ ] Update `config.ts` (appName, domainName, emails)
+- [ ] Fill `app/impressum/page.tsx` with your company details
+- [ ] Create Stripe Price with lookup key `ai_course_eur`
+- [ ] Configure Stripe webhook to `https://yourdomain.com/api/webhook/stripe`
+- [ ] Set all env vars in production
+- [ ] Test full purchase flow in Stripe test mode
+- [ ] Switch to Stripe live mode
+
+## Legal (DE)
+
+German-language legal pages included:
+- `/impressum` - Imprint (fill in your details)
+- `/widerruf` - Revocation for digital content
+- `/privacy-policy` - GDPR-compliant privacy policy
+- `/tos` - Terms of service
 
 ## Support
 
-Reach out at hello@shipfa.st
-
-Let's ship it, FAST ⚡️
-
-\_
-
-**📈 Grow your startup with [DataFast](https://datafa.st?ref=shipfast_readme)**
-
--   Analyze your traffic
--   Get insights on your customers
--   Make data-driven decisions
-
-ShipFast members get 30% OFF on all plans! 🎁
-
-![datafast](https://github.com/user-attachments/assets/0bf09937-31d1-41d7-82bc-234b5c359a93)
+For questions or issues, reach out at your configured support email (see `config.ts`).

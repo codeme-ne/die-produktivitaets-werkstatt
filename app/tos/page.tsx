@@ -2,31 +2,8 @@ import Link from "next/link";
 import { getSEOTags } from "@/libs/seo";
 import config from "@/config";
 
-// CHATGPT PROMPT TO GENERATE YOUR TERMS & SERVICES — replace with your own data 👇
-
-// 1. Go to https://chat.openai.com/
-// 2. Copy paste bellow
-// 3. Replace the data with your own (if needed)
-// 4. Paste the answer from ChatGPT directly in the <pre> tag below
-
-// You are an excellent lawyer.
-
-// I need your help to write a simple Terms & Services for my website. Here is some context:
-// - Website: https://shipfa.st
-// - Name: ShipFast
-// - Contact information: marc@shipfa.st
-// - Description: A JavaScript code boilerplate to help entrepreneurs launch their startups faster
-// - Ownership: when buying a package, users can download code to create apps. They own the code but they do not have the right to resell it. They can ask for a full refund within 7 day after the purchase.
-// - User data collected: name, email and payment information
-// - Non-personal data collection: web cookies
-// - Link to privacy-policy: https://shipfa.st/privacy-policy
-// - Governing Law: France
-// - Updates to the Terms: users will be updated by email
-
-// Please write a simple Terms & Services for my site. Add the current date. Do not add or explain your reasoning. Answer:
-
 export const metadata = getSEOTags({
-  title: `Terms and Conditions | ${config.appName}`,
+  title: `AGB | ${config.appName}`,
   canonicalUrlRelative: "/tos",
 });
 
@@ -47,49 +24,127 @@ const TOS = () => {
               clipRule="evenodd"
             />
           </svg>
-          Back
+          Zurück
         </Link>
         <h1 className="text-3xl font-extrabold pb-6">
-          Terms and Conditions for {config.appName}
+          Allgemeine Geschäftsbedingungen (AGB) für {config.appName}
         </h1>
 
         <pre
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: September 26, 2023
+          {`Stand: ${new Date().toLocaleDateString('de-DE')}
 
-Welcome to ShipFast!
+Willkommen bei ${config.appName}!
 
-These Terms of Service ("Terms") govern your use of the ShipFast website at https://shipfa.st ("Website") and the services provided by ShipFast. By using our Website and services, you agree to these Terms.
+Diese Allgemeinen Geschäftsbedingungen ("AGB") regeln Ihre Nutzung der
+Website ${config.domainName} und der von ${config.appName} angebotenen
+Dienstleistungen. Durch die Nutzung unserer Website und Dienste stimmen
+Sie diesen AGB zu.
 
-1. Description of ShipFast
+1. BESCHREIBUNG DER DIENSTLEISTUNG
 
-ShipFast is a platform that offers a JavaScript code boilerplate to assist entrepreneurs in launching their startups more efficiently.
+${config.appName} bietet einen Online-Kurs zum Thema künstliche Intelligenz
+und AI-Systementwicklung. Der Kurs besteht aus digitalen Inhalten, die
+online über unsere Plattform zugänglich sind.
 
-2. Ownership and Usage Rights
+2. VERTRAGSSCHLUSS UND ZUGANG
 
-When you purchase a package from ShipFast, you gain the right to download and use the code provided for creating applications. You own the code you create but do not have the right to resell it. We offer a full refund within 7 days of purchase, as specified in our refund policy.
+2.1 Mit dem Kauf eines Kurses kommt zwischen Ihnen und uns ein Vertrag
+über die Bereitstellung digitaler Inhalte zustande.
 
-3. User Data and Privacy
+2.2 Nach erfolgreicher Zahlung erhalten Sie per E-Mail einen Zugangslink
+zu den Kursinhalten. Der Zugang erfolgt sofort nach Kaufabschluss.
 
-We collect and store user data, including name, email, and payment information, as necessary to provide our services. For details on how we handle your data, please refer to our Privacy Policy at https://shipfa.st/privacy-policy.
+2.3 Der Zugriff auf die Inhalte ist lebenslang und unbegrenzt, solange
+${config.appName} die Plattform betreibt.
 
-4. Non-Personal Data Collection
+3. PREISE UND ZAHLUNG
 
-We use web cookies to collect non-personal data for the purpose of improving our services and user experience.
+3.1 Alle Preise sind Endpreise und enthalten die gesetzliche Mehrwertsteuer.
 
-5. Governing Law
+3.2 Die Zahlung erfolgt über unseren Zahlungsdienstleister Stripe.
+Wir akzeptieren gängige Zahlungsmethoden wie Kreditkarte und weitere
+von Stripe unterstützte Methoden.
 
-These Terms are governed by the laws of France.
+3.3 Der Kaufpreis ist mit Vertragsschluss sofort fällig.
 
-6. Updates to the Terms
+4. NUTZUNGSRECHTE
 
-We may update these Terms from time to time. Users will be notified of any changes via email.
+4.1 Mit dem Kauf erhalten Sie ein persönliches, nicht übertragbares,
+nicht-exklusives Recht zur Nutzung der Kursinhalte für Ihre eigene
+Weiterbildung.
 
-For any questions or concerns regarding these Terms of Service, please contact us at marc@shipfa.st.
+4.2 Sie dürfen die Inhalte nicht weitergeben, weiterverkaufen, öffentlich
+zugänglich machen oder kommerziell nutzen.
 
-Thank you for using ShipFast!`}
+4.3 Alle Rechte an den Inhalten verbleiben bei ${config.appName}.
+
+5. WIDERRUFSRECHT
+
+Für den Kauf digitaler Inhalte gilt:
+
+Sie haben ein 14-tägiges Widerrufsrecht. Wenn Sie jedoch beim Kauf
+ausdrücklich zustimmen, dass wir sofort mit der Bereitstellung der
+digitalen Inhalte beginnen, und Sie bestätigen, dass Sie dadurch Ihr
+Widerrufsrecht verlieren, erlischt Ihr Widerrufsrecht mit dem ersten
+Zugriff auf die Kursinhalte.
+
+Details finden Sie in unserer Widerrufsbelehrung unter:
+${config.domainName}/widerruf
+
+6. RÜCKERSTATTUNG
+
+Trotz des erlöschenden Widerrufsrechts bieten wir eine freiwillige
+Geld-zurück-Garantie:
+
+Wenn Sie innerhalb von 7 Tagen nach dem Kauf nicht zufrieden sind,
+erstatten wir Ihnen den vollen Kaufpreis. Kontaktieren Sie uns dazu
+per E-Mail unter ${config.resend.supportEmail || '[IHRE E-MAIL]'}.
+
+7. DATENSCHUTZ
+
+Wir erheben und verarbeiten personenbezogene Daten (Name, E-Mail,
+Zahlungsinformationen) ausschließlich zur Vertragserfüllung. Details
+finden Sie in unserer Datenschutzerklärung unter:
+${config.domainName}/privacy-policy
+
+8. HAFTUNG
+
+8.1 Wir haften unbeschränkt für Vorsatz und grobe Fahrlässigkeit sowie
+bei Verletzung von Leben, Körper oder Gesundheit.
+
+8.2 Bei leichter Fahrlässigkeit haften wir nur bei Verletzung
+wesentlicher Vertragspflichten (Kardinalpflichten) und beschränkt auf
+den vorhersehbaren, vertragstypischen Schaden.
+
+8.3 Die Haftung für den Verlust von Daten ist auf den typischen
+Wiederherstellungsaufwand beschränkt, der bei regelmäßiger und
+gefahrentsprechender Anfertigung von Sicherungskopien eingetreten wäre.
+
+9. ÄNDERUNGEN DER AGB
+
+Wir behalten uns vor, diese AGB zu ändern. Bestandskunden werden über
+Änderungen per E-Mail informiert. Die Änderungen gelten als genehmigt,
+wenn nicht innerhalb von 14 Tagen nach Zugang der Änderungsmitteilung
+widersprochen wird.
+
+10. SCHLUSSBESTIMMUNGEN
+
+10.1 Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss
+des UN-Kaufrechts.
+
+10.2 Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden,
+bleibt die Wirksamkeit der übrigen Bestimmungen davon unberührt.
+
+11. KONTAKT
+
+Für Fragen oder Anliegen zu diesen AGB kontaktieren Sie uns bitte unter:
+
+E-Mail: ${config.resend.supportEmail || '[IHRE E-MAIL]'}
+
+Vielen Dank, dass Sie ${config.appName} nutzen!`}
         </pre>
       </div>
     </main>
