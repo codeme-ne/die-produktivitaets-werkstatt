@@ -25,7 +25,7 @@ const ButtonCheckout = () => {
         {
           successUrl: `${window.location.origin}/checkout/success`,
           cancelUrl: window.location.href,
-        }
+        },
       );
 
       window.location.href = url;
@@ -54,7 +54,11 @@ const ButtonCheckout = () => {
               AGB
             </a>{" "}
             gelesen und akzeptiere diese sowie die{" "}
-            <a href="/privacy-policy" target="_blank" className="link link-primary">
+            <a
+              href="/privacy-policy"
+              target="_blank"
+              className="link link-primary"
+            >
               Datenschutzerklärung
             </a>
             .
@@ -69,9 +73,9 @@ const ButtonCheckout = () => {
             onChange={(e) => setWiderrufAccepted(e.target.checked)}
           />
           <span className="text-base-content/80">
-            Ich stimme ausdrücklich zu, dass mit der Ausführung des Vertrags über digitale
-            Inhalte vor Ablauf der Widerrufsfrist begonnen wird. Mir ist bekannt, dass ich
-            dadurch mein{" "}
+            Ich stimme ausdrücklich zu, dass mit der Ausführung des Vertrags
+            über digitale Inhalte vor Ablauf der Widerrufsfrist begonnen wird.
+            Mir ist bekannt, dass ich dadurch mein{" "}
             <a href="/widerruf" target="_blank" className="link link-primary">
               Widerrufsrecht
             </a>{" "}

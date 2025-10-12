@@ -1,5 +1,11 @@
-import type { MDXComponents } from 'mdx/types';
-import React from 'react';
+import type { MDXComponents } from "mdx/types";
+import React from "react";
+import Checklist from "@/components/Checklist";
+import Quiz from "@/components/Quiz";
+import Reveal from "@/components/Reveal";
+import PromptBuilder from "@/components/PromptBuilder";
+import ChunkVisualizer from "@/components/ChunkVisualizer";
+import RandomIdea from "@/components/RandomIdea";
 
 /**
  * MDX components for styling lesson content
@@ -23,20 +29,20 @@ export const components: MDXComponents = {
   ol: ({ children }) => (
     <ol className="list-decimal list-inside mb-4 space-y-2 ml-4">{children}</ol>
   ),
-  li: ({ children }) => (
-    <li className="text-base-content/90">{children}</li>
-  ),
+  li: ({ children }) => <li className="text-base-content/90">{children}</li>,
   code: ({ children, className }) => {
-    const isBlock = className?.includes('language-');
-    
+    const isBlock = className?.includes("language-");
+
     if (isBlock) {
       return (
-        <code className={`${className} block bg-base-300 p-4 rounded-lg overflow-x-auto mb-4 text-sm`}>
+        <code
+          className={`${className} block bg-base-300 p-4 rounded-lg overflow-x-auto mb-4 text-sm`}
+        >
           {children}
         </code>
       );
     }
-    
+
     return (
       <code className="bg-base-300 px-2 py-1 rounded text-sm font-mono">
         {children}
@@ -67,9 +73,19 @@ export const components: MDXComponents = {
   strong: ({ children }) => (
     <strong className="font-bold text-base-content">{children}</strong>
   ),
-  em: ({ children }) => (
-    <em className="italic">{children}</em>
-  ),
+  em: ({ children }) => <em className="italic">{children}</em>,
+  // Make custom callouts available directly in MDX without import
+  Tip,
+  Warning,
+  Note,
+  // Interactive checklist component
+  Checklist,
+  // Interactive learning widgets
+  Quiz,
+  Reveal,
+  PromptBuilder,
+  ChunkVisualizer,
+  RandomIdea,
 };
 
 /**

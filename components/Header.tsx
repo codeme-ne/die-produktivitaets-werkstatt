@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "@/app/icon.png";
 import config from "@/config";
+import WhoamiBadge from "@/components/WhoamiBadge";
 
 const links: {
   href: string;
@@ -23,13 +24,15 @@ const links: {
     href: "/#faq",
     label: "FAQ",
   },
+  {
+    href: "/dashboard",
+    label: "Dashboard",
+  },
 ];
 
 const cta: JSX.Element = (
   <>
-    <Link href="/dashboard" className="btn btn-ghost btn-sm">
-      Dashboard
-    </Link>
+    <WhoamiBadge className="hidden md:inline-flex" />
     <Link href="/#pricing" className="btn btn-primary">
       Jetzt einschreiben
     </Link>
@@ -108,7 +111,9 @@ const Header = () => {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden lg:flex lg:justify-end lg:flex-1 lg:gap-2">{cta}</div>
+        <div className="hidden lg:flex lg:justify-end lg:flex-1 lg:gap-2">
+          {cta}
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -175,7 +180,10 @@ const Header = () => {
             </div>
             <div className="divider"></div>
             {/* Mobile CTA */}
-            <div className="flex flex-col gap-2">{cta}</div>
+            <div className="flex flex-col gap-2">
+              <WhoamiBadge />
+              {cta}
+            </div>
           </div>
         </div>
       </div>

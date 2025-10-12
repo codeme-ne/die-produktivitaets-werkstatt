@@ -1,0 +1,64 @@
+# Deployment & Handover: kleine Projekte live
+
+Kurzer Nutzen: Bringe dein Mini‑Projekt live, setze Env‑Variablen korrekt und führe einen kurzen Smoke‑Test durch. Dokumentiere den Handover.
+
+Video ansehen: https://video.bunny.net/TODO-deploy-ship
+
+## Warum das wichtig ist
+
+Erst live schafft echten Nutzen. Mit einem kleinen, sauberen Deploy und einer kurzen Doku kannst du Feedback sammeln, Fehler schnell erkennen und gezielt weiterbauen.
+
+<Tip>
+  Dokumentiere die 3 wichtigsten Befehle (build, start, test) und die benötigten
+  Env‑Variablen in deiner README.
+</Tip>
+
+## So gehst du vor
+
+1. Wähle ein Deploy‑Ziel (z. B. Vercel). Richte Env‑Variablen ein.
+2. Führe einen Smoke‑Test aus (Startseite, 1 API‑Call, 1 Fehlerpfad).
+3. Logge Fehler server‑/clientseitig, notiere Follow‑ups.
+4. Handover: README mit Setup, Deploy, Kontakt/Support.
+
+```ts
+// Beispiel: Env lesen + kleines Fehlerhandling
+export function getEnv(name: string): string {
+  const v = process.env[name];
+  if (!v) throw new Error(`Missing env var: ${name}`);
+  return v;
+}
+
+export async function smokeTest(fetcher: (url: string) => Promise<Response>) {
+  try {
+    const res = await fetcher("/api/health");
+    return res.ok;
+  } catch (e) {
+    console.error("Smoke test failed", e);
+    return false;
+  }
+}
+```
+
+<Warning>
+  Leake keine Secrets/Keys im Repo. Nutze Env‑Variablen und sichere deinen
+  CI/CD‑Zugang.
+</Warning>
+
+## Mini‑Aufgabe
+
+Deployment durchführen, Env setzen und Smoke‑Test dokumentieren. Handover in README ergänzen.
+
+<Checklist
+  id="lesson-07-tasks"
+  items={[
+    { id: "t1", label: "Deploy‑Ziel gewählt & eingerichtet" },
+    { id: "t2", label: "Env‑Variablen gesetzt" },
+    { id: "t3", label: "Smoke‑Test durchgeführt" },
+    { id: "t4", label: "README/Handover geschrieben" },
+  ]}
+/>
+
+Weiterführende Ressourcen:
+
+- Vercel Deploy Basics – TODO Link
+- Env/Secrets Best Practices – TODO Link

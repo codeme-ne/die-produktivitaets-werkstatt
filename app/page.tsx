@@ -13,14 +13,15 @@ export default function Page() {
         <section className="bg-base-100 py-24 px-8">
           <div className="max-w-5xl mx-auto text-center space-y-8">
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight">
-              Baue Production-Ready{" "}
+              Meistere{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                AI-Systeme
-              </span>
+                KI-Tools
+              </span>{" "}
+              in 7 Lektionen
             </h1>
             <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
-              Von Prompting über RAG bis zu autonomen Agents – lerne alles, was
-              du brauchst, um AI-Anwendungen zu bauen und in Produktion zu bringen.
+              Von Prompting bis Deployment – kompakt, praxisnah, direkt
+              umsetzbar. Starte heute und shippe dein erstes KI-Projekt morgen.
             </p>
             <div className="flex gap-4 justify-center items-center">
               <Link href="/#pricing" className="btn btn-primary btn-lg group">
@@ -50,7 +51,7 @@ export default function Page() {
                 Was du lernen wirst
               </h2>
               <p className="text-base-content/70 text-lg max-w-2xl mx-auto">
-                7 umfassende Module, die dich vom Anfänger zum AI-Engineer machen
+                7 kompakte Lektionen für schnellen Einstieg in KI-Entwicklung
               </p>
             </div>
 
@@ -193,7 +194,9 @@ export default function Page() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <p className="text-primary font-semibold mb-4">FAQ</p>
-              <h2 className="text-4xl font-extrabold">Häufig gestellte Fragen</h2>
+              <h2 className="text-4xl font-extrabold">
+                Häufig gestellte Fragen
+              </h2>
             </div>
 
             <div className="space-y-4">
@@ -207,8 +210,8 @@ export default function Page() {
                     Der Kurs richtet sich an Entwickler mit grundlegenden
                     Programmierkenntnissen, die lernen möchten, wie man moderne
                     AI-Systeme baut. Du brauchst keine Vorkenntnisse in Machine
-                    Learning – wir starten bei den Grundlagen und arbeiten uns zu
-                    fortgeschrittenen Themen vor.
+                    Learning – wir starten bei den Grundlagen und arbeiten uns
+                    zu fortgeschrittenen Themen vor.
                   </p>
                 </div>
               </div>
@@ -221,9 +224,9 @@ export default function Page() {
                 <div className="collapse-content">
                   <p className="text-base-content/70">
                     Nach dem Kauf erhältst du sofort per E-Mail einen
-                    Zugangs-Link. Du kannst alle Module direkt online durcharbeiten
-                    – wann und wo du möchtest. Der Zugriff ist lebenslang und ohne
-                    Limit.
+                    Zugangs-Link. Du kannst alle Module direkt online
+                    durcharbeiten – wann und wo du möchtest. Der Zugriff ist
+                    lebenslang und ohne Limit.
                   </p>
                 </div>
               </div>
@@ -252,27 +255,8 @@ export default function Page() {
                 <div className="collapse-content">
                   <p className="text-base-content/70">
                     Ja! Wenn du innerhalb von 7 Tagen nach dem Kauf nicht
-                    zufrieden bist, erstatten wir dir den vollen Kaufpreis zurück.
-                    Schreib uns einfach eine E-Mail.
-                  </p>
-                </div>
-              </div>
-
-              <div className="collapse collapse-plus bg-base-100">
-                <input type="radio" name="faq-accordion" />
-                <div className="collapse-title text-lg font-semibold">
-                  Ich habe noch eine Frage
-                </div>
-                <div className="collapse-content">
-                  <p className="text-base-content/70">
-                    Kein Problem! Schreib uns an{" "}
-                    <a
-                      href="mailto:support@example.com"
-                      className="link link-primary"
-                    >
-                      support@example.com
-                    </a>{" "}
-                    und wir helfen dir gerne weiter.
+                    zufrieden bist, erstatten wir dir den vollen Kaufpreis
+                    zurück. Schreib uns einfach eine E-Mail.
                   </p>
                 </div>
               </div>
@@ -298,7 +282,7 @@ export default function Page() {
               Widerrufsrecht
             </Link>
           </div>
-          <p>© 2025 ShipFast. Alle Rechte vorbehalten.</p>
+          <p>© 2025 KI Kompakt Kurs. Alle Rechte vorbehalten.</p>
         </div>
       </footer>
     </>

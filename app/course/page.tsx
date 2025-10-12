@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { lessons } from '@/content/lessons/manifest';
-import LogoutButton from '@/components/LogoutButton';
+import Link from "next/link";
+import { lessons } from "@/content/lessons/manifest";
+import LogoutButton from "@/components/LogoutButton";
 
 export default function CoursePage() {
   return (
@@ -20,7 +20,10 @@ export default function CoursePage() {
         <div className="card-body">
           <h2 className="card-title text-2xl mb-4">Kursfortschritt</h2>
           <div className="flex items-center gap-4">
-            <div className="radial-progress text-primary" style={{ "--value": 0 } as any}>
+            <div
+              className="radial-progress text-primary"
+              style={{ "--value": 0 } as any}
+            >
               0%
             </div>
             <div>
@@ -35,7 +38,7 @@ export default function CoursePage() {
       {/* Lessons List */}
       <div className="space-y-4">
         <h2 className="text-2xl font-bold mb-6">Lektionen</h2>
-        
+
         {lessons.map((lesson) => (
           <Link
             key={lesson.slug}
@@ -55,12 +58,8 @@ export default function CoursePage() {
 
                 {/* Lesson Content */}
                 <div className="flex-grow">
-                  <h3 className="card-title text-xl mb-2">
-                    {lesson.title}
-                  </h3>
-                  <p className="text-base-content/70">
-                    {lesson.summary}
-                  </p>
+                  <h3 className="card-title text-xl mb-2">{lesson.title}</h3>
+                  <p className="text-base-content/70">{lesson.summary}</p>
                 </div>
 
                 {/* Arrow */}

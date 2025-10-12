@@ -1,0 +1,18 @@
+{
+  "pw": {
+    "modul-01": "dc6af725-2e9a-4b0c-8233-0670f4edd2f3",
+    "modul-02": "a0e11724-f4b2-4f4e-9aef-6acc52025919",
+    "modul-03": "46243a32-32c3-4c00-81e5-c49088a5c5e9",
+    "modul-04": "54a487f4-5736-47a1-acf7-36d702e01f11",
+    "modul-05": "7219227a-6193-45c0-b476-94f6c83cc664",
+    "modul-06": "798e9c91-897d-4a6a-a43a-57b2df6f70ff",
+    "modul-07": "1edea932-b5b7-4840-9698-22e8bffcc318",
+    "modul-08": "10f98439-53d5-467e-b9bf-155df2763b66",
+    "modul-09": "5a8cf693-607b-4ced-9a8c-6e2341c041c0",
+    "modul-10": "10268aa1-1ea2-4eaa-8f2e-1cfc07195a99",
+    "modul-11": "7e118a13-c27f-4627-a922-5a78fd6d2078",
+    "modul-12": "50be4d2e-1ff2-4e4f-acac-476c3cce58c7"
+  },
+  "ki": [],
+  "exclude": ["aece36c5-ddb4-4caf-9f71-9cda0d518045"]
+}

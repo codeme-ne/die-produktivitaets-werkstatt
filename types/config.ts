@@ -39,4 +39,5 @@ export interface ConfigProps {
     theme: Theme;
     main: string;
   };
+  adminEmails: string[];
 }

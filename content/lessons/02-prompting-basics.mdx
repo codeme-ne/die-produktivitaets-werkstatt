@@ -1,0 +1,89 @@
+# Prompting Basics: Patterns & Best Practices
+
+Prompting ist der Schlüssel zu besseren KI-Ergebnissen. In dieser Lektion lernst du bewährte Techniken und häufige Fehler.
+
+## Die Prompt-Formel
+
+Ein guter Prompt hat **3 Komponenten**:
+
+1. **Rolle/Kontext**: Wer soll die KI sein?
+2. **Aufgabe**: Was soll gemacht werden?
+3. **Format**: Wie soll die Ausgabe aussehen?
+
+```typescript
+// Beispiel: Strukturierter Prompt
+const prompt = `
+Du bist ein erfahrener TypeScript-Entwickler.
+
+Aufgabe: Schreibe eine Funktion, die eine Liste von User-Objekten nach Alter sortiert.
+
+Format:
+- TypeScript mit Types
+- Kommentare auf Deutsch
+- Beispiel-Nutzung am Ende
+`;
+
+const response = await openai.chat.completions.create({
+  model: "gpt-4",
+  messages: [{ role: "user", content: prompt }],
+});
+```
+
+<Tip>
+  **Faustregel**: Je spezifischer dein Prompt, desto besser das Ergebnis. Spare
+  nicht an Details!
+</Tip>
+
+## Do's & Don'ts
+
+### ✅ Do:
+
+- Klare, spezifische Anweisungen geben
+- Beispiele zeigen ("Few-Shot Prompting")
+- Schritt-für-Schritt denken lassen ("Chain of Thought")
+- Format explizit vorgeben (JSON, Markdown, etc.)
+
+### ❌ Don't:
+
+- Vage Fragen stellen ("Erkläre mir KI")
+- Zu viel auf einmal erwarten
+- Halluzinationen ignorieren – immer validieren!
+
+<Warning>
+  KI kann überzeugend falsche Antworten geben ("Halluzinationen"). Vertraue nie
+  blind – validiere kritische Outputs!
+</Warning>
+
+## Pattern: Few-Shot Learning
+
+Zeige der KI Beispiele, bevor du die eigentliche Aufgabe stellst:
+
+```typescript
+const fewShotPrompt = `
+Aufgabe: Kategorisiere User-Feedback als positiv, neutral oder negativ.
+
+Beispiele:
+- "Super App, funktioniert perfekt!" → positiv
+- "Geht so, könnte besser sein." → neutral
+- "Totaler Müll, stürzt dauernd ab." → negativ
+
+Jetzt du:
+- "Beste Entscheidung ever, danke!"
+`;
+```
+
+## Video-Tutorial
+
+📺 **Video ansehen**: [https://video.bunny.net/placeholder-02-prompting](https://video.bunny.net/placeholder)
+
+## Übungs-Checklist
+
+- [ ] Einen Prompt mit allen 3 Komponenten schreiben
+- [ ] Few-Shot Learning mit 3 Beispielen testen
+- [ ] Chain of Thought mit "Denke Schritt-für-Schritt" ausprobieren
+- [ ] Ein falsches Ergebnis erkennen und korrigieren
+
+<Note>
+  **Nächster Schritt**: In Lektion 3 baust du dein erstes Mini-Projekt und
+  wendest diese Techniken an.
+</Note>

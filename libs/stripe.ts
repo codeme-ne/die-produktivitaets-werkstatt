@@ -12,7 +12,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 export async function getCoursePriceId(): Promise<string> {
   try {
     const prices = await stripe.prices.list({
-      lookup_keys: ['ai_course_eur'],
+      lookup_keys: ["ai_course_eur"],
       active: true,
       limit: 1,
     });
@@ -26,9 +26,11 @@ export async function getCoursePriceId(): Promise<string> {
       return process.env.STRIPE_PRICE_ID_COURSE_EUR;
     }
 
-    throw new Error('Course price not configured - set lookup_key "ai_course_eur" in Stripe or STRIPE_PRICE_ID_COURSE_EUR env var');
+    throw new Error(
+      'Course price not configured - set lookup_key "ai_course_eur" in Stripe or STRIPE_PRICE_ID_COURSE_EUR env var',
+    );
   } catch (error) {
-    console.error('Error fetching course price:', error);
+    console.error("Error fetching course price:", error);
     throw error;
   }
 }
@@ -47,7 +49,7 @@ export async function createCheckout({
     const priceId = await getCoursePriceId();
 
     const session = await stripe.checkout.sessions.create({
-      mode: 'payment',
+      mode: "payment",
       line_items: [
         {
           price: priceId,
@@ -57,19 +59,19 @@ export async function createCheckout({
       success_url: successUrl,
       cancel_url: cancelUrl,
       allow_promotion_codes: false,
-      customer_creation: 'always',
+      customer_creation: "always",
       payment_intent_data: {
-        setup_future_usage: 'on_session',
+        setup_future_usage: "on_session",
       },
     });
 
     if (!session.url) {
-      throw new Error('Failed to create checkout session URL');
+      throw new Error("Failed to create checkout session URL");
     }
 
     return session.url;
   } catch (error) {
-    console.error('Error creating checkout:', error);
+    console.error("Error creating checkout:", error);
     throw error;
   }
 }
@@ -80,12 +82,12 @@ export async function createCheckout({
 export async function findCheckoutSession(sessionId: string) {
   try {
     const session = await stripe.checkout.sessions.retrieve(sessionId, {
-      expand: ['line_items', 'customer'],
+      expand: ["line_items", "customer"],
     });
 
     return session;
   } catch (error) {
-    console.error('Error finding checkout session:', error);
+    console.error("Error finding checkout session:", error);
     return null;
   }
 }

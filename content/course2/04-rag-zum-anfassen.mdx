@@ -1,0 +1,44 @@
+# RAG zum Anfassen
+
+Ziel: Erlebe spielerisch, wie Chunking und Suche funktionieren – ohne Setup‑Hürden.
+
+<Tip>
+  Interaktiv: Nutze den Chunk‑Visualizer, um Text in Blöcke aufzuteilen und zu
+  verstehen, warum „Kontext“ so wichtig ist.
+</Tip>
+
+## Was passiert bei RAG?
+
+Kurz gesagt: Wir schneiden Texte in Stücke (Chunks), berechnen Relevanz zu deiner Frage und geben die besten Stücke als Kontext an das Modell. Ergebnis: präzisere Antworten.
+
+<ChunkVisualizer />
+
+## Mini‑Quiz
+
+<Quiz
+  question="Warum ist Chunking nützlich?"
+  options={[
+    "Weil kleine Stücke hübscher aussehen",
+    "Weil relevante Teile schneller gefunden werden",
+    "Weil Server sonst abstürzen",
+  ]}
+  correctIndex={1}
+  explanation="Kleinere, sinnvolle Einheiten lassen sich effizienter vergleichen und als Kontext nutzen."
+/>
+
+## Mini‑Aufgabe
+
+<Checklist
+  id="course2-04-tasks"
+  items={[
+    { id: "t1", label: "Einen Absatz in Chunks zerlegt" },
+    { id: "t2", label: "Chunk‑Größe verändert und verglichen" },
+    { id: "t3", label: "In 1–2 Sätzen notiert: Was habe ich gelernt?" },
+  ]}
+/>
+
+<Reveal summary="Beispiel‑Lösung anzeigen">
+  Kleinere Chunks (z. B. 120–200 Zeichen) sind für einfache Demos gut, weil sie
+  präzise, aber nicht zu fragmentiert sind. In echten Systemen arbeitet man oft
+  auf Token‑Basis.
+</Reveal>

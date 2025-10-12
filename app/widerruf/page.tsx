@@ -48,7 +48,7 @@ Entschluss, diesen Vertrag zu widerrufen, informieren.
 Kontakt für Widerruf:
 [FIRMENNAME]
 [ADRESSE]
-E-Mail: ${config.resend.supportEmail || '[IHRE E-MAIL]'}
+E-Mail: ${config.resend.supportEmail || "[IHRE E-MAIL]"}
 
 Sie können dafür das beigefügte Muster-Widerrufsformular verwenden, das jedoch
 nicht vorgeschrieben ist.

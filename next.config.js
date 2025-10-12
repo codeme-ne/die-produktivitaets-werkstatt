@@ -1,9 +1,9 @@
-const path = require('path');
-const withMDX = require('@next/mdx')({
+const path = require("path");
+const withMDX = require("@next/mdx")({
   options: {
     // Ensure compiled MDX imports the Next MDX hook import source,
     // which we alias below to app/mdx-components.tsx.
-    providerImportSource: 'next-mdx-import-source',
+    providerImportSource: "next-mdx-import-source",
     remarkPlugins: [],
     rehypePlugins: [],
   },
@@ -12,17 +12,28 @@ const withMDX = require('@next/mdx')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ['ts', 'tsx', 'mdx'],
+  pageExtensions: ["ts", "tsx", "mdx"],
   // Fix workspace root inference so Next resolves app/* hooks correctly
   outputFileTracingRoot: __dirname,
   // Ensure MDX component mapping resolves to our server-safe hook
-  webpack: (config) => {
+  webpack: (config, { dev }) => {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
-      'next-mdx-import-source': path.join(__dirname, 'app/mdx-components.tsx'),
-      'next-mdx-import-source-file': path.join(__dirname, 'app/mdx-components.tsx'),
+      "next-mdx-import-source": path.join(__dirname, "app/mdx-components.tsx"),
+      "next-mdx-import-source-file": path.join(
+        __dirname,
+        "app/mdx-components.tsx",
+      ),
     };
+
+    // Fix: Exclude node_modules and .next from file watching
+    if (dev) {
+      config.watchOptions = {
+        ignored: ["**/node_modules", "**/.next", "**/.git", "**/logs"],
+      };
+    }
+
     return config;
   },
   images: {
@@ -43,6 +54,11 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "logos-world.net",
+      },
+      // Bunny CDN for course assets (images, PDFs)
+      {
+        protocol: "https",
+        hostname: "pw-bunny.b-cdn.net",
       },
     ],
   },

@@ -1,0 +1,85 @@
+# Retrieval Basics: Daten rein, Antworten raus
+
+Kurzer Nutzen: Verstehe die Grundidee von RAG (Retrieval Augmented Generation) und baue einen minimalen Flow mit Indexierung, Suche und Kontext‑Injection.
+
+Video ansehen: https://video.bunny.net/TODO-rag-basics
+
+## Warum das wichtig ist
+
+RAG verbindet dein Projekt mit deinen eigenen Daten. Statt blind zu raten, erhält das Modell relevante Kontexte, was die Genauigkeit deutlich erhöht. Du lernst die Bausteine Chunking, Embeddings, Ähnlichkeitssuche und das Einspeisen des Kontexts in deinen Prompt.
+
+<Tip>
+  Starte klein: Eine Datenquelle, ein Query, klare Zielantwort. Später kannst du
+  erweitern.
+</Tip>
+
+## So gehst du vor
+
+1. Wähle eine kleine Datenquelle (z. B. 1–2 Seiten Text).
+2. Zerlege den Text in handliche Chunks (z. B. 300–500 Tokens).
+3. Erzeuge Embeddings und speichere sie (z. B. in einer Liste/Datei für den Start).
+4. Implementiere eine einfache Ähnlichkeitssuche (Cosine‑Ähnlichkeit oder Mock).
+5. Baue den Prompt: Nutzerfrage + Top‑K Chunks als Kontext → Antwort.
+
+```ts
+// Minimaler RAG‑Mock in TypeScript (ohne echte Embeddings)
+type Doc = { id: string; text: string };
+
+const docs: Doc[] = [
+  { id: "a", text: "Dein erster Wissensbaustein." },
+  { id: "b", text: "Ein weiterer Baustein mit Antworten." },
+];
+
+function fakeScore(query: string, text: string) {
+  // Sehr vereinfachte "Relevanz": gemeinsame Tokens zählen
+  const q = new Set(query.toLowerCase().split(/\W+/));
+  const t = new Set(text.toLowerCase().split(/\W+/));
+  let score = 0;
+  q.forEach((w) => {
+    if (t.has(w)) score += 1;
+  });
+  return score;
+}
+
+function retrieve(query: string, k = 2) {
+  return [...docs]
+    .map((d) => ({ d, s: fakeScore(query, d.text) }))
+    .sort((a, b) => b.s - a.s)
+    .slice(0, k)
+    .map((r) => r.d.text)
+    .join("\n---\n");
+}
+
+export function answerWithContext(query: string) {
+  const context = retrieve(query);
+  const prompt = `Kontext:\n${context}\n\nFrage: ${query}\nAntworte prägnant auf Basis des Kontexts.`;
+  return prompt; // Im echten System hier den LLM‑Call ausführen
+}
+```
+
+<Warning>
+  Garbage‑in, garbage‑out: Achte auf saubere Daten und sinnvolles Chunking.
+  Schlechtes Material ergibt schlechte Antworten.
+</Warning>
+
+## Mini‑Aufgabe
+
+Definiere eine kleine Wissensquelle (1–2 Seiten), erstelle Chunks und beantworte eine konkrete Frage mit Kontext.
+
+Checklist
+
+<Checklist
+  id="lesson-04-tasks"
+  items={[
+    { id: "t1", label: "Datenquelle festgelegt" },
+    { id: "t2", label: "Chunking‑Regeln definiert" },
+    { id: "t3", label: "Suche implementiert (Mock ok)" },
+    { id: "t4", label: "Antwort mit Kontext erzeugt" },
+  ]}
+/>
+
+Weiterführende Ressourcen:
+
+- Einführung in Vektor‑Suche – TODO Link
+- RAG Konzepte – TODO Link
+- Chunking Strategien – TODO Link

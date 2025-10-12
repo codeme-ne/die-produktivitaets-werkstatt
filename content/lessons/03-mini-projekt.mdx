@@ -1,0 +1,124 @@
+# Mini-Projekt: Use Case in 90 Min shippen
+
+Zeit für die Praxis! Baue in 90 Minuten ein funktionierendes KI-Feature von der Idee bis zum Code.
+
+## Dein erstes KI-Feature
+
+Wir bauen einen **Smart FAQ Bot**, der häufige Fragen beantwortet und Kontext behält.
+
+### Schritt 1: Setup (10 Min)
+
+```typescript
+// setup.ts - Basis-Konfiguration
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+type Message = {
+  role: "system" | "user" | "assistant";
+  content: string;
+};
+
+const conversationHistory: Message[] = [];
+```
+
+### Schritt 2: Kontext & System-Prompt (15 Min)
+
+```typescript
+// System-Prompt definiert das Verhalten
+const systemPrompt: Message = {
+  role: "system",
+  content: `Du bist ein hilfreicher FAQ-Bot für einen Online-Kurs.
+
+Deine Aufgaben:
+- Beantworte Fragen zu Kurs-Inhalten, Zugang und Bezahlung
+- Sei freundlich und präzise
+- Bei unklaren Fragen: nachfragen
+- Wenn du etwas nicht weißt: ehrlich sagen
+
+Kurs-Infos:
+- Preis: 97€ einmalig
+- Zugang: lebenslang
+- 7 Lektionen, ca. 4h Inhalt`,
+};
+
+conversationHistory.push(systemPrompt);
+```
+
+<Tip>
+  Der System-Prompt ist deine Geheimwaffe! Definiere hier Persönlichkeit, Wissen
+  und Einschränkungen des Bots.
+</Tip>
+
+### Schritt 3: Chat-Funktion (30 Min)
+
+```typescript
+async function chat(userMessage: string): Promise<string> {
+  // User-Nachricht hinzufügen
+  conversationHistory.push({
+    role: "user",
+    content: userMessage,
+  });
+
+  // KI antworten lassen
+  const response = await openai.chat.completions.create({
+    model: "gpt-4",
+    messages: conversationHistory,
+    temperature: 0.7, // Kreativität: 0 = deterministisch, 1 = kreativ
+  });
+
+  const assistantMessage = response.choices[0].message.content || "";
+
+  // Antwort in History speichern
+  conversationHistory.push({
+    role: "assistant",
+    content: assistantMessage,
+  });
+
+  return assistantMessage;
+}
+```
+
+### Schritt 4: Testen & Iterieren (35 Min)
+
+```typescript
+// Einfacher Test
+async function runDemo() {
+  console.log(await chat("Wie viel kostet der Kurs?"));
+  console.log(await chat("Und wie lange habe ich Zugriff?"));
+  console.log(await chat("Was lerne ich in Lektion 3?"));
+}
+
+runDemo();
+```
+
+<Warning>
+  **Kosten-Warnung**: GPT-4 kostet ca. $0.03 pro 1K Tokens. Teste mit
+  GPT-3.5-turbo (10x günstiger) und wechsle später zu GPT-4.
+</Warning>
+
+## Verbesserungen für V2
+
+- **Token-Limit**: History begrenzen (max 10 Nachrichten)
+- **Streaming**: Antworten in Echtzeit zeigen
+- **Error-Handling**: API-Fehler sauber abfangen
+- **Logging**: User-Fragen für Analyse speichern
+
+## Video-Tutorial
+
+📺 **Video ansehen**: [https://video.bunny.net/placeholder-03-mini-projekt](https://video.bunny.net/placeholder)
+
+## Ship-it Checklist
+
+- [ ] System-Prompt geschrieben und getestet
+- [ ] Chat-Funktion funktioniert mit 3+ Nachrichten
+- [ ] Ein Edge-Case getestet (z.B. unpassende Frage)
+- [ ] Code committed und dokumentiert
+- [ ] (Optional) Als API-Endpoint deployed
+
+<Note>
+  **Glückwunsch!** Du hast dein erstes KI-Feature gebaut. In Lektion 4 erweitern
+  wir es mit eigenen Daten (RAG).
+</Note>

@@ -1,0 +1,63 @@
+# Agents kompakt: Tools & Orchestrierung
+
+Kurzer Nutzen: Lerne, wie ein einfacher Agent Entscheidungen trifft, Tools aufruft und Ergebnisse kontrolliert – ohne Overengineering.
+
+Video ansehen: https://video.bunny.net/TODO-agents-light
+
+## Warum das wichtig ist
+
+Agents verbinden Modelle mit Aktionen. Statt nur zu “reden”, können sie Tools ausführen, Rückfragen stellen und Informationen zusammentragen. Für Einsteiger genügt oft eine leichte Orchestrierung, z. B. eine einfache If‑Auswahl eines Tools.
+
+<Tip>
+  Starte mit 1–2 Tools (z. B. Suche, Formatieren). Komplexität kommt später.
+</Tip>
+
+## So gehst du vor
+
+1. Definiere 1–2 Tools mit klaren Signaturen.
+2. Baue eine einfache Entscheidungsregel (Keyword‑Match oder Auswahl per Modell).
+3. Führe das gewählte Tool aus, sammle Ergebnis, prüfe Abbruchbedingung.
+4. Logge jeden Schritt für Debugging.
+
+```ts
+// Minimaler Agent‑Step mit leichter Tool‑Auswahl
+type Tool = {
+  name: string;
+  run: (input: string) => Promise<string> | string;
+};
+
+const tools: Tool[] = [
+  { name: "uppercase", run: (s) => s.toUpperCase() },
+  { name: "reverse", run: (s) => s.split("").reverse().join("") },
+];
+
+export async function agentStep(input: string) {
+  const chosen = input.includes("!") ? "uppercase" : "reverse";
+  const tool = tools.find((t) => t.name === chosen)!;
+  const result = await tool.run(input);
+  return { tool: tool.name, result };
+}
+```
+
+<Warning>
+  Achte auf Abbruchbedingungen: Vermeide Endlosschleifen. Logge Tool‑Ergebnisse,
+  um Fehlpfade zu erkennen.
+</Warning>
+
+## Mini‑Aufgabe
+
+Definiere zwei einfache Tools (z. B. “summarize”, “extract”) und wähle per Regel aus. Logge das Ergebnis.
+
+<Checklist
+  id="lesson-05-tasks"
+  items={[
+    { id: "t1", label: "2 Tools definiert" },
+    { id: "t2", label: "Entscheidungsregel implementiert" },
+    { id: "t3", label: "Ergebnis geloggt und geprüft" },
+  ]}
+/>
+
+Weiterführende Ressourcen:
+
+- Tool‑Aufrufe/Function Calling – TODO Link
+- Realtime/Multimodal (Überblick) – TODO Link

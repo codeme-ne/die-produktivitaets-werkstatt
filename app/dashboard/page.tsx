@@ -1,18 +1,20 @@
-import Link from 'next/link';
-import { verifyAccess } from '@/libs/jwt';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
-import { lessons } from '@/content/lessons/manifest';
-import { readProgress, getCompletionStats } from '@/libs/progress';
-import LogoutButton from '@/components/LogoutButton';
+import Link from "next/link";
+import { verifyAccess } from "@/libs/jwt";
+import { isAdmin } from "@/libs/authz";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import { lessons } from "@/content/lessons/manifest";
+import { readProgress, getCompletionStats } from "@/libs/progress";
+import LogoutButton from "@/components/LogoutButton";
+import WhoamiBadge from "@/components/WhoamiBadge";
 
 export default async function DashboardPage() {
   // Verify JWT and get user data
   const cookieStore = await cookies();
-  const token = cookieStore.get('access_token');
+  const token = cookieStore.get("access_token");
 
   if (!token) {
-    redirect('/');
+    redirect("/");
   }
 
   let email: string;
@@ -20,7 +22,7 @@ export default async function DashboardPage() {
     const payload = await verifyAccess(token.value);
     email = payload.email;
   } catch {
-    redirect('/');
+    redirect("/");
   }
 
   // Get progress data
@@ -28,7 +30,12 @@ export default async function DashboardPage() {
   const stats = await getCompletionStats(lessons.length);
 
   // Calculate next open lesson
-  const nextOpenLesson = lessons.find((lesson) => !progress.completed.includes(lesson.slug));
+  const nextOpenLesson = lessons.find(
+    (lesson) => !progress.completed.includes(lesson.slug),
+  );
+
+  // Check if user is admin
+  const userIsAdmin = isAdmin(email);
 
   return (
     <main className="container mx-auto px-4 py-12 max-w-5xl">
@@ -36,9 +43,14 @@ export default async function DashboardPage() {
       <div className="flex justify-between items-start mb-12">
         <div>
           <h1 className="text-4xl md:text-5xl font-bold mb-2">Dashboard</h1>
-          <p className="text-lg text-base-content/70">Willkommen zurück, {email}</p>
+          <p className="text-lg text-base-content/70">
+            Willkommen zurück, {email}
+          </p>
         </div>
-        <LogoutButton />
+        <div className="flex items-center gap-2">
+          <WhoamiBadge />
+          <LogoutButton />
+        </div>
       </div>
 
       {/* Progress Overview Card */}
@@ -50,7 +62,13 @@ export default async function DashboardPage() {
             {/* Progress Ring */}
             <div
               className="radial-progress text-primary"
-              style={{ '--value': stats.percentage, '--size': '12rem', '--thickness': '1rem' } as any}
+              style={
+                {
+                  "--value": stats.percentage,
+                  "--size": "12rem",
+                  "--thickness": "1rem",
+                } as any
+              }
               role="progressbar"
               aria-valuenow={stats.percentage}
               aria-valuemin={0}
@@ -64,19 +82,26 @@ export default async function DashboardPage() {
               <div className="stats stats-vertical lg:stats-horizontal shadow mb-4">
                 <div className="stat">
                   <div className="stat-title">Abgeschlossen</div>
-                  <div className="stat-value text-primary">{stats.completed}</div>
+                  <div className="stat-value text-primary">
+                    {stats.completed}
+                  </div>
                   <div className="stat-desc">von {stats.total} Lektionen</div>
                 </div>
 
                 <div className="stat">
                   <div className="stat-title">Verbleibend</div>
-                  <div className="stat-value">{stats.total - stats.completed}</div>
+                  <div className="stat-value">
+                    {stats.total - stats.completed}
+                  </div>
                   <div className="stat-desc">Lektionen offen</div>
                 </div>
               </div>
 
               {nextOpenLesson ? (
-                <Link href={`/course/${nextOpenLesson.slug}`} className="btn btn-primary btn-block">
+                <Link
+                  href={`/course/${nextOpenLesson.slug}`}
+                  className="btn btn-primary btn-block"
+                >
                   Weiterlernen: {nextOpenLesson.title}
                 </Link>
               ) : (
@@ -94,7 +119,9 @@ export default async function DashboardPage() {
                       d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  <span>Glückwunsch! Du hast alle Lektionen abgeschlossen! 🎉</span>
+                  <span>
+                    Glückwunsch! Du hast alle Lektionen abgeschlossen! 🎉
+                  </span>
                 </div>
               )}
             </div>
@@ -127,7 +154,12 @@ export default async function DashboardPage() {
                           viewBox="0 0 24 24"
                           className="inline-block w-4 h-4 stroke-current"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          ></path>
                         </svg>
                       </div>
                     ) : (
@@ -140,7 +172,9 @@ export default async function DashboardPage() {
                   {/* Lesson Info */}
                   <div className="flex-1">
                     <h3 className="font-semibold text-lg">{lesson.title}</h3>
-                    <p className="text-sm text-base-content/70">{lesson.summary}</p>
+                    <p className="text-sm text-base-content/70">
+                      {lesson.summary}
+                    </p>
                   </div>
 
                   {/* Arrow */}
@@ -151,7 +185,12 @@ export default async function DashboardPage() {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </Link>
               );
@@ -165,6 +204,28 @@ export default async function DashboardPage() {
         <Link href="/course" className="btn btn-outline">
           Zur Kursübersicht
         </Link>
+        {userIsAdmin && (
+          <Link
+            href="/dashboard/admin/videos"
+            className="btn btn-outline btn-primary"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+              />
+            </svg>
+            Videos (Admin)
+          </Link>
+        )}
       </div>
     </main>
   );

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 interface LessonItem {
   slug: string;
@@ -30,7 +30,7 @@ export default function LessonsList({
             key={lesson.slug}
             href={`/course/${lesson.slug}`}
             className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow"
-            aria-current={isCurrent ? 'page' : undefined}
+            aria-current={isCurrent ? "page" : undefined}
           >
             <div className="card-body">
               {/* Header with badge and status */}
@@ -38,7 +38,7 @@ export default function LessonsList({
                 <div className="badge badge-primary badge-outline">
                   Lektion {lesson.order}
                 </div>
-                
+
                 <div className="flex gap-2">
                   {isCompleted && (
                     <div className="badge badge-success gap-2">
@@ -59,11 +59,9 @@ export default function LessonsList({
                       Erledigt
                     </div>
                   )}
-                  
+
                   {isNext && !isCompleted && (
-                    <div className="badge badge-accent gap-2">
-                      Weiter →
-                    </div>
+                    <div className="badge badge-accent gap-2">Weiter →</div>
                   )}
                 </div>
               </div>

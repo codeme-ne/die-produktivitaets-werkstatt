@@ -9,52 +9,58 @@ export interface Lesson {
 export const lessons: Lesson[] = [
   {
     order: 1,
-    slug: '01-intro',
-    title: 'Einführung in AI und den Kurs',
-    summary: 'Lerne die Grundlagen der künstlichen Intelligenz kennen und erfahre, was dich in diesem Kurs erwartet.',
-    module: () => import('./01-intro.mdx'),
+    slug: "01-willkommen",
+    title: "Willkommen in der Produktivitäts‑Werkstatt",
+    summary:
+      "Dein 12‑Wochen Start: Ziele, System und Erwartungshaltung – mit messbarem Fortschritt.",
+    module: () => import("./01-willkommen.mdx"),
   },
   {
     order: 2,
-    slug: '02-setup',
-    title: 'Setup und Entwicklungsumgebung',
-    summary: 'Richte deine Entwicklungsumgebung ein und lerne die wichtigsten Tools kennen.',
-    module: () => import('./02-setup.mdx'),
+    slug: "02-produktivitaets-mindset",
+    title: "Das Produktivitäts‑Mindset",
+    summary:
+      "Forschermindset: Testen, bewerten, anpassen – Growth Mindset statt Perfektionismus.",
+    module: () => import("./02-produktivitaets-mindset.mdx"),
   },
   {
     order: 3,
-    slug: '03-prompting',
-    title: 'Effektive Prompting-Techniken',
-    summary: 'Meistere die Kunst des Promptings für optimale AI-Ergebnisse.',
-    module: () => import('./03-prompting.mdx'),
+    slug: "03-produktivitaets-katalyst",
+    title: "Der Produktivitäts‑Katalyst",
+    summary:
+      "Standortbestimmung: Stärken, Potenziale und Ausgangsniveau in 15–20 Minuten feststellen.",
+    module: () => import("./03-produktivitaets-katalyst.mdx"),
   },
   {
     order: 4,
-    slug: '04-retrieval',
-    title: 'RAG: Retrieval Augmented Generation',
-    summary: 'Erweitere AI-Systeme mit deinen eigenen Daten durch RAG-Techniken.',
-    module: () => import('./04-retrieval.mdx'),
+    slug: "04-lebensproduktivitaetssystem",
+    title: "Das Lebensproduktivitätssystem – Die Gewässer des Lebens",
+    summary:
+      "Ein ganzheitliches Modell: Richtung, Antrieb, Selbst, Fähigkeiten, Raum und Freude.",
+    module: () => import("./04-lebensproduktivitaetssystem.mdx"),
   },
   {
     order: 5,
-    slug: '05-agents',
-    title: 'AI-Agents: Autonome Systeme aufbauen',
-    summary: 'Entwickle intelligente Agents, die selbstständig Tools nutzen und Probleme lösen.',
-    module: () => import('./05-agents.mdx'),
+    slug: "05-lebensproduktivitaetssystem-ueberblick",
+    title: "Lebensproduktivitätssystem: Überblick",
+    summary:
+      "Richtung (Vision) und Antrieb (Aktion) – plus 5 Fähigkeiten, Selbst und Umfeld.",
+    module: () => import("./05-lebensproduktivitaetssystem-ueberblick.mdx"),
   },
   {
     order: 6,
-    slug: '06-evaluation',
-    title: 'Evaluation: AI-Qualität messen',
-    summary: 'Lerne systematisch die Qualität, Performance und Kosten deiner AI-Systeme zu messen.',
-    module: () => import('./06-evaluation.mdx'),
+    slug: "06-experiment-woche-1-katalyst",
+    title: "Experiment Woche 1: Der Produktivitäts‑Katalyst",
+    summary:
+      "LEGO‑Prinzip: Bausteine testen, anpassen, integrieren – pragmatisch statt perfekt.",
+    module: () => import("./06-experiment-woche-1-katalyst.mdx"),
   },
   {
     order: 7,
-    slug: '07-deployment',
-    title: 'Deployment: AI-Systeme produktiv betreiben',
-    summary: 'Bringe deine AI-Anwendungen vom Prototyp in die Produktion mit Best Practices.',
-    module: () => import('./07-deployment.mdx'),
+    slug: "07-feedback-badge",
+    title: "Lebensproduktivitätssystem: Feedback [Badge verfügbar]",
+    summary: "Teile Feedback zu Modul 1 – Badge‑Hinweis am Ende der Lektion.",
+    module: () => import("./07-feedback-badge.mdx"),
   },
 ];
 
@@ -63,7 +69,9 @@ export function getLessonBySlug(slug: string): Lesson | undefined {
 }
 
 export function getNextLesson(currentSlug: string): Lesson | undefined {
-  const currentIndex = lessons.findIndex((lesson) => lesson.slug === currentSlug);
+  const currentIndex = lessons.findIndex(
+    (lesson) => lesson.slug === currentSlug,
+  );
   if (currentIndex === -1 || currentIndex === lessons.length - 1) {
     return undefined;
   }
@@ -71,7 +79,9 @@ export function getNextLesson(currentSlug: string): Lesson | undefined {
 }
 
 export function getPreviousLesson(currentSlug: string): Lesson | undefined {
-  const currentIndex = lessons.findIndex((lesson) => lesson.slug === currentSlug);
+  const currentIndex = lessons.findIndex(
+    (lesson) => lesson.slug === currentSlug,
+  );
   if (currentIndex <= 0) {
     return undefined;
   }

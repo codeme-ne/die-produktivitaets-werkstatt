@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     console.error("STRIPE_WEBHOOK_SECRET is not configured");
     return NextResponse.json(
       { error: "Webhook secret not configured" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
   if (!signature) {
     return NextResponse.json(
       { error: "Missing stripe-signature header" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -51,7 +51,9 @@ export async function POST(req: NextRequest) {
 
         // Only process paid sessions
         if (session.payment_status !== "paid") {
-          console.log(`Session ${session.id} payment not completed, skipping email`);
+          console.log(
+            `Session ${session.id} payment not completed, skipping email`,
+          );
           break;
         }
 

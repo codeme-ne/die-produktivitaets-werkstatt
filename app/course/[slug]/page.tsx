@@ -1,8 +1,14 @@
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import { getLessonBySlug, getNextLesson, getPreviousLesson, getNextOpenLesson, lessons } from '@/content/lessons/manifest';
-import { isLessonCompleted, readProgress } from '@/libs/progress';
-import LessonControls from '@/components/LessonControls';
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import {
+  getLessonBySlug,
+  getNextLesson,
+  getPreviousLesson,
+  getNextOpenLesson,
+  lessons,
+} from "@/content/lessons/manifest";
+import { isLessonCompleted, readProgress } from "@/libs/progress";
+import LessonControls from "@/components/LessonControls";
 
 export async function generateStaticParams() {
   return lessons.map((lesson) => ({
@@ -10,23 +16,31 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const lesson = getLessonBySlug(slug);
-  
+
   if (!lesson) {
     return {
-      title: 'Lektion nicht gefunden',
+      title: "Lektion nicht gefunden",
     };
   }
-  
+
   return {
     title: `${lesson.title} - AI-Kurs`,
     description: lesson.summary,
   };
 }
 
-export default async function LessonPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LessonPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const lesson = getLessonBySlug(slug);
 
@@ -37,7 +51,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
   const nextLesson = getNextLesson(slug);
   const previousLesson = getPreviousLesson(slug);
   const isCompleted = await isLessonCompleted(slug);
-  
+
   // Get progress for "Weiterlernen" feature
   const progress = await readProgress();
   const completedSet = new Set(progress.completed);
@@ -46,7 +60,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
 
   // Dynamically import the MDX content
   const MdxContent = (await lesson.module()).default;
-  
+
   return (
     <main className="container mx-auto px-4 py-8 max-w-4xl">
       {/* Breadcrumb */}
@@ -148,10 +162,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
         </Link>
 
         {nextLesson ? (
-          <Link
-            href={`/course/${nextLesson.slug}`}
-            className="btn btn-primary"
-          >
+          <Link href={`/course/${nextLesson.slug}`} className="btn btn-primary">
             Weiter
             <svg
               className="w-5 h-5 ml-2"
@@ -168,7 +179,9 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
             </svg>
           </Link>
         ) : (
-          <div className="badge badge-success badge-lg">Kurs abgeschlossen! 🎉</div>
+          <div className="badge badge-success badge-lg">
+            Kurs abgeschlossen! 🎉
+          </div>
         )}
       </div>
     </main>

@@ -1,4 +1,4 @@
-import { SignJWT, jwtVerify, type JWTPayload } from 'jose';
+import { SignJWT, jwtVerify, type JWTPayload } from "jose";
 
 export interface AccessTokenPayload extends JWTPayload {
   email: string;
@@ -9,10 +9,15 @@ export interface AccessTokenPayload extends JWTPayload {
  * Get the JWT secret (lazy-loaded to avoid build-time errors)
  */
 function getSecret(): Uint8Array {
-  if (!process.env.JWT_SECRET) {
-    throw new Error('JWT_SECRET environment variable is required');
+  // In development, allow a built-in fallback so local testing works without env keys
+  const isProd = process.env.NODE_ENV === "production";
+  const secret =
+    process.env.JWT_SECRET ||
+    (!isProd ? "dev-secret-please-change" : undefined);
+  if (!secret) {
+    throw new Error("JWT_SECRET environment variable is required");
   }
-  return new TextEncoder().encode(process.env.JWT_SECRET);
+  return new TextEncoder().encode(secret);
 }
 
 /**
@@ -20,11 +25,14 @@ function getSecret(): Uint8Array {
  * @param payload - { email, cid }
  * @returns JWT token string
  */
-export async function signAccess(payload: { email: string; cid: string }): Promise<string> {
+export async function signAccess(payload: {
+  email: string;
+  cid: string;
+}): Promise<string> {
   return new SignJWT({ email: payload.email, cid: payload.cid })
-    .setProtectedHeader({ alg: 'HS256' })
+    .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime('365d')
+    .setExpirationTime("365d")
     .sign(getSecret());
 }
 
@@ -36,10 +44,10 @@ export async function signAccess(payload: { email: string; cid: string }): Promi
  */
 export async function verifyAccess(token: string): Promise<AccessTokenPayload> {
   const { payload } = await jwtVerify(token, getSecret());
-  
+
   if (!payload.email || !payload.cid) {
-    throw new Error('Invalid token payload');
+    throw new Error("Invalid token payload");
   }
-  
+
   return payload as AccessTokenPayload;
 }

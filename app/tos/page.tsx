@@ -34,7 +34,7 @@ const TOS = () => {
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Stand: ${new Date().toLocaleDateString('de-DE')}
+          {`Stand: ${new Date().toLocaleDateString("de-DE")}
 
 Willkommen bei ${config.appName}!
 
@@ -101,7 +101,7 @@ Geld-zurück-Garantie:
 
 Wenn Sie innerhalb von 7 Tagen nach dem Kauf nicht zufrieden sind,
 erstatten wir Ihnen den vollen Kaufpreis. Kontaktieren Sie uns dazu
-per E-Mail unter ${config.resend.supportEmail || '[IHRE E-MAIL]'}.
+per E-Mail unter ${config.resend.supportEmail || "[IHRE E-MAIL]"}.
 
 7. DATENSCHUTZ
 
@@ -142,7 +142,7 @@ bleibt die Wirksamkeit der übrigen Bestimmungen davon unberührt.
 
 Für Fragen oder Anliegen zu diesen AGB kontaktieren Sie uns bitte unter:
 
-E-Mail: ${config.resend.supportEmail || '[IHRE E-MAIL]'}
+E-Mail: ${config.resend.supportEmail || "[IHRE E-MAIL]"}
 
 Vielen Dank, dass Sie ${config.appName} nutzen!`}
         </pre>

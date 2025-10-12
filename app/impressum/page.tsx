@@ -34,17 +34,16 @@ const Impressum = () => {
         >
           {`Angaben gemäß § 5 TMG
 
-[FIRMENNAME / VOLLSTÄNDIGER NAME]
-[STRASSE UND HAUSNUMMER]
-[PLZ STADT]
-[LAND]
+Lukas Zangerl
+[IHRE STRASSE UND HAUSNUMMER]
+[IHRE PLZ STADT]
+[IHR LAND]
 
 Kontakt:
-E-Mail: [IHRE E-MAIL-ADRESSE]
-Telefon: [IHRE TELEFONNUMMER (optional)]
+E-Mail: lukas@zangerlcoachingdynamics.com
 
 Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
-[IHR VOLLSTÄNDIGER NAME]
+Lukas Zangerl
 [ADRESSE WIE OBEN]
 
 Hinweis zur Online-Streitbeilegung:

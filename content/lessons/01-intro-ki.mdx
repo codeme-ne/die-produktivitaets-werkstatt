@@ -1,0 +1,72 @@
+# KI in 60 Minuten: Überblick & Ziele
+
+Willkommen! In dieser Lektion bekommst du einen kompakten Überblick über KI-Technologien und erfährst, was dich in den nächsten Lektionen erwartet.
+
+## Was ist KI eigentlich?
+
+Künstliche Intelligenz (KI) ermöglicht Maschinen, Aufgaben zu erledigen, die normalerweise menschliche Intelligenz erfordern:
+
+- **Textverarbeitung**: Texte verstehen, generieren, zusammenfassen
+- **Problemlösung**: Komplexe Fragen beantworten, Code schreiben
+- **Mustererkennung**: Daten analysieren, Trends erkennen
+
+<Tip>
+  KI ist kein Wunderwerk – es sind statistische Modelle, die auf riesigen
+  Datensätzen trainiert wurden. Verstehe die Grenzen!
+</Tip>
+
+## Die wichtigsten KI-Tools heute
+
+```typescript
+// Beispiel: Erste KI-Integration mit OpenAI
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+async function askAI(question: string) {
+  const response = await openai.chat.completions.create({
+    model: "gpt-4",
+    messages: [{ role: "user", content: question }],
+  });
+
+  return response.choices[0].message.content;
+}
+```
+
+### Aktuelle Hauptakteure
+
+- **OpenAI (GPT-4)**: Stärkste Allzweck-Modelle
+- **Anthropic (Claude)**: Lange Kontexte, präzise Antworten
+- **Google (Gemini)**: Multimodale Fähigkeiten
+
+## Deine Lernziele
+
+In diesem Kurs lernst du:
+
+1. **Prompting** – Effektiv mit KI kommunizieren
+2. **RAG** – Eigene Daten integrieren
+3. **Agents** – Autonome Systeme bauen
+4. **Deployment** – Live gehen mit Best Practices
+
+<Warning>
+  Dieser Kurs ist praxisorientiert. Du brauchst TypeScript-Grundkenntnisse und
+  eine Entwicklungsumgebung.
+</Warning>
+
+## Video-Tutorial
+
+📺 **Video ansehen**: [https://video.bunny.net/placeholder-01-intro](https://video.bunny.net/placeholder)
+
+## Quick-Start Checklist
+
+- [ ] API-Key bei OpenAI oder Anthropic besorgen
+- [ ] Node.js und TypeScript installiert
+- [ ] Einen Use Case im Kopf haben (z.B. Chatbot, Daten-Analyse)
+- [ ] Bereit zum Experimentieren
+
+<Note>
+  **Nächste Schritte**: In Lektion 2 lernst du die Grundlagen des Promptings –
+  der wichtigsten Skill für KI-Entwicklung.
+</Note>

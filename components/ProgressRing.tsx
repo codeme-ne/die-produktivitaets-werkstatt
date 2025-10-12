@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface ProgressRingProps {
   completed: number;
@@ -13,11 +13,11 @@ export default function ProgressRing({
   total,
   size = 120,
   thickness = 8,
-  className = '',
+  className = "",
 }: ProgressRingProps) {
   // Edge case: avoid division by zero
   const percentage = total === 0 ? 0 : Math.round((completed / total) * 100);
-  
+
   // Clamp to 0-100 range
   const clampedPercentage = Math.max(0, Math.min(100, percentage));
 
@@ -26,9 +26,9 @@ export default function ProgressRing({
       className={`radial-progress ${className}`}
       style={
         {
-          '--value': clampedPercentage,
-          '--size': `${size}px`,
-          '--thickness': `${thickness}px`,
+          "--value": clampedPercentage,
+          "--size": `${size}px`,
+          "--thickness": `${thickness}px`,
         } as React.CSSProperties
       }
       role="progressbar"

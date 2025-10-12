@@ -60,9 +60,9 @@ Die besten Ergebnisse von KI zu erhalten, basiert auf drei wesentlichen Elemente
 
 Hier die Erklärung:
 
-* **Kontext** — Zeige deiner KI das große Ganze. Sage ihr, was du erreichen möchtest – es ist wie die Bühne für eine gute Geschichte zu bereiten.  
-* **Seele** — Mache es menschlich. Füge deine Persönlichkeit, deinen Stil und deine Vorlieben hinzu, damit die KI deiner Stimme entspricht.  
-* **Feedback** — Es ist ein Gespräch, kein Einzelschuss. Überprüfe die Ausgabe der KI und verfeinere deinen nächsten Prompt.
+- **Kontext** — Zeige deiner KI das große Ganze. Sage ihr, was du erreichen möchtest – es ist wie die Bühne für eine gute Geschichte zu bereiten.
+- **Seele** — Mache es menschlich. Füge deine Persönlichkeit, deinen Stil und deine Vorlieben hinzu, damit die KI deiner Stimme entspricht.
+- **Feedback** — Es ist ein Gespräch, kein Einzelschuss. Überprüfe die Ausgabe der KI und verfeinere deinen nächsten Prompt.
 
 Denke an deine KI wie an ein neues Teammitglied. Um bedeutungsvolle Arbeit zu bekommen, musst du Zeit in Einarbeitung, Training und Anleitung investieren.
 
@@ -104,14 +104,14 @@ Teile der KI mit, was du möchtest. Sei klar und spezifisch, damit sie genau wei
 
 **Prompts, die du eingeben kannst:**
 
-* *"Kannst du **mir** 30 Variationen einer Überschrift geben, die sich darauf konzentrieren, \[Menschen neugierig zu machen\]?"*  
-* *"Bitte hilf mir, diese Diskussion **zusammenzufassen**: \[...\]."*  
-* *"Was, wenn wir ein 30-Sekunden-Skript für ein Werbe-\[Instagram-Reel\] über \[unser neues Buch\] **schreiben**?"*  
-* *"Kannst du einen \[Kurs-Überblick\] für \[Zielkunden\] **erstellen**?"*
+- _"Kannst du **mir** 30 Variationen einer Überschrift geben, die sich darauf konzentrieren, \[Menschen neugierig zu machen\]?"_
+- _"Bitte hilf mir, diese Diskussion **zusammenzufassen**: \[...\]."_
+- _"Was, wenn wir ein 30-Sekunden-Skript für ein Werbe-\[Instagram-Reel\] über \[unser neues Buch\] **schreiben**?"_
+- _"Kannst du einen \[Kurs-Überblick\] für \[Zielkunden\] **erstellen**?"_
 
 **Was ich gerne sage:**
 
-* *"Kannst du 20 schockierende Aussagen auf Basis dessen erstellen, was du über das Warum, die Philosophie und die Überschriften dieses Kurses weißt?"*
+- _"Kannst du 20 schockierende Aussagen auf Basis dessen erstellen, was du über das Warum, die Philosophie und die Überschriften dieses Kurses weißt?"_
 
 **Wichtigkeit: Sehr hoch**
 
@@ -123,13 +123,13 @@ KI ist gut darin, ein Experte zu sein. Teile der KI mit, welche Rolle sie übern
 
 **Prompts, die du eingeben kannst:**
 
-* *"Hallo\! **Du bist jetzt ein \[erfahrener Texter; erfahrener Pädagoge\], der sich auf \[Marketingkampagnen; transformative Kurse\] spezialisiert hat**. Du bist erstaunlich gut darin, \[Texte zu schreiben, die...; Lernerfahrungen zu schaffen, die...\]"*  
-* *"**Du hast hier eine unglaublich wichtige Rolle \- du bist ein \[Kreativdirektor; erfahrener Stratege\]**. Deine Aufgabe ist es, \[spezifische Aufgabe oder Ergebnis\]. Du liebst \[Vorlieben\]."*
+- _"Hallo\! **Du bist jetzt ein \[erfahrener Texter; erfahrener Pädagoge\], der sich auf \[Marketingkampagnen; transformative Kurse\] spezialisiert hat**. Du bist erstaunlich gut darin, \[Texte zu schreiben, die...; Lernerfahrungen zu schaffen, die...\]"_
+- _"**Du hast hier eine unglaublich wichtige Rolle \- du bist ein \[Kreativdirektor; erfahrener Stratege\]**. Deine Aufgabe ist es, \[spezifische Aufgabe oder Ergebnis\]. Du liebst \[Vorlieben\]."_
 
 **Was ich gerne sage:**
 
-* *"Denke daran, dass du ein erfahrener Texter bist, der die fesselndsten und interessantesten Worte schreiben kann, um die Aufmerksamkeit der Menschen zu gewinnen. Du verwendest einfache Worte. Deine Worte können die Herzen der Menschen berühren und sie neugierig machen. Du kannst gut mit den Ängsten, Ergebnissen, Erwartungen und Wünschen des Lesers in Verbindung treten."*  
-* Profi-Tipp: Du sagst "Denke daran", um wichtige Anweisungen zu verstärken
+- _"Denke daran, dass du ein erfahrener Texter bist, der die fesselndsten und interessantesten Worte schreiben kann, um die Aufmerksamkeit der Menschen zu gewinnen. Du verwendest einfache Worte. Deine Worte können die Herzen der Menschen berühren und sie neugierig machen. Du kannst gut mit den Ängsten, Ergebnissen, Erwartungen und Wünschen des Lesers in Verbindung treten."_
+- Profi-Tipp: Du sagst "Denke daran", um wichtige Anweisungen zu verstärken
 
 **Wichtigkeit: Hoch**
 
@@ -141,8 +141,8 @@ Teile der KI mit, wie du dir das Ergebnis vorstellst. Das bedeutet oft, genau da
 
 **Prompts, die du eingeben kannst:**
 
-* *"**Hier ist ein perfektes Beispiel:** \[teile das beste Beispiel\]"*  
-* *"Ich hätte gerne, dass die **Ausgabe genau so aussieht**: \[füge Ausgabebeispiel ein\]"*
+- _"**Hier ist ein perfektes Beispiel:** \[teile das beste Beispiel\]"_
+- _"Ich hätte gerne, dass die **Ausgabe genau so aussieht**: \[füge Ausgabebeispiel ein\]"_
 
 **Wichtigkeit: Mittel**
 
@@ -154,12 +154,12 @@ Teile der KI mit, welche Art von Ausgabe du haben möchtest. Z.B. ein Angebot, e
 
 **Prompts, die du eingeben kannst:**
 
-* *"Nimm dieses Transkript und verwandle es in **ein Q\&A-Dokument**."*  
-* *"Du entwirfst **einen Buchvorschlag** für Verlage....."*
+- _"Nimm dieses Transkript und verwandle es in **ein Q\&A-Dokument**."_
+- _"Du entwirfst **einen Buchvorschlag** für Verlage....."_
 
 **Was ich gerne sage:**
 
-* *"Jetzt wirst du die schockierende Aussage für die Verkaufsseite dieses Kurses schreiben. Eine schockierende Aussage ist eine Zeile, die mit 'Wusstest du, dass ...?' beginnt und die Menschen dazu bringt, 'Wow, hier muss ich aufpassen' zu denken. Die Zeile sollte nicht länger als 15 Wörter sein."*
+- _"Jetzt wirst du die schockierende Aussage für die Verkaufsseite dieses Kurses schreiben. Eine schockierende Aussage ist eine Zeile, die mit 'Wusstest du, dass ...?' beginnt und die Menschen dazu bringt, 'Wow, hier muss ich aufpassen' zu denken. Die Zeile sollte nicht länger als 15 Wörter sein."_
 
 **Wichtigkeit: Mittel**
 
@@ -171,8 +171,8 @@ Teile der KI mit, für wen diese Ausgabe bestimmt ist. Wenn die KI die Zielgrupp
 
 **Prompts, die du eingeben kannst:**
 
-* *"Du schreibst dieses Projektbriefing für **eine Gruppe von 10-Jährigen, die Beispiele und Analogien aus Filmen lieben.**"*  
-* *"Diese Präsentation ist für **Angel-Investoren, die Verkaufsprognosen, klare Monetarisierungsstrategien und Wettbewerbsvorteile priorisieren**. Deshalb möchtest du sie prägnant, überzeugend und fokussiert auf diese Schlüsselanliegen halten."*
+- _"Du schreibst dieses Projektbriefing für **eine Gruppe von 10-Jährigen, die Beispiele und Analogien aus Filmen lieben.**"_
+- _"Diese Präsentation ist für **Angel-Investoren, die Verkaufsprognosen, klare Monetarisierungsstrategien und Wettbewerbsvorteile priorisieren**. Deshalb möchtest du sie prägnant, überzeugend und fokussiert auf diese Schlüsselanliegen halten."_
 
 # **Wie man \<Seele\> einfügt**
 
@@ -192,12 +192,12 @@ Teile, was du weißt, um die KI zu leiten. Gib ihr deine Ideen, Erkenntnisse ode
 
 **Prompts, die du eingeben kannst:**
 
-* *"Lass uns an \[diesem\] arbeiten, das \[das macht\]. **Das habe ich jetzt:** \[füge Notizen ein\] Kannst du \[Aufgabe hier einfügen\]?"*  
-* *"Ich denke über \[etwas\] nach. **Hier sind meine Gedanken** zu \[dem Thema\]: \[füge Gedanken ein\] Kannst du \[Aufgabe hier einfügen\]?"*
+- _"Lass uns an \[diesem\] arbeiten, das \[das macht\]. **Das habe ich jetzt:** \[füge Notizen ein\] Kannst du \[Aufgabe hier einfügen\]?"_
+- _"Ich denke über \[etwas\] nach. **Hier sind meine Gedanken** zu \[dem Thema\]: \[füge Gedanken ein\] Kannst du \[Aufgabe hier einfügen\]?"_
 
 **Was ich gerne sage:**
 
-* \*"Lass uns jetzt den nächsten Abschnitt bearbeiten, der mich als Kursersteller vorstellt. Dieser Abschnitt sollte weniger als 150 Wörter umfassen. Das ist meine Geschichte:
+- \*"Lass uns jetzt den nächsten Abschnitt bearbeiten, der mich als Kursersteller vorstellt. Dieser Abschnitt sollte weniger als 150 Wörter umfassen. Das ist meine Geschichte:
 
 Ich heiße Lukas und leite den ProduKItv-Kurs. Ich habe erkannt, dass es unmöglich ist, so viel zu erledigen, wenn ich keine KI nutze. Ich habe es ausprobiert, als ChatGPT zum ersten Mal herauskam. Es war nicht so gut wie das, was du heute findest, aber ich habe sofort die Kraft davon gesehen. Jetzt kann ich ohne es nicht leben. Ich brainstorme neue Videoideen, während ich spazieren gehe. Ich tausche Ideen mit KI aus, um mein Schreiben zu verbessern. Ich erstelle Präsentationsfolien mit nur wenigen Stichpunkten.
 
@@ -213,12 +213,12 @@ Sage der KI genau, wie sich die Ausgabe anfühlen soll. Deine Vorlieben machen d
 
 **Prompts, die du eingeben kannst:**
 
-* *"Kannst du helfen, **alle grammatikalischen Fehler und passive Sprache** aus diesem Blogbeitrag zu entfernen?"*  
-* *"Ich liebe \[diesen Teil\] absolut, aber er ist **ein bisschen zu \[formal/informell/enthusiastisch\]**. Kannst du ihn mit einem \[anderen Ton\] umschreiben?"*
+- _"Kannst du helfen, **alle grammatikalischen Fehler und passive Sprache** aus diesem Blogbeitrag zu entfernen?"_
+- _"Ich liebe \[diesen Teil\] absolut, aber er ist **ein bisschen zu \[formal/informell/enthusiastisch\]**. Kannst du ihn mit einem \[anderen Ton\] umschreiben?"_
 
 **Was ich gerne sage:**
 
-* *"Kannst du 20 Punkte auflisten, die sich auf die Vorteile und Bedeutungen von \[diesem\] konzentrieren? Achte auch darauf, die Verbindungen aus den anderen beiden Abschnitten herzustellen: \[Abschnitte einfügen\]."*
+- _"Kannst du 20 Punkte auflisten, die sich auf die Vorteile und Bedeutungen von \[diesem\] konzentrieren? Achte auch darauf, die Verbindungen aus den anderen beiden Abschnitten herzustellen: \[Abschnitte einfügen\]."_
 
 **Wichtigkeit: Mittel**
 
@@ -230,12 +230,12 @@ Lass die KI wissen, worauf sie sich konzentrieren und was sie vermeiden soll.
 
 **Prompts, die du eingeben kannst:**
 
-* *"Lass uns hier technischen Jargon vermeiden — alles, was wir brauchen, ist, einfach zu bleiben."*  
-* *"Kannst du dich auf einen positiven Ton konzentrieren und jede Negativität in der Botschaft vermeiden? Wir hätten gerne eine Feel-Good-Stimmung\!"*
+- _"Lass uns hier technischen Jargon vermeiden — alles, was wir brauchen, ist, einfach zu bleiben."_
+- _"Kannst du dich auf einen positiven Ton konzentrieren und jede Negativität in der Botschaft vermeiden? Wir hätten gerne eine Feel-Good-Stimmung\!"_
 
 **Was ich gerne sage:**
 
-* *"Lass uns jede Sprache vermeiden, die für einen Achtklässler zu schwer zu verstehen ist. Konzentriere dich darauf, positiv und freundlich zu sein. Wer auch immer dies liest, sollte das Gefühl haben, dass ein Freund mit ihm spricht."*
+- _"Lass uns jede Sprache vermeiden, die für einen Achtklässler zu schwer zu verstehen ist. Konzentriere dich darauf, positiv und freundlich zu sein. Wer auch immer dies liest, sollte das Gefühl haben, dass ein Freund mit ihm spricht."_
 
 # **Wie man KI \<Feedback\> gibt**
 
@@ -255,9 +255,9 @@ Zeige, was funktioniert. Lass die KI wissen, wenn sie etwas gut trifft, damit si
 
 **Prompts, die du eingeben kannst:**
 
-* "Das gefällt mir \[Variante 1 und Variante 2 einfügen...\]"  
-* *"Ich mag, wie dieser Ausdruck den Ton trifft, den ich anstrebe. Lass uns darauf aufbauen."*  
-* *"Dieser Satz trifft genau ins Schwarze\! Lass uns diesen Ansatz durchgängig verwenden."*
+- "Das gefällt mir \[Variante 1 und Variante 2 einfügen...\]"
+- _"Ich mag, wie dieser Ausdruck den Ton trifft, den ich anstrebe. Lass uns darauf aufbauen."_
+- _"Dieser Satz trifft genau ins Schwarze\! Lass uns diesen Ansatz durchgängig verwenden."_
 
 **2\. Ablehnung**
 
@@ -269,9 +269,9 @@ Sei klar darüber, was nicht funktioniert. Erkläre die Lücken und wie es besse
 
 **Prompts, die du eingeben kannst:**
 
-* *"Das fühlt sich etwas generisch an—kannst du es spezifischer für \[meine Zielgruppe\] machen?"*  
-* *"Der Hauptpunkt zu \[bestimmtem Thema\] fehlt. Kannst du das hinzufügen?"*  
-* *"Dieser Text resoniert noch nicht gut mit \[spezifischer Zielgruppe\]. Kannst du ihn verfeinern? \[Text\]"*
+- _"Das fühlt sich etwas generisch an—kannst du es spezifischer für \[meine Zielgruppe\] machen?"_
+- _"Der Hauptpunkt zu \[bestimmtem Thema\] fehlt. Kannst du das hinzufügen?"_
+- _"Dieser Text resoniert noch nicht gut mit \[spezifischer Zielgruppe\]. Kannst du ihn verfeinern? \[Text\]"_
 
 **3\. Iteration**
 
@@ -283,9 +283,9 @@ Bitte um mehr Optionen oder Anpassungen, um die Ausgabe weiter zu verfeinern.
 
 **Prompts, die du eingeben kannst:**
 
-* *"Kannst du einige verschiedene \[Überschriften\] ausprobieren? Eine spielerische, eine formelle und eine, die Neugier weckt."*  
-* *"Das ist gut, aber ich hätte gerne eine andere Version, die sich mehr auf \[Fokus\] konzentriert."*  
-* *"Kannst du mir helfen, diese Besprechungsnotizen in drei Abschnitte zusammenzufassen? Jeder Abschnitt sollte 3 Aufzählungspunkte haben. Hier ist das Besprechungstranskript: \[Besprechungsnotizen\]"*
+- _"Kannst du einige verschiedene \[Überschriften\] ausprobieren? Eine spielerische, eine formelle und eine, die Neugier weckt."_
+- _"Das ist gut, aber ich hätte gerne eine andere Version, die sich mehr auf \[Fokus\] konzentriert."_
+- _"Kannst du mir helfen, diese Besprechungsnotizen in drei Abschnitte zusammenzufassen? Jeder Abschnitt sollte 3 Aufzählungspunkte haben. Hier ist das Besprechungstranskript: \[Besprechungsnotizen\]"_
 
 # **8 Methoden zur Transformation deiner Arbeitsweise**
 
@@ -293,7 +293,7 @@ Bitte um mehr Optionen oder Anpassungen, um die Ausgabe weiter zu verfeinern.
 
 \[BILD\]
 
-Du musst dir keine Sorgen machen, den perfekten, alles umfassenden Prompt zu erstellen. Der beste Weg, mit KI zu arbeiten, ist ***Schritt für Schritt*** — ***immer mit Fokus auf die nächste benötigte Ausgabe***.
+Du musst dir keine Sorgen machen, den perfekten, alles umfassenden Prompt zu erstellen. Der beste Weg, mit KI zu arbeiten, ist **_Schritt für Schritt_** — **_immer mit Fokus auf die nächste benötigte Ausgabe_**.
 
 Betrachte es als ein Gespräch: Du lieferst Kontext und Perspektive bei jedem Schritt, und die KI baut darauf auf.
 
@@ -305,32 +305,30 @@ Hier ist, wie du diesen Funken in etwas viel Größeres verwandeln kannst:
 
 ---
 
-* **Schritt 1: Stelle große, zum Nachdenken anregende Fragen**
+- **Schritt 1: Stelle große, zum Nachdenken anregende Fragen**
 
-   Stell dir vor: Du versuchst herauszufinden, wohin deine grobe Idee führen könnte. Das Geheimnis? Die richtigen Fragen stellen, die deinen Geist öffnen.
+  Stell dir vor: Du versuchst herauszufinden, wohin deine grobe Idee führen könnte. Das Geheimnis? Die richtigen Fragen stellen, die deinen Geist öffnen.
+  - **Was du tust**: Denke an Fragen, die deine Idee in verschiedene Richtungen führen. Sie sollten sich wie kreative Anregungen anfühlen, die dein Gehirn zum Summen bringen.
 
-  * **Was du tust**: Denke an Fragen, die deine Idee in verschiedene Richtungen führen. Sie sollten sich wie kreative Anregungen anfühlen, die dein Gehirn zum Summen bringen.
+  - **Prompts, die du eingeben kannst**:
+    - _"Kannst du mir einige ungewöhnliche Blickwinkel geben, um diese Idee zu erforschen: \[füge deine Idee ein\]?"_
+    - _"Welche Schlüsselfragen sollte ich mir stellen, um \[meine Idee\] vollständig zu entwickeln?"_
 
-  * **Prompts, die du eingeben kannst**:
+  - **Tools, die du verwendest**: ChatGPT für das Generieren von Erkundungsfragen.
 
-    * *"Kannst du mir einige ungewöhnliche Blickwinkel geben, um diese Idee zu erforschen: \[füge deine Idee ein\]?"*  
-    * *"Welche Schlüsselfragen sollte ich mir stellen, um \[meine Idee\] vollständig zu entwickeln?"*  
-  * **Tools, die du verwendest**: ChatGPT für das Generieren von Erkundungsfragen.
+- **Schritt 2: Brainstorming laut aussprechen**
 
-* **Schritt 2: Brainstorming laut aussprechen**
+  Stell dir vor, du sitzt mit einem Freund – oder sogar deinem KI-Assistenten – und sprichst deine Gedanken laut aus. Dieser verbale Gedankenfluss hilft Ideen auf eine Weise zu fließen, die das Tippen manchmal nicht kann.
+  - **Was du tust**: Verwende die gesammelten Fragen und lasse entweder einen Freund fragen oder frage dich selbst. Sprich frei, während du deine Gedanken aufzeichnest.
 
-   Stell dir vor, du sitzt mit einem Freund – oder sogar deinem KI-Assistenten – und sprichst deine Gedanken laut aus. Dieser verbale Gedankenfluss hilft Ideen auf eine Weise zu fließen, die das Tippen manchmal nicht kann.
+  - **Prompts, die du eingeben kannst**:
+    - _N/A (Dies ist eine verbale Übung)_
 
-  * **Was du tust**: Verwende die gesammelten Fragen und lasse entweder einen Freund fragen oder frage dich selbst. Sprich frei, während du deine Gedanken aufzeichnest.
+  - **Tools, die du verwendest**: Eine Sprachaufnahme-App wie **VoicePal** oder ein KI-gestütztes Transkriptions-Tool.
 
-  * **Prompts, die du eingeben kannst**:
+- **Schritt 3: Verwandle den Gedankenfluss in brauchbare Ideen**
 
-    * *N/A (Dies ist eine verbale Übung)*  
-  * **Tools, die du verwendest**: Eine Sprachaufnahme-App wie **VoicePal** oder ein KI-gestütztes Transkriptions-Tool.
-
-* **Schritt 3: Verwandle den Gedankenfluss in brauchbare Ideen**
-
-   \[**2\. KI-Prompt: Verwandle deine unbearbeitete Sprachnotiz in einen strukturierten Leitfaden, um deine Ideen zu erweitern**\]
+  \[**2\. KI-Prompt: Verwandle deine unbearbeitete Sprachnotiz in einen strukturierten Leitfaden, um deine Ideen zu erweitern**\]
 
 ---
 
@@ -340,42 +338,39 @@ Hier ist, wie du es in nur drei Schritten schaffen kannst:
 
 ---
 
-* **Schritt 1: Bereite die Bühne für die KI**
+- **Schritt 1: Bereite die Bühne für die KI**
 
-   Stell dir vor: Du briefst einen fähigen Assistenten, der bereit ist, dir zu helfen, deine Idee zu formen. Je mehr Details du teilst, desto besser die Ergebnisse.
+  Stell dir vor: Du briefst einen fähigen Assistenten, der bereit ist, dir zu helfen, deine Idee zu formen. Je mehr Details du teilst, desto besser die Ergebnisse.
+  - **Was du tust**: Erkläre klar dein Ziel, die Rolle, die die KI spielen soll, und die Art von Expertise, die sie mitbringen soll. Definiere die Ausgabe, die du anstrebst.
 
-  * **Was du tust**: Erkläre klar dein Ziel, die Rolle, die die KI spielen soll, und die Art von Expertise, die sie mitbringen soll. Definiere die Ausgabe, die du anstrebst.
+  - **Prompts, die du eingeben kannst**:
+    - \*"Du bist ein Experte in \[spezifischem Bereich\]. Du bist wirklich gut in \[Fähigkeiten\].
+    - Deine Aufgabe ist es, eine Gliederung für \[die Idee\] zu erstellen.
 
-  * **Prompts, die du eingeben kannst**:
+  - Dies ist die Struktur des Leitfadens: \[gewünschte Struktur\]."\*
 
-    * \*"Du bist ein Experte in \[spezifischem Bereich\]. Du bist wirklich gut in \[Fähigkeiten\].  
-    * Deine Aufgabe ist es, eine Gliederung für \[die Idee\] zu erstellen.  
-  * Dies ist die Struktur des Leitfadens: \[gewünschte Struktur\]."\*
+  - **Tools, die du verwendest**: ChatGPT für kontextgesteuertes Brainstorming.
 
-  * **Tools, die du verwendest**: ChatGPT für kontextgesteuertes Brainstorming.
+- **Schritt 2: Generiere den ersten Entwurf**
 
-* **Schritt 2: Generiere den ersten Entwurf**
+  Stelle dir die KI als deinen Co-Autor vor, der eine Gliederung auf Basis deiner Notizen erstellt. Du siehst zu, wie die Struktur deiner Idee Gestalt annimmt.
+  - **Was du tust**: Teile deine Notizen und bitte die KI, sie in eine strukturierte Gliederung umzuwandeln.
 
-   Stelle dir die KI als deinen Co-Autor vor, der eine Gliederung auf Basis deiner Notizen erstellt. Du siehst zu, wie die Struktur deiner Idee Gestalt annimmt.
+  - **Prompts, die du eingeben kannst**:
+    - _"Basierend auf diesen Notizen, kannst du eine Gliederung erstellen, die \[bestimmte Abschnitte oder Themen\] abdeckt. Mache es klar und logisch."_
 
-  * **Was du tust**: Teile deine Notizen und bitte die KI, sie in eine strukturierte Gliederung umzuwandeln.
+  - **Tools, die du verwendest**: ChatGPT, um deine Ideen in einen Gliederungsentwurf zu organisieren.
 
-  * **Prompts, die du eingeben kannst**:
+- **Schritt 3: Verfeinere durch Feedback**
 
-    * *"Basierend auf diesen Notizen, kannst du eine Gliederung erstellen, die \[bestimmte Abschnitte oder Themen\] abdeckt. Mache es klar und logisch."*  
-  * **Tools, die du verwendest**: ChatGPT, um deine Ideen in einen Gliederungsentwurf zu organisieren.
+  Du bist jetzt der Regisseur, der die Gliederung feinabstimmt, um sie perfekt zu machen.
+  - **Was du tust**: Überprüfe den Entwurf und zeige auf, was funktioniert, was nicht und was fehlt. Bitte die KI aktiv, zu verfeinern, zu erweitern oder Möglichkeiten vorzuschlagen.
 
-* **Schritt 3: Verfeinere durch Feedback**
+  - **Prompts, die du eingeben kannst**:
+    - _"Ich mag, wie du \[Abschnitt\] strukturiert hast. Kannst du ihm mehr Tiefe geben, indem du dich auf \[diesen Punkt\] konzentrierst?"_
+    - _"Dieser Teil fühlt sich nicht richtig an – kannst du ihn besser auf \[spezifisches Ziel\] ausrichten? \[Füge den Teil ein\]"_
 
-   Du bist jetzt der Regisseur, der die Gliederung feinabstimmt, um sie perfekt zu machen.
-
-  * **Was du tust**: Überprüfe den Entwurf und zeige auf, was funktioniert, was nicht und was fehlt. Bitte die KI aktiv, zu verfeinern, zu erweitern oder Möglichkeiten vorzuschlagen.
-
-  * **Prompts, die du eingeben kannst**:
-
-    * *"Ich mag, wie du \[Abschnitt\] strukturiert hast. Kannst du ihm mehr Tiefe geben, indem du dich auf \[diesen Punkt\] konzentrierst?"*  
-    * *"Dieser Teil fühlt sich nicht richtig an – kannst du ihn besser auf \[spezifisches Ziel\] ausrichten? \[Füge den Teil ein\]"*  
-  * **Tools, die du verwendest**: ChatGPT für Iterationen, um sicherzustellen, dass deine Gliederung sich genau zu dem entwickelt, was du brauchst.
+  - **Tools, die du verwendest**: ChatGPT für Iterationen, um sicherzustellen, dass deine Gliederung sich genau zu dem entwickelt, was du brauchst.
 
 ---
 
@@ -385,40 +380,37 @@ Manchmal beginnt die beste Recherche damit, die KI die Führung übernehmen zu l
 
 ---
 
-* **Schritt 1: Bereite die Bühne für die KI**
+- **Schritt 1: Bereite die Bühne für die KI**
 
-   Stelle dir die KI als deinen Forschungsassistenten vor – bereit, einzutauchen, aber mit klaren Anweisungen.
+  Stelle dir die KI als deinen Forschungsassistenten vor – bereit, einzutauchen, aber mit klaren Anweisungen.
+  - **Was du tust**: Wähle einen bestimmten Teil deines Themas, auf den du dich konzentrieren möchtest, und erkläre dein Ziel, die Rolle der KI und die Art der Expertise, die du benötigst.
 
-  * **Was du tust**: Wähle einen bestimmten Teil deines Themas, auf den du dich konzentrieren möchtest, und erkläre dein Ziel, die Rolle der KI und die Art der Expertise, die du benötigst.
+  - **Prompts, die du eingeben kannst**:
+    - _"Du bist ein Experte in \[Bereich/Thema\]. Kannst du Beispiele, Datenpunkte und Metaphern finden, um \[spezifisches Thema\] zu erklären?"_
+    - _"Agiere als Forscher und schlage \[kreative Wege/Dateneinblicke/Beispiele\] für diese Idee vor."_
 
-  * **Prompts, die du eingeben kannst**:
+  - **Tools, die du verwendest**: ChatGPT, um dein Thema eingehend zu erforschen.
 
-    * *"Du bist ein Experte in \[Bereich/Thema\]. Kannst du Beispiele, Datenpunkte und Metaphern finden, um \[spezifisches Thema\] zu erklären?"*  
-    * *"Agiere als Forscher und schlage \[kreative Wege/Dateneinblicke/Beispiele\] für diese Idee vor."*  
-  * **Tools, die du verwendest**: ChatGPT, um dein Thema eingehend zu erforschen.
+- **Schritt 2: Lass die KI vorschlagen und erkunden**
 
-* **Schritt 2: Lass die KI vorschlagen und erkunden**
+  Stelle dir vor, wie die KI dir einen stetigen Strom von Ideen liefert – Beispiele, Vergleiche und Einsichten, um dein Thema zum Leben zu erwecken.
+  - **Was du tust**: Überprüfe die Vorschläge der KI und identifiziere diejenigen, die am besten mit deinen Zielen übereinstimmen.
 
-   Stelle dir vor, wie die KI dir einen stetigen Strom von Ideen liefert – Beispiele, Vergleiche und Einsichten, um dein Thema zum Leben zu erwecken.
+  - **Prompts, die du eingeben kannst**:
+    - _"Kannst du reale Beispiele finden, um \[dieses Konzept\] zu veranschaulichen?"_
+    - _"Welche Metaphern hast du, um \[dieses Thema\] auf eine nachvollziehbare Weise zu erklären?"_
 
-  * **Was du tust**: Überprüfe die Vorschläge der KI und identifiziere diejenigen, die am besten mit deinen Zielen übereinstimmen.
+  - **Tools, die du verwendest**: ChatGPT für Brainstorming und Generieren von Beispielen.
 
-  * **Prompts, die du eingeben kannst**:
+- **Schritt 3: Organisiere und füge deiner Gliederung hinzu**
 
-    * *"Kannst du reale Beispiele finden, um \[dieses Konzept\] zu veranschaulichen?"*  
-    * *"Welche Metaphern hast du, um \[dieses Thema\] auf eine nachvollziehbare Weise zu erklären?"*  
-  * **Tools, die du verwendest**: ChatGPT für Brainstorming und Generieren von Beispielen.
+  Jetzt stellst du dir vor, wie du die Perlen, die dir die KI geliefert hat, sortierst und die besten manuell in deine Gliederung einfügst, um deine Ideen zu festigen.
+  - **Was du tust**: Wähle die Beispiele, Metaphern oder Datenpunkte aus, die am besten zu deiner Botschaft passen, und integriere sie in deine Struktur.
 
-* **Schritt 3: Organisiere und füge deiner Gliederung hinzu**
+  - **Prompts, die du eingeben kannst**:
+    - _N/A (Dies ist ein manueller Schritt)_
 
-   Jetzt stellst du dir vor, wie du die Perlen, die dir die KI geliefert hat, sortierst und die besten manuell in deine Gliederung einfügst, um deine Ideen zu festigen.
-
-  * **Was du tust**: Wähle die Beispiele, Metaphern oder Datenpunkte aus, die am besten zu deiner Botschaft passen, und integriere sie in deine Struktur.
-
-  * **Prompts, die du eingeben kannst**:
-
-    * *N/A (Dies ist ein manueller Schritt)*  
-  * **Tools, die du verwendest**: Notion, Google Docs oder ein beliebiges Gliederungstool, um deine Recherche zu organisieren und zu verfeinern.
+  - **Tools, die du verwendest**: Notion, Google Docs oder ein beliebiges Gliederungstool, um deine Recherche zu organisieren und zu verfeinern.
 
 ---
 
@@ -428,44 +420,41 @@ Du kannst unzählige kreative Variationen erkunden und die eine finden, die klic
 
 ---
 
-* **Schritt 1: Zeige der KI, was dir gefällt**
+- **Schritt 1: Zeige der KI, was dir gefällt**
 
-   Denke daran wie den Aufbau deines Inspirationsboards. Sammle Beispiele, die den Ton oder Stil einfangen, den du anstrebst.
+  Denke daran wie den Aufbau deines Inspirationsboards. Sammle Beispiele, die den Ton oder Stil einfangen, den du anstrebst.
+  - **Was du tust**: Sammle Titel oder Überschriften, die du bewunderst (z.B. Buchtitel, Verkaufsseiten-Header) und teile sie mit der KI als Referenzpunkte.
 
-  * **Was du tust**: Sammle Titel oder Überschriften, die du bewunderst (z.B. Buchtitel, Verkaufsseiten-Header) und teile sie mit der KI als Referenzpunkte.
+  - **Prompts, die du eingeben kannst**:
+    - _"Hier sind einige Überschriften, die mir gefallen: \[Beispiele einfügen\]. Kannst du diese verwenden, um mir zu helfen, 30 Variationen einer Überschrift basierend auf \[diesem Transkript\] zu brainstormen?"_
+    - _"Diese Überschriften sind die besten: \[Überschriften einfügen\], kannst du 20 weitere Variationen basierend darauf erstellen?"_
 
-  * **Prompts, die du eingeben kannst**:
+  - **Tools, die du verwendest**: ChatGPT für Brainstorming und Ideengenerierung.
 
-    * *"Hier sind einige Überschriften, die mir gefallen: \[Beispiele einfügen\]. Kannst du diese verwenden, um mir zu helfen, 30 Variationen einer Überschrift basierend auf \[diesem Transkript\] zu brainstormen?"*  
-    * *"Diese Überschriften sind die besten: \[Überschriften einfügen\], kannst du 20 weitere Variationen basierend darauf erstellen?"*  
-  * **Tools, die du verwendest**: ChatGPT für Brainstorming und Ideengenerierung.
+- **Schritt 2: Zerlege es und erkunde Optionen**
 
-* **Schritt 2: Zerlege es und erkunde Optionen**
+  Stelle dir vor, du erstellst ein Puzzle – jedes Teil (wie Ton, Schlüsselwörter oder Struktur) trägt zum größeren Bild bei.
+  - **Was du tust**: Zerlege die Überschrift in Teile (z.B. Hook, Vorteil oder Handlungsaufforderung) und brainstorme Optionen für jedes Teil.
 
-   Stelle dir vor, du erstellst ein Puzzle – jedes Teil (wie Ton, Schlüsselwörter oder Struktur) trägt zum größeren Bild bei.
+  - **Prompts, die du eingeben kannst**:
+    - _"Ich zerlege die Überschrift in mehrere Komponenten, damit wir Teil für Teil brainstormen können. Kannst du 10 Optionen für den Hook dieser Überschrift generieren: \[Idee einfügen\]? Das sind gute Hooks: \[füge 3 hochwertige Hooks ein\]"_
+    - _"Wir haben uns entschieden, diesen Vorteil "\[füge den einen Vorteil ein\]" in der Überschrift zu verwenden. Kannst du 5 verschiedene Möglichkeiten teilen, diesen Vorteil zu beschreiben?"_
 
-  * **Was du tust**: Zerlege die Überschrift in Teile (z.B. Hook, Vorteil oder Handlungsaufforderung) und brainstorme Optionen für jedes Teil.
+  - **Tools, die du verwendest**: ChatGPT für teilspezifisches Brainstorming, Trello oder Notion zum Organisieren von Optionen.
 
-  * **Prompts, die du eingeben kannst**:
+- **Schritt 3: Kombiniere und verfeinere Variationen**
 
-    * *"Ich zerlege die Überschrift in mehrere Komponenten, damit wir Teil für Teil brainstormen können. Kannst du 10 Optionen für den Hook dieser Überschrift generieren: \[Idee einfügen\]? Das sind gute Hooks: \[füge 3 hochwertige Hooks ein\]"*  
-    * *"Wir haben uns entschieden, diesen Vorteil "\[füge den einen Vorteil ein\]" in der Überschrift zu verwenden. Kannst du 5 verschiedene Möglichkeiten teilen, diesen Vorteil zu beschreiben?"*  
-  * **Tools, die du verwendest**: ChatGPT für teilspezifisches Brainstorming, Trello oder Notion zum Organisieren von Optionen.
+  Jetzt stelle dir vor, wie du deine Lieblingsoptionen wieder in die KI einspeist, um eine breite Palette vollständiger Überschriften zu erstellen.
+  - **Was du tust**: Bitte die KI, die besten Teile zu vollständigen Variationen zu kombinieren und mehr Optionen zu generieren. Wiederhole dies, bis du die eine findest, die du liebst.
 
-* **Schritt 3: Kombiniere und verfeinere Variationen**
+  - **Prompts, die du eingeben kannst**:
+    - \*"Eine Überschrift sollte Problem, Lösung und Ergebnis enthalten. Hier ist meine Liste von Optionen für jeden Teil der Überschrift. Kannst du sie zu 50 kreativen Variationen kombinieren?
+    - Problem: A B C
+    - Lösung: J K L
+    - Ergebnis: X Y Z"\*
+    - _"Kannst du diese verfeinern, damit sie sich mehr \[bestimmter Ton oder Emotion\] anfühlen?"_
 
-   Jetzt stelle dir vor, wie du deine Lieblingsoptionen wieder in die KI einspeist, um eine breite Palette vollständiger Überschriften zu erstellen.
-
-  * **Was du tust**: Bitte die KI, die besten Teile zu vollständigen Variationen zu kombinieren und mehr Optionen zu generieren. Wiederhole dies, bis du die eine findest, die du liebst.
-
-  * **Prompts, die du eingeben kannst**:
-
-    * \*"Eine Überschrift sollte Problem, Lösung und Ergebnis enthalten. Hier ist meine Liste von Optionen für jeden Teil der Überschrift. Kannst du sie zu 50 kreativen Variationen kombinieren?  
-    * Problem: A B C  
-    * Lösung: J K L  
-    * Ergebnis: X Y Z"\*  
-    * *"Kannst du diese verfeinern, damit sie sich mehr \[bestimmter Ton oder Emotion\] anfühlen?"*  
-  * **Tools, die du verwendest**: ChatGPT für endgültige Variationen, Grammarly oder Hemingway für Ton- und Klarheitsprüfungen.
+  - **Tools, die du verwendest**: ChatGPT für endgültige Variationen, Grammarly oder Hemingway für Ton- und Klarheitsprüfungen.
 
 ---
 
@@ -475,38 +464,35 @@ Ein starkes Angebot spricht direkt zum Entscheidungsträger und lässt ihn denke
 
 ---
 
-* **Schritt 1: Verstehe deine Zielgruppe**
+- **Schritt 1: Verstehe deine Zielgruppe**
 
-   Stelle dir vor, du sitzt der Person gegenüber, die dein Angebot lesen wird. Was ist ihr wichtig? Was wird sie dazu bringen, "Ja" zu sagen?
+  Stelle dir vor, du sitzt der Person gegenüber, die dein Angebot lesen wird. Was ist ihr wichtig? Was wird sie dazu bringen, "Ja" zu sagen?
+  - **Was du tust**: Beschreibe die Prioritäten und Herausforderungen des Empfängers. Denke über seine Perspektive nach.
 
-  * **Was du tust**: Beschreibe die Prioritäten und Herausforderungen des Empfängers. Denke über seine Perspektive nach.
+  - **Prompts, die du eingeben kannst**:
+    - _"Ich schreibe ein Angebot für \[Empfänger\]. Seine Hauptprioritäten sind \[Liste sie auf\]. Was sollte ich betonen, um seinen Bedürfnissen gerecht zu werden?"_
 
-  * **Prompts, die du eingeben kannst**:
+  - **Tools, die du verwendest**: ChatGPT für Einblicke in die Anpassung deiner Botschaft.
 
-    * *"Ich schreibe ein Angebot für \[Empfänger\]. Seine Hauptprioritäten sind \[Liste sie auf\]. Was sollte ich betonen, um seinen Bedürfnissen gerecht zu werden?"*  
-  * **Tools, die du verwendest**: ChatGPT für Einblicke in die Anpassung deiner Botschaft.
+- **Schritt 2: Strukturiere das Angebot**
 
-* **Schritt 2: Strukturiere das Angebot**
+  Stelle dir das Angebot wie eine Geschichte vor: beginne mit einem Hook, präsentiere Schlüsselpunkte und schließe mit einem starken Abschluss.
+  - **Was du tust**: Entwirf eine Gliederung, die das Wesentliche abdeckt – Problem, Lösung, Vorteile und Handlungsaufforderung.
 
-   Stelle dir das Angebot wie eine Geschichte vor: beginne mit einem Hook, präsentiere Schlüsselpunkte und schließe mit einem starken Abschluss.
+  - **Prompts, die du eingeben kannst**:
+    - _"Hilf mir, eine klare Struktur für dieses Angebot zu erstellen. Berücksichtige: \[spezifische Abschnitte\]."_
 
-  * **Was du tust**: Entwirf eine Gliederung, die das Wesentliche abdeckt – Problem, Lösung, Vorteile und Handlungsaufforderung.
+  - **Tools, die du verwendest**: ChatGPT zum Generieren der Gliederung, Google Docs zum Organisieren.
 
-  * **Prompts, die du eingeben kannst**:
+- **Schritt 3: Lerne von Beispielen**
 
-    * *"Hilf mir, eine klare Struktur für dieses Angebot zu erstellen. Berücksichtige: \[spezifische Abschnitte\]."*  
-  * **Tools, die du verwendest**: ChatGPT zum Generieren der Gliederung, Google Docs zum Organisieren.
+  Denke an ein großartiges Angebot, das du schon einmal gesehen hast. Nutze es als Inspiration für deinen Ansatz.
+  - **Was du tust**: Teile ein Angebot, das dir gefällt, und erkläre, was funktioniert. Bitte die KI, diese Elemente für dein Angebot anzupassen.
 
-* **Schritt 3: Lerne von Beispielen**
+  - **Prompts, die du eingeben kannst**:
+    - _"Hier ist ein Angebot, das ich bewundere: \[Text einfügen\]. Kannst du mir helfen, diese Struktur und diesen Stil für mein Projekt zu verwenden?"_
 
-   Denke an ein großartiges Angebot, das du schon einmal gesehen hast. Nutze es als Inspiration für deinen Ansatz.
-
-  * **Was du tust**: Teile ein Angebot, das dir gefällt, und erkläre, was funktioniert. Bitte die KI, diese Elemente für dein Angebot anzupassen.
-
-  * **Prompts, die du eingeben kannst**:
-
-    * *"Hier ist ein Angebot, das ich bewundere: \[Text einfügen\]. Kannst du mir helfen, diese Struktur und diesen Stil für mein Projekt zu verwenden?"*  
-  * **Tools, die du verwendest**: ChatGPT für Styling und Anpassung.
+  - **Tools, die du verwendest**: ChatGPT für Styling und Anpassung.
 
 ---
 
@@ -516,40 +502,37 @@ Hier ist, wie du deine Ideen in eine klare, wirkungsvolle Präsentation verwande
 
 ---
 
-* **Schritt 1: Organisiere deinen Inhalt**
+- **Schritt 1: Organisiere deinen Inhalt**
 
-   Visualisiere deine Präsentation als eine optimierte Version deiner Ideen. Nur das Wesentliche kommt hinein.
+  Visualisiere deine Präsentation als eine optimierte Version deiner Ideen. Nur das Wesentliche kommt hinein.
+  - **Was du tust**: Bereinige deinen Text, damit er prägnant und fokussiert ist. Entferne unnötige Details.
 
-  * **Was du tust**: Bereinige deinen Text, damit er prägnant und fokussiert ist. Entferne unnötige Details.
+  - **Prompts, die du eingeben kannst**:
+    - _"Fasse diesen Inhalt in einer Gliederung zusammen, da ich ihn in eine Präsentation umwandeln möchte."_
+    - _"Was sind die Schlüsselpunkte, die für \[Thema\] hervorgehoben werden sollten?"_
 
-  * **Prompts, die du eingeben kannst**:
+  - **Tools, die du verwendest**: ChatGPT zum Zusammenfassen von Text.
 
-    * *"Fasse diesen Inhalt in einer Gliederung zusammen, da ich ihn in eine Präsentation umwandeln möchte."*  
-    * *"Was sind die Schlüsselpunkte, die für \[Thema\] hervorgehoben werden sollten?"*  
-  * **Tools, die du verwendest**: ChatGPT zum Zusammenfassen von Text.
+- **Schritt 2: Verwandle Text in Folien**
 
-* **Schritt 2: Verwandle Text in Folien**
+  Stelle dir vor, wie deine Ideen in ein schönes, teilbares Deck verwandelt werden.
+  - **Was du tust**: Füge den Inhalt in ein Folien-Erstellungstool wie Gamma oder Canva ein. Wähle eine Vorlage, die zu deinem Stil passt.
 
-   Stelle dir vor, wie deine Ideen in ein schönes, teilbares Deck verwandelt werden.
+  - **Prompts, die du eingeben kannst**:
+    - _N/A (Dieser Schritt ist manuell)_
 
-  * **Was du tust**: Füge den Inhalt in ein Folien-Erstellungstool wie Gamma oder Canva ein. Wähle eine Vorlage, die zu deinem Stil passt.
+  - **Tools, die du verwendest**: Gamma oder Canva zum Erstellen von Folien.
 
-  * **Prompts, die du eingeben kannst**:
+- **Schritt 3: Passe die Präsentation an**
 
-    * *N/A (Dieser Schritt ist manuell)*  
-  * **Tools, die du verwendest**: Gamma oder Canva zum Erstellen von Folien.
+  Jetzt hast du die volle Kontrolle – passe die Folienanzahl an, justiere den Text und füge Visualisierungen hinzu.
+  - **Was du tust**: Bearbeite Folien, um deinem Fluss zu entsprechen. Füge Bilder oder Symbole hinzu, um deine Botschaft zu ergänzen.
 
-* **Schritt 3: Passe die Präsentation an**
+  - **Prompts, die du eingeben kannst**:
+    - _"Schlage Bilder oder Visualisierungen vor, die zu \[Thema\] passen."_
+    - _"Wie kann ich diese Folie ansprechender gestalten?"_
 
-   Jetzt hast du die volle Kontrolle – passe die Folienanzahl an, justiere den Text und füge Visualisierungen hinzu.
-
-  * **Was du tust**: Bearbeite Folien, um deinem Fluss zu entsprechen. Füge Bilder oder Symbole hinzu, um deine Botschaft zu ergänzen.
-
-  * **Prompts, die du eingeben kannst**:
-
-    * *"Schlage Bilder oder Visualisierungen vor, die zu \[Thema\] passen."*  
-    * *"Wie kann ich diese Folie ansprechender gestalten?"*  
-  * **Tools, die du verwendest**: ChatGPT für visuelle Ideen, Gamma oder Canva für Anpassungen.
+  - **Tools, die du verwendest**: ChatGPT für visuelle Ideen, Gamma oder Canva für Anpassungen.
 
 ---
 
@@ -559,38 +542,35 @@ Eine E-Mail-Pitch hat eine Aufgabe: Aufmerksamkeit erregen und sie sagen lassen:
 
 ---
 
-* **Schritt 1: Kenne deinen Leser**
+- **Schritt 1: Kenne deinen Leser**
 
-   Stelle dir vor, wie der Empfänger seinen Posteingang öffnet. Was wird seine Aufmerksamkeit erregen und bei ihm ankommen?
+  Stelle dir vor, wie der Empfänger seinen Posteingang öffnet. Was wird seine Aufmerksamkeit erregen und bei ihm ankommen?
+  - **Was du tust**: Definiere die Bedürfnisse des Empfängers und was ihn dazu bringen wird, "Ja" zu sagen.
 
-  * **Was du tust**: Definiere die Bedürfnisse des Empfängers und was ihn dazu bringen wird, "Ja" zu sagen.
+  - **Prompts, die du eingeben kannst**:
+    - _"Ich schreibe an \[Empfänger\], der \[eine Rolle\] ist. Ihr Hauptziel ist \[Ziel\]. Wie kann ich diese E-Mail hervorstechen lassen?"_
 
-  * **Prompts, die du eingeben kannst**:
+  - **Tools, die du verwendest**: ChatGPT zum Verständnis der Bedürfnisse der Zielgruppe.
 
-    * *"Ich schreibe an \[Empfänger\], der \[eine Rolle\] ist. Ihr Hauptziel ist \[Ziel\]. Wie kann ich diese E-Mail hervorstechen lassen?"*  
-  * **Tools, die du verwendest**: ChatGPT zum Verständnis der Bedürfnisse der Zielgruppe.
+- **Schritt 2: Entwirf die Struktur**
 
-* **Schritt 2: Entwirf die Struktur**
+  Denke an deine E-Mail als Gesprächsstarter: eine überzeugende Betreffzeile, ein Hook in der ersten Zeile und eine klare Handlungsaufforderung.
+  - **Was du tust**: Skizziere die Schlüsselabschnitte deiner E-Mail – Betreffzeile, Eröffnungs-Hook, Hauptpunkte und CTA.
 
-   Denke an deine E-Mail als Gesprächsstarter: eine überzeugende Betreffzeile, ein Hook in der ersten Zeile und eine klare Handlungsaufforderung.
+  - **Prompts, die du eingeben kannst**:
+    - _"Hilf mir, eine E-Mail-Pitch für \[Ziel\] zu entwerfen. Füge eine Betreffzeile, einen Hook und einen CTA ein."_
 
-  * **Was du tust**: Skizziere die Schlüsselabschnitte deiner E-Mail – Betreffzeile, Eröffnungs-Hook, Hauptpunkte und CTA.
+  - **Tools, die du verwendest**: ChatGPT zum Generieren eines strukturierten Entwurfs.
 
-  * **Prompts, die du eingeben kannst**:
+- **Schritt 3: Verfeinere und personalisiere**
 
-    * *"Hilf mir, eine E-Mail-Pitch für \[Ziel\] zu entwerfen. Füge eine Betreffzeile, einen Hook und einen CTA ein."*  
-  * **Tools, die du verwendest**: ChatGPT zum Generieren eines strukturierten Entwurfs.
+  Jetzt stelle dir vor, wie du den Entwurf anpasst, damit er persönlich und poliert wirkt.
+  - **Was du tust**: Bearbeite die E-Mail, um sie an deine Stimme und die Vorlieben des Empfängers anzupassen.
 
-* **Schritt 3: Verfeinere und personalisiere**
+  - **Prompts, die du eingeben kannst**:
+    - _"Kannst du diese E-Mail \[formeller/informeller\] wirken lassen? Füge eine persönliche Note für \[Empfänger\] hinzu."_
 
-   Jetzt stelle dir vor, wie du den Entwurf anpasst, damit er persönlich und poliert wirkt.
-
-  * **Was du tust**: Bearbeite die E-Mail, um sie an deine Stimme und die Vorlieben des Empfängers anzupassen.
-
-  * **Prompts, die du eingeben kannst**:
-
-    * *"Kannst du diese E-Mail \[formeller/informeller\] wirken lassen? Füge eine persönliche Note für \[Empfänger\] hinzu."*  
-  * **Tools, die du verwendest**: ChatGPT zum Verfeinern von Ton und Stil.
+  - **Tools, die du verwendest**: ChatGPT zum Verfeinern von Ton und Stil.
 
 ---
 
@@ -600,39 +580,36 @@ Deine Besprechungsnotizen können eine Goldgrube für Fortschritte sein – wenn
 
 ---
 
-* **Schritt 1: Aufzeichnen und Zusammenfassen**
+- **Schritt 1: Aufzeichnen und Zusammenfassen**
 
-   Stelle dir vor, dein Meeting wird perfekt erfasst. Lass die KI die schwere Arbeit erledigen.
+  Stelle dir vor, dein Meeting wird perfekt erfasst. Lass die KI die schwere Arbeit erledigen.
+  - **Was du tust**: Verwende ein KI-Tool, um das Meeting aufzuzeichnen und zu transkribieren. Bitte um eine Zusammenfassung der Schlüsselpunkte, Updates und Aktionspunkte.
 
-  * **Was du tust**: Verwende ein KI-Tool, um das Meeting aufzuzeichnen und zu transkribieren. Bitte um eine Zusammenfassung der Schlüsselpunkte, Updates und Aktionspunkte.
+  - **Prompts, die du eingeben kannst**:
+    - _"Kannst du dieses Meeting-Transkript für mich zusammenfassen? Die Zusammenfassungsstruktur ist: Updates, Bedenken und Vorschläge."_
 
-  * **Prompts, die du eingeben kannst**:
+  - **Tools, die du verwendest**: Otter.ai oder VoicePal für Transkription, ChatGPT für Zusammenfassung.
 
-    * *"Kannst du dieses Meeting-Transkript für mich zusammenfassen? Die Zusammenfassungsstruktur ist: Updates, Bedenken und Vorschläge."*  
-  * **Tools, die du verwendest**: Otter.ai oder VoicePal für Transkription, ChatGPT für Zusammenfassung.
+- **Schritt 2: Hebe das Wichtige hervor**
 
-* **Schritt 2: Hebe das Wichtige hervor**
+  Nicht alles ist wichtig. Stelle dir vor, wie die KI dir hilft, das Gold vom Rauschen zu trennen.
+  - **Was du tust**: Bitte die KI, sich auf bestimmte Elemente wie Feedback oder neue Ideen zu konzentrieren.
 
-   Nicht alles ist wichtig. Stelle dir vor, wie die KI dir hilft, das Gold vom Rauschen zu trennen.
+  - **Prompts, die du eingeben kannst**:
+    - _"Was sind die wichtigsten Erkenntnisse, die dieses Projekt verbessern können: \[spezifisches Projekt\]?"_
+    - _"Kannst du die in diesem Meeting angesprochenen Vorschläge identifizieren?"_
 
-  * **Was du tust**: Bitte die KI, sich auf bestimmte Elemente wie Feedback oder neue Ideen zu konzentrieren.
+  - **Tools, die du verwendest**: ChatGPT, um umsetzbare Erkenntnisse zu destillieren.
 
-  * **Prompts, die du eingeben kannst**:
+- **Schritt 3: Aktualisiere dein Angebot oder deinen Plan**
 
-    * *"Was sind die wichtigsten Erkenntnisse, die dieses Projekt verbessern können: \[spezifisches Projekt\]?"*  
-    * *"Kannst du die in diesem Meeting angesprochenen Vorschläge identifizieren?"*  
-  * **Tools, die du verwendest**: ChatGPT, um umsetzbare Erkenntnisse zu destillieren.
+  Jetzt stelle dir vor, wie diese Erkenntnisse direkt in deine nächsten Schritte einfließen.
+  - **Was du tust**: Verwende die verfeinerten Notizen, um ein Angebot zu aktualisieren oder einen Aktionsplan zu erstellen.
 
-* **Schritt 3: Aktualisiere dein Angebot oder deinen Plan**
+  - **Prompts, die du eingeben kannst**:
+    - _"Kannst du diese Meeting-Erkenntnisse nutzen, um den Implementierungsabschnitt meines Angebots zu verfeinern? Hier ist das Angebot noch einmal: \[Angebot einfügen\]"_
 
-   Jetzt stelle dir vor, wie diese Erkenntnisse direkt in deine nächsten Schritte einfließen.
-
-  * **Was du tust**: Verwende die verfeinerten Notizen, um ein Angebot zu aktualisieren oder einen Aktionsplan zu erstellen.
-
-  * **Prompts, die du eingeben kannst**:
-
-    * *"Kannst du diese Meeting-Erkenntnisse nutzen, um den Implementierungsabschnitt meines Angebots zu verfeinern? Hier ist das Angebot noch einmal: \[Angebot einfügen\]"*  
-  * **Tools, die du verwendest**: ChatGPT für Überarbeitungen, Google Docs für das aktualisierte Dokument.
+  - **Tools, die du verwendest**: ChatGPT für Überarbeitungen, Google Docs für das aktualisierte Dokument.
 
 # **14 schnelle Tipps für ChatGPT**
 
@@ -756,8 +733,8 @@ Idealerweise wirst du im Gespräch mit deiner KI zusammenarbeiten und jeweils ei
 
 Lade Transkript oder Text aus Langform-Inhalten wie Podcasts, YouTube-Videos, Artikeln herunter:
 
-* [https://notegpt.io/youtube-transcript-generator](https://notegpt.io/youtube-transcript-generator) (15 freie Kontingente pro Monat)  
-* [https://youtubetranscript.com/](https://youtubetranscript.com/) (scheint kostenlos zu sein)
+- [https://notegpt.io/youtube-transcript-generator](https://notegpt.io/youtube-transcript-generator) (15 freie Kontingente pro Monat)
+- [https://youtubetranscript.com/](https://youtubetranscript.com/) (scheint kostenlos zu sein)
 
 \<Hier ist der Kontext\>
 
@@ -769,11 +746,11 @@ Deine Aufgabe ist es, ein Transkript eines Langform-Inhalts in eine strukturiert
 
 Dies ist die Struktur der Richtlinie:
 
-1. Teile das Transkript in Hauptabschnitte nach Thema oder Themenbereich.  
-2. In jedem Abschnitt füge ein:  
-   * Eine klare Abschnittsüberschrift  
-   * Mindestens 3 wichtige Erkenntnisse  
-   * Mindestens 2 direkte Zitate aus dem Transkript
+1. Teile das Transkript in Hauptabschnitte nach Thema oder Themenbereich.
+2. In jedem Abschnitt füge ein:
+   - Eine klare Abschnittsüberschrift
+   - Mindestens 3 wichtige Erkenntnisse
+   - Mindestens 2 direkte Zitate aus dem Transkript
 
 Bitte mich als Nächstes um ein Transkript und beginne noch nicht mit der Verarbeitung.
 
@@ -791,13 +768,13 @@ Deine Aufgabe ist es, ein Sprachtranskript einer Rohidee in eine strukturierte R
 
 Dies ist die Struktur der Richtlinie:
 
-1. Teile das Transkript in Hauptabschnitte nach Thema oder Themenbereich.  
-2. In jedem Abschnitt füge ein:  
-   * Eine klare Abschnittsüberschrift  
-   * Mindestens 3 wichtige Erkenntnisse  
-   * Mindestens 2 direkte Zitate aus dem Transkript  
-   * Mindestens 2 einzigartige Blickwinkel für weitere Erkundung  
-   * Mindestens 3 Folgefragen, die diesem Abschnitt Tiefe verleihen können
+1. Teile das Transkript in Hauptabschnitte nach Thema oder Themenbereich.
+2. In jedem Abschnitt füge ein:
+   - Eine klare Abschnittsüberschrift
+   - Mindestens 3 wichtige Erkenntnisse
+   - Mindestens 2 direkte Zitate aus dem Transkript
+   - Mindestens 2 einzigartige Blickwinkel für weitere Erkundung
+   - Mindestens 3 Folgefragen, die diesem Abschnitt Tiefe verleihen können
 
 Bitte mich als Nächstes um ein Transkript und beginne noch nicht mit der Verarbeitung.
 
@@ -814,16 +791,15 @@ Deine Aufgabe ist es, ein Meeting-Transkript in eine strukturierte Richtlinie um
 Dies ist die Struktur der Richtlinie:
 
 1. Teile das Transkript
+   - Organisiere das Transkript in Hauptabschnitte basierend auf Themen, Tagesordnungspunkten oder im Meeting besprochenen Themen.
 
-   * Organisiere das Transkript in Hauptabschnitte basierend auf Themen, Tagesordnungspunkten oder im Meeting besprochenen Themen.  
 2. Für jeden Abschnitt füge ein:
+   - Eine klare Abschnittsüberschrift: ein prägnanter Titel, der das Thema zusammenfasst (max. 10 Wörter).
+   - Mindestens 3 wichtige Erkenntnisse: fasse die wichtigsten besprochenen Punkte oder Entscheidungen zusammen.
+   - Mindestens 2 direkte Zitate: hebe zentrale Aussagen oder Vereinbarungen hervor, die während des Meetings getroffen wurden.
 
-   * Eine klare Abschnittsüberschrift: ein prägnanter Titel, der das Thema zusammenfasst (max. 10 Wörter).  
-   * Mindestens 3 wichtige Erkenntnisse: fasse die wichtigsten besprochenen Punkte oder Entscheidungen zusammen.  
-   * Mindestens 2 direkte Zitate: hebe zentrale Aussagen oder Vereinbarungen hervor, die während des Meetings getroffen wurden.  
 3. Folgemaßnahmen
-
-   * Liste klar die umsetzbaren Punkte auf, die während des Meetings entschieden wurden, spezifiziere, wer verantwortlich ist und den Zeitrahmen für den Abschluss.
+   - Liste klar die umsetzbaren Punkte auf, die während des Meetings entschieden wurden, spezifiziere, wer verantwortlich ist und den Zeitrahmen für den Abschluss.
 
 Bitte mich zuerst um das Meeting-Transkript und leite mich zu zusätzlichem Kontext oder Zielen, bevor ich beginne, es in eine Richtlinie zu verarbeiten. Lass mich wissen, ob weitere Anpassungen benötigt werden\!
 
@@ -857,17 +833,17 @@ Deine Aufgabe ist es, eine Sprachnotiz in Social-Media-Beiträge umzuwandeln, di
 
 \<Hier ist die Präferenz\> Dies ist die Struktur für alle Beiträge:
 
-1. Hook zum Neugierigmachen  
-2. Ich-Erzählung mit "Ich"  
-3. Ausarbeitung der Geschichte  
+1. Hook zum Neugierigmachen
+2. Ich-Erzählung mit "Ich"
+3. Ausarbeitung der Geschichte
 4. Einzeiliges Fazit zum Abschluss
 
 Dies sind die Beitragsbeschränkungen für jede Plattform:
 
-* LinkedIn (150 Wörter)  
-* X (280 Zeichen max. oder 420 Zeichen max.)  
-* Threads (420 Zeichen max.)  
-* Bluesky (300 Zeichen max.)
+- LinkedIn (150 Wörter)
+- X (280 Zeichen max. oder 420 Zeichen max.)
+- Threads (420 Zeichen max.)
+- Bluesky (300 Zeichen max.)
 
 Bitte mich als Nächstes um die Sprachnotiz und beginne noch nicht mit der Verarbeitung.
 
@@ -883,16 +859,16 @@ Deine Aufgabe ist es, eine Sprachnotiz zu nehmen und sie in einen Artikel zu ver
 
 Dies ist die Struktur des Artikels:
 
-1. Titel: Erstelle einen Titel, der sowohl fesselnd als auch klar ist, unter 10 Wörter. Präsentiere mindestens 5 Variationen.  
-2. Zusammenfassung:  
-   * 3 Haupterkenntnisse für Leser.  
-   * Die falsche Überzeugung, die die allgemeine Öffentlichkeit hat.  
-   * Die wahre Überzeugung, die du im Kontrast präsentierst.  
-3. Artikel (etwa 1.000 Wörter):  
-   * Beginne mit einer Geschichte, die die falsche Überzeugung hervorhebt, die viele Menschen haben.  
-   * Gehe über zur wahren Überzeugung und erkläre ihre Bedeutung.  
-   * Liefere bis zu 3 Schlüsselargumente, die die wahre Überzeugung unterstützen, und verwende Geschichten, Metaphern und eine gesprächige Sprache, um deinen Fall zu machen.  
-   * Schließe mit einer starken Handlungsaufforderung oder Erkenntnis ab, die die Botschaft des Artikels verstärkt.
+1. Titel: Erstelle einen Titel, der sowohl fesselnd als auch klar ist, unter 10 Wörter. Präsentiere mindestens 5 Variationen.
+2. Zusammenfassung:
+   - 3 Haupterkenntnisse für Leser.
+   - Die falsche Überzeugung, die die allgemeine Öffentlichkeit hat.
+   - Die wahre Überzeugung, die du im Kontrast präsentierst.
+3. Artikel (etwa 1.000 Wörter):
+   - Beginne mit einer Geschichte, die die falsche Überzeugung hervorhebt, die viele Menschen haben.
+   - Gehe über zur wahren Überzeugung und erkläre ihre Bedeutung.
+   - Liefere bis zu 3 Schlüsselargumente, die die wahre Überzeugung unterstützen, und verwende Geschichten, Metaphern und eine gesprächige Sprache, um deinen Fall zu machen.
+   - Schließe mit einer starken Handlungsaufforderung oder Erkenntnis ab, die die Botschaft des Artikels verstärkt.
 
 Beginne damit, nach einem Artikelbeispiel zu fragen, das mir gefällt, gefolgt von einer Sprachnotiz. Sobald du beides hast, fahre mit der Erstellung des Artikels fort. Lass mich wissen, wenn du weitere Anleitung oder Anpassungen benötigst, bevor du beginnst\!
 
@@ -908,18 +884,18 @@ Deine Aufgabe ist es, eine Sprachnotiz in einen Vorschlag umzuwandeln, der die E
 
 Dies ist die Struktur des Vorschlags:
 
-1. Titel:  
-   * Erstelle einen Titel, der sowohl fesselnd als auch klar ist, unter 10 Wörter.  
-   * Stelle mindestens 5 Variationen des Titels zur Auswahl.  
-2. Projektbeschreibung:  
-   * Schreibe eine einzige Zusammenfassung des Projekts, die seinen Zweck und seine Ziele klar artikuliert.  
-3. Kapitelübersicht:  
-   * Stelle einen maximal 10-Wörter-Titel für jedes Kapitel oder jeden Abschnitt bereit.  
-   * Schreibe eine kurze Beschreibung (max. 40 Wörter) für jedes Kapitel oder jeden Abschnitt, die seinen Hauptfokus zusammenfasst.  
-4. Einzigartige Verkaufsargumente:  
-   * Hebe die wichtigsten Funktionen oder Vorteile hervor, die diesen Vorschlag herausstechen lassen.  
-5. Marktlücke:  
-   * Identifiziere klar die Lücke im Markt, die dieser Vorschlag adressiert, und zeige damit, warum er zeitgemäß und notwendig ist.
+1. Titel:
+   - Erstelle einen Titel, der sowohl fesselnd als auch klar ist, unter 10 Wörter.
+   - Stelle mindestens 5 Variationen des Titels zur Auswahl.
+2. Projektbeschreibung:
+   - Schreibe eine einzige Zusammenfassung des Projekts, die seinen Zweck und seine Ziele klar artikuliert.
+3. Kapitelübersicht:
+   - Stelle einen maximal 10-Wörter-Titel für jedes Kapitel oder jeden Abschnitt bereit.
+   - Schreibe eine kurze Beschreibung (max. 40 Wörter) für jedes Kapitel oder jeden Abschnitt, die seinen Hauptfokus zusammenfasst.
+4. Einzigartige Verkaufsargumente:
+   - Hebe die wichtigsten Funktionen oder Vorteile hervor, die diesen Vorschlag herausstechen lassen.
+5. Marktlücke:
+   - Identifiziere klar die Lücke im Markt, die dieser Vorschlag adressiert, und zeige damit, warum er zeitgemäß und notwendig ist.
 
 Beginne damit, nach einem Vorschlagsbeispiel zu fragen, das mir gefällt, gefolgt von einer Sprachnotiz. Sobald du beides hast, fahre mit der Erstellung des Artikels fort. Lass mich wissen, wenn du weitere Anleitung oder Anpassungen benötigst, bevor du beginnst\!
 
@@ -935,13 +911,13 @@ Deine Aufgabe ist es, ein Gesprächstranskript in eine Liste von Titeln und Unte
 
 Dies ist die Struktur für die Erstellung von Titeln und Untertiteln:
 
-1. Haupttitelgenerierung:  
-   * Erstelle mindestens 20 Variationen eines Haupttitels, der fesselnd und klar ist, unter 8 Wörter.  
-2. Untertitelgenerierung:  
-   * Generiere mindestens 20 Variationen eines Untertitels für jeden Haupttitel, halte ihn prägnant (max. 15–20 Wörter).  
-   * Stelle sicher, dass die Untertitel den Titel ergänzen und erweitern und zusätzliche Klarheit oder Kontext bieten.  
-3. Organisiere Variationen:  
-   * Paare jeden Titel mit seinen entsprechenden Untertiteln für einfachen Vergleich und Auswahl.
+1. Haupttitelgenerierung:
+   - Erstelle mindestens 20 Variationen eines Haupttitels, der fesselnd und klar ist, unter 8 Wörter.
+2. Untertitelgenerierung:
+   - Generiere mindestens 20 Variationen eines Untertitels für jeden Haupttitel, halte ihn prägnant (max. 15–20 Wörter).
+   - Stelle sicher, dass die Untertitel den Titel ergänzen und erweitern und zusätzliche Klarheit oder Kontext bieten.
+3. Organisiere Variationen:
+   - Paare jeden Titel mit seinen entsprechenden Untertiteln für einfachen Vergleich und Auswahl.
 
 Bitte mich zuerst um eine Sprachnotiz und fahre dann mit der Erstellung der Titel und Untertitel fort. Lass mich wissen, ob ein bestimmter Ton oder eine bestimmte Richtung erforderlich ist, bevor du beginnst\!
 
@@ -955,24 +931,24 @@ Deine Aufgabe ist es, ein Rohtranskript eines Kundeninterviews in eine gut struk
 
 Situation
 
-* Beschreibe den Hintergrund und Kontext des Kunden vor der Nutzung des Produkts.  
-* Hebe die Herausforderungen oder die Umgebung hervor, in der sie arbeiteten.
+- Beschreibe den Hintergrund und Kontext des Kunden vor der Nutzung des Produkts.
+- Hebe die Herausforderungen oder die Umgebung hervor, in der sie arbeiteten.
 
 Problem
 
-* Definiere die spezifischen Schmerzpunkte oder Probleme, mit denen der Kunde konfrontiert war.  
-* Füge direkte Zitate ein, um das Problem nachvollziehbar zu machen.
+- Definiere die spezifischen Schmerzpunkte oder Probleme, mit denen der Kunde konfrontiert war.
+- Füge direkte Zitate ein, um das Problem nachvollziehbar zu machen.
 
 Lösung
 
-* Erkläre, wie der Kunde unser Produkt nutzte, um seine Herausforderungen anzugehen.  
-* Konzentriere dich auf die einzigartigen Aspekte unseres Produkts, die herausstachen. Verwende direkte Zitate, um die Wirkung der Lösung zu betonen.
+- Erkläre, wie der Kunde unser Produkt nutzte, um seine Herausforderungen anzugehen.
+- Konzentriere dich auf die einzigartigen Aspekte unseres Produkts, die herausstachen. Verwende direkte Zitate, um die Wirkung der Lösung zu betonen.
 
 Ergebnis
 
-* Zeige die greifbaren Resultate, die der Kunde nach der Nutzung unseres Produkts erreicht hat.  
-* Verwende Daten, Metriken oder Anekdoten, um den Erfolg zu demonstrieren.  
-* Ende mit einem direkten Zitat, das ihre Zufriedenheit oder Begeisterung einfängt.
+- Zeige die greifbaren Resultate, die der Kunde nach der Nutzung unseres Produkts erreicht hat.
+- Verwende Daten, Metriken oder Anekdoten, um den Erfolg zu demonstrieren.
+- Ende mit einem direkten Zitat, das ihre Zufriedenheit oder Begeisterung einfängt.
 
 Mache die Geschichte unterhaltsam und ansprechend, indem du einen gesprächigen Ton und nachvollziehbare Beispiele verwendest. Behalte immer die Zielgruppe im Auge – es sind Menschen, die uns mit Konkurrenten vergleichen, also betone unser einzigartiges Wertversprechen.
 
@@ -1028,21 +1004,21 @@ Deine Aufgabe ist es, eine Gliederung in präsentationsfertigen Text zu transfor
 
 Dies ist die Struktur für die Erstellung von präsentationsfertigen Text:
 
-1. Titel:  
-   * Erstelle einen Titel, der prägnant und ansprechend ist, unter 10 Wörter.  
-   * Stelle 5 Variationen des Titels bereit, um den Ton der Präsentation zu setzen.  
-2. Folieninhalt:  
-   * Schreibe für jedes Hauptthema in der Gliederung eine klare Botschaft für jede Folie (max. 10 Wörter).  
-   * Beschränke den Folientext auf Schlüsselpunkte, verwende Aufzählungslisten oder einzelne Aussagen.  
-3. Sprechernotizen:  
-   * Erweitere den Folieninhalt, indem du unterstützende Details oder Beispiele bereitstellst (bis zu 100 Wörter pro Folie).  
-   * Verwende gesprächige Sprache, um dem Fluss einer gesprochenen Präsentation zu entsprechen.  
-4. Strukturübersicht:  
-   * Stelle eine prägnante Kapitel- oder Abschnittsübersicht für die Präsentation bereit, die den logischen Fluss der Themen hervorhebt.  
-5. Schlüsselerkenntnisse:  
-   * Fasse die Hauptideen oder Lernziele der Präsentation in 3–5 Aufzählungspunkten zusammen.  
-6. Design-Tipps: *(Optional)*  
-   * Füge Vorschläge für das Foliendesign ein, wie Visualisierungen, Diagramme oder Schaubilder, um den Text zu ergänzen.
+1. Titel:
+   - Erstelle einen Titel, der prägnant und ansprechend ist, unter 10 Wörter.
+   - Stelle 5 Variationen des Titels bereit, um den Ton der Präsentation zu setzen.
+2. Folieninhalt:
+   - Schreibe für jedes Hauptthema in der Gliederung eine klare Botschaft für jede Folie (max. 10 Wörter).
+   - Beschränke den Folientext auf Schlüsselpunkte, verwende Aufzählungslisten oder einzelne Aussagen.
+3. Sprechernotizen:
+   - Erweitere den Folieninhalt, indem du unterstützende Details oder Beispiele bereitstellst (bis zu 100 Wörter pro Folie).
+   - Verwende gesprächige Sprache, um dem Fluss einer gesprochenen Präsentation zu entsprechen.
+4. Strukturübersicht:
+   - Stelle eine prägnante Kapitel- oder Abschnittsübersicht für die Präsentation bereit, die den logischen Fluss der Themen hervorhebt.
+5. Schlüsselerkenntnisse:
+   - Fasse die Hauptideen oder Lernziele der Präsentation in 3–5 Aufzählungspunkten zusammen.
+6. Design-Tipps: _(Optional)_
+   - Füge Vorschläge für das Foliendesign ein, wie Visualisierungen, Diagramme oder Schaubilder, um den Text zu ergänzen.
 
 Bitte mich zuerst um die Gliederung und fahre dann mit der Erstellung des präsentationsfertigen Textes fort. Lass mich wissen, ob du zusätzliche Anleitung oder Anpassungen benötigst, bevor du beginnst\!
 
@@ -1056,29 +1032,29 @@ Deine Aufgabe ist es, Feedback zu einem Event, Produkt oder Service zu analysier
 
 Bitte um Klärung
 
-* Beginne damit, nach Klärung zu fragen, worauf sich das Feedback bezieht (z.B. ein Produkt, ein Event oder etwas anderes).
+- Beginne damit, nach Klärung zu fragen, worauf sich das Feedback bezieht (z.B. ein Produkt, ein Event oder etwas anderes).
 
 Gruppiere Feedback nach Thema
 
-* Organisiere Feedback in Kategorien basierend auf wiederkehrenden Themen (z.B. Benutzerfreundlichkeit, Kundensupport, Kommunikation).
+- Organisiere Feedback in Kategorien basierend auf wiederkehrenden Themen (z.B. Benutzerfreundlichkeit, Kundensupport, Kommunikation).
 
 Hebe umsetzbares Feedback hervor
 
-* Stelle spezifisches Feedback heraus, das umsetzbar ist, und beschreibe, warum es wichtig ist.  
-* Identifiziere die am nächsten liegende Rolle, die für die Nachverfolgung jedes umsetzbaren Punktes verantwortlich ist.
+- Stelle spezifisches Feedback heraus, das umsetzbar ist, und beschreibe, warum es wichtig ist.
+- Identifiziere die am nächsten liegende Rolle, die für die Nachverfolgung jedes umsetzbaren Punktes verantwortlich ist.
 
 Stelle eine Zusammenfassung mit Daten bereit
 
-* Füge eine Aufschlüsselung des Feedbacks nach Kategorie ein, mit Prozentsätzen oder Anzahlen, um Muster hervorzuheben.  
-* Generiere diesen Abschnitt in einem Tabellenformat.
+- Füge eine Aufschlüsselung des Feedbacks nach Kategorie ein, mit Prozentsätzen oder Anzahlen, um Muster hervorzuheben.
+- Generiere diesen Abschnitt in einem Tabellenformat.
 
 Visualisiere die Erkenntnisse
 
-* Präsentiere die Analyse visuell mit Diagrammen, Tabellen oder Grafiken, um die Interpretation zu erleichtern.
+- Präsentiere die Analyse visuell mit Diagrammen, Tabellen oder Grafiken, um die Interpretation zu erleichtern.
 
 Empfehle nächste Schritte
 
-* Fasse die kritischsten Erkenntnisse zusammen und schlage nächste Schritte vor, um das Feedback anzugehen.
+- Fasse die kritischsten Erkenntnisse zusammen und schlage nächste Schritte vor, um das Feedback anzugehen.
 
 Bitte mich als Nächstes um die Feedback-Daten und jede Klärung über ihren Kontext, bevor du mit der Analyse beginnst.
 
@@ -1089,4 +1065,3 @@ Bitte mich als Nächstes um die Feedback-Daten und jede Klärung über ihren Kon
 Diese Einseiter fasst alle Kernkonzepte zusammen und macht es dir leicht, jederzeit nachzuschlagen.
 
 \[BILD\]
-

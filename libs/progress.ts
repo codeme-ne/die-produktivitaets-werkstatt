@@ -1,4 +1,4 @@
-import { cookies } from 'next/headers';
+import { cookies } from "next/headers";
 
 /**
  * Progress data structure stored in httpOnly cookie
@@ -10,7 +10,7 @@ export interface ProgressData {
   };
 }
 
-const PROGRESS_COOKIE_NAME = 'progress';
+const PROGRESS_COOKIE_NAME = "progress";
 const MAX_AGE = 31536000; // 365 days
 
 /**
@@ -28,19 +28,22 @@ export async function readProgress(): Promise<ProgressData> {
     const data = JSON.parse(progressCookie.value);
 
     // Validate structure
-    if (!data || typeof data !== 'object' || !Array.isArray(data.completed)) {
+    if (!data || typeof data !== "object" || !Array.isArray(data.completed)) {
       return { completed: [] };
     }
 
     // Validate all items are strings
-    const validated = data.completed.filter((item: unknown) => typeof item === 'string');
+    const validated = data.completed.filter(
+      (item: unknown) => typeof item === "string",
+    );
 
     // Validate flags if present
-    const flags = data.flags && typeof data.flags === 'object' ? data.flags : undefined;
+    const flags =
+      data.flags && typeof data.flags === "object" ? data.flags : undefined;
 
-    return { 
+    return {
       completed: validated,
-      flags: flags as ProgressData['flags'],
+      flags: flags as ProgressData["flags"],
     };
   } catch {
     return { completed: [] };
@@ -55,9 +58,9 @@ export async function writeProgress(data: ProgressData): Promise<void> {
 
   cookieStore.set(PROGRESS_COOKIE_NAME, JSON.stringify(data), {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-    path: '/',
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
     maxAge: MAX_AGE,
   });
 }
@@ -69,11 +72,11 @@ export async function writeProgress(data: ProgressData): Promise<void> {
  */
 export async function completeLesson(
   slug: string,
-  totalLessons: number
+  totalLessons: number,
 ): Promise<{ progress: ProgressData; shouldNotifyCompletion: boolean }> {
   // Input validation
-  if (!slug || typeof slug !== 'string' || slug.trim().length === 0) {
-    throw new Error('Invalid lesson slug');
+  if (!slug || typeof slug !== "string" || slug.trim().length === 0) {
+    throw new Error("Invalid lesson slug");
   }
 
   const progress = await readProgress();
@@ -87,7 +90,8 @@ export async function completeLesson(
   const afterCount = progress.completed.length;
 
   // Check if course just completed and notification not sent
-  const justCompleted = beforeCount < totalLessons && afterCount === totalLessons;
+  const justCompleted =
+    beforeCount < totalLessons && afterCount === totalLessons;
   const notificationNotSent = !progress.flags?.notifiedComplete;
   const shouldNotifyCompletion = justCompleted && notificationNotSent;
 
@@ -109,8 +113,8 @@ export async function completeLesson(
  */
 export async function undoLesson(slug: string): Promise<ProgressData> {
   // Input validation
-  if (!slug || typeof slug !== 'string' || slug.trim().length === 0) {
-    throw new Error('Invalid lesson slug');
+  if (!slug || typeof slug !== "string" || slug.trim().length === 0) {
+    throw new Error("Invalid lesson slug");
   }
 
   const progress = await readProgress();
@@ -138,7 +142,8 @@ export async function getCompletionStats(totalLessons: number): Promise<{
 }> {
   const progress = await readProgress();
   const completed = progress.completed.length;
-  const percentage = totalLessons > 0 ? Math.round((completed / totalLessons) * 100) : 0;
+  const percentage =
+    totalLessons > 0 ? Math.round((completed / totalLessons) * 100) : 0;
 
   return {
     completed,

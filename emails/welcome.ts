@@ -60,4 +60,5 @@ export const welcomeEmail = (magicLink: string): string => `
 </html>
 `;
 
-export const welcomeEmailSubject = "🎉 Willkommen zum AI-Kurs - Dein Zugang ist aktiv!";
+export const welcomeEmailSubject =
+  "🎉 Willkommen zum AI-Kurs - Dein Zugang ist aktiv!";

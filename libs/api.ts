@@ -16,7 +16,8 @@ apiClient.interceptors.response.use(
 
     if (error.response?.status === 401) {
       // User not authenticated
-      message = "Du bist nicht angemeldet. Bitte kaufe den Kurs, um Zugriff zu erhalten.";
+      message =
+        "Du bist nicht angemeldet. Bitte kaufe den Kurs, um Zugriff zu erhalten.";
     } else if (error.response?.status === 403) {
       // User not authorized
       message = "Du hast keine Berechtigung für diese Aktion.";
@@ -37,7 +38,7 @@ apiClient.interceptors.response.use(
       toast.error("Etwas ist schiefgelaufen...");
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export default apiClient;

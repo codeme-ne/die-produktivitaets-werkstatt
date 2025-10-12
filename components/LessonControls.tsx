@@ -1,14 +1,17 @@
-'use client';
+"use client";
 
-import { useState, useTransition } from 'react';
-import { completeLessonAction, undoLessonAction } from '@/app/actions';
+import { useState, useTransition } from "react";
+import { completeLessonAction, undoLessonAction } from "@/app/actions";
 
 interface LessonControlsProps {
   slug: string;
   isCompleted: boolean;
 }
 
-export default function LessonControls({ slug, isCompleted: initialCompleted }: LessonControlsProps) {
+export default function LessonControls({
+  slug,
+  isCompleted: initialCompleted,
+}: LessonControlsProps) {
   const [isCompleted, setIsCompleted] = useState(initialCompleted);
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
@@ -23,7 +26,7 @@ export default function LessonControls({ slug, isCompleted: initialCompleted }: 
       if (result.success) {
         setIsCompleted(!isCompleted);
       } else {
-        setError(result.error || 'Ein Fehler ist aufgetreten');
+        setError(result.error || "Ein Fehler ist aufgetreten");
       }
     });
   };
@@ -52,7 +55,7 @@ export default function LessonControls({ slug, isCompleted: initialCompleted }: 
       <button
         onClick={handleToggleCompletion}
         disabled={isPending}
-        className={`btn ${isCompleted ? 'btn-outline' : 'btn-success'} ${isPending ? 'loading' : ''}`}
+        className={`btn ${isCompleted ? "btn-outline" : "btn-success"} ${isPending ? "loading" : ""}`}
       >
         {isPending ? (
           <span className="loading loading-spinner"></span>
@@ -65,7 +68,12 @@ export default function LessonControls({ slug, isCompleted: initialCompleted }: 
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
             Als unerledigt markieren
           </>
@@ -78,7 +86,12 @@ export default function LessonControls({ slug, isCompleted: initialCompleted }: 
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
             </svg>
             Als erledigt markieren
           </>

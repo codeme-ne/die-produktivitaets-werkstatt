@@ -4,15 +4,15 @@ import { ConfigProps } from "./types/config";
 const themes = {
   light: {
     primary: "#3b82f6", // blue-500
-  }
+  },
 };
 
 const config = {
   // REQUIRED
-  appName: "ShipFast",
+  appName: "KI Kompakt Kurs",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
-    "Lerne, wie du Production-Ready AI-Systeme baust – von Prompting über RAG bis zu autonomen Agents.",
+    "Lerne KI-Tools in 7 kompakten Lektionen – von Prompting bis Deployment. Praxisnah, schnell, direkt umsetzbar.",
   // REQUIRED (no https://, not trailing slash at the end, just the naked domain)
   domainName: "shipfa.st",
   crisp: {
@@ -23,11 +23,11 @@ const config = {
   },
   resend: {
     // REQUIRED — Email 'From' field to be used when sending magic login links
-    fromNoReply: `ShipFast <noreply@resend.shipfa.st>`,
+    fromNoReply: `KI Kompakt Kurs <noreply@zangerlcoachingdynamics.com>`,
     // REQUIRED — Email 'From' field to be used when sending other emails, like abandoned carts, updates etc..
-    fromAdmin: `Marc at ShipFast <marc@resend.shipfa.st>`,
+    fromAdmin: `Lukas <lukas@zangerlcoachingdynamics.com>`,
     // Email shown to customer if they need support. Leave empty if not needed => if empty, set up Crisp above, otherwise you won't be able to offer customer support."
-    supportEmail: "marc.louvion@gmail.com",
+    supportEmail: "lukas@zangerlcoachingdynamics.com",
   },
   colors: {
     // REQUIRED — The DaisyUI theme to use (added to the main layout.js). Leave blank for default (light & dark mode). If you use any theme other than light/dark, you need to add it in config.tailwind.js in daisyui.themes.
@@ -36,6 +36,11 @@ const config = {
     // OR you can just do this to use a custom color: main: "#f37055". HEX only.
     main: themes["light"]["primary"],
   },
+  // Admin emails for video management and other admin features
+  adminEmails: [
+    "lukas@zangerlcoachingdynamics.com",
+    "dev@local.test", // Dev cookie for testing
+  ],
 } as ConfigProps;
 
 export default config;

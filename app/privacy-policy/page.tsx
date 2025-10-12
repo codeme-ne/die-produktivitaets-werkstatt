@@ -34,7 +34,7 @@ const PrivacyPolicy = () => {
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Stand: ${new Date().toLocaleDateString('de-DE')}
+          {`Stand: ${new Date().toLocaleDateString("de-DE")}
 
 Vielen Dank für Ihren Besuch bei ${config.appName}. Diese Datenschutzerklärung
 beschreibt, wie wir Ihre personenbezogenen und nicht-personenbezogenen Daten
@@ -52,7 +52,7 @@ Verantwortlich für die Datenverarbeitung auf dieser Website ist:
 
 [FIRMENNAME / VOLLSTÄNDIGER NAME]
 [ADRESSE]
-E-Mail: ${config.resend.supportEmail || '[IHRE E-MAIL]'}
+E-Mail: ${config.resend.supportEmail || "[IHRE E-MAIL]"}
 
 2. ERHOBENE DATEN
 
@@ -133,7 +133,7 @@ per E-Mail mitgeteilt.
 Wenn Sie Fragen oder Anliegen zu dieser Datenschutzerklärung haben,
 kontaktieren Sie uns bitte unter:
 
-E-Mail: ${config.resend.supportEmail || '[IHRE E-MAIL]'}
+E-Mail: ${config.resend.supportEmail || "[IHRE E-MAIL]"}
 
 Durch die Nutzung von ${config.appName} stimmen Sie den Bedingungen dieser
 Datenschutzerklärung zu.`}
