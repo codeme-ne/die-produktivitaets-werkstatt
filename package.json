@@ -12,7 +12,13 @@
     "bunny:upload": "node scripts/bunny-upload.mjs",
     "meta:gen": "node scripts/generate-video-meta.mjs",
     "meta:import": "node scripts/import-pw-descriptions.mjs",
-    "images:upload": "node scripts/upload-images.mjs"
+    "images:upload": "node scripts/upload-images.mjs",
+    "lint:content": "node scripts/validate-images.mjs",
+    "prebuild": "node scripts/prebuild.mjs",
+    "videos:sync-meta": "node scripts/fetch-video-meta.mjs",
+    "lesson:new": "node scripts/lesson-scaffold.mjs",
+    "content:fix": "node scripts/content-fix.mjs",
+    "sync-csv": "tsx scripts/sync-csv-to-md.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",
@@ -50,6 +56,7 @@
     "@types/react-syntax-highlighter": "^15.5.11",
     "autoprefixer": "^10.4.19",
     "daisyui": "^5.0.50",
+    "playwright": "^1.56.1",
     "postcss": "^8.4.38",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.9.2"
