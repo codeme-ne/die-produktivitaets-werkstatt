@@ -1,147 +1,223 @@
-/*
-  Bunny.net Stream minimal SDK (server-side)
+/**
+ * Bunny Stream API client for fetching video metadata
+ */
 
-  Notes
-  - Auth: header `AccessKey: <BUNNY_STREAM_ACCESS_KEY>`
-  - Base: https://video.bunnycdn.com
-  - Library ID: BUNNY_STREAM_LIBRARY_ID
-
-  Implemented endpoints (per Bunny Stream API):
-  - POST /library/{libraryId}/videos                → create video metadata (returns GUID)
-  - GET  /library/{libraryId}/videos                → list videos (paged)
-  - PUT  /library/{libraryId}/videos/{videoId}      → upload binary file (server-to-server)
-  - POST /library/{libraryId}/videos/{videoId}/source → ingest from external URL
-
-  This module avoids client-side exposure of the AccessKey. Use from route handlers or server actions only.
-*/
-
-import "server-only";
-
-const BASE = "https://video.bunnycdn.com";
-
-function getEnv(name: string): string {
-  const v = process.env[name];
-  if (!v) throw new Error(`Missing env: ${name}`);
-  return v;
+// Helper to get API key from env (supports both naming conventions)
+function getApiKey(): string | undefined {
+  return process.env.BUNNY_STREAM_ACCESS_KEY || process.env.BUNNY_STREAM_API_KEY;
 }
 
-export type BunnyVideo = {
+// Helper to get library ID from env
+function getLibraryId(): string | undefined {
+  return process.env.BUNNY_LIBRARY_ID;
+}
+
+export interface BunnyVideoMeta {
   guid: string;
+  length: number; // Duration in seconds
   title?: string;
-  status?: number;
-  length?: number;
-  thumbnailUrl?: string;
-  dateUploaded?: string;
-  storageSize?: number;
-};
-
-export type BunnyListResponse = {
-  items: BunnyVideo[];
-  totalItems: number;
-  currentPage: number;
-  itemsPerPage: number;
-};
-
-function headers() {
-  const key = getEnv("BUNNY_STREAM_ACCESS_KEY");
-  return {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-    AccessKey: key,
-  } as Record<string, string>;
+  thumbnailFileName?: string;
 }
 
-export async function listVideos(params?: {
+/**
+ * Fetch video metadata from Bunny Stream API
+ */
+export async function getVideoMeta(
+  libraryId: string,
+  guid: string,
+): Promise<BunnyVideoMeta | null> {
+  const apiKey = getApiKey();
+  if (!apiKey) {
+    console.warn("BUNNY_STREAM_ACCESS_KEY or BUNNY_STREAM_API_KEY not set, skipping video meta fetch");
+    return null;
+  }
+
+  const url = `https://video.bunnycdn.com/library/${libraryId}/videos/${guid}`;
+  const timeout = parseInt(process.env.BUNNY_STREAM_TIMEOUT_MS || "10000", 10);
+
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+    const response = await fetch(url, {
+      headers: {
+        AccessKey: apiKey,
+        accept: "application/json",
+      },
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      console.error(
+        `Bunny API error for ${guid}: ${response.status} ${response.statusText}`,
+      );
+      return null;
+    }
+
+    const data = await response.json();
+
+    return {
+      guid: data.guid,
+      length: data.length || 0,
+      title: data.title,
+      thumbnailFileName: data.thumbnailFileName,
+    };
+  } catch (error) {
+    if (error instanceof Error && error.name === "AbortError") {
+      console.error(`Bunny API timeout for ${guid} after ${timeout}ms`);
+    } else {
+      console.error(`Bunny API error for ${guid}:`, error);
+    }
+    return null;
+  }
+}
+
+/**
+ * Fetch multiple videos with rate limiting and retries
+ */
+export async function getVideosMetaBatch(
+  videos: { libraryId: string; guid: string }[],
+  options?: {
+    rateLimit?: number; // Requests per second (default: 10)
+    maxRetries?: number; // Max retry attempts (default: 3)
+    retryDelay?: number; // Initial retry delay in ms (default: 1000)
+  },
+): Promise<Map<string, BunnyVideoMeta>> {
+  const { rateLimit = 10, maxRetries = 3, retryDelay = 1000 } = options || {};
+  const results = new Map<string, BunnyVideoMeta>();
+  const delayMs = 1000 / rateLimit;
+
+  for (const { libraryId, guid } of videos) {
+    let attempts = 0;
+    let success = false;
+    let currentDelay = retryDelay;
+
+    while (attempts < maxRetries && !success) {
+      attempts++;
+      const meta = await getVideoMeta(libraryId, guid);
+
+      if (meta) {
+        results.set(guid, meta);
+        success = true;
+      } else if (attempts < maxRetries) {
+        // Exponential backoff
+        await new Promise((resolve) => setTimeout(resolve, currentDelay));
+        currentDelay *= 2;
+      }
+    }
+
+    // Rate limiting delay (only between successful requests)
+    if (success && delayMs > 0) {
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
+    }
+  }
+
+  return results;
+}
+
+/**
+ * Admin functions for video management
+ */
+
+export interface BunnyVideo {
+  guid: string;
+  title: string;
+  length: number;
+  status: number;
+  thumbnailFileName?: string;
+  dateUploaded?: string;
+}
+
+export interface BunnyListResponse {
+  items: BunnyVideo[];
+  itemsPerPage: number;
+  currentPage: number;
+  totalItems: number;
+}
+
+/**
+ * List all videos in library
+ */
+export async function listVideos(options?: {
   page?: number;
   perPage?: number;
-  search?: string;
-}) {
-  const libraryId = getEnv("BUNNY_STREAM_LIBRARY_ID");
-  const url = new URL(`${BASE}/library/${libraryId}/videos`);
-  if (params?.page) url.searchParams.set("page", String(params.page));
-  if (params?.perPage) url.searchParams.set("perPage", String(params.perPage));
-  if (params?.search) url.searchParams.set("search", params.search);
-  const res = await fetch(url, { headers: headers(), cache: "no-store" });
-  if (!res.ok) throw new Error(`Bunny listVideos failed: ${res.status}`);
-  return (await res.json()) as BunnyListResponse;
+}): Promise<BunnyListResponse | null> {
+  const { page = 1, perPage = 100 } = options || {};
+  const apiKey = getApiKey();
+  const libraryId = getLibraryId();
+  if (!apiKey || !libraryId) return null;
+
+  const url = `https://video.bunnycdn.com/library/${libraryId}/videos?page=${page}&itemsPerPage=${perPage}`;
+
+  try {
+    const response = await fetch(url, {
+      headers: { AccessKey: apiKey, accept: "application/json" },
+    });
+
+    if (!response.ok) return null;
+    return await response.json();
+  } catch {
+    return null;
+  }
 }
 
-export async function createVideo(input: {
+/**
+ * Create a new video
+ */
+export async function createVideo(options: {
   title: string;
-  collectionId?: string;
-  thumbnailUrl?: string;
-}) {
-  const libraryId = getEnv("BUNNY_STREAM_LIBRARY_ID");
-  const res = await fetch(`${BASE}/library/${libraryId}/videos`, {
-    method: "POST",
-    headers: headers(),
-    body: JSON.stringify(input),
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Bunny createVideo failed: ${res.status} ${text}`);
-  }
-  return (await res.json()) as BunnyVideo;
-}
+}): Promise<BunnyVideo | null> {
+  const { title } = options;
+  const apiKey = getApiKey();
+  const libraryId = getLibraryId();
+  if (!apiKey || !libraryId) return null;
 
-export async function ingestFromUrl(videoId: string, url: string) {
-  const libraryId = getEnv("BUNNY_STREAM_LIBRARY_ID");
-  const res = await fetch(
-    `${BASE}/library/${libraryId}/videos/${videoId}/source`,
-    {
+  const url = `https://video.bunnycdn.com/library/${libraryId}/videos`;
+
+  try {
+    const response = await fetch(url, {
       method: "POST",
-      headers: headers(),
+      headers: {
+        AccessKey: apiKey,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title }),
+    });
+
+    if (!response.ok) return null;
+    return await response.json();
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Ingest video from URL
+ */
+export async function ingestFromUrl(
+  guid: string,
+  url: string,
+): Promise<boolean> {
+  const apiKey = getApiKey();
+  const libraryId = getLibraryId();
+  if (!apiKey || !libraryId) return false;
+
+  const endpoint = `https://video.bunnycdn.com/library/${libraryId}/videos/${guid}/fetch`;
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        AccessKey: apiKey,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ url }),
-    },
-  );
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Bunny ingestFromUrl failed: ${res.status} ${text}`);
+    });
+
+    return response.ok;
+  } catch {
+    return false;
   }
-  return await res.json();
-}
-
-export async function uploadBinary(
-  videoId: string,
-  file: Buffer,
-  contentType = "application/octet-stream",
-) {
-  const libraryId = getEnv("BUNNY_STREAM_LIBRARY_ID");
-  const key = getEnv("BUNNY_STREAM_ACCESS_KEY");
-  const res = await fetch(`${BASE}/library/${libraryId}/videos/${videoId}`, {
-    method: "PUT",
-    headers: {
-      AccessKey: key,
-      "Content-Type": contentType,
-    },
-    body: file as unknown as BodyInit,
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Bunny uploadBinary failed: ${res.status} ${text}`);
-  }
-  return true;
-}
-
-export function buildEmbedUrl(
-  libraryId: string,
-  videoId: string,
-  params?: { autoplay?: boolean; muted?: boolean },
-) {
-  const u = new URL(
-    `https://iframe.mediadelivery.net/embed/${libraryId}/${videoId}`,
-  );
-  if (params?.autoplay !== undefined)
-    u.searchParams.set("autoplay", String(params.autoplay));
-  if (params?.muted !== undefined)
-    u.searchParams.set("muted", String(params.muted));
-  return u.toString();
-}
-
-export function buildThumbnailUrl(
-  libraryId: string,
-  videoId: string,
-  tSeconds = 1,
-) {
-  return `https://thumb.mediadelivery.net/${libraryId}/${videoId}/thumbnail.jpg?time=${tSeconds}`;
 }

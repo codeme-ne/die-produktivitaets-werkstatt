@@ -3,8 +3,8 @@ import type { NextRequest } from "next/server";
 import { verifyAccess } from "@/libs/jwt";
 
 /**
- * Middleware to protect /course routes with JWT authentication
- * Checks for access_token cookie and redirects to home if invalid
+ * Middleware to protect /kurs routes and the dashboard via JWT authentication.
+ * Checks for access_token cookie and redirects to home if invalid.
  */
 export async function middleware(req: NextRequest) {
   const token = req.cookies.get("access_token")?.value;
@@ -25,5 +25,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/course/:path*", "/course2/:path*", "/dashboard"],
+  matcher: ["/kurs/:path*", "/dashboard/admin/:path*"],
 };

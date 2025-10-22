@@ -36,6 +36,20 @@ const nextConfig = {
 
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: "/course",
+        destination: "/kurs",
+        permanent: true,
+      },
+      {
+        source: "/course/:path*",
+        destination: "/kurs",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       // NextJS <Image> component needs to whitelist domains for src={}

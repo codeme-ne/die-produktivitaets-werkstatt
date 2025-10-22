@@ -9,7 +9,7 @@ const themes = {
 
 const config = {
   // REQUIRED
-  appName: "KI Kompakt Kurs",
+  appName: "Die Produktivitäts-Werkstatt",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
     "Lerne KI-Tools in 7 kompakten Lektionen – von Prompting bis Deployment. Praxisnah, schnell, direkt umsetzbar.",

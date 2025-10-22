@@ -1,14 +1,30 @@
 "use client";
 
-import { logoutUser } from "@/app/actions";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
-/**
- * Logout button - uses Server Action to clear JWT cookie
- */
 export default function LogoutButton() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  const handleLogout = async () => {
+    try {
+      setLoading(true);
+      await fetch("/api/auth/logout", { method: "POST" });
+    } finally {
+      setLoading(false);
+      router.replace("/");
+      router.refresh();
+    }
+  };
+
   return (
-    <button onClick={() => logoutUser()} className="btn btn-ghost btn-sm">
-      Abmelden
+    <button
+      onClick={handleLogout}
+      disabled={loading}
+      className="btn btn-ghost btn-sm"
+    >
+      {loading ? "Wird abgemeldet..." : "Abmelden"}
     </button>
   );
 }

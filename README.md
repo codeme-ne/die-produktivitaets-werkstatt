@@ -7,49 +7,18 @@
 | `app/api/webhook/stripe/route.ts`         | Handles payments, sends email                |
 | `app/checkout/success/route.ts`           | Sets JWT cookie after payment                |
 | `app/dashboard/page.tsx`                  | User dashboard with progress tracking        |
-| `middleware.ts`                           | Protects `/course/*` and `/dashboard` routes |
-| `content/lessons/manifest.ts`             | Course structure                             |
+| `middleware.ts`                           | Protects `/kurs/*` and `/dashboard` routes   |
+| `components/mdx.tsx`                      | Shared MDX callouts/widgets                  |
 | `libs/jwt.ts`                             | JWT signing/verification                     |
-| `libs/progress.ts`                        | Progress tracking (cookie-based)             |
-| `components/ProgressRing.tsx`             | DaisyUI radial progress component            |
-| `components/LessonsList.tsx`              | Lesson list with completion status           |
+| `libs/pwCourse.ts`                        | CSV → course mapper                          |
+| `libs/pwProgress.ts`                      | Progress reader helpers                      |
 
 ## Dashboard & Progress Tracking
 
-### Cookie Structure
-
-Progress is tracked via **`progress` cookie** (httpOnly):
-
-```typescript
-{
-  completed: string[];        // Array of completed lesson slugs
-  flags?: {
-    notifiedComplete?: boolean; // Completion email sent flag
-  };
-}
-```
-
-**Limitations**: Cookie-based = device-specific (no multi-device sync).
-
-### Server Actions
-
-- `getProgress()` - Read current progress
-- `completeLessonAction(slug)` - Mark lesson complete (sends completion email on 100%)
-- `undoLessonAction(slug)` - Unmark lesson
-
-### "Weiterlernen" Logic
-
-- `getNextOpenLesson(completed: Set<string>)` returns first incomplete lesson
-- Shows CTA on lesson pages when next lesson available
-- Shows "Kurs abgeschlossen! 🎉" badge when all done
-
-### Completion Email
-
-When user completes final lesson:
-
-- Idempotent check via `flags.notifiedComplete`
-- Sends congratulations email once per device
-- Includes link back to dashboard
+- `libs/pwCourse.ts` loads the Produktivitäts-Werkstatt structure (modules + lessons) from CSV.
+- `libs/pwProgress.ts` exposes `getProgressForUser` / `isLessonDone` to read file-based progress from `logs/progress.json`.
+- `/api/progress` handles toggling lesson completion and returns the user-specific map.
+- `app/dashboard/page.tsx` combines both sources to compute completion stats, the next open lesson, and module listings that link to `/kurs/<module>/<video>`.
 
 ### MDX Callout Components
 
@@ -61,7 +30,7 @@ Use in lesson MDX files:
 <Note>Additional information</Note>
 ```
 
-Import via `app/course/components.tsx`.
+Import via `components/mdx.tsx`.
 
 ## Deployment Checklist
 
@@ -197,8 +166,16 @@ logs/events.ndjson              # Event log (NDJSON format)
 
 **API**:
 
-- `POST /api/progress` → `{ moduleSlug, videoSlug, done: true/false }`
+- `POST /api/progress` → `{ moduleSlug, videoSlug, done: true/false }` (accepts legacy `{ module, video }` payloads for backwards compatibility)
 - `GET /api/progress` → `{ progress: { "modul-01/video": true, ... } }`
+
+**Manual QA**:
+
+- Lektion als erledigt markieren → Button färbt sich grün, Sidebar zeigt Häkchen, Header-Prozent steigt.
+- Erledigt zurücknehmen → UI-Elemente wechseln zurück, Prozent sinkt entsprechend.
+- Nächste Lektion vorhanden → Erfolgreiche Markierung leitet automatisch zur nächsten Lektion weiter.
+- Letzte Lektion → Kein Auto-Redirect, Fortschritt bleibt gespeichert.
+- Fehlerfall simulieren (`/api/progress` 400/500) → Optimistischer Status wird sauber zurückgerollt, Toast zeigt Fehlerhinweis.
 
 **Auth**: Reads email from JWT `access_token` cookie (dev login available at `/dev/login`)
 

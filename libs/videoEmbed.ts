@@ -2,7 +2,41 @@
  * Video embed utilities for Bunny.net
  */
 
+import { readFileSync, existsSync } from "fs";
+import { join } from "path";
 import type { VideoInfo } from "@/types/course";
+
+interface VideoMetaCache {
+  [guid: string]: {
+    durationSec: number;
+    title?: string;
+    fetchedAt: string;
+  };
+}
+
+let _cache: VideoMetaCache | null = null;
+
+/**
+ * Load video metadata cache (lazy, in-memory)
+ */
+function loadVideoMetaCache(): VideoMetaCache {
+  if (_cache) return _cache;
+
+  const cachePath = join(process.cwd(), "content", "video-meta.json");
+  if (!existsSync(cachePath)) {
+    _cache = {};
+    return _cache;
+  }
+
+  try {
+    const content = readFileSync(cachePath, "utf-8");
+    _cache = JSON.parse(content);
+    return _cache!;
+  } catch {
+    _cache = {};
+    return _cache;
+  }
+}
 
 /**
  * Parse Bunny play URL to extract library ID and GUID
@@ -35,14 +69,19 @@ export function toEmbedUrl(libraryId: string, guid: string): string {
 
 /**
  * Parse play URL and return VideoInfo object ready for use
+ * Loads duration from cache if available
  */
 export function parseVideoUrl(url: string): VideoInfo | null {
   const parsed = parsePlayUrl(url);
   if (!parsed) return null;
 
+  const cache = loadVideoMetaCache();
+  const meta = cache[parsed.guid];
+
   return {
     libraryId: parsed.libraryId,
     guid: parsed.guid,
     embedUrl: toEmbedUrl(parsed.libraryId, parsed.guid),
+    durationSec: meta?.durationSec,
   };
 }

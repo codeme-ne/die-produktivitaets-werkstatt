@@ -1,9 +1,16 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import ButtonCheckout from "@/components/ButtonCheckout";
-import { lessons } from "@/content/lessons/manifest";
+import { getCourseOverview } from "@/libs/pwCourse";
 
 export default function Page() {
+  const modules = getCourseOverview();
+  const moduleCount = modules.length;
+  const totalLessons = modules.reduce(
+    (count, module) => count + module.lessonCount,
+    0,
+  );
+
   return (
     <>
       <Header />
@@ -13,15 +20,14 @@ export default function Page() {
         <section className="bg-base-100 py-24 px-8">
           <div className="max-w-5xl mx-auto text-center space-y-8">
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight">
-              Meistere{" "}
+              Die{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                KI-Tools
-              </span>{" "}
-              in 7 Lektionen
+                Produktivitäts-Werkstatt
+              </span>
             </h1>
             <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
-              Von Prompting bis Deployment – kompakt, praxisnah, direkt
-              umsetzbar. Starte heute und shippe dein erstes KI-Projekt morgen.
+              {moduleCount} Wochen KI-gestütztes Training für mehr Fokus, Klarheit
+              und Flow im beruflichen Alltag.
             </p>
             <div className="flex gap-4 justify-center items-center">
               <Link href="/#pricing" className="btn btn-primary btn-lg group">
@@ -35,9 +41,9 @@ export default function Page() {
                 </svg>
                 Jetzt einschreiben
               </Link>
-              <Link href="/#curriculum" className="btn btn-ghost btn-lg">
+              <a href="#curriculum" className="btn btn-ghost btn-lg">
                 Curriculum ansehen
-              </Link>
+              </a>
             </div>
           </div>
         </section>
@@ -51,30 +57,35 @@ export default function Page() {
                 Was du lernen wirst
               </h2>
               <p className="text-base-content/70 text-lg max-w-2xl mx-auto">
-                7 kompakte Lektionen für schnellen Einstieg in KI-Entwicklung
+                {moduleCount} Wochen, {totalLessons} Lektionen – strukturiert für
+                nachhaltige Gewohnheiten statt overwhelmenden One-Off-Sessions.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              {lessons.map((lesson) => (
+              {modules.map((module, index) => (
                 <div
-                  key={lesson.slug}
+                  key={module.slug}
                   className="card bg-base-100 hover:shadow-xl transition-shadow"
                 >
-                  <div className="card-body">
-                    <div className="flex items-start gap-4">
+                  <div className="card-body space-y-4">
+                    <div className="flex items-center justify-between">
                       <div className="badge badge-primary badge-lg">
-                        {lesson.order}
+                        Modul {String(index + 1).padStart(2, "0")}
                       </div>
-                      <div className="flex-1">
-                        <h3 className="card-title text-lg mb-2">
-                          {lesson.title}
-                        </h3>
-                        <p className="text-base-content/70 text-sm">
-                          {lesson.summary}
-                        </p>
-                      </div>
+                      <span className="text-sm text-base-content/60">
+                        {module.lessonCount} Lektion
+                        {module.lessonCount !== 1 ? "en" : ""}
+                      </span>
                     </div>
+                    <h3 className="card-title text-lg">{module.title}</h3>
+                    <p className="text-base-content/70 text-sm">
+                      Video-Lektionen, Checklisten und Reflexionen, die sich in
+                      deinen Alltag integrieren lassen.
+                    </p>
+                    <Link href={`/kurs/${module.slug}`} className="btn btn-link px-0">
+                      Zum Modul
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -127,7 +138,9 @@ export default function Page() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span>7 umfassende Module mit praktischen Beispielen</span>
+                    <span>
+                      {moduleCount} Wochen mit klaren Fokus-Themen und Routinen
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg
@@ -159,7 +172,9 @@ export default function Page() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span>Kostenlose Updates bei neuen Modulen</span>
+                    <span>
+                      {totalLessons} Video-Lektionen plus Übungen und Checklisten
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg
@@ -175,7 +190,7 @@ export default function Page() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span>Sofortiger Zugang nach Kauf</span>
+                    <span>Sofortiger Zugang zur Werkstatt nach Kauf</span>
                   </li>
                 </ul>
 
@@ -203,15 +218,14 @@ export default function Page() {
               <div className="collapse collapse-plus bg-base-100">
                 <input type="radio" name="faq-accordion" defaultChecked />
                 <div className="collapse-title text-lg font-semibold">
-                  Für wen ist dieser Kurs geeignet?
+                  Für wen ist diese Werkstatt ideal?
                 </div>
                 <div className="collapse-content">
                   <p className="text-base-content/70">
-                    Der Kurs richtet sich an Entwickler mit grundlegenden
-                    Programmierkenntnissen, die lernen möchten, wie man moderne
-                    AI-Systeme baut. Du brauchst keine Vorkenntnisse in Machine
-                    Learning – wir starten bei den Grundlagen und arbeiten uns
-                    zu fortgeschrittenen Themen vor.
+                    Für alle Wissensarbeiter:innen, Gründer:innen und Führungskräfte,
+                    die ihre Zeit wieder aktiv steuern möchten. Du brauchst keine
+                    speziellen Vorkenntnisse – wir kombinieren leichtgewichtige KI-Workflows
+                    mit bewährten Produktivitätsroutinen.
                   </p>
                 </div>
               </div>
@@ -219,12 +233,12 @@ export default function Page() {
               <div className="collapse collapse-plus bg-base-100">
                 <input type="radio" name="faq-accordion" />
                 <div className="collapse-title text-lg font-semibold">
-                  Wie funktioniert der Zugang zum Kurs?
+                  Wie funktioniert der Zugang zur Werkstatt?
                 </div>
                 <div className="collapse-content">
                   <p className="text-base-content/70">
                     Nach dem Kauf erhältst du sofort per E-Mail einen
-                    Zugangs-Link. Du kannst alle Module direkt online
+                    Zugangs-Link. Du kannst alle Wochen direkt online
                     durcharbeiten – wann und wo du möchtest. Der Zugriff ist
                     lebenslang und ohne Limit.
                   </p>
@@ -234,15 +248,14 @@ export default function Page() {
               <div className="collapse collapse-plus bg-base-100">
                 <input type="radio" name="faq-accordion" />
                 <div className="collapse-title text-lg font-semibold">
-                  Welche Technologien werden behandelt?
+                  Welche Tools und Methoden setzen wir ein?
                 </div>
                 <div className="collapse-content">
                   <p className="text-base-content/70">
-                    Der Kurs deckt moderne AI-Technologien ab: LLM APIs (OpenAI,
-                    Anthropic), Prompting-Techniken, RAG (Retrieval Augmented
-                    Generation), Vector Databases, AI Agents mit Tool-Calling,
-                    Evaluation und Production Deployment. Alle Beispiele sind in
-                    TypeScript/JavaScript.
+                    Wir arbeiten mit KI-Co-Piloten, Automationen und leichtgewichtigen
+                    Tracking-Setups. Jedes Kapitel liefert Templates, Reflexionsfragen
+                    und konkrete Workflows für deinen Alltag – von Fokusblöcken bis
+                    hin zu Energie- und Kommunikationsritualen.
                   </p>
                 </div>
               </div>

@@ -37,16 +37,6 @@ export default async function ModulePage({ params }: Props) {
   return (
     <main className="min-h-screen bg-base-200">
       <div className="container mx-auto px-4 py-12 max-w-4xl">
-        {/* Breadcrumb */}
-        <div className="breadcrumbs text-sm mb-8">
-          <ul>
-            <li>
-              <Link href="/kurs">Kurs</Link>
-            </li>
-            <li>{mod.title}</li>
-          </ul>
-        </div>
-
         {/* Module Header */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold mb-2">{mod.title}</h1>
@@ -80,12 +70,6 @@ export default async function ModulePage({ params }: Props) {
           })}
         </div>
 
-        {/* Back to Overview */}
-        <div className="mt-12 text-center">
-          <Link href="/kurs" className="btn btn-ghost">
-            ← Zurück zur Übersicht
-          </Link>
-        </div>
       </div>
     </main>
   );

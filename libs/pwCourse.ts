@@ -7,8 +7,27 @@ import type { Course, Module, Lesson, Resource } from "@/types/course";
 import { readPwCsv, type CsvRow } from "./pwCsv";
 import { moduleSlug, slugifyTitle, parseModuleLesson } from "./slugs";
 import { parseVideoUrl } from "./videoEmbed";
+import { existsSync, readFileSync } from "fs";
+import { join } from "path";
+import { buildImageReferenceBlock, hasImageDefinitions, usesImagePlaceholders } from "@/libs/imageRefs";
 
 let cachedCourse: Course | null = null;
+
+// Canonical module titles (1..12)
+const MODULE_TITLES: Record<number, string> = {
+  1: "LPS",
+  2: "Fokusstunden",
+  3: "Lebenskompass",
+  4: "Produktive Tage",
+  5: "Zukunftsskizze",
+  6: "Ausgeglichene Wochen",
+  7: "Quartals-Missionen",
+  8: "Organisieren",
+  9: "Inneres Spiel",
+  10: "Regenerieren",
+  11: "Raum",
+  12: "Abschluss",
+};
 
 /**
  * Extract hostname from URL for resource labels
@@ -41,13 +60,37 @@ function csvRowToLesson(row: CsvRow): Lesson | null {
     href,
   }));
 
+  // Prefer Markdown file content if available: content/lessons/<modSlug>/<lessonSlug>.md
+  let description = row.Beschreibung || "Beschreibung folgt.";
+  try {
+    const mdPath = join(
+      process.cwd(),
+      "content",
+      "lessons",
+      modSlug,
+      `${lessonSlug}.md`,
+    );
+    if (existsSync(mdPath)) {
+      description = readFileSync(mdPath, "utf-8");
+    }
+  } catch {
+    // Ignore FS errors and fall back to CSV description
+  }
+
+  // If content uses image placeholders but no definitions, append module reference block
+  if (usesImagePlaceholders(description) && !hasImageDefinitions(description)) {
+    const block = buildImageReferenceBlock(modSlug);
+    if (block) description = `${description.trim()}${block}`;
+  }
+
   return {
     slug: lessonSlug,
     title: row.Titel || "Ohne Titel",
+    shortTitle: row.Kurztitel || row.Titel, // Fallback to full title if no short title
     order: parsed.lesson || 0,
     moduleSlug: modSlug,
     video,
-    description: row.Beschreibung || "Beschreibung folgt.",
+    description,
     resources,
   };
 }
@@ -82,9 +125,8 @@ export function loadCourse(): Course {
     // Extract module number from slug (modul-01 → 1)
     const moduleNumber = parseInt(modSlug.split("-")[1], 10);
 
-    // Generate module title from first lesson or fallback
-    const firstLesson = lessons[0];
-    const moduleTitle = `Woche ${moduleNumber}`;
+    // Use canonical module title mapping (fallback to Woche N)
+    const moduleTitle = MODULE_TITLES[moduleNumber] || `Woche ${moduleNumber}`;
 
     modules.push({
       slug: modSlug,
@@ -176,6 +218,39 @@ export function getLesson(
   }
 
   return { lesson, prev, next };
+}
+
+/**
+ * Get next open (incomplete) lesson for user
+ * Returns first incomplete lesson, or last lesson if all done
+ */
+export function getNextOpenLesson(
+  progressMap: Record<string, boolean>,
+): { moduleSlug: string; lessonSlug: string; title: string } {
+  const course = loadCourse();
+
+  // Find first incomplete lesson
+  for (const module of course.modules) {
+    for (const lesson of module.lessons) {
+      const key = `${module.slug}/${lesson.slug}`;
+      if (!progressMap[key]) {
+        return {
+          moduleSlug: module.slug,
+          lessonSlug: lesson.slug,
+          title: lesson.title,
+        };
+      }
+    }
+  }
+
+  // All complete → return last lesson
+  const lastModule = course.modules[course.modules.length - 1];
+  const lastLesson = lastModule.lessons[lastModule.lessons.length - 1];
+  return {
+    moduleSlug: lastModule.slug,
+    lessonSlug: lastLesson.slug,
+    title: lastLesson.title,
+  };
 }
 
 /**

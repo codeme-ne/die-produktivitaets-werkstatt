@@ -37,8 +37,6 @@ export async function POST(req: NextRequest) {
     }
     const video = await createVideo({
       title: body.title,
-      collectionId: body.collectionId,
-      thumbnailUrl: body.thumbnailUrl,
     });
     return Response.json(video, { status: 201 });
   } catch (e: any) {

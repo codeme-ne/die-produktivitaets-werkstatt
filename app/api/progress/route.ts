@@ -46,11 +46,22 @@ export async function POST(req: NextRequest) {
 
     // Parse request
     const body = await req.json();
-    const { moduleSlug, videoSlug, done } = body;
+    const { done } = body;
+    const moduleCandidate = body.moduleSlug ?? body.module;
+    const videoCandidate = body.videoSlug ?? body.video;
 
-    if (!moduleSlug || !videoSlug || typeof done !== "boolean") {
+    if (
+      typeof moduleCandidate !== "string" ||
+      typeof videoCandidate !== "string" ||
+      moduleCandidate.length === 0 ||
+      videoCandidate.length === 0 ||
+      typeof done !== "boolean"
+    ) {
       return NextResponse.json({ error: "Invalid request" }, { status: 400 });
     }
+
+    const moduleSlug = moduleCandidate;
+    const videoSlug = videoCandidate;
 
     // Update progress
     const progress = readProgress();

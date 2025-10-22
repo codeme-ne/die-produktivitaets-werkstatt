@@ -4,17 +4,20 @@ import { ReactNode } from "react";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "react-hot-toast";
 import { Tooltip } from "react-tooltip";
-import config from "@/config";
+import { useTheme } from "@/app/ThemeProvider";
 
 /**
  * Client-side layout wrapper
  * Simplified - removed SessionProvider and Crisp
  */
 const ClientLayout = ({ children }: { children: ReactNode }) => {
+  const { theme } = useTheme();
+  const loaderColor = theme === "dark" ? "#60a5fa" : "#3b82f6";
+
   return (
     <>
       {/* Progress bar at the top when navigating between pages */}
-      <NextTopLoader color={config.colors.main} showSpinner={false} />
+      <NextTopLoader color={loaderColor} showSpinner={false} />
 
       {/* Content inside app/page.js files */}
       {children}

@@ -1,13 +1,12 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cookies } from "next/headers";
-import { getLesson, getModule, loadCourse } from "@/libs/pwCourse";
+import { getLesson, loadCourse } from "@/libs/pwCourse";
 import { isLessonDone } from "@/libs/pwProgress";
 import { verifyAccess } from "@/libs/jwt";
 import { VideoHero } from "@/components/course/VideoHero";
 import { VideoBody } from "@/components/course/VideoBody";
-import { ModuleNav } from "@/components/course/ModuleNav";
-import { MarkDoneButton } from "@/components/course/MarkDoneButton";
+import { LessonActions } from "@/components/course/LessonActions";
+import { KeyboardShortcuts } from "@/components/course/KeyboardShortcuts";
 import type { Metadata } from "next";
 
 interface Props {
@@ -44,9 +43,8 @@ export async function generateStaticParams() {
 export default async function VideoPage({ params }: Props) {
   const { module, video } = await params;
   const data = getLesson(module, video);
-  const mod = getModule(module);
 
-  if (!data || !mod) {
+  if (!data) {
     notFound();
   }
 
@@ -66,106 +64,23 @@ export default async function VideoPage({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen bg-base-200">
-      <div className="container mx-auto px-4 py-12 max-w-7xl">
-        {/* Breadcrumb */}
-        <div className="breadcrumbs text-sm mb-8">
-          <ul>
-            <li>
-              <Link href="/kurs">Kurs</Link>
-            </li>
-            <li>
-              <Link href={`/kurs/${module}`}>{mod.title}</Link>
-            </li>
-            <li>{lesson.title}</li>
-          </ul>
-        </div>
-
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2">
+    <>
+      <KeyboardShortcuts prev={prev} next={next} />
+      <div className="flex flex-col h-full">
+        <div className="flex-1 overflow-y-auto">
+          <div className="container mx-auto px-6 py-8 max-w-5xl">
             <VideoHero title={lesson.title} video={lesson.video} />
-
-            {/* Mark Done Button */}
-            <div className="mb-8">
-              <MarkDoneButton
-                moduleSlug={module}
-                videoSlug={video}
-                initialDone={isDone}
-              />
-            </div>
-
-            <VideoBody
-              description={lesson.description}
-              resources={lesson.resources}
-            />
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <ModuleNav
-              moduleSlug={mod.slug}
-              moduleTitle={mod.title}
-              lessons={mod.lessons}
-              currentSlug={lesson.slug}
-            />
+            <VideoBody description={lesson.description} />
           </div>
         </div>
-
-        {/* Prev/Next Navigation */}
-        <div className="mt-12 flex justify-between items-center">
-          {prev ? (
-            <Link
-              href={`/kurs/${prev.moduleSlug}/${prev.lessonSlug}`}
-              className="btn btn-outline gap-2"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-              Vorherige Lektion
-            </Link>
-          ) : (
-            <div />
-          )}
-
-          {next ? (
-            <Link
-              href={`/kurs/${next.moduleSlug}/${next.lessonSlug}`}
-              className="btn btn-primary gap-2"
-            >
-              Nächste Lektion
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
-          ) : (
-            <div />
-          )}
-        </div>
+        <LessonActions
+          moduleSlug={module}
+          lessonSlug={video}
+          initialDone={isDone}
+          prev={prev}
+          next={next}
+        />
       </div>
-    </main>
+    </>
   );
 }

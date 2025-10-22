@@ -7,6 +7,7 @@ import Image from "next/image";
 import logo from "@/app/icon.png";
 import config from "@/config";
 import WhoamiBadge from "@/components/WhoamiBadge";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links: {
   href: string;
@@ -24,14 +25,11 @@ const links: {
     href: "/#faq",
     label: "FAQ",
   },
-  {
-    href: "/dashboard",
-    label: "Dashboard",
-  },
 ];
 
 const cta: JSX.Element = (
   <>
+    <ThemeToggle />
     <WhoamiBadge className="hidden md:inline-flex" />
     <Link href="/#pricing" className="btn btn-primary">
       Jetzt einschreiben

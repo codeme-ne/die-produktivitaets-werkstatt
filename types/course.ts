@@ -7,6 +7,7 @@ export interface VideoInfo {
   libraryId: string;
   guid: string;
   embedUrl: string;
+  durationSec?: number; // From Bunny Stream API or cache
 }
 
 export interface Resource {
@@ -17,6 +18,7 @@ export interface Resource {
 export interface Lesson {
   slug: string;
   title: string;
+  shortTitle?: string; // Shortened version for sidebar (≤40 chars)
   order: number;
   moduleSlug: string;
   video?: VideoInfo;

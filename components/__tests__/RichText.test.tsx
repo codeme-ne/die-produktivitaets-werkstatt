@@ -16,13 +16,26 @@ import RichText from "../RichText";
 // Mock test functions for now (Jest not configured)
 const describe = (name: string, fn: () => void) => fn();
 const it = (name: string, fn: () => void) => fn();
-const expect = (val: any) => ({
-  toBe: (expected: any) => {},
-  toContain: (expected: any) => {},
-  toBeTruthy: () => {},
-  toBeGreaterThan: (expected: any) => {},
-  not: { toContain: (expected: any) => {} },
-});
+const expect = (...args: any[]) => {
+  void args;
+  return {
+    toBe: (...args2: any[]) => {
+      void args2;
+    },
+    toContain: (...args3: any[]) => {
+      void args3;
+    },
+    toBeTruthy: () => {},
+    toBeGreaterThan: (...args4: any[]) => {
+      void args4;
+    },
+    not: {
+      toContain: (...args5: any[]) => {
+        void args5;
+      },
+    },
+  };
+};
 
 describe("RichText QA Fixtures", () => {
   /**
@@ -257,5 +270,14 @@ Mehr Informationen auf [unserer Website](/kurs).
 
     expect(html).toContain("<p>");
     expect(html).toContain("Just plain text");
+  });
+
+  it("preserves ampersands in plain text", () => {
+    const content = "Reflexion – Woche 1 & 2";
+    const html = renderToString(<RichText content={content} />);
+
+    if (!html.includes("Woche 1 & 2")) {
+      throw new Error("RichText should render ampersands without truncation");
+    }
   });
 });

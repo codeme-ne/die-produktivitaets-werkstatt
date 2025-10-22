@@ -55,8 +55,18 @@ export async function GET(req: Request) {
     // Generate JWT token
     const token = await signAccess({ email, cid: customerId });
 
+    // Get next open lesson for redirect
+    const { getNextOpenLesson } = await import("@/libs/pwCourse");
+    const { getProgressForUser } = await import("@/libs/pwProgress");
+    const progressMap = getProgressForUser(email);
+    const nextLesson = getNextOpenLesson(progressMap);
+
     // Create redirect response with cookie
-    const response = NextResponse.redirect(new URL("/course", req.url));
+    const redirectUrl = new URL(
+      `/kurs/${nextLesson.moduleSlug}/${nextLesson.lessonSlug}`,
+      req.url,
+    );
+    const response = NextResponse.redirect(redirectUrl);
 
     response.cookies.set("access_token", token, {
       httpOnly: true,

@@ -40,20 +40,20 @@ You are working with a German AI course platform built on Next.js 15 with simpli
 │   ├── ButtonCheckout.tsx     # Legal checkboxes + checkout
 │   ├── LayoutClient.tsx       # Client-side layout wrapper
 │   ├── ProgressRing.tsx       # DaisyUI radial progress indicator
-│   ├── LessonsList.tsx        # Lesson list with completion status
-│   └── LessonControls.tsx     # Mark complete/undo buttons
-├── content/lessons/
-│   ├── manifest.ts            # Course structure
-│   └── *.mdx                  # Lesson files
+│   └── mdx.tsx                # MDX callouts + widgets
 ├── libs/
 │   ├── jwt.ts                 # JWT sign/verify
 │   ├── stripe.ts              # Stripe client
-│   ├── progress.ts            # Progress tracking (cookie-based)
+│   ├── pwCourse.ts            # CSV → course mapper
+│   ├── pwProgress.ts          # File-based progress helpers
 │   └── resend.ts              # Email sending utility
+├── logs/
+│   ├── events.ndjson          # Event log (POST /api/events)
+│   └── progress.json          # Lesson completion store
 ├── emails/
 │   ├── welcome.ts             # Welcome email after purchase
 │   └── completion.ts          # Completion email at 100%
-├── middleware.ts              # Protects /course routes
+├── middleware.ts              # Protects /kurs routes
 └── config.ts                  # Centralized config (no auth/stripe.plans)
 ```
 
@@ -75,41 +75,22 @@ You are working with a German AI course platform built on Next.js 15 with simpli
 2. Webhook fires `checkout.session.completed`
 3. Email sent with magic link: `/checkout/success?session_id=...`
 4. Success page verifies session with Stripe, sets JWT cookie
-5. Middleware checks cookie on `/course/*` requests
+5. Middleware checks cookie on `/kurs/*` requests
 6. Logout clears cookie via `/api/auth/logout`
 
 **No user accounts. No password. No OAuth.**
 
 ### Middleware (`middleware.ts`)
 
-- Protects `/course`, `/course/*`, `/dashboard`
+- Protects `/kurs`, `/kurs/*`, `/dashboard`
 - Verifies JWT from `access_token` cookie
 - Redirects to `/` if missing/invalid
 
-### Progress Tracking (`libs/progress.ts`)
+### Progress Tracking (`libs/pwProgress.ts`)
 
-Cookie name: **`progress`** (httpOnly, 365 days)
-
-```typescript
-interface ProgressData {
-  completed: string[]; // Completed lesson slugs
-  flags?: {
-    notifiedComplete?: boolean; // Completion email sent
-  };
-}
-```
-
-**Server Actions:**
-
-- `completeLessonAction(slug)` - Mark complete, send email at 100%
-- `undoLessonAction(slug)` - Unmark lesson
-- `getProgress()` - Read current progress
-
-**Idempotent Completion Email:**
-
-- Sent once when all lessons completed
-- Flag `notifiedComplete` prevents duplicates
-- Gets email from JWT `access_token` cookie
+- Reads user-specific completion map from `logs/progress.json`
+- Works with `/api/progress` (GET/POST) to toggle lesson status
+- Dashboard combines data from `libs/pwCourse.ts` and this helper to compute stats/next lesson
 
 ### Stripe Integration
 

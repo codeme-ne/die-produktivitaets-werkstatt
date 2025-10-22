@@ -10,7 +10,7 @@
  * - Underline support via <u> tag
  * - Tailwind styling
  *
- * Whitelist: p, strong, em, u, a, ul, ol, li, h2, h3, br
+ * Whitelist: p, strong, em, u, a, ul, ol, li, h1, h2, h3, br, hr, img, blockquote, details, summary
  */
 
 import MarkdownIt from "markdown-it";
@@ -43,11 +43,30 @@ function sanitizeHtml(html: string): string {
       "ul",
       "ol",
       "li", // Lists
+      "h1",
       "h2",
       "h3", // Headings
       "br", // Line breaks
+      "hr", // Horizontal rule
+      "img", // Images
+      "blockquote", // Quotes / examples
+      "details",
+      "summary", // Toggle sections
     ],
-    ALLOWED_ATTR: ["href", "rel", "target"], // Link attributes only
+    ALLOWED_ATTR: [
+      // Links
+      "href",
+      "rel",
+      "target",
+      // Images
+      "src",
+      "alt",
+      "title",
+      "width",
+      "height",
+      "loading",
+      "decoding",
+    ],
     ALLOW_DATA_ATTR: false, // No data-* attributes
     ADD_ATTR: ["rel"], // Ensure rel is always added
   });
@@ -80,6 +99,17 @@ export default function RichText({ content, className = "" }: Props) {
 
     // Step 3: Process links (add security attributes)
     html = processLinks(html);
+    // Step 3b: Enhance images with performance attributes
+    html = html.replace(/<img([^>]*?)>/gi, (match, rest) => {
+      let tag = `<img${rest}>`;
+      if (!/\sloading=/.test(tag)) {
+        tag = tag.replace(/<img/, '<img loading="lazy"');
+      }
+      if (!/\sdecoding=/.test(tag)) {
+        tag = tag.replace(/<img/, '<img decoding="async"');
+      }
+      return tag;
+    });
 
     // Step 4: Render with Tailwind styling
     return (
@@ -87,16 +117,20 @@ export default function RichText({ content, className = "" }: Props) {
         className={`
           prose prose-lg max-w-none
           space-y-4
-          [&_ul]:list-disc [&_ul]:list-inside [&_ul]:space-y-2
-          [&_ol]:list-decimal [&_ol]:list-inside [&_ol]:space-y-2
+          [&_ul]:list-disc [&_ul]:list-outside [&_ul]:space-y-2
+          [&_ol]:list-decimal [&_ol]:list-outside [&_ol]:space-y-2
           [&_li]:text-base-content/90
           [&_strong]:font-bold [&_strong]:text-base-content
           [&_em]:italic
           [&_u]:underline
           [&_a]:link [&_a]:link-primary
+          [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:my-4
           [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-6 [&_h2]:mb-4
           [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-4 [&_h3]:mb-3
           [&_p]:text-base-content/90 [&_p]:leading-relaxed
+          [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:bg-base-200 [&_blockquote]:rounded-r-lg [&_blockquote]:py-3
+          [&_details]:border [&_details]:border-base-300 [&_details]:rounded-lg [&_details]:bg-base-200 [&_details]:p-3
+          [&_details>summary]:cursor-pointer [&_details>summary]:font-semibold
           ${className}
         `}
         dangerouslySetInnerHTML={{ __html: html }}

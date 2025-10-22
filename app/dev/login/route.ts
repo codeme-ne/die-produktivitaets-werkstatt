@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { signAccess } from "@/libs/jwt";
 import { isAdmin } from "@/libs/authz";
+import { getProgressForUser } from "@/libs/pwProgress";
+import { getNextOpenLesson } from "@/libs/pwCourse";
 
 export const runtime = "nodejs";
 
@@ -22,9 +24,18 @@ export async function GET(req: Request) {
 
   const email = (url.searchParams.get("email") || "dev@local.test").trim();
   const cid = (url.searchParams.get("cid") || "dev_cid").trim();
-  const to =
-    url.searchParams.get("to") ||
-    (isAdmin(email) ? "/dashboard/admin/videos" : "/dashboard");
+  
+  // Determine redirect: explicit ?to, admin panel, or last open lesson
+  let to = url.searchParams.get("to");
+  if (!to) {
+    if (isAdmin(email)) {
+      to = "/dashboard/admin/videos";
+    } else {
+      const progress = getProgressForUser(email);
+      const nextLesson = getNextOpenLesson(progress);
+      to = `/kurs/${nextLesson.moduleSlug}/${nextLesson.lessonSlug}`;
+    }
+  }
 
   try {
     const token = await signAccess({ email, cid });

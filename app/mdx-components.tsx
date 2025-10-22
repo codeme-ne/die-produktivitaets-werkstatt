@@ -1,5 +1,5 @@
 import type { MDXComponents } from "mdx/types";
-import { components as baseComponents } from "@/app/course/components";
+import { components as baseComponents } from "@/components/mdx";
 
 /**
  * Provide custom MDX components (e.g. callouts, checklist) to every MDX file.

@@ -11,6 +11,7 @@ export interface CsvRow {
   Titel: string;
   Videos: string;
   Beschreibung: string;
+  Kurztitel?: string; // Shortened title for sidebar (≤40 chars)
   Links: string[];
 }
 
@@ -86,9 +87,9 @@ export function readPwCsv(): CsvRow[] {
   return dataRows
     .filter((row) => row[0]) // Skip empty rows
     .map((row) => {
-      // Collect all link columns (index 4 onwards)
+      // Collect all link columns (index 5 onwards, after Kurztitel)
       const links = row
-        .slice(4)
+        .slice(5)
         .filter((link) => link && link.startsWith("http"));
 
       return {
@@ -96,6 +97,7 @@ export function readPwCsv(): CsvRow[] {
         Titel: row[1] || "",
         Videos: row[2] || "",
         Beschreibung: row[3] || "",
+        Kurztitel: row[4] || "", // New: shortened title
         Links: links,
       };
     });

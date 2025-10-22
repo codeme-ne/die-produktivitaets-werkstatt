@@ -1,5 +1,9 @@
 import "server-only";
+import { readFile } from "fs/promises";
+import { join } from "path";
 import type { VideoMeta } from "@/types/video";
+
+const LOCAL_META_PATH = join(process.cwd(), "content/videos/meta.json");
 
 let cache: Record<string, VideoMeta> | null = null;
 
@@ -14,16 +18,21 @@ export async function loadVideoMeta(): Promise<Record<string, VideoMeta>> {
         return cache || {};
       }
       console.warn("videoMeta: remote fetch failed", res.status);
-    } catch (e) {
-      console.warn("videoMeta: remote fetch error", e);
+    } catch (error) {
+      console.warn("videoMeta: remote fetch error", error);
     }
   }
-  // Fallback to local JSON (bundled)
-  const local = (await import("@/content/videos/meta.json")).default as Record<
-    string,
-    VideoMeta
-  >;
-  cache = local || {};
+
+  try {
+    const raw = await readFile(LOCAL_META_PATH, "utf-8");
+    cache = JSON.parse(raw) as Record<string, VideoMeta>;
+  } catch (error) {
+    console.warn("videoMeta: local meta.json missing, returning empty map", {
+      error,
+    });
+    cache = {};
+  }
+
   return cache;
 }
 

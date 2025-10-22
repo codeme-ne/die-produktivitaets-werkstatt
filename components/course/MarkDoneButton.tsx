@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useOptimistic } from "react";
+import { useState, useOptimistic, startTransition } from "react";
 
 interface Props {
   moduleSlug: string;
@@ -19,7 +19,10 @@ export function MarkDoneButton({
 
   const toggle = async () => {
     const newDone = !done;
-    setOptimisticDone(newDone);
+    // Optimistic updates must run inside a transition
+    startTransition(() => {
+      setOptimisticDone(newDone);
+    });
     setLoading(true);
 
     try {
@@ -46,7 +49,10 @@ export function MarkDoneButton({
       });
     } catch (error) {
       console.error("Failed to toggle done:", error);
-      setOptimisticDone(done); // Revert optimistic update
+      // Revert optimistic update inside a transition
+      startTransition(() => {
+        setOptimisticDone(done);
+      });
     } finally {
       setLoading(false);
     }
