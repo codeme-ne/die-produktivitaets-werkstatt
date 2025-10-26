@@ -2,9 +2,11 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { verifyAccess } from "@/libs/jwt";
 import { isAdmin } from "@/libs/authz";
-import { listVideos } from "@/libs/bunnyStream";
+import { listVideos, type BunnyListResponse } from "@/libs/bunnyStream";
 import VideoCreateForm from "./VideoCreateForm";
 import VideosList from "./VideosList";
+import AdminNav from "@/components/admin/AdminNav";
+import { getTranscriptStatuses } from "@/libs/transcripts";
 
 export default async function AdminVideosPage() {
   // Verify JWT and check admin status
@@ -28,7 +30,17 @@ export default async function AdminVideosPage() {
   }
 
   // Load initial videos
-  const initialData = await listVideos({ page: 1, perPage: 25 });
+  const apiData = await listVideos({ page: 1, perPage: 25 });
+  const initialData: BunnyListResponse = apiData ?? {
+    items: [],
+    itemsPerPage: 25,
+    currentPage: 1,
+    totalItems: 0,
+  };
+
+  const initialTranscripts = initialData.items.length
+    ? getTranscriptStatuses(initialData.items.map((video) => video.guid))
+    : [];
 
   return (
     <main className="container mx-auto px-4 py-12 max-w-6xl">
@@ -39,6 +51,8 @@ export default async function AdminVideosPage() {
         </h1>
         <p className="text-lg text-base-content/70">Admin: {email}</p>
       </div>
+
+      <AdminNav active="videos" />
 
       {/* Create Video Section */}
       <div className="card bg-base-100 shadow-xl mb-8">
@@ -54,7 +68,10 @@ export default async function AdminVideosPage() {
           <h2 className="card-title text-2xl mb-4">
             Deine Videos ({initialData.totalItems})
           </h2>
-          <VideosList initialData={initialData} />
+          <VideosList
+            initialData={initialData}
+            initialTranscripts={initialTranscripts}
+          />
         </div>
       </div>
     </main>

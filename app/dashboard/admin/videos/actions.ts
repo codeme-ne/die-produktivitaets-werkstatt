@@ -10,6 +10,9 @@ import {
   BunnyListResponse,
   BunnyVideo,
 } from "@/libs/bunnyStream";
+import { getTranscriptStatuses } from "@/libs/transcripts";
+import { generateTranscript } from "@/libs/transcriptRunner";
+import type { TranscriptStatus } from "@/types/transcripts";
 
 /**
  * Get admin email from JWT token
@@ -79,13 +82,17 @@ export async function createAndIngestAction(input: {
 export async function listVideosAction(): Promise<{
   success: boolean;
   data?: BunnyListResponse;
+  transcripts?: TranscriptStatus[];
   error?: string;
 }> {
   try {
     await requireAdmin();
 
     const data = await listVideos({ page: 1, perPage: 25 });
-    return { success: true, data };
+    const transcripts = data?.items
+      ? getTranscriptStatuses(data.items.map((video) => video.guid))
+      : [];
+    return { success: true, data, transcripts };
   } catch (e: any) {
     return { success: false, error: e?.message || "Unbekannter Fehler" };
   }
@@ -112,6 +119,59 @@ export async function getVideoAction(videoId: string): Promise<{
     }
 
     return { success: true, video };
+  } catch (e: any) {
+    return { success: false, error: e?.message || "Unbekannter Fehler" };
+  }
+}
+
+/**
+ * Generate (or regenerate) a transcript for a video using Whisper CLI.
+ */
+export async function generateTranscriptAction(input: {
+  guid: string;
+  language?: string;
+  model?: string;
+  dryRun?: boolean;
+}): Promise<{
+  success: boolean;
+  transcript?: TranscriptStatus;
+  logs?: string;
+  error?: string;
+}> {
+  try {
+    await requireAdmin();
+
+    const guid = input.guid?.trim();
+    if (!guid) {
+      return { success: false, error: "GUID ist erforderlich" };
+    }
+
+    const logs: string[] = [];
+    const whisperArgs =
+      process.env.WHISPER_EXTRA_ARGS?.split(/\s+/).filter(Boolean) ?? [];
+
+    await generateTranscript({
+      guid,
+      language: input.language || process.env.WHISPER_LANGUAGE || "de",
+      model: input.model,
+      libraryId:
+        process.env.BUNNY_STREAM_LIBRARY_ID ||
+        process.env.BUNNY_LIBRARY_ID ||
+        process.env.NEXT_PUBLIC_BUNNY_LIBRARY_ID,
+      accessKey:
+        process.env.BUNNY_STREAM_ACCESS_KEY || process.env.BUNNY_STREAM_API_KEY,
+      whisperCommand: process.env.WHISPER_COMMAND,
+      whisperArgs,
+      dryRun: input.dryRun,
+      logger: (line) => logs.push(line),
+    });
+
+    const [status] = getTranscriptStatuses([guid]);
+    return {
+      success: true,
+      transcript: status,
+      logs: logs.join("\n"),
+    };
   } catch (e: any) {
     return { success: false, error: e?.message || "Unbekannter Fehler" };
   }

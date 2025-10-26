@@ -109,3 +109,22 @@ Der einfachste Weg, Videos zu verwalten, ist über das Dashboard:
 - Große Uploads nicht durch das Next.js‑Backend tunneln. Bevorzugt: „Ingest from URL" oder direkte PUT‑Uploads aus sicheren Servern/Jobs.
 - Der Library „AccessKey" ist geheim → niemals clientseitig einsetzen oder ins Repo commiten.
 - Embed ist öffentlich (GUID kennen) – für geschützt benötigst du Signatures/Policies von Bunny (optional, später nachrüstbar).
+
+8. Transkripte mit Whisper
+
+- **Voraussetzungen**
+  - Whisper CLI installiert (`pip install openai-whisper` oder `pip install faster-whisper`).
+  - `ffmpeg` im PATH.
+  - `.env.local`: `BUNNY_STREAM_LIBRARY_ID`, `BUNNY_STREAM_ACCESS_KEY`, optional `WHISPER_COMMAND`, `WHISPER_EXTRA_ARGS`, `WHISPER_LANGUAGE`.
+- **CLI-Workflow**
+  ```bash
+  npm run transcripts:generate -- --guid=<bunny-video-guid> --language=de
+  # optional: --model=medium --whisper=faster-whisper --keep-temp
+  ```
+  - Lädt das Video temporär, ruft Whisper auf und schreibt `content/transcripts/<guid>.vtt`.
+  - Metadaten landen in `content/transcripts/index.json`.
+  - `--dry-run` testet nur Fetch & Setup ohne Datei zu erzeugen.
+- **Admin-Dashboard**
+  - `/dashboard/admin/videos` zeigt pro Video den Transkript-Status (Sprache + Zeitstempel).
+  - Button „Transkript erzeugen / Neu generieren" triggert das gleiche Skript serverseitig (Whisper muss auf dem Server vorhanden sein).
+  - Fehler erscheinen inline im Dashboard.

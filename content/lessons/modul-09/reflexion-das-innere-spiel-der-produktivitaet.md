@@ -64,7 +64,3 @@ Vier konkrete Ziele für dieses Modul:
 ❓ **Warum ist Regenerieren ein eigenes Modul wert?**
 
 Regenerieren wird oft unterschätzt, ist aber fundamental für nachhaltige Produktivität. Ohne ausreichende Erholung kann selbst das beste Produktivitätssystem nicht funktionieren.
-
----
-
----

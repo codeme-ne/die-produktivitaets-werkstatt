@@ -8,6 +8,7 @@ import { VideoBody } from "@/components/course/VideoBody";
 import { LessonActions } from "@/components/course/LessonActions";
 import { KeyboardShortcuts } from "@/components/course/KeyboardShortcuts";
 import type { Metadata } from "next";
+import { toPlainText } from "@/libs/markdown";
 
 interface Props {
   params: Promise<{ module: string; video: string }>;
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${data.lesson.title} | Produktivitäts-Werkstatt`,
-    description: data.lesson.description.slice(0, 160),
+    description: toPlainText(data.lesson.description, 160),
   };
 }
 

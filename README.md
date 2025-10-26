@@ -95,6 +95,23 @@ import VideoEmbed from "@/components/VideoEmbed";
 
 Details: see `docs/bunny-stream.md`.
 
+### Transkripte (Whisper)
+
+1. Installiere eine Whisper-CLI lokal (z. B. `pip install openai-whisper` oder `pip install faster-whisper`) und stelle sicher, dass `ffmpeg` im PATH liegt.
+2. Optional `.env.local` ergänzen:
+   ```
+   WHISPER_COMMAND=whisper        # oder faster-whisper
+   WHISPER_EXTRA_ARGS=--model medium --device cuda
+   WHISPER_LANGUAGE=de
+   ```
+3. Transkript erzeugen:
+   ```bash
+   npm run transcripts:generate -- --guid=<bunny-video-guid> --language=de
+   ```
+   - Erstellt `content/transcripts/<guid>.vtt` + pflegt `content/transcripts/index.json`.
+   - `--dry-run` testet nur den Fetch, `--keep-temp` lässt das Video in `/tmp` liegen.
+4. Im Admin-Dashboard `/dashboard/admin/videos` per Button „Transkript erzeugen / Neu generieren“ auslösen (nutzt den gleichen Workflow serverseitig).
+
 ## PW Course System (CSV-Based Video Courses)
 
 A complete video course platform powered by a single CSV file.
