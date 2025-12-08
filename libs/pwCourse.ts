@@ -4,6 +4,8 @@
  */
 
 import type { Course, Module, Lesson, Resource } from "@/types/course";
+import type { ModuleReleaseState } from "@/libs/releases";
+import { DEFAULT_PRODUCT, type CourseProduct } from "@/types/products";
 import { readPwCsv, type CsvRow } from "./pwCsv";
 import { moduleSlug, slugifyTitle, parseModuleLesson } from "./slugs";
 import { parseVideoUrl } from "./videoEmbed";
@@ -51,8 +53,8 @@ function csvRowToLesson(row: CsvRow): Lesson | null {
   const modSlug = moduleSlug(parsed.module);
   const lessonSlug = slugifyTitle(row.Titel) || `lektion-${parsed.lesson || 1}`;
 
-  // Parse video info
-  const video = row.Videos ? parseVideoUrl(row.Videos) : undefined;
+  // Parse video info (convert null to undefined for type safety)
+  const video = row.Videos ? (parseVideoUrl(row.Videos) ?? undefined) : undefined;
 
   // Parse resources
   const resources: Resource[] = row.Links.map((href) => ({
@@ -226,11 +228,19 @@ export function getLesson(
  */
 export function getNextOpenLesson(
   progressMap: Record<string, boolean>,
+  releaseMap?: Record<string, ModuleReleaseState>,
+  productType: CourseProduct = DEFAULT_PRODUCT,
+  courseOverride?: Course,
 ): { moduleSlug: string; lessonSlug: string; title: string } {
-  const course = loadCourse();
+  const course = courseOverride || loadCourse();
 
   // Find first incomplete lesson
   for (const module of course.modules) {
+    const isReleased =
+      productType === "self-paced" ||
+      releaseMap?.[module.slug]?.isReleased !== false;
+    if (!isReleased) continue;
+
     for (const lesson of module.lessons) {
       const key = `${module.slug}/${lesson.slug}`;
       if (!progressMap[key]) {
@@ -244,7 +254,14 @@ export function getNextOpenLesson(
   }
 
   // All complete → return last lesson
-  const lastModule = course.modules[course.modules.length - 1];
+  const availableModules =
+    productType === "self-paced"
+      ? course.modules
+      : course.modules.filter((mod) => releaseMap?.[mod.slug]?.isReleased !== false);
+
+  const fallbackModules = availableModules.length > 0 ? availableModules : course.modules;
+
+  const lastModule = fallbackModules[fallbackModules.length - 1];
   const lastLesson = lastModule.lessons[lastModule.lessons.length - 1];
   return {
     moduleSlug: lastModule.slug,

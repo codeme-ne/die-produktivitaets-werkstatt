@@ -68,11 +68,15 @@ export async function createAndIngestAction(input: {
     const video = await createVideo({ title: input.title.trim() });
 
     // Start URL ingest
+    if (!video) {
+      return { success: false, error: "Video creation failed" };
+    }
     await ingestFromUrl(video.guid, input.url.trim());
 
     return { success: true, guid: video.guid };
-  } catch (e: any) {
-    return { success: false, error: e?.message || "Unbekannter Fehler" };
+  } catch (e: unknown) {
+    const err = e as Error;
+    return { success: false, error: err?.message || "Unbekannter Fehler" };
   }
 }
 
@@ -92,9 +96,10 @@ export async function listVideosAction(): Promise<{
     const transcripts = data?.items
       ? getTranscriptStatuses(data.items.map((video) => video.guid))
       : [];
-    return { success: true, data, transcripts };
-  } catch (e: any) {
-    return { success: false, error: e?.message || "Unbekannter Fehler" };
+    return { success: true, data: data ?? undefined, transcripts };
+  } catch (e: unknown) {
+    const err = e as Error;
+    return { success: false, error: err?.message || "Unbekannter Fehler" };
   }
 }
 
@@ -112,6 +117,9 @@ export async function getVideoAction(videoId: string): Promise<{
     // Bunny API doesn't have a single-video endpoint in our SDK
     // so we list all and find the one we need
     const list = await listVideos({ page: 1, perPage: 100 });
+    if (!list) {
+      return { success: false, error: "Could not fetch video list" };
+    }
     const video = list.items.find((v) => v.guid === videoId);
 
     if (!video) {
@@ -119,8 +127,9 @@ export async function getVideoAction(videoId: string): Promise<{
     }
 
     return { success: true, video };
-  } catch (e: any) {
-    return { success: false, error: e?.message || "Unbekannter Fehler" };
+  } catch (e: unknown) {
+    const err = e as Error;
+    return { success: false, error: err?.message || "Unbekannter Fehler" };
   }
 }
 
@@ -172,7 +181,8 @@ export async function generateTranscriptAction(input: {
       transcript: status,
       logs: logs.join("\n"),
     };
-  } catch (e: any) {
-    return { success: false, error: e?.message || "Unbekannter Fehler" };
+  } catch (e: unknown) {
+    const err = e as Error;
+    return { success: false, error: err?.message || "Unbekannter Fehler" };
   }
 }

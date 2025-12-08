@@ -1,132 +1,483 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
+  themes: false;
 }
 
-@theme {
-  --font-display: "Satoshi", "sans-serif";
+/* ═══════════════════════════════════════════════════════════════════════════
+   Custom Werkstatt Themes - Warm Cream + Mauve + Orange Brand Identity
+   Based on "Dein idealer Dienstag" presentation style
+   ═══════════════════════════════════════════════════════════════════════════ */
 
-  --animate-shimmer: shimmer 3s ease-out infinite alternate;
-  --animate-opacity: opacity 0.25s ease-in-out;
-  --animate-appearFromRight: appearFromRight 300ms ease-in-out;
+/* Light Theme: Werkstatt */
+[data-theme="werkstatt"] {
+  color-scheme: light;
+
+  /* Primary: Warm Mauve/Dusty Rose */
+  --color-primary: oklch(65% 0.06 20);
+  --color-primary-content: oklch(98% 0.005 85);
+
+  /* Secondary: Soft Mauve */
+  --color-secondary: oklch(78% 0.04 20);
+  --color-secondary-content: oklch(30% 0.02 30);
+
+  /* Accent: Warm Orange (for numbers, highlights) */
+  --color-accent: oklch(72% 0.16 55);
+  --color-accent-content: oklch(98% 0.005 85);
+
+  /* Neutral: Dark Charcoal */
+  --color-neutral: oklch(25% 0.02 30);
+  --color-neutral-content: oklch(95% 0.005 85);
+
+  /* Base colors: Warm Cream/Paper */
+  --color-base-100: oklch(97.5% 0.008 85);
+  --color-base-200: oklch(94% 0.012 75);
+  --color-base-300: oklch(88% 0.025 25);
+  --color-base-content: oklch(22% 0.02 30);
+
+  /* Info: Light Sky Blue (for decorative underlines) */
+  --color-info: oklch(75% 0.12 230);
+  --color-info-content: oklch(25% 0.02 230);
+
+  /* Status colors */
+  --color-success: oklch(70% 0.15 145);
+  --color-success-content: oklch(98% 0.01 90);
+  --color-warning: oklch(82% 0.14 85);
+  --color-warning-content: oklch(25% 0.03 50);
+  --color-error: oklch(62% 0.2 25);
+  --color-error-content: oklch(98% 0.01 90);
+}
+
+/* Dark Theme: Werkstatt Dark */
+[data-theme="werkstatt-dark"] {
+  color-scheme: dark;
+
+  /* Primary: Lighter Mauve for dark mode */
+  --color-primary: oklch(72% 0.08 20);
+  --color-primary-content: oklch(20% 0.02 30);
+
+  /* Secondary */
+  --color-secondary: oklch(55% 0.05 20);
+  --color-secondary-content: oklch(95% 0.005 85);
+
+  /* Accent: Brighter Orange */
+  --color-accent: oklch(78% 0.18 55);
+  --color-accent-content: oklch(20% 0.02 50);
+
+  /* Neutral */
+  --color-neutral: oklch(75% 0.02 30);
+  --color-neutral-content: oklch(20% 0.02 30);
+
+  /* Base colors: Deep Warm Charcoal */
+  --color-base-100: oklch(22% 0.015 30);
+  --color-base-200: oklch(18% 0.012 30);
+  --color-base-300: oklch(28% 0.02 30);
+  --color-base-content: oklch(92% 0.008 85);
+
+  /* Info: Sky Blue */
+  --color-info: oklch(70% 0.12 230);
+  --color-info-content: oklch(20% 0.02 230);
+
+  /* Status colors */
+  --color-success: oklch(70% 0.15 145);
+  --color-success-content: oklch(20% 0.02 145);
+  --color-warning: oklch(82% 0.14 85);
+  --color-warning-content: oklch(20% 0.03 50);
+  --color-error: oklch(65% 0.2 25);
+  --color-error-content: oklch(98% 0.01 90);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Die Produktivitäts-Werkstatt - Design System
+   Aesthetic: Handwerklich, Warm, Editorial, Ozean-Metapher
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* Typography */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Source Serif 4", "Georgia", serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Werkstatt Color Palette - also exposed for Tailwind utilities */
+  --color-honey: #C9A227;
+  --color-honey-light: #E8D174;
+  --color-honey-dark: #8B6914;
+
+  --color-ocean: #1A5F7A;
+  --color-ocean-light: #2E8B9A;
+  --color-ocean-deep: #0D3B4D;
+  --color-terracotta: #C4704A;
+  --color-terracotta-light: #E89B78;
+  --color-cream: #FBF7F0;
+  --color-cream-warm: #F5EDE0;
+  --color-parchment: #EDE4D3;
+  --color-ink: #2C1810;
+  --color-ink-light: #5C4033;
+  --color-wood: #8B5E3C;
+  --color-wood-light: #A67B5B;
+
+  /* Animations */
+  --animate-shimmer: shimmer 4s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-wave: wave 8s ease-in-out infinite;
+  --animate-glow: glow 3s ease-in-out infinite;
+  --animate-fadeUp: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-fadeIn: fadeIn 0.6s ease-out forwards;
+  --animate-scaleIn: scaleIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-slideIn: slideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-pulse-soft: pulse-soft 4s ease-in-out infinite;
   --animate-wiggle: wiggle 1.5s ease-in-out infinite;
-  --animate-popup: popup 0.25s ease-in-out;
 
   @keyframes shimmer {
-    0% {
-      background-position: 0 50%;
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(1deg); }
+    75% { transform: translateY(4px) rotate(-1deg); }
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(5px) translateY(-3px); }
+    50% { transform: translateX(-3px) translateY(5px); }
+    75% { transform: translateX(-5px) translateY(-2px); }
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      filter: brightness(1) drop-shadow(0 0 8px color-mix(in oklch, var(--color-accent) 30%, transparent));
     }
     50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
+      filter: brightness(1.1) drop-shadow(0 0 20px color-mix(in oklch, var(--color-accent) 50%, transparent));
     }
   }
 
-  @keyframes opacity {
+  @keyframes fadeUp {
     0% {
       opacity: 0;
+      transform: translateY(30px);
     }
     100% {
       opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  @keyframes appearFromRight {
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
     0% {
-      opacity: 0.3;
-      transform: translate(15%, 0px);
+      opacity: 0;
+      transform: scale(0.9);
     }
     100% {
       opacity: 1;
-      transform: translate(0);
+      transform: scale(1);
     }
+  }
+
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
   }
 
   @keyframes wiggle {
-    0%,
-    20%,
-    80%,
-    100% {
-      transform: rotate(0deg);
-    }
-    30%,
-    60% {
-      transform: rotate(-2deg);
-    }
-    40%,
-    70% {
-      transform: rotate(2deg);
-    }
-    45% {
-      transform: rotate(-4deg);
-    }
-    55% {
-      transform: rotate(4deg);
-    }
+    0%, 20%, 80%, 100% { transform: rotate(0deg); }
+    30%, 60% { transform: rotate(-2deg); }
+    40%, 70% { transform: rotate(2deg); }
   }
 
-  @keyframes popup {
-    0% {
-      transform: scale(0.8);
-      opacity: 0.8;
-    }
-    50% {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
+  @keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -10%); }
+    30% { transform: translate(3%, -15%); }
+    50% { transform: translate(12%, 9%); }
+    70% { transform: translate(9%, 4%); }
+    90% { transform: translate(-1%, 7%); }
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Base Styles
+   ═══════════════════════════════════════════════════════════════════════════ */
 
 html,
 body {
   scroll-behavior: smooth !important;
   overflow-x: hidden;
   max-width: 100vw;
+  font-family: var(--font-body);
+}
+
+/* DaisyUI Theme Configuration: caramellatte (light) + coffee (dark) */
+/* Only override non-color settings */
+[data-theme="caramellatte"],
+[data-theme="coffee"] {
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+  --rounded-badge: 0.25rem;
+  --animation-btn: 0.25s;
+  --animation-input: 0.2s;
+  --btn-focus-scale: 0.98;
+  --border-btn: 2px;
+  --tab-border: 2px;
+  --tab-radius: 0.5rem;
 }
 
 progress::-webkit-progress-value {
   transition: 0.6s width ease-out;
 }
 
-.btn-gradient {
-  background: linear-gradient(
-    60deg,
-    #f79533,
-    #f37055,
-    #ef4e7b,
-    #a166ab,
-    #5073b8,
-    #1098ad,
-    #07b39b,
-    #6fba82
-  ) !important;
-  background-size: 300% 300% !important;
-  animation: var(--animate-shimmer) !important;
-  border: 0 !important;
-  border-color: transparent !important;
-  color: white !important;
-  box-shadow:
-    0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+/* ═══════════════════════════════════════════════════════════════════════════
+   Typography
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
 }
 
-.btn-gradient:hover {
-  filter: saturate(1.2) !important;
+.font-body {
+  font-family: var(--font-body);
 }
 
-.btn-gradient:disabled {
-  background: rgb(107 114 128 / 0.3) !important;
-  color: rgb(156 163 175) !important;
+h1, h2, h3, h4, h5, h6, .heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Buttons & Interactive Elements
+   ═══════════════════════════════════════════════════════════════════════════ */
 
 .btn {
-  text-transform: capitalize !important;
+  text-transform: none !important;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  min-height: 3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.btn-lg {
+  min-height: 3.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 1.125rem;
+}
+
+/* DaisyUI handles btn-primary and btn-secondary colors via themes */
+/* Removed custom overrides to let caramellatte/coffee themes control colors */
+
+/* btn-gradient removed - use btn-primary or btn-accent instead */
+
+/* Werkstatt Themes - Button Ghost Hover Fix */
+[data-theme="werkstatt"] .btn-ghost:hover {
+  background-color: color-mix(in oklch, var(--color-base-300) 50%, transparent);
+  color: var(--color-base-content);
+}
+
+[data-theme="werkstatt-dark"] .btn-ghost:hover {
+  background-color: color-mix(in oklch, var(--color-base-300) 50%, transparent);
+  color: var(--color-base-content);
+}
+
+[data-theme="werkstatt"] .btn-ghost:focus-visible,
+[data-theme="werkstatt-dark"] .btn-ghost:focus-visible {
+  outline-color: var(--color-accent);
+}
+
+/* Coffee Theme (Dark) - Hover Fix */
+[data-theme="coffee"] .btn-ghost:hover {
+  background-color: color-mix(in oklch, var(--color-base-300) 50%, transparent);
+  color: var(--color-base-content);
+}
+
+[data-theme="coffee"] .btn-ghost:focus-visible {
+  outline-color: var(--color-accent);
+}
+
+[data-theme="coffee"] a:hover {
+  color: var(--color-accent);
+}
+
+/* Toggle styling - ensure proper dot visibility */
+.toggle {
+  --tglbg: var(--color-base-300);
+}
+
+[data-theme="caramellatte"] .toggle {
+  --tglbg: var(--color-base-300);
+  border-color: color-mix(in oklch, var(--color-base-content) 20%, transparent);
+}
+
+[data-theme="caramellatte"] .toggle:checked {
+  --tglbg: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Cards & Surfaces
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.card {
+  border: 1px solid color-mix(in oklch, var(--color-base-300) 50%, transparent);
+  box-shadow: 0 4px 20px -5px color-mix(in oklch, var(--color-base-content) 10%, transparent);
+}
+
+/* Caramellatte theme card borders - more visible */
+[data-theme="caramellatte"] .card {
+  border: 1px solid color-mix(in oklch, var(--color-base-300) 70%, transparent);
+  box-shadow: 0 2px 12px -4px color-mix(in oklch, var(--color-base-content) 12%, transparent);
+}
+
+/* card-werkstatt removed - use DaisyUI card classes instead */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Background Effects & Textures
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.bg-grain {
+  position: relative;
+}
+
+.bg-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* bg-werkstatt, bg-ocean-gradient, bg-waves removed - use DaisyUI bg-base-* classes instead */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Animation Utilities
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.animate-fade-up {
+  animation: var(--animate-fadeUp);
+}
+
+.animate-fade-in {
+  animation: var(--animate-fadeIn);
+}
+
+.animate-scale-in {
+  animation: var(--animate-scaleIn);
+}
+
+.animate-float {
+  animation: var(--animate-float);
+}
+
+.animate-glow {
+  animation: var(--animate-glow);
+}
+
+.animate-wave {
+  animation: var(--animate-wave);
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* Initially hidden for animation */
+.animate-on-scroll {
+  opacity: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Special Components
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Decorative compass icon */
+.compass-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.compass-icon::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent) 0%, transparent 50%);
+  opacity: 0.3;
+  animation: var(--animate-pulse-soft);
+}
+
+/* Section divider - uses DaisyUI colors */
+.section-divider {
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-accent) 20%,
+    var(--color-secondary) 50%,
+    var(--color-primary) 80%,
+    transparent 100%
+  );
+  margin: 4rem auto;
+  max-width: 300px;
+}
+
+/* Quote styling - uses DaisyUI accent color */
+.quote-werkstatt {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 3px solid var(--color-accent);
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+/* Removed ::before pseudo-element to avoid overlap with border */
+
+/* Badge styling - uses DaisyUI accent */
+.badge-werkstatt {
+  background: var(--color-accent);
+  color: var(--color-accent-content);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Number highlight - uses DaisyUI accent */
+.number-highlight {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-accent);
 }
 
 /* Focus Mode: Hide header and sidebar */
@@ -165,4 +516,20 @@ progress::-webkit-progress-value {
   max-width: 300px;
   white-space: normal;
   text-align: left;
+}
+
+/* Fix drawer sidebar background - ensure solid background */
+.drawer-side {
+  --tw-bg-opacity: 1 !important;
+}
+
+.drawer-side > aside,
+.drawer .drawer-side aside {
+  background-color: var(--color-base-100) !important;
+  background: var(--color-base-100) !important;
+}
+
+/* Ensure drawer overlay is opaque on mobile */
+.drawer-side > .drawer-overlay {
+  background-color: rgba(0, 0, 0, 0.6) !important;
 }

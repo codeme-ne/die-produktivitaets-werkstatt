@@ -8,8 +8,6 @@
 - **Fokus-Logbuch**: Tracke täglich deine Fokusminuten
 - **Menü-Beispiele**: Konkrete Strategien für jede Situation
 
----
-
 ## ⏳ Die Fokus-Formel: 5-50-5
 
 Im Zentrum eines sinnvollen Fortschritts steht die Fähigkeit, sich intensiv auf wichtige Arbeit zu konzentrieren.
@@ -22,8 +20,6 @@ Ein strukturierter Ansatz für konzentriertes Arbeiten:
 **50 Min** → Fokussieren (Deep Work, keine Ablenkungen)
 **5 Min** → Nachdenken & Auftanken (Reflexion + Pause)
 
----
-
 ## 🚫 Die 4 Reiter des Fokus-Tods
 
 Wenn du diese Praxis beherrschst und lernst, die **„4 Reiter"** zu bekämpfen, schaffst du die Grundlage für jedes Ziel:
@@ -32,8 +28,6 @@ Wenn du diese Praxis beherrschst und lernst, die **„4 Reiter"** zu bekämpfen,
 2. **Ablenkung** → Lösung: Reaktivierungsmenü
 3. **Burnout** → Lösung: Pausen + Regenerieren
 4. **Perfektionismus** → Lösung: "Fortschritt > Perfektion"
-
----
 
 ## ⏰ Das Fokus-Logbuch: Messen ist Macht
 
@@ -62,8 +56,6 @@ Nimm dir die nächsten Arbeitstage Zeit, um deine Fokuszeit zu erfassen (nicht f
 **3. März 2025, 13:00 - 14:30 Uhr - Podcast editieren**
 *Reflexion:* Angenehme Arbeitsphase. Systematisch Schritt für Schritt vorgegangen. Diese fokussierte Herangehensweise war deutlich effektiver als das sonst übliche gestresste Hin-und-her-Springen zwischen Aufgaben.
 
----
-
 ## ⚡️ Deine 3 Aktivierungs-Menüs
 
 ### ↗️ **1. Aktivierungsmenü: Die „Einstiegsrampe" zum Fokus**
@@ -86,8 +78,6 @@ Eine Möglichkeit, **Prokrastination** zu bekämpfen, ist die Erstellung eines s
 
 Liste 5-7 schnelle Dinge auf, die dir helfen, auf die "Auffahrt" zum Fokusmodus zu kommen. Halte diese Liste auf deinem Arbeitsplatz sichtbar.
 
----
-
 ### 🔁 **2. Reaktivierungsmenü: Wieder auf Kurs kommen**
 
 Ähnlich verhält es sich, wenn du **während einer Fokussitzung abgelenkt** wirst. Es hilft, ein **Reaktivierungsmenü** zu haben, um wieder auf Kurs zu kommen.
@@ -108,8 +98,6 @@ Liste 5-7 schnelle Dinge auf, die dir helfen, auf die "Auffahrt" zum Fokusmodus 
 
 Liste 5-7 schnelle Dinge auf, die dir helfen, wieder in den Fokusmodus zurückzukehren. Halte diese Liste auf deinem Arbeitsplatz sichtbar.
 
----
-
 ### 🪝 **3. Erfassungsmethode: Ein "Parkplatz" für zufällige Gedanken**
 
 Für zufällige Gedanken, die während Fokussitzungen auftauchen, halte ich ein kleines **Notizbuch** neben mir. Auf diese Weise kannst du Dinge schnell notieren, ohne deine Konzentration zu stören.
@@ -128,8 +116,6 @@ Ein festgelegter **"Parkplatz"** für zufällige Ideen hilft dir, den Fluss aufr
 
 Ob digital (z.B. Apps wie Things) oder analog (z.B. Notizbuch), entwickle eine Erfassungsmethode für zufällige Gedanken und Aufgaben, die dir während einer Fokussitzung in den Sinn kommen.
 
----
-
 ## ✅ Deine nächsten Schritte
 
 - [ ] **Aktivierungsmenü** erstellen (5-7 Punkte)
@@ -138,8 +124,6 @@ Ob digital (z.B. Apps wie Things) oder analog (z.B. Notizbuch), entwickle eine E
 - [ ] **Fokus-Logbuch** führen (täglich tracken)
 - [ ] **Menüs sichtbar** machen (am Arbeitsplatz)
 
----
-
 ## 🎯 Die wichtigste Erkenntnis
 
 **Fokus ist keine Willenskraft-Frage.**
@@ -147,7 +131,5 @@ Ob digital (z.B. Apps wie Things) oder analog (z.B. Notizbuch), entwickle eine E
 **Fokus ist eine System-Frage.**
 
 Mit den richtigen **Menüs** (Aktivierung, Reaktivierung, Erfassung) und dem **Fokus-Logbuch** baust du ein System, das funktioniert – auch an schwierigen Tagen.
-
----
 
 **→ Weiter geht's mit "Experiment Woche 2"**

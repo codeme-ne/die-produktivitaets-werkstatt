@@ -1,17 +1,30 @@
 import { ReactNode } from "react";
-import { Inter } from "next/font/google";
+import { Fraunces, Source_Serif_4 } from "next/font/google";
 import { Viewport } from "next";
 import { getSEOTags } from "@/libs/seo";
 import ClientLayout from "@/components/LayoutClient";
 import { ThemeProvider } from "./ThemeProvider";
-import config from "@/config";
 import "./globals.css";
 
-const font = Inter({ subsets: ["latin"] });
+// Display font - Fraunces: Elegant, characterful serif for headings
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+// Body font - Source Serif 4: Readable, warm serif for body text
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-body",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const viewport: Viewport = {
-  // Will use the primary color of your theme to show a nice theme color in the URL bar of supported browsers
-  themeColor: config.colors.main,
+  // Warm honey color for browser theme
+  themeColor: "#C9A227",
   width: "device-width",
   initialScale: 1,
 };
@@ -21,12 +34,17 @@ export const viewport: Viewport = {
 export const metadata = getSEOTags();
 
 // Default theme that will be used during SSR and initial render
-const defaultTheme = 'light';
+const defaultTheme = 'werkstatt';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={font.className} data-theme={defaultTheme} suppressHydrationWarning>
-      <body>
+    <html
+      lang="de"
+      className={`${fraunces.variable} ${sourceSerif.variable}`}
+      data-theme={defaultTheme}
+      suppressHydrationWarning
+    >
+      <body className="font-body antialiased">
         {/* Theme initialization script - only runs on client side */}
         <script
           dangerouslySetInnerHTML={{
@@ -34,11 +52,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               (function() {
                 try {
                   const stored = localStorage.getItem('theme');
-                  if (stored) {
+                  if (stored && (stored === 'werkstatt' || stored === 'werkstatt-dark')) {
                     document.documentElement.setAttribute('data-theme', stored);
                   } else {
-                    const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                    document.documentElement.setAttribute('data-theme', system);
+                    // Check system preference
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', prefersDark ? 'werkstatt-dark' : 'werkstatt');
                   }
                 } catch (e) {
                   // If there's an error, the default theme will be used

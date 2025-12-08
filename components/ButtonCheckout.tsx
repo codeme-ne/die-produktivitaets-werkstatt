@@ -2,12 +2,17 @@
 
 import { useState } from "react";
 import apiClient from "@/libs/api";
+import { DEFAULT_PRODUCT, type CourseProduct } from "@/types/products";
 
 /**
  * Checkout button with German legal consent checkboxes
  * Required for GDPR compliance and digital content waiver
  */
-const ButtonCheckout = () => {
+const ButtonCheckout = ({
+  productType = DEFAULT_PRODUCT,
+}: {
+  productType?: CourseProduct;
+}) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [agbAccepted, setAgbAccepted] = useState<boolean>(false);
   const [widerrufAccepted, setWiderrufAccepted] = useState<boolean>(false);
@@ -25,6 +30,7 @@ const ButtonCheckout = () => {
         {
           successUrl: `${window.location.origin}/checkout/success`,
           cancelUrl: window.location.href,
+          productType,
         },
       );
 

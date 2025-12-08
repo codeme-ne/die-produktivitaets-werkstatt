@@ -12,7 +12,7 @@ import { useTheme } from "@/app/ThemeProvider";
  */
 const ClientLayout = ({ children }: { children: ReactNode }) => {
   const { theme } = useTheme();
-  const loaderColor = theme === "dark" ? "#60a5fa" : "#3b82f6";
+  const loaderColor = theme === "werkstatt-dark" ? "#60a5fa" : "#3b82f6";
 
   return (
     <>

@@ -116,10 +116,10 @@ export default function RichText({ content, className = "" }: Props) {
       <div
         className={`
           prose prose-lg max-w-none
-          space-y-4
-          [&_ul]:list-disc [&_ul]:list-outside [&_ul]:space-y-2
-          [&_ol]:list-decimal [&_ol]:list-outside [&_ol]:space-y-2
-          [&_li]:text-base-content/90
+          space-y-6
+          [&_ul]:list-disc [&_ul]:list-outside [&_ul]:space-y-2 [&_ul]:pl-6 [&_ul]:ml-0
+          [&_ol]:list-decimal [&_ol]:list-outside [&_ol]:space-y-2 [&_ol]:pl-6 [&_ol]:ml-0
+          [&_li]:text-base-content/90 [&_li]:pl-2
           [&_strong]:font-bold [&_strong]:text-base-content
           [&_em]:italic
           [&_u]:underline

@@ -1,4 +1,3 @@
-## **⌛ Fokusstunden - Feedback**
+## ⌛ Fokusstunden \- Feedback
 
 Ich bin immer auf der Suche nach Möglichkeiten, die Produktivitäts-Werkstatt zu verbessern, daher würde ich mich sehr über Dein Feedback zu diesem Modul freuen 🙏
-

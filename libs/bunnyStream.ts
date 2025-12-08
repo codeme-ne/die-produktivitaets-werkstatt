@@ -9,7 +9,20 @@ function getApiKey(): string | undefined {
 
 // Helper to get library ID from env
 function getLibraryId(): string | undefined {
-  return process.env.BUNNY_LIBRARY_ID;
+  return (
+    process.env.BUNNY_LIBRARY_ID ||
+    process.env.BUNNY_STREAM_LIBRARY_ID ||
+    process.env.NEXT_PUBLIC_BUNNY_LIBRARY_ID
+  );
+}
+
+function requireAdminConfig(): { apiKey: string; libraryId: string } {
+  const apiKey = getApiKey();
+  const libraryId = getLibraryId();
+  if (!apiKey || !libraryId) {
+    throw new Error("Bunny Stream Konfiguration fehlt (Key oder LibraryId)");
+  }
+  return { apiKey, libraryId };
 }
 
 export interface BunnyVideoMeta {
@@ -145,9 +158,7 @@ export async function listVideos(options?: {
   perPage?: number;
 }): Promise<BunnyListResponse | null> {
   const { page = 1, perPage = 100 } = options || {};
-  const apiKey = getApiKey();
-  const libraryId = getLibraryId();
-  if (!apiKey || !libraryId) return null;
+  const { apiKey, libraryId } = requireAdminConfig();
 
   const url = `https://video.bunnycdn.com/library/${libraryId}/videos?page=${page}&itemsPerPage=${perPage}`;
 
@@ -170,9 +181,7 @@ export async function createVideo(options: {
   title: string;
 }): Promise<BunnyVideo | null> {
   const { title } = options;
-  const apiKey = getApiKey();
-  const libraryId = getLibraryId();
-  if (!apiKey || !libraryId) return null;
+  const { apiKey, libraryId } = requireAdminConfig();
 
   const url = `https://video.bunnycdn.com/library/${libraryId}/videos`;
 

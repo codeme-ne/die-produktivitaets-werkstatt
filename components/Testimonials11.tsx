@@ -183,8 +183,8 @@ const Testimonial = ({ i }: { i: number }) => {
             {testimonial.img ? (
               <Image
                 className="w-10 h-10 rounded-full object-cover"
-                src={list[i].img}
-                alt={`${list[i].name}'s testimonial for ${config.appName}`}
+                src={testimonial.img}
+                alt={`${testimonial.name}'s testimonial for ${config.appName}`}
                 width={48}
                 height={48}
               />
@@ -225,17 +225,18 @@ const Testimonial = ({ i }: { i: number }) => {
 
 // A video tesionial to build trust. 2 or 3 on a wall of love is perfect.
 const VideoTestimonial = ({ i }: { i: number }) => {
-  const vidRef = useRef(null);
+  const vidRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    if (vidRef.current?.readyState != 0) {
+    if (vidRef.current && vidRef.current.readyState !== 0) {
       setIsLoading(false);
     }
-  }, [vidRef?.current?.readyState]);
+  }, []);
 
   const handlePlayVideo = () => {
+    if (!vidRef.current) return;
     if (isPlaying) {
       vidRef.current.pause();
       setIsPlaying(false);
@@ -243,7 +244,7 @@ const VideoTestimonial = ({ i }: { i: number }) => {
       vidRef.current.play();
       setIsPlaying(true);
 
-      if (vidRef.current?.readyState === 0) setIsLoading(true);
+      if (vidRef.current.readyState === 0) setIsLoading(true);
     }
   };
 
@@ -258,7 +259,7 @@ const VideoTestimonial = ({ i }: { i: number }) => {
     >
       <div className="relative w-full">
         {isLoading && (
-          <span className="z-40 !h-24 !w-24 !bg-gray-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 loading loading-ring"></span>
+          <span className="z-40 !h-24 !w-24 !bg-base-100 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 loading loading-ring"></span>
         )}
         <video
           className="w-full"
@@ -281,7 +282,7 @@ const VideoTestimonial = ({ i }: { i: number }) => {
         </video>
 
         {!isPlaying && (
-          <div className="absolute bottom-0 -inset-x-4 bg-gray-900/50 blur-lg h-24 translate-y-1/4 animate-opacity"></div>
+          <div className="absolute bottom-0 -inset-x-4 bg-base-content/50 blur-lg h-24 translate-y-1/4 animate-opacity"></div>
         )}
 
         <div className="absolute w-full bottom-0 z-20">
@@ -299,7 +300,7 @@ const VideoTestimonial = ({ i }: { i: number }) => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className=" w-14 h-14 fill-gray-50 group-hover:scale-[1.05] duration-100 ease-in drop-shadow-lg animate-opacity"
+                  className=" w-14 h-14 fill-base-100 group-hover:scale-[1.05] duration-100 ease-in drop-shadow-lg animate-opacity"
                 >
                   <path
                     fillRule="evenodd"
@@ -313,7 +314,7 @@ const VideoTestimonial = ({ i }: { i: number }) => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-14 h-14 fill-gray-50 group-hover:scale-[1.05] duration-100 ease-in drop-shadow-lg animate-opacity"
+                  className="w-14 h-14 fill-base-100 group-hover:scale-[1.05] duration-100 ease-in drop-shadow-lg animate-opacity"
                 >
                   <path
                     fillRule="evenodd"
@@ -326,7 +327,7 @@ const VideoTestimonial = ({ i }: { i: number }) => {
 
             {!isPlaying && (
               <div className="animate-opacity text-right">
-                <p className="text-gray-50 font-medium drop-shadow">
+                <p className="text-base-100 font-medium drop-shadow">
                   {testimonial.name}
                 </p>
                 <div className="rating">
@@ -399,10 +400,10 @@ const Testimonials11 = () => {
                   </blockquote>
                   <figcaption className="relative flex items-center justify-start gap-4 pt-4 mt-4 border-t border-base-content/5">
                     <div className="overflow-hidden rounded-full bg-base-300 shrink-0">
-                      {list[list.length - 1].img ? (
+                      {list[list.length - 1]?.img ? (
                         <Image
                           className="w-12 h-12 rounded-full object-cover"
-                          src={list[list.length - 1].img}
+                          src={list[list.length - 1].img!}
                           alt={`${
                             list[list.length - 1].name
                           }'s testimonial for ${config.appName}`}
@@ -411,7 +412,7 @@ const Testimonials11 = () => {
                         />
                       ) : (
                         <span className="w-12 h-12 rounded-full flex justify-center items-center text-xl font-medium bg-base-300">
-                          {list[list.length - 1].name.charAt(0)}
+                          {list[list.length - 1]?.name?.charAt(0)}
                         </span>
                       )}
                     </div>

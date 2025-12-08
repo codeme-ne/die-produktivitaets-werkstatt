@@ -1,559 +1,812 @@
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import ButtonCheckout from "@/components/ButtonCheckout";
-import FokusLogbuch from "@/components/FokusLogbuch";
 import { getCourseOverview } from "@/libs/pwCourse";
+import {
+  Target,
+  Clock,
+  Brain,
+  Rocket,
+  BookOpen,
+  Zap,
+  TrendingUp,
+  RefreshCw,
+  Check,
+  XCircle,
+  Shield,
+  RotateCcw,
+  Compass,
+  ArrowRight,
+  Sparkles,
+  Quote,
+  Users,
+  PlayCircle,
+  Award,
+  Calendar,
+  BarChart3,
+} from "lucide-react";
+
+const testimonials = {
+  featured: {
+    name: "Carsten Hunold",
+    title: "IT Projektmanager, NLP Master, Deep Ocean Coach",
+    quote:
+      "Am wertvollsten fand ich, mit welcher Tiefe der Trainer das Thema durchdrungen und wie gut er das ganze Thema in der Circle Plattform aufbereitet hatte. Zur weiteren Vertiefung gab es auch noch eine Vielzahl von Buchtipps und App-Empfehlungen.",
+    shortQuote:
+      "Der Wert dieses Kurses übersteigt den Preis bei weitem — auch im Vergleich zu namhaften Marktbegleitern.",
+    image: "/testimonials/carsten-hunold.jpg",
+  },
+  others: [
+    {
+      name: "Joachim Kühl",
+      quote:
+        "Schade, dass ich den Kurs nicht schon früher entdeckt habe. Denn vieles wäre wahrscheinlich einfacher und schneller gegangen.",
+    },
+    {
+      name: "Sabine",
+      quote:
+        "Ich empfehle die Werkstatt jedem, der Schwierigkeiten hat, mit dem Arbeiten anzufangen oder Aufgaben aufzuschieben.",
+    },
+    {
+      name: "Gabriele Thies",
+      quote:
+        "In der heutigen Session habe ich eine Aufgabe erledigt, die ich schon ewig vor mir hergeschoben habe — ein sehr sehr gutes Gefühl!",
+    },
+    {
+      name: "Ildiko Eder",
+      quote:
+        'Die "Fokusstunden" haben mir besonders geholfen, da ich in diesen Zeiten wirklich konzentriert an meinen Aufgaben bleiben konnte.',
+    },
+  ],
+};
+
+// Avatar Stack Component
+function AvatarStack() {
+  const avatars = [
+    { name: "Carsten", image: "/testimonials/carsten-hunold.jpg" },
+    { name: "Joachim", image: "/testimonials/joachim-kuehl.jpg" },
+    { name: "Sabine", image: "/testimonials/sabine.jpg" },
+    { name: "Gabriele", image: "/testimonials/gabriele-thies.jpg" },
+    { name: "Ildiko", image: "/testimonials/ildiko-eder.jpg" },
+  ];
+
+  return (
+    <div className="avatar-group -space-x-4">
+      {avatars.map((avatar, i) => (
+        <div key={i} className="avatar border-2 border-base-100">
+          <div className="w-10">
+            <Image
+              src={avatar.image}
+              alt={avatar.name}
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Highlighted text span with warm underline
+function Highlight({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="relative inline-block">
+      <span className="relative z-10">{children}</span>
+      <span
+        className="absolute bottom-1 left-0 right-0 h-3 bg-accent/25 -z-0 -skew-x-2 rounded-sm"
+        aria-hidden="true"
+      />
+    </span>
+  );
+}
+
+// Icon wrapper for consistent styling
+function IconBox({
+  children,
+  variant = "default",
+}: {
+  children: React.ReactNode;
+  variant?: "default" | "accent" | "muted";
+}) {
+  const variants = {
+    default: "bg-base-200 text-base-content",
+    accent: "bg-accent/15 text-accent",
+    muted: "bg-base-200/50 text-base-content/60",
+  };
+
+  return (
+    <div
+      className={`w-12 h-12 rounded-xl flex items-center justify-center ${variants[variant]}`}
+    >
+      {children}
+    </div>
+  );
+}
 
 export default function Page() {
   const modules = getCourseOverview();
-  const moduleCount = modules.length;
   const totalLessons = modules.reduce(
     (count, module) => count + module.lessonCount,
-    0,
+    0
   );
 
   return (
     <>
       <Header />
 
-      <main>
-        {/* Hero Section */}
-        <section className="bg-base-100 py-24 px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left: Headline & CTA */}
-              <div className="space-y-8 text-center lg:text-left">
-                <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight">
-                  Verdopple deine Produktivität –{" "}
-                  <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                    mit mehr Leichtigkeit und Freude
-                  </span>
-                </h1>
-                <p className="text-xl text-base-content/70 max-w-2xl mx-auto lg:mx-0">
-                  Wissenschaftlich fundiertes 12-Wochen-System für Wissensarbeiter:innen,
-                  die nicht nur effizienter werden wollen, sondern ihr Leben in Balance bringen möchten.
-                </p>
-                <div className="flex gap-4 justify-center lg:justify-start items-center flex-wrap">
-                  <Link href="/#pricing" className="btn btn-primary btn-lg group">
-                    <svg
-                      className="w-5 h-5 fill-primary-content group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-200"
-                      viewBox="0 0 375 509"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M249.685 14.125C249.685 11.5046 248.913 8.94218 247.465 6.75675C246.017 4.57133 243.957 2.85951 241.542 1.83453C239.126 0.809546 236.463 0.516683 233.882 0.992419C231.301 1.46815 228.917 2.69147 227.028 4.50999L179.466 50.1812C108.664 118.158 48.8369 196.677 2.11373 282.944C0.964078 284.975 0.367442 287.272 0.38324 289.605C0.399039 291.938 1.02672 294.226 2.20377 296.241C3.38082 298.257 5.06616 299.929 7.09195 301.092C9.11775 302.255 11.4133 302.867 13.75 302.869H129.042V494.875C129.039 497.466 129.791 500.001 131.205 502.173C132.62 504.345 134.637 506.059 137.01 507.106C139.383 508.153 142.01 508.489 144.571 508.072C147.131 507.655 149.516 506.503 151.432 504.757L172.698 485.394C247.19 417.643 310.406 338.487 359.975 250.894L373.136 227.658C374.292 225.626 374.894 223.327 374.882 220.99C374.87 218.653 374.243 216.361 373.065 214.341C371.887 212.322 370.199 210.646 368.17 209.482C366.141 208.318 363.841 207.706 361.5 207.707H249.685V14.125Z" />
-                    </svg>
-                    Jetzt Transformation starten
-                  </Link>
-                  <a href="#curriculum" className="btn btn-ghost btn-lg">
-                    System kennenlernen
-                  </a>
-                </div>
-                <div className="pt-8 flex justify-center lg:justify-start gap-8 text-sm text-base-content/60 flex-wrap">
-                  <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Über 30 Absolvent:innen
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                    Messbare Ergebnisse
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                    Wissenschaftlich fundiert
-                  </div>
+      <main className="bg-base-100 relative overflow-hidden">
+        {/* Subtle geometric background pattern */}
+        <div
+          className="fixed inset-0 pointer-events-none z-0 opacity-30"
+          aria-hidden="true"
+        >
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-secondary/20 via-transparent to-transparent rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-accent/10 via-transparent to-transparent rounded-full blur-3xl" />
+        </div>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            HERO SECTION
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section className="min-h-[90vh] flex items-center justify-center relative z-10 px-6">
+          <div className="max-w-4xl mx-auto text-center py-16 md:py-24">
+            {/* Trainer Badge */}
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <div className="avatar">
+                <div className="w-11 rounded-full ring-2 ring-base-300 ring-offset-base-100 ring-offset-2">
+                  <Image
+                    src="/trainer-lukas.jpg"
+                    alt="Lukas Zangerl"
+                    width={44}
+                    height={44}
+                  />
                 </div>
               </div>
+              <span className="text-base-content/70 font-medium text-sm tracking-wide">
+                Ein Kurs von Lukas Zangerl
+              </span>
+            </div>
 
-              {/* Right: Interactive Demo */}
-              <div className="flex justify-center lg:justify-end">
-                <FokusLogbuch />
+            {/* Main Headline */}
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-base-content leading-[1.08] tracking-tight mb-6">
+              Werde produktiver{" "}
+              <Highlight>in Wochen,</Highlight>
+              <br className="hidden sm:block" />
+              nicht Monaten
+            </h1>
+
+            {/* Subheadline */}
+            <p className="text-lg sm:text-xl text-base-content/60 max-w-2xl mx-auto leading-relaxed mb-10">
+              Alles was du brauchst, um dein Produktivitätssystem aufzubauen —
+              selbst wenn du bisher jede Methode aufgegeben hast.
+            </p>
+
+            {/* CTA Button */}
+            <div className="flex flex-col items-center gap-6 mb-12">
+              <Link
+                href="#pricing"
+                className="btn btn-accent btn-lg px-10 gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+              >
+                Jetzt Zugang sichern
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+
+              {/* Social Proof */}
+              <div className="flex flex-col items-center gap-2">
+                <AvatarStack />
+                <p className="text-base-content/60 text-sm">
+                  <span className="font-semibold text-accent">80+</span>{" "}
+                  Teilnehmer lieben den Kurs
+                </p>
+              </div>
+            </div>
+
+            {/* Timeline Preview */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12 pt-8 border-t border-base-200">
+              {[
+                {
+                  week: "Woche 1",
+                  text: "System kennenlernen",
+                  icon: <Target className="w-5 h-5" />,
+                },
+                {
+                  week: "Woche 4",
+                  text: "Rhythmus etablieren",
+                  icon: <Clock className="w-5 h-5" />,
+                },
+                {
+                  week: "Woche 8",
+                  text: "Mindset meistern",
+                  icon: <Brain className="w-5 h-5" />,
+                },
+                {
+                  week: "Woche 12",
+                  text: "Voll integriert",
+                  icon: <Rocket className="w-5 h-5" />,
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex flex-col items-center text-center gap-2"
+                >
+                  <div className="text-accent">{item.icon}</div>
+                  <span className="font-display font-semibold text-base-content text-sm">
+                    {item.week}
+                  </span>
+                  <span className="text-xs text-base-content/50 leading-tight">
+                    {item.text}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            FEATURED TESTIMONIAL
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section className="py-16 md:py-20 px-6 bg-base-200/40 relative z-10">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+              <div className="relative">
+                <div className="avatar">
+                  <div className="w-20 md:w-24 rounded-full ring-2 ring-accent/20 ring-offset-base-100 ring-offset-4">
+                    <Image
+                      src={testimonials.featured.image}
+                      alt={testimonials.featured.name}
+                      width={96}
+                      height={96}
+                    />
+                  </div>
+                </div>
+                <Quote className="absolute -top-2 -left-2 w-6 h-6 text-accent" />
+              </div>
+              <div className="text-center md:text-left">
+                <blockquote className="text-xl md:text-2xl font-display text-base-content leading-snug mb-3">
+                  &ldquo;{testimonials.featured.shortQuote}&rdquo;
+                </blockquote>
+                <p className="text-base-content/50 text-sm font-medium">
+                  — {testimonials.featured.name}
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Why Section - Problem & Solution */}
-        <section className="bg-base-200 py-24 px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h2 className="text-3xl font-extrabold">
-                  Warum die meisten Produktivitätssysteme scheitern
-                </h2>
-                <p className="text-base-content/80 leading-relaxed">
-                  Du hast schon dutzende Produktivitäts-Apps ausprobiert, hunderte Artikel
-                  über Zeitmanagement gelesen, zahlreiche To-Do-Listen-Systeme getestet.
-                  Und trotzdem: Am Ende der Woche fragst du dich, wo die Zeit geblieben ist.
-                </p>
-                <p className="text-base-content/80 leading-relaxed">
-                  <strong>Das Problem ist nicht, dass du zu wenig weißt.</strong>{" "}
-                  Das Problem ist, dass dir ein ganzheitliches System fehlt, das nicht nur
-                  deine Effizienz steigert, sondern auch Sinn, Balance und Freude in dein
-                  Leben bringt.
-                </p>
+        {/* ═══════════════════════════════════════════════════════════════════
+            PROBLEM/SOLUTION COMPARISON
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 md:py-28 px-6 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-base-content text-center font-bold leading-tight mb-4">
+              Produktivitätskurse sind für{" "}
+              <span className="text-base-content/30 line-through decoration-2">
+                Theoretiker
+              </span>
+            </h2>
+            <p className="text-center text-base-content/60 mb-12 text-lg">
+              Nicht für Macher. Bis jetzt.
+            </p>
+
+            {/* Comparison Grid */}
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+              {/* Left: What doesn't work */}
+              <div className="card bg-base-100 shadow-sm p-6 md:p-8 border border-base-200">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 rounded-lg bg-base-200 flex items-center justify-center">
+                    <XCircle className="w-5 h-5 text-base-content/40" />
+                  </div>
+                  <h3 className="font-display font-semibold text-lg text-base-content/80">
+                    So funktioniert&apos;s nicht
+                  </h3>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    "47 verschiedene Apps ausprobieren",
+                    "Stundenlange Theorie-Videos schauen",
+                    "Komplizierte Systeme, die niemand durchhält",
+                    'Gefühl von "Es liegt an mir"',
+                  ].map((item, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-base-content/60"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-base-content/30 mt-2 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="card bg-base-100 shadow-xl">
-                <div className="card-body">
-                  <h3 className="card-title text-2xl">Das Lebensproduktivitätssystem</h3>
-                  <p className="text-base-content/70">
-                    Stell dir vor, dein Leben ist wie ein Boot auf dem Ozean. Mit unserem
-                    System lernst du:
+
+              {/* Right: What works */}
+              <div className="card bg-accent/5 p-6 md:p-8 border-2 border-accent/20">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 rounded-lg bg-accent/15 flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 text-accent" />
+                  </div>
+                  <h3 className="font-display font-semibold text-lg text-base-content">
+                    Die Werkstatt-Methode
+                  </h3>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    "Nur die Grundlagen lernen",
+                    "Sofort praktisch umsetzen",
+                    "Ein System, das zum Leben passt",
+                    "Messbare Ergebnisse nach 18 Tagen",
+                  ].map((item, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-base-content/80"
+                    >
+                      <Check className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            FLYWHEEL SECTION
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 md:py-28 px-6 bg-base-200/30 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            {/* Flywheel visualization */}
+            <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 mb-10">
+              {[
+                { icon: <BookOpen className="w-5 h-5" />, text: "Lerne" },
+                { icon: <Zap className="w-5 h-5" />, text: "Setze um" },
+                { icon: <TrendingUp className="w-5 h-5" />, text: "Messe" },
+                { icon: <RefreshCw className="w-5 h-5" />, text: "Optimiere" },
+              ].map((step, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <div className="flex flex-col items-center gap-2 px-4 py-3 rounded-xl bg-base-100 shadow-sm border border-base-200">
+                    <div className="text-accent">{step.icon}</div>
+                    <span className="text-xs font-semibold text-base-content/80">
+                      {step.text}
+                    </span>
+                  </div>
+                  {i < 3 && (
+                    <ArrowRight className="w-4 h-4 text-base-content/20" />
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Main message */}
+            <div className="text-center">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-base-content font-bold leading-tight mb-4">
+                Starte ein{" "}
+                <Highlight>Produktivitäts-Flywheel</Highlight>
+              </h2>
+              <p className="text-lg text-base-content/60 max-w-2xl mx-auto mb-8">
+                Lerne wie ein Unternehmer — baue dein System in 12 Wochen auf
+                und verbessere es kontinuierlich durch echtes Feedback.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  href="#pricing"
+                  className="btn btn-accent btn-lg shadow-md hover:shadow-lg gap-2"
+                >
+                  Jetzt Zugang sichern
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <span className="text-sm text-base-content/50 flex items-center gap-2">
+                  <Check className="w-4 h-4 text-accent" />
+                  Keine Vorkenntnisse nötig
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            WHAT YOU GET - Course Overview
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section id="curriculum" className="py-20 md:py-28 px-6 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-14">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-base-content font-bold leading-tight mb-4">
+                Von 0 zum System in{" "}
+                <Highlight>{totalLessons} Lektionen</Highlight>
+              </h2>
+              <p className="text-lg text-base-content/60 max-w-2xl mx-auto">
+                Alles was du brauchst, um produktiver zu werden — Schritt für
+                Schritt
+              </p>
+            </div>
+
+            {/* Course content sections */}
+            <div className="space-y-4">
+              {[
+                {
+                  title: "1. Das Fundament",
+                  duration: "Woche 1–3",
+                  desc: "Lerne das Lebensproduktivitätssystem und etabliere deine ersten Fokuszeiten",
+                  items: [
+                    "Produktivitäts-Katalyst Test",
+                    "Das Lebensproduktivitätssystem",
+                    "Fokus-Logbuch einführen",
+                    "Lebenskompass entwickeln",
+                  ],
+                  icon: <Compass className="w-5 h-5" />,
+                },
+                {
+                  title: "2. Der Rhythmus",
+                  duration: "Woche 4–7",
+                  desc: "Baue deinen idealen Tages-, Wochen- und Quartalsrhythmus auf",
+                  items: [
+                    "Dein idealer Tag designen",
+                    "Wochenplanung meistern",
+                    "Quartalsrückblick etablieren",
+                    "Langfristige Vision definieren",
+                  ],
+                  icon: <Calendar className="w-5 h-5" />,
+                },
+                {
+                  title: "3. Die Vertiefung",
+                  duration: "Woche 8–12",
+                  desc: "Meistere Mindset, Organisation und integriere alles zu deinem System",
+                  items: [
+                    "Produktives Mindset aufbauen",
+                    "Physischen Raum optimieren",
+                    "Energie-Management",
+                    "System-Integration",
+                  ],
+                  icon: <BarChart3 className="w-5 h-5" />,
+                },
+              ].map((section, i) => (
+                <div
+                  key={i}
+                  className="card bg-base-100 shadow-sm border border-base-200 overflow-hidden"
+                >
+                  <div className="card-body p-5 md:p-6">
+                    <div className="flex flex-col md:flex-row md:items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent shrink-0">
+                        {section.icon}
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex flex-wrap items-center gap-3 mb-2">
+                          <h3 className="font-display font-semibold text-lg text-base-content">
+                            {section.title}
+                          </h3>
+                          <span className="badge badge-ghost badge-sm">
+                            {section.duration}
+                          </span>
+                        </div>
+                        <p className="text-base-content/60 text-sm mb-4">
+                          {section.desc}
+                        </p>
+                        <ul className="flex flex-wrap gap-x-4 gap-y-1">
+                          {section.items.map((item, j) => (
+                            <li
+                              key={j}
+                              className="flex items-center gap-1.5 text-sm text-base-content/70"
+                            >
+                              <Check className="w-3.5 h-3.5 text-accent" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            TESTIMONIALS GRID
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section className="py-16 md:py-24 px-6 bg-base-200/30 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="flex items-center justify-center gap-2 text-accent mb-3">
+                <Users className="w-5 h-5" />
+                <span className="text-sm font-semibold tracking-wide uppercase">
+                  Teilnehmerstimmen
+                </span>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              {testimonials.others.map((t, i) => (
+                <div
+                  key={i}
+                  className="card bg-base-100 shadow-sm p-5 md:p-6 border border-base-200"
+                >
+                  <div className="flex gap-4">
+                    <div className="avatar placeholder shrink-0">
+                      <div className="bg-accent/15 text-accent rounded-full w-10 h-10">
+                        <span className="text-sm font-semibold">{t.name[0]}</span>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-base-content/80 text-sm leading-relaxed mb-2">
+                        &ldquo;{t.quote}&rdquo;
+                      </p>
+                      <p className="text-xs text-base-content/50 font-medium">
+                        — {t.name}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            TRAINER SECTION
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 md:py-28 px-6 relative z-10">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="avatar mb-4">
+                <div className="w-24 rounded-full ring-2 ring-accent/20 ring-offset-base-100 ring-offset-4">
+                  <Image
+                    src="/trainer-lukas.jpg"
+                    alt="Lukas Zangerl"
+                    width={96}
+                    height={96}
+                  />
+                </div>
+              </div>
+              <p className="text-base-content/60 text-lg">
+                Hey, ich bin Lukas, dein Trainer
+              </p>
+            </div>
+
+            <div className="space-y-5 text-base text-base-content/80 leading-relaxed">
+              <p>
+                Ex-Pilot, NLP Master Trainer und Produktivitäts-Coach. Nach
+                meinem eigenen Burnout wurde mir klar:{" "}
+                <strong className="text-base-content">
+                  Produktivität ohne System ist wie Fliegen ohne Kompass.
+                </strong>
+              </p>
+
+              <p>
+                Ich habe dutzende Bücher gelesen, tausende Euro für Kurse
+                ausgegeben... um dann zu erkennen, dass das meiste davon{" "}
+                <em>Theorie</em> war.
+              </p>
+
+              <p className="font-display text-lg text-base-content font-medium py-2">
+                &ldquo;Also habe ich die Produktivitäts-Werkstatt
+                entwickelt:&rdquo;
+              </p>
+
+              <ul className="space-y-2 pl-0">
+                {[
+                  "Kurze, fokussierte Lektionen",
+                  "Sofort umsetzbare Experimente",
+                  "Messbare Ergebnisse",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <Check className="w-5 h-5 text-accent shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="text-base-content/60 pt-2">
+                Mittlerweile haben{" "}
+                <strong className="text-accent">80+ Teilnehmer</strong> mit
+                diesem System ihre Produktivität transformiert. Ich hoffe, du
+                bist der nächste.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            PRICING
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section id="pricing" className="py-20 md:py-28 px-6 bg-base-200/40 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-base-content text-center font-bold leading-tight mb-4">
+              Werde produktiv,{" "}
+              <Highlight>baue dein System</Highlight>
+            </h2>
+            <p className="text-center text-base-content/60 mb-10 max-w-xl mx-auto">
+              Einmalzahlung. Lebenslanger Zugang. Keine versteckten Kosten.
+            </p>
+
+            {/* Pricing Card */}
+            <div className="max-w-md mx-auto">
+              <div className="card bg-base-100 shadow-xl border border-base-200 overflow-hidden">
+                {/* Card Header */}
+                <div className="p-6 border-b border-base-200">
+                  <div className="flex items-center gap-3 mb-1">
+                    <Award className="w-5 h-5 text-accent" />
+                    <p className="font-display font-semibold text-lg text-base-content">
+                      Produktivitäts-Werkstatt
+                    </p>
+                  </div>
+                  <p className="text-sm text-base-content/60">
+                    Der komplette 12-Wochen-Kurs
                   </p>
+                </div>
+
+                {/* Price */}
+                <div className="p-6 border-b border-base-200">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-base-content/40 line-through text-lg">
+                      €549
+                    </span>
+                    <span className="font-display text-5xl font-bold text-base-content">
+                      €299
+                    </span>
+                    <span className="text-base-content/60 text-sm">EUR</span>
+                  </div>
+                </div>
+
+                {/* Features */}
+                <div className="p-6">
                   <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <span className="text-2xl">🧭</span>
-                      <div>
-                        <strong>Richtung finden</strong>
-                        <p className="text-sm text-base-content/60">
-                          Lebenskompass, Zukunftsskizze & Quartals-Missionen
-                        </p>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-2xl">🚀</span>
-                      <div>
-                        <strong>Antrieb entwickeln</strong>
-                        <p className="text-sm text-base-content/60">
-                          Fokussierte Stunden, Produktive Tage & Ausgeglichene Wochen
-                        </p>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-2xl">⛵</span>
-                      <div>
-                        <strong>Mit Freude segeln</strong>
-                        <p className="text-sm text-base-content/60">
-                          Energie tanken, Regenerieren & das innere Spiel meistern
-                        </p>
-                      </div>
-                    </li>
+                    {[
+                      { icon: <PlayCircle />, text: `${totalLessons} Video-Lektionen (kurz & fokussiert)` },
+                      { icon: <BookOpen />, text: "Interaktives Workbook mit Templates" },
+                      { icon: <BarChart3 />, text: "Produktivitäts-Katalyst Messung" },
+                      { icon: <Users />, text: "Community-Zugang" },
+                      { icon: <Clock />, text: "Fokus-Sessions" },
+                      { icon: <RefreshCw />, text: "Lebenslange Updates" },
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="text-accent w-4 h-4 mt-0.5 shrink-0">
+                          {feature.icon}
+                        </span>
+                        <span className="text-base-content/80 text-sm">
+                          {feature.text}
+                        </span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Curriculum Section */}
-        <section id="curriculum" className="bg-base-100 py-24 px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <p className="text-primary font-semibold mb-4">CURRICULUM</p>
-              <h2 className="text-4xl font-extrabold mb-4">
-                Das Lebensproduktivitätssystem
-              </h2>
-              <p className="text-base-content/70 text-lg max-w-3xl mx-auto">
-                In {moduleCount} Wochen baust du dir ein ganzheitliches System,
-                das auf 5 Kernfähigkeiten basiert: <strong>Ausrichten</strong>,{" "}
-                <strong>Organisieren</strong>, <strong>Fokussieren</strong>,{" "}
-                <strong>Reflektieren</strong> und <strong>Regenerieren</strong>.
-              </p>
-            </div>
-
-            {/* 5 Core Competencies */}
-            <div className="mb-16">
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
-                {[
-                  { icon: "🧭", label: "Ausrichten", desc: "Richtung finden" },
-                  { icon: "📂", label: "Organisieren", desc: "Struktur schaffen" },
-                  { icon: "🎯", label: "Fokussieren", desc: "Tiefenarbeit" },
-                  { icon: "🤔", label: "Reflektieren", desc: "Lernen & Anpassen" },
-                  { icon: "🧘", label: "Regenerieren", desc: "Energie tanken" },
-                ].map((skill) => (
-                  <div
-                    key={skill.label}
-                    className="text-center p-4 bg-base-200 rounded-lg"
-                  >
-                    <div className="text-4xl mb-2">{skill.icon}</div>
-                    <div className="font-semibold text-sm">{skill.label}</div>
-                    <div className="text-xs text-base-content/60">{skill.desc}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {modules.map((module, index) => {
-                // Map specific tools/methods to each module
-                const moduleTools: Record<number, string> = {
-                  1: "Produktivitäts-Katalyst, Lebensproduktivitätssystem-Framework",
-                  2: "Fokus-Logbuch, Co-Working Sessions, 5-50-5-Methode",
-                  3: "Lebenskompass, Grabrede-Übung, Mission & Erfolgs-Definition",
-                  4: "Morgen-Manifest, Idealer Dienstag, Abendliches Abschalten",
-                  5: "3-Jahres-Traum, Vision Board, Odyssee-Plan",
-                  6: "Ideale Woche, Wöchentliches Planungsritual",
-                  7: "Quartals-Missionen, ZPS-Methode, Haupt- & Neben-Missionen",
-                  8: "Zweites Gehirn, Organisieren-Workshop, Aufgaben-System",
-                  9: "Anti-Prokrastinations-Protokoll, Alter Ego Effekt, Motivationsspektrum",
-                  10: "Energie-Menü, Burnout-Prävention, Regenerations-Strategien",
-                  11: "Raum-Optimierung (physisch & digital), Produktivitäts-Community",
-                  12: "Abschluss & Integration, Feedback-Session",
-                };
-
-                const tools = moduleTools[index + 1] || "Praktische Übungen & Reflexionen";
-
-                return (
-                  <div
-                    key={module.slug}
-                    className="card bg-base-200 hover:shadow-xl transition-shadow border border-base-300"
-                  >
-                    <div className="card-body space-y-4">
-                      <div className="flex items-center justify-between">
-                        <div className="badge badge-primary badge-lg">
-                          Woche {String(index + 1).padStart(2, "0")}
-                        </div>
-                        <span className="text-sm text-base-content/60">
-                          {module.lessonCount} Lektion
-                          {module.lessonCount !== 1 ? "en" : ""}
-                        </span>
-                      </div>
-                      <h3 className="card-title text-lg">{module.title}</h3>
-                      <p className="text-base-content/70 text-sm">
-                        <strong>Werkzeuge:</strong> {tools}
-                      </p>
-                      <Link href={`/kurs/${module.slug}`} className="btn btn-link px-0 justify-start">
-                        Zum Modul →
-                      </Link>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Social Proof Section */}
-        <section className="bg-base-200 py-16 px-8">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div>
-              <div className="text-5xl font-extrabold text-primary mb-4">30+</div>
-              <p className="text-xl text-base-content/80">
-                Menschen haben bereits ihre persönliche Bestleistung erreicht
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div className="space-y-2">
-                <div className="text-3xl font-bold">2x</div>
-                <p className="text-sm text-base-content/70">
-                  Verdopplung der fokussierten Stunden (im Durchschnitt)
-                </p>
-              </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold">12 Wochen</div>
-                <p className="text-sm text-base-content/70">
-                  Strukturiertes Training für nachhaltige Gewohnheiten
-                </p>
-              </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold">5 Fähigkeiten</div>
-                <p className="text-sm text-base-content/70">
-                  Ausrichten, Organisieren, Fokussieren, Reflektieren, Regenerieren
-                </p>
-              </div>
-            </div>
-            <div className="pt-4">
-              <p className="text-sm text-base-content/60 italic">
-                &bdquo;Ein System, das nicht nur deine Produktivität steigert, sondern auch Sinn
-                und Freude in dein Leben bringt.&ldquo;
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Section */}
-        <section id="pricing" className="bg-base-100 py-24 px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <p className="text-primary font-semibold mb-4">PREIS</p>
-              <h2 className="text-4xl font-extrabold mb-4">
-                Einmalzahlung. Lebenslanger Zugang.
-              </h2>
-              <p className="text-base-content/70 text-lg">
-                Keine Abos, keine versteckten Kosten. Einmal zahlen, für immer
-                lernen.
-              </p>
-            </div>
-
-            <div className="card bg-base-200 shadow-2xl max-w-md mx-auto">
-              <div className="card-body items-center text-center space-y-6">
-                <div>
-                  <p className="text-sm uppercase tracking-wide text-base-content/60 mb-2">
-                    Kompletter Kurs
-                  </p>
-                  <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-5xl font-extrabold">€97</span>
-                  </div>
-                  <p className="text-sm text-base-content/60 mt-2">
-                    Einmalige Zahlung
-                  </p>
-                </div>
-
-                <div className="divider"></div>
-
-                <ul className="space-y-3 text-left w-full">
-                  <li className="flex items-start gap-3">
-                    <svg
-                      className="w-5 h-5 text-primary flex-shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                      />
-                    </svg>
-                    <div>
-                      <strong>Produktivitäts-Katalyst</strong>
-                      <p className="text-sm text-base-content/60">
-                        Vorher/Nachher-Messung deiner Transformation
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg
-                      className="w-5 h-5 text-primary flex-shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                      />
-                    </svg>
-                    <div>
-                      <strong>Community & Co-Working Sessions</strong>
-                      <p className="text-sm text-base-content/60">
-                        Gemeinsam fokussiert arbeiten, Austausch & Accountability
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg
-                      className="w-5 h-5 text-primary flex-shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                      />
-                    </svg>
-                    <div>
-                      <strong>Konkrete Werkzeuge & Templates</strong>
-                      <p className="text-sm text-base-content/60">
-                        Lebenskompass, Fokus-Logbuch, Quartals-Missionen & mehr
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg
-                      className="w-5 h-5 text-primary flex-shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                      />
-                    </svg>
-                    <div>
-                      <strong>Wissenschaftlich fundiert</strong>
-                      <p className="text-sm text-base-content/60">
-                        Basierend auf Forschung & erprobt mit über 30 Teilnehmer:innen
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg
-                      className="w-5 h-5 text-primary flex-shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>
-                      {totalLessons} Video-Lektionen + Lebenslanger Zugriff
-                    </span>
-                  </li>
-                </ul>
-
-                <div className="divider"></div>
-
-                <div className="w-full">
+                {/* CTA */}
+                <div className="p-6 pt-0">
                   <ButtonCheckout />
+                  <p className="text-center text-xs text-base-content/50 mt-4">
+                    Lebenslanger Zugang (kein Abo)
+                  </p>
                 </div>
+              </div>
+
+              {/* Trust badges */}
+              <div className="flex flex-wrap justify-center gap-4 mt-6 text-xs text-base-content/50">
+                <span className="flex items-center gap-1.5">
+                  <Shield className="w-4 h-4" />
+                  Sichere Zahlung via Stripe
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <RotateCcw className="w-4 h-4" />
+                  30-Tage Geld-zurück-Garantie
+                </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section id="faq" className="bg-base-200 py-24 px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <p className="text-primary font-semibold mb-4">FAQ</p>
-              <h2 className="text-4xl font-extrabold">
-                Häufig gestellte Fragen
-              </h2>
-            </div>
+        {/* ═══════════════════════════════════════════════════════════════════
+            FAQ
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section id="faq" className="py-20 md:py-28 px-6 relative z-10">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-center text-base-content/60 mb-10 font-medium">
+              Häufig gestellte Fragen
+            </p>
 
-            <div className="space-y-4">
-              <div className="collapse collapse-plus bg-base-100">
-                <input type="radio" name="faq-accordion" defaultChecked />
-                <div className="collapse-title text-lg font-semibold">
-                  Was macht diesen Kurs anders als andere Produktivitätskurse?
-                </div>
-                <div className="collapse-content">
-                  <p className="text-base-content/70">
-                    Die meisten Produktivitätskurse fokussieren sich nur auf &bdquo;mehr
-                    Output in weniger Zeit&ldquo;. Das Lebensproduktivitätssystem geht weiter:
-                    Es verbindet <strong>Wissenschaft</strong> (messbare Ergebnisse),
-                    <strong>Praxis</strong> (konkrete Werkzeuge) und <strong>Freude</strong>{" "}
-                    (Balance & Sinn). Du baust dir über 12 Wochen ein ganzheitliches
-                    System, das zu dir passt – nicht ein starres Schema, das für alle
-                    gleich ist.
-                  </p>
-                </div>
-              </div>
-
-              <div className="collapse collapse-plus bg-base-100">
-                <input type="radio" name="faq-accordion" />
-                <div className="collapse-title text-lg font-semibold">
-                  Ist das nur Zeitmanagement oder mehr?
-                </div>
-                <div className="collapse-content">
-                  <p className="text-base-content/70 space-y-2">
-                    <span className="block">
-                      Viel mehr! Das Lebensproduktivitätssystem adressiert nicht nur
-                      &bdquo;Zeit&ldquo;, sondern deine gesamte Lebensführung:
-                    </span>
-                    <span className="block">
-                      • <strong>Körper</strong>: Energie, Schlaf, Gesundheit
-                    </span>
-                    <span className="block">
-                      • <strong>Herz</strong>: Motivation, Emotionen, Anti-Prokrastination
-                    </span>
-                    <span className="block">
-                      • <strong>Verstand</strong>: Fokus, Organisation, Reflexion
-                    </span>
-                    <span className="block mt-2">
-                      Du lernst, dein Leben wie ein Boot auf dem Ozean zu steuern – mit
-                      klarer Richtung, starkem Antrieb und der Freude am Segeln.
-                    </span>
-                  </p>
-                </div>
-              </div>
-
-              <div className="collapse collapse-plus bg-base-100">
-                <input type="radio" name="faq-accordion" />
-                <div className="collapse-title text-lg font-semibold">
-                  Wie viel Zeit muss ich investieren?
-                </div>
-                <div className="collapse-content">
-                  <p className="text-base-content/70">
-                    Realistisch: 15-30 Minuten täglich für die wöchentlichen Experimente
-                    (z.B. Fokus-Logbuch führen, Lebenskompass erstellen). Die
-                    Video-Lektionen dauern je 5-15 Minuten. Du bestimmst selbst das Tempo
-                    – manche arbeiten intensiv eine Woche durch, andere nehmen sich mehr
-                    Zeit. Das System passt sich an deinen Alltag an.
-                  </p>
-                </div>
-              </div>
-
-              <div className="collapse collapse-plus bg-base-100">
-                <input type="radio" name="faq-accordion" />
-                <div className="collapse-title text-lg font-semibold">
-                  Für wen ist diese Werkstatt ideal?
-                </div>
-                <div className="collapse-content">
-                  <p className="text-base-content/70">
-                    Für Wissensarbeiter:innen, Gründer:innen und Führungskräfte, die
-                    nicht nur &bdquo;produktiver&ldquo; werden wollen, sondern ihr Arbeitsleben in
-                    Balance mit ihren Werten und Zielen bringen möchten. Du brauchst
-                    keine Vorkenntnisse – nur die Bereitschaft, zu experimentieren und
-                    dein persönliches System aufzubauen.
-                  </p>
-                </div>
-              </div>
-
-              <div className="collapse collapse-plus bg-base-100">
-                <input type="radio" name="faq-accordion" />
-                <div className="collapse-title text-lg font-semibold">
-                  Welche Werkzeuge und Methoden lerne ich konkret?
-                </div>
-                <div className="collapse-content">
-                  <p className="text-base-content/70">
-                    Du bekommst konkrete, erprobte Werkzeuge: Produktivitäts-Katalyst
-                    (Vorher/Nachher-Messung), Fokus-Logbuch (Daily Tracking),
-                    Lebenskompass (Vision & Werte), Quartals-Missionen (90-Tage-Sprints),
-                    Anti-Prokrastinations-Protokoll, Energie-Menü, Ideale Woche und viele
-                    mehr. Jedes Tool ist praxiserprobt und direkt umsetzbar.
-                  </p>
-                </div>
-              </div>
-
-              <div className="collapse collapse-plus bg-base-100">
-                <input type="radio" name="faq-accordion" />
-                <div className="collapse-title text-lg font-semibold">
-                  Gibt es eine Geld-zurück-Garantie?
-                </div>
-                <div className="collapse-content">
-                  <p className="text-base-content/70">
-                    Ja! Wenn du innerhalb von 7 Tagen nach dem Kauf nicht zufrieden
-                    bist, erstatten wir dir den vollen Kaufpreis zurück. Schreib uns
-                    einfach eine E-Mail. Kein Kleingedrucktes, keine Tricks.
-                  </p>
-                </div>
+            <div className="space-y-2">
+              {[
+                {
+                  q: "Für wen ist der Kurs geeignet?",
+                  a: "Für Wissensarbeiter, Selbstständige, Unternehmer und alle, die nicht nur effizienter werden wollen, sondern ihr Leben in Balance bringen möchten.",
+                },
+                {
+                  q: "Wie lange habe ich Zugang?",
+                  a: "Lebenslang. Einmal zahlen, für immer lernen. Inklusive aller zukünftigen Updates.",
+                },
+                {
+                  q: "Funktioniert das wirklich so schnell?",
+                  a: "Ja. Der Produktivitäts-Katalyst misst deine Verbesserung wissenschaftlich. Im Durchschnitt sehen Teilnehmer nach 18 Tagen eine Verbesserung von 92%.",
+                },
+                {
+                  q: "Was ist die Geld-zurück-Garantie?",
+                  a: "Wenn du innerhalb von 30 Tagen nicht zufrieden bist, erstatten wir dir den vollen Kaufpreis. Keine Fragen, kein Kleingedrucktes.",
+                },
+                {
+                  q: "Wie viel Zeit muss ich investieren?",
+                  a: "15-30 Minuten täglich für die wöchentlichen Experimente. Die Video-Lektionen dauern je 5-15 Minuten. Du bestimmst das Tempo.",
+                },
+                {
+                  q: "Ich habe noch eine Frage",
+                  a: "Schreibe mir eine E-Mail an lukas@zangerl.at — ich antworte persönlich.",
+                },
+              ].map((item, i) => (
+                <details
+                  key={i}
+                  className="collapse collapse-arrow bg-base-100 border border-base-200 rounded-lg"
+                >
+                  <summary className="collapse-title font-medium text-base-content cursor-pointer pr-12">
+                    {item.q}
+                  </summary>
+                  <div className="collapse-content text-base-content/70 text-sm">
+                    <p>{item.a}</p>
+                  </div>
+                </details>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            FINAL CTA
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 md:py-28 px-6 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-base-content leading-tight mb-6">
+              Bereit für echte Produktivität?
+            </h2>
+            <p className="text-base-content/60 text-lg mb-8 max-w-xl mx-auto">
+              Hör auf, nach der perfekten Methode zu suchen. Fang an, dein
+              eigenes System aufzubauen.
+            </p>
+            <div className="flex flex-col items-center gap-4">
+              <Link
+                href="#pricing"
+                className="btn btn-accent btn-lg px-10 gap-2 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+              >
+                Jetzt starten
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <div className="flex flex-col items-center gap-2 mt-4">
+                <AvatarStack />
+                <p className="text-base-content/60 text-sm">
+                  <span className="font-semibold text-accent">80+ Teilnehmer</span>{" "}
+                  haben ihr System aufgebaut
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-base-300 py-8 px-8">
-        <div className="max-w-7xl mx-auto text-center text-sm text-base-content/60">
-          <div className="flex justify-center gap-6 mb-4">
-            <Link href="/impressum" className="link link-hover">
+      {/* ═══════════════════════════════════════════════════════════════════
+          FOOTER
+      ═══════════════════════════════════════════════════════════════════ */}
+      <footer className="footer footer-center p-10 bg-base-200 text-base-content">
+        <aside>
+          <p className="font-display font-semibold text-lg">
+            Die Produktivitäts-Werkstatt
+          </p>
+          <nav className="flex flex-wrap justify-center gap-4 mt-4">
+            <Link href="/impressum" className="link link-hover text-sm">
               Impressum
             </Link>
-            <Link href="/privacy-policy" className="link link-hover">
+            <Link href="/privacy-policy" className="link link-hover text-sm">
               Datenschutz
             </Link>
-            <Link href="/tos" className="link link-hover">
+            <Link href="/tos" className="link link-hover text-sm">
               AGB
             </Link>
-            <Link href="/widerruf" className="link link-hover">
+            <Link href="/widerruf" className="link link-hover text-sm">
               Widerrufsrecht
             </Link>
-          </div>
-          <p>© 2025 KI Kompakt Kurs. Alle Rechte vorbehalten.</p>
-        </div>
+          </nav>
+          <p className="mt-4 text-sm text-base-content/60">
+            © {new Date().getFullYear()} Die Produktivitäts-Werkstatt. Alle
+            Rechte vorbehalten.
+          </p>
+        </aside>
       </footer>
     </>
   );

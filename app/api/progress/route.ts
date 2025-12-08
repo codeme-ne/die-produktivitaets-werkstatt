@@ -5,36 +5,27 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import { readFileSync, writeFileSync } from "fs";
-import { join } from "path";
 import { verifyAccess } from "@/libs/jwt";
-
-interface ProgressData {
-  [email: string]: {
-    [key: string]: boolean; // key: "module/video"
-  };
-}
-
-const PROGRESS_FILE = join(process.cwd(), "logs", "progress.json");
-
-function readProgress(): ProgressData {
-  try {
-    const content = readFileSync(PROGRESS_FILE, "utf-8");
-    return JSON.parse(content);
-  } catch {
-    return {};
-  }
-}
-
-function writeProgress(data: ProgressData): void {
-  // Atomic write: temp file + rename
-  const tempFile = `${PROGRESS_FILE}.tmp`;
-  writeFileSync(tempFile, JSON.stringify(data, null, 2), "utf-8");
-  writeFileSync(PROGRESS_FILE, JSON.stringify(data, null, 2), "utf-8");
-}
+import { checkRateLimit } from "@/libs/rateLimit";
+import { getClientIp } from "@/libs/requestIp";
+import { getProgressForUser, setProgressEntry } from "@/libs/pwProgress";
 
 export async function POST(req: NextRequest) {
   try {
+    // Basic rate limit per client
+    const ip = getClientIp(req as unknown as Request);
+    const rate = await checkRateLimit({
+      key: `progress:post:${ip}`,
+      limit: 60,
+      windowMs: 60_000,
+    });
+    if (!rate.ok) {
+      return NextResponse.json(
+        { error: "Rate limit exceeded" },
+        { status: 429, headers: { "Retry-After": Math.ceil((rate.resetAt - Date.now()) / 1000).toString() } },
+      );
+    }
+
     // Get email from JWT cookie
     const token = req.cookies.get("access_token")?.value;
     if (!token) {
@@ -63,22 +54,17 @@ export async function POST(req: NextRequest) {
     const moduleSlug = moduleCandidate;
     const videoSlug = videoCandidate;
 
-    // Update progress
-    const progress = readProgress();
-    if (!progress[email]) {
-      progress[email] = {};
-    }
+    const userAgent = req.headers.get("user-agent");
+    const result = await setProgressEntry({
+      email,
+      moduleSlug,
+      videoSlug,
+      done,
+      sourceIp: ip,
+      userAgent,
+    });
 
-    const key = `${moduleSlug}/${videoSlug}`;
-    if (done) {
-      progress[email][key] = true;
-    } else {
-      delete progress[email][key];
-    }
-
-    writeProgress(progress);
-
-    return NextResponse.json({ success: true, key, done });
+    return NextResponse.json({ success: true, key: result.key, done, version: result.version });
   } catch (error) {
     console.error("Progress API error:", error);
     return NextResponse.json(
@@ -90,6 +76,20 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
   try {
+    // Basic rate limit per client
+    const ip = getClientIp(req as unknown as Request);
+    const rate = await checkRateLimit({
+      key: `progress:get:${ip}`,
+      limit: 120,
+      windowMs: 60_000,
+    });
+    if (!rate.ok) {
+      return NextResponse.json(
+        { error: "Rate limit exceeded" },
+        { status: 429, headers: { "Retry-After": Math.ceil((rate.resetAt - Date.now()) / 1000).toString() } },
+      );
+    }
+
     // Get email from JWT cookie
     const token = req.cookies.get("access_token")?.value;
     if (!token) {
@@ -99,9 +99,8 @@ export async function GET(req: NextRequest) {
     const payload = await verifyAccess(token);
     const email = payload.email;
 
-    // Read progress
-    const progress = readProgress();
-    const userProgress = progress[email] || {};
+    // Read progress (DB if available, otherwise file)
+    const userProgress = await getProgressForUser(email);
 
     return NextResponse.json({ progress: userProgress });
   } catch (error) {

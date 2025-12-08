@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { useCourse } from "@/app/kurs/CourseContext";
 import { useTheme } from "@/app/ThemeProvider";
 import toast from "react-hot-toast";
@@ -36,7 +35,6 @@ function deriveName(email: string) {
 }
 
 export function UserMenu({ email }: Props) {
-  const router = useRouter();
   const { theme, toggleTheme } = useTheme();
   const { focusMode, setFocusMode } = useCourse();
   const [captions, setCaptions] = useState<boolean>(true);
@@ -104,23 +102,27 @@ export function UserMenu({ email }: Props) {
   const handleLogout = async () => {
     closeMenu();
     await fetch("/api/auth/logout", { method: "POST" });
-    router.push("/");
-    router.refresh();
+    // Hard navigation to avoid chunk loading issues
+    window.location.href = "/";
   };
 
   const dropdownClass = `dropdown dropdown-end${
     isOpen ? " dropdown-open" : ""
   }`;
+  const isDark = theme === "werkstatt-dark";
 
   return (
     <div className={`${dropdownClass} relative`}>
       <button
         ref={triggerRef}
         type="button"
-        className="btn btn-ghost h-11 min-h-[44px] rounded-full px-3 md:px-4 gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary/70"
+        className="btn btn-ghost h-11 min-h-[44px] rounded-lg px-3 md:px-4 gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary/70"
         aria-haspopup="menu"
         aria-expanded={isOpen}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen((prev) => !prev);
+        }}
       >
         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 text-sm font-semibold uppercase text-primary">
           {initial}
@@ -145,7 +147,7 @@ export function UserMenu({ email }: Props) {
       <ul
         ref={menuRef}
         tabIndex={0}
-        className="dropdown-content menu w-[calc(100vw-2rem)] sm:w-80 max-w-80 rounded-box border border-base-300 bg-base-100 p-3 shadow-lg mt-3 right-0"
+        className="dropdown-content menu bg-base-100 w-[calc(100vw-2rem)] sm:w-80 max-w-80 rounded-box border border-base-300 p-3 shadow-2xl mt-3 right-0 z-50"
         role="menu"
       >
         <div className="px-4 pb-2 pt-1 text-xs text-base-content/70">
@@ -228,7 +230,7 @@ export function UserMenu({ email }: Props) {
         <li>
           <label className="flex items-center justify-between cursor-pointer">
             <div className="flex items-center gap-3">
-              {theme === "light" ? (
+              {!isDark ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -264,7 +266,7 @@ export function UserMenu({ email }: Props) {
             <input
               type="checkbox"
               className="toggle toggle-sm"
-              checked={theme === "dark"}
+              checked={isDark}
               onChange={toggleTheme}
               aria-label="Toggle theme"
             />

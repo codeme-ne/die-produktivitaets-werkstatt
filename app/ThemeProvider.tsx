@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
-type Theme = "light" | "dark";
+type Theme = "werkstatt" | "werkstatt-dark";
 
 interface ThemeContextType {
   theme: Theme;
@@ -13,7 +13,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("werkstatt");
 
   // Initialize theme on mount
   useEffect(() => {
@@ -21,22 +21,22 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     try {
       const stored = localStorage.getItem("theme") as Theme | null;
-      if (stored === "light" || stored === "dark") {
+      if (stored === "werkstatt" || stored === "werkstatt-dark") {
         setTheme(stored);
         document.documentElement.setAttribute("data-theme", stored);
       } else {
         // Detect system preference
         const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
+          ? "werkstatt-dark"
+          : "werkstatt";
         setTheme(systemTheme);
         document.documentElement.setAttribute("data-theme", systemTheme);
       }
     } catch (e) {
       // localStorage might fail in Safari Private Mode
       console.warn("Theme initialization failed:", e);
-      setTheme("light");
-      document.documentElement.setAttribute("data-theme", "light");
+      setTheme("werkstatt");
+      document.documentElement.setAttribute("data-theme", "werkstatt");
     }
   }, []);
 
@@ -50,7 +50,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       try {
         const stored = localStorage.getItem("theme");
         if (!stored) {
-          const newTheme = e.matches ? "dark" : "light";
+          const newTheme = e.matches ? "werkstatt-dark" : "werkstatt";
           setTheme(newTheme);
           document.documentElement.setAttribute("data-theme", newTheme);
         }
@@ -64,7 +64,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [mounted]);
 
   const toggleTheme = () => {
-    const newTheme: Theme = theme === "light" ? "dark" : "light";
+    const newTheme: Theme = theme === "werkstatt" ? "werkstatt-dark" : "werkstatt";
     setTheme(newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
 
@@ -94,7 +94,7 @@ export function useTheme() {
   // SSG safety: Return defaults during server-side rendering
   if (typeof window === "undefined") {
     return {
-      theme: "light" as Theme,
+      theme: "werkstatt" as Theme,
       toggleTheme: () => {},
     };
   }

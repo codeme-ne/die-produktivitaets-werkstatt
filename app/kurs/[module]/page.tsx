@@ -1,8 +1,12 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { cookies } from "next/headers";
 import { getModule, loadCourse } from "@/libs/pwCourse";
 import { formatSimple, extractTeaser } from "@/libs/formatText";
 import type { Metadata } from "next";
+import { verifyAccess } from "@/libs/jwt";
+import { getReleaseMapForProduct } from "@/libs/releases";
+import { DEFAULT_PRODUCT, type CourseProduct } from "@/types/products";
 
 interface Props {
   params: Promise<{ module: string }>;
@@ -32,6 +36,34 @@ export default async function ModulePage({ params }: Props) {
 
   if (!mod) {
     notFound();
+  }
+
+  // Check release state (live product only)
+  let productType: CourseProduct = DEFAULT_PRODUCT;
+  try {
+    const cookieStore = await cookies();
+    const token = cookieStore.get("access_token")?.value;
+    if (token) {
+      const payload = await verifyAccess(token);
+      productType = payload.productType || DEFAULT_PRODUCT;
+    }
+  } catch {
+    // default stays
+  }
+
+  const releaseMap = await getReleaseMapForProduct(productType);
+  const isReleased =
+    productType === "self-paced" ||
+    releaseMap[module]?.isReleased !== false;
+
+  if (!isReleased) {
+    const fallback = Object.entries(releaseMap).find(
+      ([, state]) => state.isReleased !== false,
+    );
+    if (fallback) {
+      redirect(`/kurs/${fallback[0]}`);
+    }
+    redirect("/");
   }
 
   return (

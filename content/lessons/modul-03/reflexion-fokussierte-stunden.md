@@ -1,4 +1,4 @@
-## **⏳ Reflexion - Fokussierte Stunden**
+## **⏳ Reflexion \- Fokussierte Stunden**
 
 ## **⏳ Fokussierte Stunde**
 
@@ -16,20 +16,20 @@ In vielerlei Hinsicht ist das wirksamste Mittel zur Verbesserung deiner Konzentr
 
 Einfache Methode:
 
-* [Datum + Uhrzeit] - Aufgabe - Fokusreflexion  
-* [Datum + Uhrzeit] - Aufgabe - Fokusreflexion  
-* [Datum + Uhrzeit] - Aufgabe - Fokusreflexion
+- \[Datum \+ Uhrzeit\] \- Aufgabe \- Fokusreflexion
+- \[Datum \+ Uhrzeit\] \- Aufgabe \- Fokusreflexion
+- \[Datum \+ Uhrzeit\] \- Aufgabe \- Fokusreflexion
 
 Beispiel:
 
-*3. März 2025, 09:30 - 10:15 Uhr - Outline für Blogpost erstellen*  
-*Reflexion:* Sehr effizient gearbeitet. Nur das Nötigste gemacht und dennoch zufriedenstellendes Ergebnis erzielt. Gute Balance zwischen Aufwand und Ergebnis gefunden. Anschließend kurze Pause genommen.
+_3\. März 2025, 09:30 \- 10:15 Uhr \- Outline für Blogpost erstellen_
+_Reflexion:_ Sehr effizient gearbeitet. Nur das Nötigste gemacht und dennoch zufriedenstellendes Ergebnis erzielt. Gute Balance zwischen Aufwand und Ergebnis gefunden. Anschließend kurze Pause genommen.
 
-*3. März 2025, 10:30 - 11:45 Uhr - Blogpost vervollständigen*  
-*Reflexion:* Konzentrationsniveau etwas niedriger als bei vorheriger Aufgabe, aber dennoch produktiv. Workflow war gut strukturiert - Text fertiggestellt und mit einmaligem Korrekturlesen abgeschlossen. Effizienter Arbeitsprozess.
+_3\. März 2025, 10:30 \- 11:45 Uhr \- Blogpost vervollständigen_
+_Reflexion:_ Konzentrationsniveau etwas niedriger als bei vorheriger Aufgabe, aber dennoch produktiv. Workflow war gut strukturiert \- Text fertiggestellt und mit einmaligem Korrekturlesen abgeschlossen. Effizienter Arbeitsprozess.
 
-*3. März 2025, 13:00 - 14:30 Uhr - Podcast editieren*  
-*Reflexion:* Angenehme Arbeitsphase. Systematisch Schritt für Schritt vorgegangen. Diese fokussierte Herangehensweise war deutlich effektiver als das sonst übliche gestresste Hin-und-her-Springen zwischen Aufgaben.
+_3\. März 2025, 13:00 \- 14:30 Uhr \- Podcast editieren_
+_Reflexion:_ Angenehme Arbeitsphase. Systematisch Schritt für Schritt vorgegangen. Diese fokussierte Herangehensweise war deutlich effektiver als das sonst übliche gestresste Hin-und-her-Springen zwischen Aufgaben.
 
 ## **⚡️Deine Aktivierungsmenüs**
 
@@ -63,3 +63,4 @@ Früher habe ich versucht, mir alles zu merken, aber ich habe festgestellt, dass
 
 Ob es sich um eine digitale Methode (z.B. mit Apps wie Things) oder eine analoge Methode (z.B. Notizen in einem Notizbuch) handelt, entwickle eine Erfassungsmethode für deine zufälligen Gedanken und Aufgaben, die dir während einer Fokussitzung in den Sinn kommen.
 
+---

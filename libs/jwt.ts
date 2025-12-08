@@ -1,8 +1,12 @@
 import { SignJWT, jwtVerify, type JWTPayload } from "jose";
+import { DEFAULT_PRODUCT, type CourseProduct } from "@/types/products";
+import config from "@/config";
 
 export interface AccessTokenPayload extends JWTPayload {
   email: string;
   cid: string; // Stripe customer ID
+  productType?: CourseProduct;
+  isAdmin?: boolean; // Explicit admin claim for authorization
 }
 
 /**
@@ -28,11 +32,22 @@ function getSecret(): Uint8Array {
 export async function signAccess(payload: {
   email: string;
   cid: string;
+  productType?: CourseProduct;
 }): Promise<string> {
-  return new SignJWT({ email: payload.email, cid: payload.cid })
+  const productType = payload.productType || DEFAULT_PRODUCT;
+  // Compute isAdmin at token signing time for secure authorization
+  const isAdmin = config.adminEmails.includes(payload.email.toLowerCase());
+
+  return new SignJWT({
+    email: payload.email,
+    cid: payload.cid,
+    productType,
+    isAdmin,
+  })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("365d")
+    // Keep tokens short-lived for production safety (14 days max)
+    .setExpirationTime("14d")
     .sign(getSecret());
 }
 
@@ -49,5 +64,10 @@ export async function verifyAccess(token: string): Promise<AccessTokenPayload> {
     throw new Error("Invalid token payload");
   }
 
-  return payload as AccessTokenPayload;
+  const typed = payload as AccessTokenPayload;
+  if (!typed.productType) {
+    typed.productType = DEFAULT_PRODUCT;
+  }
+
+  return typed;
 }

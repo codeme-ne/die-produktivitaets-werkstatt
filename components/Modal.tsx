@@ -29,7 +29,7 @@ const Modal = ({ isModalOpen, setIsModalOpen }: ModalProps) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-neutral-focus bg-opacity-50" />
+          <div className="fixed inset-0 bg-base-content/50" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">

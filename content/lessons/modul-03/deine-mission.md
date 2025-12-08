@@ -10,11 +10,11 @@ Dieser Impuls versucht, deine Kernmotivation und deinen Lebenszweck zu ergründe
 
 Wie würdest du in dieser Welt deine Talente nutzen, um anderen zu dienen?
 
-1. Welche Probleme oder Herausforderungen würdest du in der Welt um dich herum beheben wollen?  
-2. Welche deiner einzigartigen Fähigkeiten bereiten dir die meiste Freude, wenn du sie nutzt?  
+1. Welche Probleme oder Herausforderungen würdest du in der Welt um dich herum beheben wollen?
+2. Welche deiner einzigartigen Fähigkeiten bereiten dir die meiste Freude, wenn du sie nutzt?
 3. Wenn du eine bleibende positive Veränderung in der Welt hinterlassen könntest, welche wäre das?
 
-## Beispiel: Lukas Missions-Prompt
+## **Beispiel: Lukas Missions-Prompt**
 
 In dieser Welt könnte ich meine Talente auf folgende Weise nutzen, um anderen zu dienen:
 
@@ -24,7 +24,7 @@ In dieser Welt könnte ich meine Talente auf folgende Weise nutzen, um anderen z
 - Workshops und Veranstaltungen im echten Leben veranstalten, die Menschen zusammenbringen
 - YouTube-Videos machen, wenn ich etwas zu teilen habe
 - Weiter Newsletter und Blogposts schreiben über mein Leben
-- Alte Weisheiten + Philosophie usw. lesen, Dinge an mir selbst ausprobieren und das Wissen und die Ratschläge für ein modernes Massenpublikum zugänglich machen
+- Alte Weisheiten \+ Philosophie usw. lesen, Dinge an mir selbst ausprobieren und das Wissen und die Ratschläge für ein modernes Massenpublikum zugänglich machen
 - Illustrierte Bücher mit einer Selbsthilfe-Botschaft, die ich selbst illustriere
 - Meine eigene Homeschooling-Methode/Plattform entwickeln
 - Bildungsplattform aufbauen, die jedem auf der Welt hilft, Fähigkeiten mit hohem Einkommen zu erlernen
@@ -32,19 +32,18 @@ In dieser Welt könnte ich meine Talente auf folgende Weise nutzen, um anderen z
 - Online-Plattform für mentale Gesundheit aufgebaut, auf der Expertinnen und Experten Werkzeuge, Techniken und Gesprächstherapien anbieten, um Menschen in herausfordernden Zeiten zu unterstützen
 - Online-Mentoring-Plattform ins Leben gerufen, um Menschen bei ihrer Karriereplanung zu begleiten und sie durch individuelle Beratung und Feedback bei der Erreichung ihrer beruflichen Ziele zu unterstützen
 
-## **⁉️F&A**
+## **⁉️F\&A**
 
-<details>
-  <summary>❓ Was ist, wenn ich das Gefühl habe, keine besonderen Talente zu haben?</summary>
-  <p>Jeder Mensch besitzt eine einzigartige Kombination von Fähigkeiten und Blickwinkeln. Konzentriere dich darauf, was dich begeistert und mit Energie erfüllt, anstatt nur auf das zu schauen, worin du glaubst, 'am besten' zu sein.</p>
-  </details>
+❓**Was ist, wenn ich das Gefühl habe, keine besonderen Talente zu haben?**
 
-<details>
-  <summary>❓ Das fühlt sich zu idealistisch an. Ich muss in der realen Welt Geld verdienen.</summary>
-  <p>In dieser Übung werden finanzielle Aspekte bewusst weggelassen, um herauszufinden, was dir wirklich wichtig ist. Danach kannst du überlegen, wie du Teile deiner Mission in deinen Job einbauen kannst.</p>
-  </details>
+Jeder Mensch besitzt eine einzigartige Kombination von Fähigkeiten und Blickwinkeln. Konzentriere dich darauf, was dich begeistert und mit Energie erfüllt, anstatt nur auf das zu schauen, worin du glaubst, 'am besten' zu sein.
 
-<details>
-  <summary>❓ Was ist, wenn meine Mission zu klein erscheint oder nicht weltverändernd genug ist?</summary>
-  <p>Wirkung gibt es in allen Größen. Schon alleine, ein großartiges Elternteil zu sein oder deine Gemeinde zu unterstützen, kann eine große Bedeutung haben. Nicht jeder muss globale Probleme lösen, um einen Unterschied zu machen.</p>
-  </details>
+❓**Das fühlt sich zu idealistisch an. Ich muss in der realen Welt Geld verdienen.**
+
+In dieser Übung werden finanzielle Aspekte bewusst weggelassen, um herauszufinden, was dir wirklich wichtig ist. Danach kannst du überlegen, wie du Teile deiner Mission in deinen Job einbauen kannst.
+
+❓**Was ist, wenn meine Mission zu klein erscheint oder nicht weltverändernd genug ist?**
+
+Wirkung gibt es in allen Größen. Schon alleine, ein großartiges Elternteil zu sein oder deine Gemeinde zu unterstützen, kann eine große Bedeutung haben. Nicht jeder muss globale Probleme lösen, um einen Unterschied zu machen.
+
+---

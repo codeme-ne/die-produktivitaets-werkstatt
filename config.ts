@@ -14,7 +14,7 @@ const config = {
   appDescription:
     "Lerne KI-Tools in 7 kompakten Lektionen – von Prompting bis Deployment. Praxisnah, schnell, direkt umsetzbar.",
   // REQUIRED (no https://, not trailing slash at the end, just the naked domain)
-  domainName: "shipfa.st",
+  domainName: "produktivitaets-werkstatt.de",
   crisp: {
     // Crisp website ID. IF YOU DON'T USE CRISP: just remove this => Then add a support email in this config file (resend.supportEmail) otherwise customer support won't work.
     id: "",
@@ -40,6 +40,7 @@ const config = {
   adminEmails: [
     "lukas@zangerlcoachingdynamics.com",
     "dev@local.test", // Dev cookie for testing
+    "zangerl.luk@gmail.com",
   ],
 } as ConfigProps;
 

@@ -6,27 +6,27 @@ Stell dir vor, du wirst 100 Jahre alt und erfreust dich bester körperlicher, ge
 
 ### **Denk darüber nach:**
 
-* Was würde deine Familie über dich sagen?  
-* Was würden Freunde über eure Freundschaft und die Erinnerungen sagen, die ihr geschaffen habt?  
-* Was würden deine Kollegen über deinen Beitrag zu deinem Fachgebiet sagen?  
-* Was würde deine Gemeinschaft über deinen Einfluss sagen?
+- Was würde deine Familie über dich sagen?
+- Was würden Freunde über eure Freundschaft und die Erinnerungen sagen, die ihr geschaffen habt?
+- Was würden deine Kollegen über deinen Beitrag zu deinem Fachgebiet sagen?
+- Was würde deine Gemeinschaft über deinen Einfluss sagen?
 
 ### **Beispielstruktur des Grabrede-Prompts:**
 
 Verwende diese Vorlage, um mit dem Schreiben deiner Grabrede zu beginnen:
 
-* Heute versammeln wir uns, um das Leben und Vermächtnis von [Name] zu ehren.   
-* [Name] war ein/eine...  
-* In seinem/ihrem persönlichen Leben war er/sie...   
-* Diejenigen, die ihm/ihr am nächsten standen, erinnern sich an ihn/sie als...  
-* In seinem/ihrem beruflichen Leben war er/sie...   
-* Seine/Ihre Arbeit wird für ihren Beitrag zu... in Erinnerung bleiben.  
-* Er/Sie war für andere eine Inspiration, weil...   
-* Die Geschichte seines/ihres Lebens lehrt uns, dass...  
-* Er/Sie wird immer als jemand in Erinnerung bleiben, der/die mit... gelebt hat.  
-* Schließlich, wenn [Name] heute hier bei uns wäre, würde er/sie uns daran erinnern, dass...
+- Heute versammeln wir uns, um das Leben und Vermächtnis von \[Name\] zu ehren.
+- \[Name\] war ein/eine...
+- In seinem/ihrem persönlichen Leben war er/sie...
+- Diejenigen, die ihm/ihr am nächsten standen, erinnern sich an ihn/sie als...
+- In seinem/ihrem beruflichen Leben war er/sie...
+- Seine/Ihre Arbeit wird für ihren Beitrag zu... in Erinnerung bleiben.
+- Er/Sie war für andere eine Inspiration, weil...
+- Die Geschichte seines/ihres Lebens lehrt uns, dass...
+- Er/Sie wird immer als jemand in Erinnerung bleiben, der/die mit... gelebt hat.
+- Schließlich, wenn \[Name\] heute hier bei uns wäre, würde er/sie uns daran erinnern, dass...
 
-## Beispiel: Vorlage für Lukas Grabrede
+## **🪦 Beispiel: Vorlage für Lukas Grabrede**
 
 Ich werde an meiner eigenen Beerdigung teilnehmen, wenn ich 100 Jahre alt bin. Das sagen die Leute über mich.
 
@@ -42,14 +42,14 @@ Seine Kollegen: Großer Einfluss, Menschen zu helfen, ihr Leben zu verbessern, h
 
 Seine Gemeinschaft: Er organisierte regelmäßig Veranstaltungen, um Menschen zusammenzubringen, und war zu Hause und im Büro immer offen für Besucher. Freunde und Gemeindemitglieder waren immer willkommen, Zeit mit ihm zu verbringen. Lukas war immer da, wenn jemand ein offenes Ohr brauchte.
 
-## **⁉️ F&A**
+## **⁉️ F\&A**
 
-<details>
-  <summary>❓ Ist es nicht düster und deprimierend, an die eigene Beerdigung zu denken?</summary>
-  <p>Betrachte es als ein Werkzeug, um Klarheit zu schaffen, anstatt über den Tod nachzudenken. Es geht wirklich darum, wie du leben willst, nicht wie du sterben wirst. Viele Menschen finden es überraschend belebend, sich darüber klar zu werden, welches Vermächtnis sie hinterlassen wollen.</p>
-  </details>
+**❓Ist es nicht düster und deprimierend, an die eigene Beerdigung zu denken?**
 
-<details>
-  <summary>❓ Ich bin in meinen Zwanzigern. Ist das nicht zu früh, um über ein Vermächtnis nachzudenken?</summary>
-  <p>Eigentlich ist es genau der richtige Zeitpunkt. Je früher man sich über seine Werte im Klaren ist, desto mehr Zeit hat man, sich ein Leben aufzubauen, das diesen Werten entspricht. Du hast auch mehr Flexibilität, um zu experimentieren und deinen Kurs zu ändern.</p>
-  </details>
+Betrachte es als ein Werkzeug, um Klarheit zu schaffen, anstatt über den Tod nachzudenken. Es geht wirklich darum, wie du leben willst, nicht wie du sterben wirst. Viele Menschen finden es überraschend belebend, sich darüber klar zu werden, welches Vermächtnis sie hinterlassen wollen.
+
+**❓Ich bin in meinen Zwanzigern. Ist das nicht zu früh, um über ein Vermächtnis nachzudenken?**
+
+Eigentlich ist es genau der richtige Zeitpunkt. Je früher man sich über seine Werte im Klaren ist, desto mehr Zeit hat man, sich ein Leben aufzubauen, das diesen Werten entspricht. Du hast auch mehr Flexibilität, um zu experimentieren und deinen Kurs zu ändern.
+
+---

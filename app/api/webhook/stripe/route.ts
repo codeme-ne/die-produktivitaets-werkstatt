@@ -3,6 +3,14 @@ import { headers } from "next/headers";
 import Stripe from "stripe";
 import { sendEmail } from "@/libs/resend";
 import { welcomeEmail, welcomeEmailSubject } from "@/emails/welcome";
+import { checkRateLimit } from "@/libs/rateLimit";
+import { getClientIp } from "@/libs/requestIp";
+import { getRequestId, logError, logInfo } from "@/libs/logger";
+import {
+  markWebhookProcessed,
+  releaseWebhookReservation,
+  reserveWebhookEvent,
+} from "@/libs/webhookStore";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2023-08-16",
@@ -16,10 +24,27 @@ export async function POST(req: NextRequest) {
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
   if (!webhookSecret) {
-    console.error("STRIPE_WEBHOOK_SECRET is not configured");
+    logError("Stripe webhook missing secret");
     return NextResponse.json(
       { error: "Webhook secret not configured" },
       { status: 500 },
+    );
+  }
+
+  const requestId = getRequestId(req.headers);
+  const ip = getClientIp(req as unknown as Request);
+  const rate = await checkRateLimit({
+    key: `stripe-webhook:${ip}`,
+    limit: 60,
+    windowMs: 60_000,
+  });
+  if (!rate.ok) {
+    return NextResponse.json(
+      { error: "Rate limit exceeded" },
+      {
+        status: 429,
+        headers: { "Retry-After": Math.ceil((rate.resetAt - Date.now()) / 1000).toString(), "x-request-id": requestId },
+      },
     );
   }
 
@@ -40,7 +65,7 @@ export async function POST(req: NextRequest) {
     event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error";
-    console.error(`Webhook signature verification failed: ${message}`);
+    logError("Webhook signature verification failed", { requestId, error: message });
     return NextResponse.json({ error: message }, { status: 400 });
   }
 
@@ -48,6 +73,15 @@ export async function POST(req: NextRequest) {
     switch (event.type) {
       case "checkout.session.completed": {
         const session = event.data.object as Stripe.Checkout.Session;
+
+        const reserved = await reserveWebhookEvent(event.id);
+        if (!reserved) {
+          logInfo("Duplicate webhook ignored", { requestId, eventId: event.id });
+          return NextResponse.json(
+            { ok: true, duplicate: true },
+            { headers: { "x-request-id": requestId } },
+          );
+        }
 
         // Only process paid sessions
         if (session.payment_status !== "paid") {
@@ -68,27 +102,33 @@ export async function POST(req: NextRequest) {
         const magicLink = `${process.env.NEXT_PUBLIC_SITE_URL}/checkout/success?session_id=${session.id}`;
 
         // Send welcome email
-        await sendEmail({
-          to: email,
-          subject: welcomeEmailSubject,
-          text: `Willkommen zum AI-Kurs! Klicke hier für Zugang: ${magicLink}`,
-          html: welcomeEmail(magicLink),
-        });
+        try {
+          await sendEmail({
+            to: email,
+            subject: welcomeEmailSubject,
+            text: `Willkommen zum AI-Kurs! Klicke hier für Zugang: ${magicLink}`,
+            html: welcomeEmail(magicLink),
+          });
+          await markWebhookProcessed(event.id);
+        } catch (err) {
+          await releaseWebhookReservation(event.id);
+          throw err;
+        }
 
-        console.log(`Welcome email sent to ${email} for session ${session.id}`);
+        logInfo("Welcome email sent", { requestId, email, session: session.id });
         break;
       }
 
       default:
         // Ignore other event types
-        console.log(`Unhandled event type: ${event.type}`);
+        logInfo("Unhandled event type", { requestId, event: event.type });
     }
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
-    console.error(`Webhook processing error: ${message}`);
-    // Return 200 to acknowledge receipt, even if processing failed
-    // This prevents Stripe from retrying on non-retryable errors
+    logError("Webhook processing error", { requestId, error: message });
+    // Return 500 to allow Stripe retries on transient failures
+    return NextResponse.json({ error: message }, { status: 500, headers: { "x-request-id": requestId } });
   }
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true }, { headers: { "x-request-id": requestId } });
 }

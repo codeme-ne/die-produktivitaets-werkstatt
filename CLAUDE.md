@@ -1,220 +1,120 @@
-# Claude Instructions for AI Course Platform
+# CLAUDE.md
 
-## Project Context
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-You are working with a German AI course platform built on Next.js 15 with simplified authentication via JWT cookies. This is NOT the ShipFast SaaS boilerplate – it's a focused course-selling platform without NextAuth or MongoDB.
+## Project Overview
 
-## Architecture Overview
+**Die Produktivitäts-Werkstatt** - A German 12-week video course platform for productivity training. CSV-based course content, JWT authentication via Stripe payments, Bunny.net video hosting.
 
-### Core Technologies
+## Development Commands
 
-- **Frontend**: Next.js 15 (App Router), React 19, TypeScript 5.9
-- **Styling**: TailwindCSS 4 with DaisyUI 5
-- **Database**: None (stateless; JWT-based access)
-- **Authentication**: JWT stored in HTTP-only cookies
-- **Payments**: Stripe (one-time checkout, lookup key: `ai_course_eur`)
-- **Email**: Resend (magic links to success page)
-- **Content**: MDX lessons in `content/lessons/`
-
-### Project Structure
-
-```
-├── app/
-│   ├── api/
-│   │   ├── auth/logout/        # Clears JWT cookie
-│   │   ├── stripe/
-│   │   │   └── create-checkout/ # Creates Stripe session
-│   │   └── webhook/stripe/      # Handles payment webhooks
-│   ├── checkout/success/        # Sets JWT cookie after payment (route.ts)
-│   ├── course/                  # Protected: requires JWT
-│   │   ├── components.tsx      # MDX callout components (Tip, Warning, Note)
-│   │   └── [slug]/             # Individual lesson pages
-│   ├── dashboard/              # Protected: user progress dashboard
-│   ├── impressum/              # German imprint
-│   ├── widerruf/               # Revocation policy
-│   ├── privacy-policy/         # GDPR privacy
-│   ├── tos/                    # Terms of service
-│   └── page.tsx               # Landing page
-├── components/
-│   ├── Header.tsx             # Course header (no auth)
-│   ├── ButtonCheckout.tsx     # Legal checkboxes + checkout
-│   ├── LayoutClient.tsx       # Client-side layout wrapper
-│   ├── ProgressRing.tsx       # DaisyUI radial progress indicator
-│   └── mdx.tsx                # MDX callouts + widgets
-├── libs/
-│   ├── jwt.ts                 # JWT sign/verify
-│   ├── stripe.ts              # Stripe client
-│   ├── pwCourse.ts            # CSV → course mapper
-│   ├── pwProgress.ts          # File-based progress helpers
-│   └── resend.ts              # Email sending utility
-├── logs/
-│   ├── events.ndjson          # Event log (POST /api/events)
-│   └── progress.json          # Lesson completion store
-├── emails/
-│   ├── welcome.ts             # Welcome email after purchase
-│   └── completion.ts          # Completion email at 100%
-├── middleware.ts              # Protects /kurs routes
-└── config.ts                  # Centralized config (no auth/stripe.plans)
+```bash
+npm run dev              # Start development server (localhost:3000)
+npm run build            # Production build
+npm run lint             # ESLint
+npm run videos:sync-meta # Fetch video metadata from Bunny.net
+npm run transcripts:generate -- --guid=<bunny-video-guid> --language=de
+npm run content:validate # Validate lesson content
+npm run sync-csv         # Sync CSV to markdown files
 ```
 
-## Key Differences from ShipFast
+**Dev Login** (bypasses Stripe): `/dev/login?email=you@example.com&to=/dashboard`
 
-| ShipFast                | AI Course Platform   |
-| ----------------------- | -------------------- |
-| NextAuth v5             | JWT cookies          |
-| MongoDB + Mongoose      | No database          |
-| Multiple plans          | Single product (€97) |
-| Recurring subscriptions | One-time payment     |
-| Dashboard pages         | Course lessons (MDX) |
+**Stripe Webhook Testing**:
+```bash
+stripe listen --forward-to localhost:3000/api/webhook/stripe
+```
 
-## Development Guidelines
+## Architecture
+
+### Tech Stack
+- Next.js 15 (App Router), React 19, TypeScript 5.9
+- TailwindCSS 4 + DaisyUI 5
+- **No database** - File-based storage (logs/progress.json)
+- JWT in HTTP-only cookies (no NextAuth, no user accounts)
+- Stripe one-time payment, Resend emails, Bunny.net videos
 
 ### Authentication Flow
 
-1. User completes Stripe checkout
-2. Webhook fires `checkout.session.completed`
-3. Email sent with magic link: `/checkout/success?session_id=...`
-4. Success page verifies session with Stripe, sets JWT cookie
-5. Middleware checks cookie on `/kurs/*` requests
-6. Logout clears cookie via `/api/auth/logout`
+1. User purchases via Stripe → webhook fires `checkout.session.completed`
+2. Email sent with magic link to `/checkout/success?session_id=...`
+3. Success page verifies with Stripe, sets JWT cookie (`access_token`)
+4. `middleware.ts` protects `/kurs/*` and `/dashboard/admin/*` routes
+5. Logout clears cookie via `/api/auth/logout`
 
-**No user accounts. No password. No OAuth.**
+**No passwords, no OAuth, no user accounts.**
 
-### Middleware (`middleware.ts`)
+### Course Data Flow
 
-- Protects `/kurs`, `/kurs/*`, `/dashboard`
-- Verifies JWT from `access_token` cookie
-- Redirects to `/` if missing/invalid
+```
+CSV (docs/*.csv) → libs/pwCsv.ts → libs/pwCourse.ts → Course object (cached in memory)
+                                                    ↓
+                                    app/kurs/[module]/[video]/page.tsx
+```
 
-### Progress Tracking (`libs/pwProgress.ts`)
+**CSV Structure**: `Dateiname` format is `PW_W<modul>_L<lektion>_<name>` (e.g., `PW_W01_L02_Mindset`)
 
-- Reads user-specific completion map from `logs/progress.json`
-- Works with `/api/progress` (GET/POST) to toggle lesson status
-- Dashboard combines data from `libs/pwCourse.ts` and this helper to compute stats/next lesson
+### Key Patterns
 
-### Stripe Integration
+**Progress Tracking** (`libs/pwProgress.ts`):
+- Stored in `logs/progress.json` keyed by user email
+- API: `GET/POST /api/progress`
+- Device-specific (no cross-device sync)
 
-- **Checkout**: Uses Stripe Price lookup key `ai_course_eur`
-- **Webhook**: Verifies signature, sends email on success
-- **Email**: Contains magic link to `/checkout/success?session_id=...`
+**Video Embedding** (`libs/bunnyStream.ts`, `libs/videoEmbed.ts`):
+- Videos hosted on Bunny.net Stream (Library ID: 457384)
+- Embed URLs: `https://iframe.mediadelivery.net/embed/<library>/<guid>`
+- Video metadata in `content/video-meta.json`
 
-### Config (`config.ts`)
+**Admin Access**:
+- Add email to `config.ts` → `adminEmails` array
+- Admin UI: `/dashboard/admin/videos`
+- Check with: `GET /api/debug/whoami`
 
-Removed fields from ShipFast:
+### Route Structure
 
-- ❌ `stripe.plans` (single product, not in config)
-- ❌ `auth` (no NextAuth)
-- ❌ `aws` (not used)
+```
+/                           Landing page (Hero, Curriculum, Pricing, FAQ)
+/kurs                       Course overview (12 modules)
+/kurs/modul-01              Module index (lessons list)
+/kurs/modul-01/willkommen   Lesson page (video + description)
+/dashboard                  User progress dashboard
+/dashboard/admin/videos     Admin video management
+```
 
-Kept fields:
+### Critical Files
 
-- ✅ `appName`, `appDescription`, `domainName`
-- ✅ `resend` (email config)
-- ✅ `colors` (theme)
-- ✅ `crisp` (optional support chat)
+| File | Purpose |
+|------|---------|
+| `middleware.ts` | JWT protection for /kurs/* routes |
+| `libs/jwt.ts` | Sign/verify JWT tokens |
+| `libs/pwCourse.ts` | CSV → Course data mapper |
+| `libs/pwProgress.ts` | File-based progress helpers |
+| `app/api/webhook/stripe/route.ts` | Payment webhook handler |
+| `app/checkout/success/route.ts` | Sets JWT after payment |
+| `config.ts` | App config (adminEmails, domain, etc.) |
 
-### Component Development
+### Environment Variables
 
-- Use DaisyUI 5 classes (e.g., `btn`, `card`, `collapse`)
-- All text in German
-- No auth UI components (no ButtonSignin, no user menus)
-- Simple header with links to `/#curriculum`, `/#pricing`, `/#faq`
+Required in `.env.local`:
+- `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` - Payment processing
+- `RESEND_API_KEY` - Email delivery
+- `JWT_SECRET` - Token signing (32+ bytes)
+- `BUNNY_STREAM_LIBRARY_ID`, `BUNNY_STREAM_ACCESS_KEY` - Video hosting
+- `NEXT_PUBLIC_ASSETS_BASE_URL` - CDN for images (https://pw-bunny.b-cdn.net)
 
-### API Route Development
+## UI Components
 
-- No MongoDB connection needed
-- Validate Stripe webhooks with `stripe.webhooks.constructEvent`
-- Use `libs/jwt.ts` for signing/verifying tokens
-- Return JSON with proper HTTP status codes
-
-### Content Management
-
-- Lessons defined in `content/lessons/manifest.ts`
-- Each lesson exports MDX content
-- Rendered in `/course/[slug]/page.tsx`
-- No CMS, no admin panel – edit MDX directly
-
-## Common Tasks
-
-### Adding a New Lesson
-
-1. Create `content/lessons/08-new-topic.mdx`
-2. Add entry to `content/lessons/manifest.ts`:
-   ```ts
-   {
-     order: 8,
-     slug: '08-new-topic',
-     title: 'New Topic Title',
-     summary: 'Short description',
-     module: () => import('./08-new-topic.mdx'),
-   }
-   ```
-3. Lesson automatically appears in curriculum and course nav
-
-### Updating Legal Pages
-
-- Edit `app/impressum/page.tsx` (replace `[PLACEHOLDER]` text)
-- Edit `app/widerruf/page.tsx` if policy changes
-- Edit `app/privacy-policy/page.tsx` for privacy updates
-- Edit `app/tos/page.tsx` for terms updates
-
-### Changing Price
-
-1. Update Stripe Price (keep lookup key `ai_course_eur`)
-2. Update display price in `app/page.tsx` (Pricing section)
-3. No config changes needed
-
-### Testing Checkout Flow
-
-1. Start dev server: `npm run dev`
-2. Use Stripe test card: `4242 4242 4242 4242`
-3. Use Stripe CLI for webhook testing:
-   ```bash
-   stripe listen --forward-to localhost:3000/api/webhook/stripe
-   ```
-4. Check email delivery in Resend dashboard
-
-## Security Considerations
-
-- JWT secret must be strong (32+ bytes)
-- Stripe webhook signature verification required
-- HTTP-only cookies prevent XSS
-- No sensitive data in JWT payload (only `sessionId`)
-- Middleware prevents unauthorized course access
-
-## Deployment Checklist
-
-1. Set all env vars (Stripe keys, Resend key, JWT secret)
-2. Create Stripe Price with lookup key `ai_course_eur`
-3. Configure Stripe webhook endpoint
-4. Update `config.ts` with production domain/emails
-5. Fill in `app/impressum/page.tsx` with real company data
-6. Test full flow in Stripe test mode
-7. Switch to Stripe live mode
+**ALWAYS use DaisyUI components** for all UI work. This project uses DaisyUI 5 extensively.
+- Use DaisyUI classes (`btn`, `card`, `alert`, `modal`, etc.) instead of custom styling
+- Use DaisyUI color variables (`primary`, `secondary`, `accent`, `base-100`, etc.)
+- Check DaisyUI docs for component patterns before building custom solutions
 
 ## Common Pitfalls
 
-- ❌ Don't try to use NextAuth (not installed)
-- ❌ Don't try to connect to MongoDB (not used)
-- ❌ Don't reference `config.stripe.plans` (removed)
-- ❌ Don't reference `config.auth` (removed)
-- ❌ Don't skip Stripe webhook signature verification
-- ✅ Always verify JWT before serving course content
-- ✅ Use lookup key `ai_course_eur` in checkout creation
-- ✅ Keep legal pages (impressum, widerruf) up to date
-
-## Key Files Reference
-
-- `middleware.ts` - Course and dashboard protection
-- `libs/jwt.ts` - JWT utilities
-- `libs/progress.ts` - Progress cookie management
-- `app/api/webhook/stripe/route.ts` - Payment handling
-- `app/checkout/success/route.ts` - Cookie setter (JWT + redirect)
-- `app/dashboard/page.tsx` - User progress dashboard
-- `app/actions.ts` - Server actions for progress
-- `content/lessons/manifest.ts` - Course structure
-- `components/ProgressRing.tsx` - Progress visualization
-- `emails/completion.ts` - Completion email template
-- `config.ts` - App configuration (simplified)
-
-Remember: This is a focused course platform, not a full SaaS boilerplate. Keep it simple: one product, JWT-based access, MDX content, German legal compliance.
+- This is **NOT** the ShipFast boilerplate - no NextAuth, no MongoDB
+- Don't reference `config.stripe.plans` or `config.auth` (removed)
+- Stripe uses lookup key `ai_course_eur` (not price IDs in config)
+- Progress is file-based - restart server to see changes in `logs/progress.json`
+- Course data is cached in memory - restart server after CSV edits
+- All user-facing text must be in German

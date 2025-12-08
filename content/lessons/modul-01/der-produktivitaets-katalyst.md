@@ -1,0 +1,29 @@
+# 📝 Der Produktivitäts-Katalyst
+
+[👉 Zum Produktivitäts-Katalyst](https://forms.gle/fM5YYY6kbdEAenGi9)
+
+Bevor du etwas verbessern kannst, wollen wir wissen, wo du stehst.
+
+**💡 Der Produktivitäts-Katalyst ist dein persönlicher Startpunkt.**
+
+**Er zeigt dir:**
+
+- Welche Bereiche deiner Produktivität bereits stark sind.
+- Wo du dich verbessern kannst.
+- Wo du aktuell stehst, im Bezug auf die fünf Produktivitätsfähigkeiten.
+
+**📌 So funktioniert es:**
+
+1️⃣ Öffne den Produktivitäts-Katalyst
+
+2️⃣ Bewerte verschiedene Bereiche deiner Produktivität von 1 bis 10\.
+
+3️⃣ Schreib auf, warum du dir genau diese Wertung gibst.
+
+**Warum ist das wichtig?**
+
+📌 In 12 Wochen wirst du den Test nochmal machen – und deinen Fortschritt schwarz auf weiß sehen.
+
+⏳ Dauer: 15-20 Minuten.
+
+🛠 Nimm dir die Zeit. Es wird sich lohnen.

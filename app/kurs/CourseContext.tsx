@@ -3,6 +3,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import type { Course } from "@/types/course";
+import type { CourseProduct } from "@/types/products";
+import type { ModuleReleaseState } from "@/libs/releases";
 
 /* eslint-disable no-unused-vars */
 interface CourseContextValue {
@@ -17,6 +19,8 @@ interface CourseContextValue {
     title: string;
   } | null;
   focusMode: boolean;
+  productType: CourseProduct;
+  releaseMap: Record<string, ModuleReleaseState>;
   setFocusMode(value: boolean): void;
   updateProgress(
     moduleSlug: string,
@@ -43,6 +47,8 @@ interface Props {
     lessonSlug: string;
     title: string;
   } | null;
+  productType: CourseProduct;
+  releaseMap: Record<string, ModuleReleaseState>;
 }
 
 export function CourseProvider({
@@ -50,10 +56,13 @@ export function CourseProvider({
   course,
   initialProgress,
   initialNextOpen,
+  productType,
+  releaseMap: initialReleaseMap,
 }: Props) {
   const [progressMap, setProgressMap] = useState(initialProgress);
   const [nextOpenLesson, setNextOpenLesson] = useState(initialNextOpen);
   const [focusMode, setFocusModeState] = useState(false);
+  const [releaseMap] = useState(initialReleaseMap);
 
   // Persist focus mode to localStorage
   useEffect(() => {
@@ -77,6 +86,11 @@ export function CourseProvider({
 
   const computeNextLesson = (map: Record<string, boolean>) => {
     for (const mod of course.modules) {
+      const isReleased =
+        productType === "self-paced" ||
+        releaseMap?.[mod.slug]?.isReleased !== false;
+      if (!isReleased) continue;
+
       for (const lesson of mod.lessons) {
         const key = `${mod.slug}/${lesson.slug}`;
         if (!map[key]) {
@@ -89,7 +103,16 @@ export function CourseProvider({
       }
     }
 
-    const lastMod = course.modules[course.modules.length - 1];
+    const releasedModules =
+      productType === "self-paced"
+        ? course.modules
+        : course.modules.filter(
+            (mod) => releaseMap?.[mod.slug]?.isReleased !== false,
+          );
+
+    const lastMod =
+      releasedModules[releasedModules.length - 1] ||
+      course.modules[course.modules.length - 1];
     if (!lastMod || lastMod.lessons.length === 0) {
       return null;
     }
@@ -133,6 +156,8 @@ export function CourseProvider({
         percentage,
         nextOpenLesson,
         focusMode,
+        productType,
+        releaseMap,
         setFocusMode,
         updateProgress,
       }}

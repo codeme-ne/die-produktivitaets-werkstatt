@@ -1,5 +1,7 @@
 ## **🥄 Deine Löffelliste**
 
+## **🥄 Die Löffelliste**
+
 Stell dir vor, du hast unbegrenzt Zeit, Geld und Mut. Was würdest du in deinem Leben gerne erleben, erreichen, erschaffen oder wozu beitragen?
 
 ### **💡Die Löffelliste**
@@ -34,7 +36,7 @@ Das Ziel ist, so viele Dinge wie möglich in all diesen verschiedenen Kategorien
 
 Hoffentlich wird das etwas Interessantes über unsere Motivationen, Wünsche und Bestrebungen offenbaren.
 
-## Beispiel: Lukas Löffelliste
+## **Beispiel: Lukas Löffelliste**
 
 **🎯 Was würdest du gerne tun?**
 
@@ -111,18 +113,18 @@ Hoffentlich wird das etwas Interessantes über unsere Motivationen, Wünsche und
 - Wirklich schönes großes Haus in Spanien, in das wir viele Menschen einladen können
 - Porsche Taycan
 - Privatjet, um überall Freunde/Familie besuchen zu können
-- Super duper schönes Büro + Veranstaltungsraum + Coworking-Space + Café + Bibliothek alles in einem für ein Team + lokale Gemeinschaft
-- Tolles Aufnahme + Podcast Studio
+- Super duper schönes Büro \+ Veranstaltungsraum \+ Coworking-Space \+ Café \+ Bibliothek alles in einem für ein Team \+ lokale Gemeinschaft
+- Tolles Aufnahme \+ Podcast Studio
 - Veranstaltungsraum
 
-## **⁉️F&A**
+## **⁉️F\&A**
 
-<details>
-  <summary>❓ Ist das nicht nur unrealistisches Tagträumen?</summary>
-  <p>Es geht nicht darum, alles auf der Liste zu erreichen – sondern zu verstehen, was dich wirklich begeistert und motiviert. Diese Erkenntnisse helfen, Entscheidungen im realen Leben zu treffen, auch wenn sich die spezifischen Träume weiterentwickeln.</p>
-  </details>
+❓**Ist das nicht nur unrealistisches Tagträumen?**
 
-<details>
-  <summary>❓ Ich fühle mich von endlosen Möglichkeiten überfordert. Wo soll ich anfangen?</summary>
-  <p>Es gibt keinen „richtigen“ Startpunkt. Wähle eine Kategorie, die bei dir Anklang findet (z. B. „Was würdest du gerne lernen?“) und mach einfach für 5 Minuten ein Brainstorming. Du kannst später immer mehr hinzufügen.</p>
-  </details>
+Es geht nicht darum, alles auf der Liste zu erreichen \- sondern zu verstehen, was dich wirklich begeistert und motiviert. Diese Erkenntnisse helfen, Entscheidungen im realen Leben zu treffen, auch wenn sich die spezifischen Träume weiterentwickeln.
+
+❓**Ich fühle mich von endlosen Möglichkeiten überfordert. Wo soll ich anfangen?**
+
+Es gibt keinen "richtigen" Startpunkt. Wähle eine Kategorie, die bei dir Anklang findet (wie "Was würdest du gerne lernen?") und mach einfach für 5 Minuten ein Brainstorming. Du kannst später immer mehr hinzufügen.
+
+---
