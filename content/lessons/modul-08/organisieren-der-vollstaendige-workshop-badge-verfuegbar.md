@@ -1,3 +1,74 @@
 # 📁 Organisieren - Der vollständige Workshop [BADGE VERFÜGBAR]
 
-🗂️ Organisieren: Ein System für die Verwaltung deiner Missionen und Informationen. Diese Woche beschäftigen wir uns mit dem Organisieren unserer Missionen und Informationen. Du lernst, wie du ein effektives System aufbaust, um deine Quartalsmissionen zu verfolgen und wichtige Informationen zentral zu erfassen und zu verwalten. 🥜 Auf den Punkt gebracht. Missionsverfolgung: Ein System für das effektive Tracking deiner Quartalsmissionen. Zentrale Erfassung: Eine Methode, um Ideen, Gedanken und wichtige Informationen zu sammeln. Persönliches Wissensmanagement: Wie du mit der CODE-Methode dein eigenes "zweites Gehirn" aufbaust. Arbeitsschleifen schließen: Das Ready-to-Resume-Framework für nahtloses Weiterarbeiten. 🗄️ Missionsverfolgung mit einem Taskmanager. Ein Taskmanager hilft dir, deine Quartalsmissionen, Projekte und Aufgaben strukturiert zu verfolgen. Dabei ist nicht das spezifische Tool entscheidend, sondern wie du es nutzt. Die Funktionen haben alle Taskmanager: Projekte und Aufgaben erstellen. Bereiche (Arbeit und Leben) organisieren. Deadlines und Prioritäten festlegen. Fertigstellung von Projekten und Aufgaben verfolgen. Empfohlene Taskmanager: Apple-Ökosystem: Things 3. Android/Windows: Todoist. Andere Optionen: TickTick, Microsoft To-Do, Trello, Notion, Google Keep. Profi-Tipp: Verbringe nicht zu viel Zeit mit der Auswahl des Tools. Wähle eines und bleibe dabei. Konzentriere dich auf das System, nicht auf das Tool. Das Ampelsystem zur Fortschrittskontrolle. Um schnell zu erkennen, ob du bei deinen Quartalsmissionen auf Kurs bist: 🔴 Rot: Nicht auf Kurs und kein Plan zur Korrektur. 🟡 Gelb: Nicht auf Kurs, aber mit Plan zur Korrektur. 🟢 Grün: Auf Kurs, keine Aktion erforderlich. 🔵 Blau: Fortschritt eingefroren (warte auf etwas/jemanden). 🧠 Das zweite Gehirn - Die CODE-Methode. Das zweite Gehirn ist ein zentraler Ort, wo du deine Ideen, Konzepte und Informationen speicherst und aktionsorientiert organisierst. Es hilft dir, dein Gedächtnis zu entlasten und kreativer zu arbeiten. Die CODE-Methode von Tiago Forte, aus dem Buch Nutzen Sie Ihr zweites Gehirn besteht aus vier Schritten: 1. Capture (Erfassen). Sammle alles, was wichtig erscheint oder mit deinen Gefühlen im Einklang ist. Erfasse Ideen, Erkenntnisse, Highlights, Notizen aus Podcasts, Bildern, etc. Nutze verschiedene Tools: Notizbuch, Sprachnachrichten, Apps wie Readwise. Wichtig: Nach einer Stunde ist 50% der Information verloren, nach 24 Stunden 70%, nach einer Woche 90%. 2. Organize (Organisieren). Organisiere nach Verwendungszweck, nicht nach Quelle. Struktur: Bereiche (Selbst, Arbeit) → Hauptmission → Nebenmissionen → Projekte → Archiv. Integriere dies in dein wöchentliches Planungsritual/abendliches Abschalten. 3. Distill (Destillieren). Reduziere deine Notizen auf die Kernessenz. Drei-Phasen-Prozess: Wichtigste Stellen fett markieren. Nach einigen Tagen die wichtigsten Stellen der fett markierten Stellen gelb hervorheben. Schließlich in eigenen Worten zusammenfassen (max. 3 Punkte). 4. Express (Entfalten). "Verum Ipsum Factum" - Wir wissen nur, was wir erschaffen. Teile dein Wissen: Blog, Newsletter, Präsentationen, etc. Prinzipien: Veröffentliche früh und unvollständig, zeige den Prozess. Show Your Work! von Austin Kleon. 📝 Ready-to-Resume-Framework. Um offene Arbeitsschleifen zu schließen und den Wiedereinstieg zu erleichtern: Notiere nach jeder Arbeitssitzung, wo du stehen geblieben bist. Halte fest, was du geschafft hast. Definiere den nächsten konkreten Schritt. Dokumentiere mögliche Hindernisse. Speichere relevante Links und Ressourcen. Vorteile: Sofortige Orientierung beim Wiedereinstieg. Keine zeitraubende Suche nach Links und Ressourcen. Zeitersparnis durch klare Fortsetzungsschritte. 💡 Experiment: Baue dein eigenes zweites Gehirn. Das Experiment besteht darin, die CODE-Methode praktisch anzuwenden, indem du ein zweites Gehirn speziell für deine Haupt-Mission für LEBEN oder ARBEIT im aktuellen Quartal erstellst. Tipp: Halte es einfach. Vermeide Perfektionismus und achte darauf, dass dein System auf Aktion ausgerichtet ist, damit es nicht mit der Zeit Staub ansetzt. ⁉️ Häufig gestellte Fragen. ❓ Muss ich alle Aspekte des zweiten Gehirns implementieren? Nein, nimm dir, was du brauchst. Experimentiere Schritt für Schritt und entwickle ein System, das für dich passt. ❓ Welche Informationen sollte ich erfassen? Erfasse, was mit deinen Gefühlen im Einklang ist und was du für dein zukünftiges Ich als wichtig erachtest. Vertraue auf deine intuitive Resonanz statt auf analytische Entscheidungen. ❓ Wie viel Zeit sollte ich für die Organisation meines zweiten Gehirns aufwenden? Halte den Prozess so einfach wie möglich. Das Ziel ist nicht ein perfektes System, sondern eines, das dich unterstützt und aktionsorientiert ist. ❓ Wo finde ich mehr Informationen über das zweite Gehirn? Z.B. in diesem Blogpost von mir.
+🗂️ Organisieren: Ein System für die Verwaltung deiner Missionen und Informationen. Diese Woche bauen wir ein Setup, das deine Quartalsmissionen abbildet, Ideen sammelt und offene Arbeitsschleifen sauber schließt.
+
+### 🥜 Auf den Punkt gebracht
+
+- Missionsverfolgung: Quartalsmissionen systematisch tracken  
+- Zentrale Erfassung: Ideen, Gedanken und wichtige Infos gesammelt an einem Ort  
+- Persönliches Wissensmanagement: Mit der CODE‑Methode ein zweites Gehirn aufbauen  
+- Arbeitsschleifen schließen: Ready‑to‑Resume für nahtloses Weiterarbeiten
+
+### 🗄️ Missionsverfolgung mit einem Taskmanager
+
+Ein Taskmanager hilft dir, Quartalsmissionen, Projekte und Aufgaben strukturiert zu verfolgen. Entscheidender als das Tool ist das System dahinter.
+
+- Funktionen (haben alle): Projekte & Aufgaben, Bereiche (Arbeit/Leben), Deadlines/Prioritäten, Fortschritt verfolgen  
+- Empfohlene Tools: Things 3 (Apple), Todoist (Android/Windows), alternativ TickTick, Microsoft To‑Do, Trello, Notion, Google Keep  
+- Profi‑Tipp: Tool schnell wählen, dann beim System bleiben
+
+#### Das Ampelsystem zur Fortschrittskontrolle
+
+- 🔴 Rot: Nicht auf Kurs, kein Plan zur Korrektur  
+- 🟡 Gelb: Nicht auf Kurs, Plan zur Korrektur steht  
+- 🟢 Grün: Auf Kurs, keine Aktion nötig  
+- 🔵 Blau: Fortschritt eingefroren (warte auf etwas/jemanden)
+
+## 🧠 Das zweite Gehirn – Die CODE‑Methode
+
+Ein zentraler Ort für Ideen, Konzepte und Informationen, aktionsorientiert organisiert, damit dein Kopf frei bleibt.
+
+1. **Capture (Erfassen):** Sammle, was wichtig erscheint (Notizen, Highlights, Bilder). Tools: Notizbuch, Sprachnachrichten, Readwise. Hinweis: Nach 1h sind ~50 % weg, nach 24h ~70 %, nach 1 Woche ~90 %.  
+2. **Organize (Organisieren):** Sortiere nach Verwendungszweck, nicht Quelle. Struktur: Bereiche (Selbst, Arbeit) → Hauptmission → Nebenmissionen → Projekte → Archiv. Integriere dies in Abendritual und wöchentliche Planung.  
+3. **Distill (Destillieren):** Reduziere auf die Kernessenz. Drei Schritte: fett markieren → nach Tagen die wichtigsten Stellen farblich hervorheben → in max. 3 Punkten zusammenfassen.  
+4. **Express (Entfalten):** „Verum Ipsum Factum“ – wir wissen, was wir erschaffen. Teile dein Wissen (Blog, Newsletter, Präsentation). Prinzip: früh und unvollständig veröffentlichen; Prozess zeigen (Show Your Work!).
+
+## 📝 Ready‑to‑Resume‑Framework
+
+Schließe offene Arbeitsschleifen und erleichtere den Wiedereinstieg:
+
+1. Notiere nach jeder Sitzung, wo du stehen geblieben bist  
+2. Halte fest, was du geschafft hast  
+3. Definiere den nächsten konkreten Schritt  
+4. Dokumentiere mögliche Hindernisse  
+5. Speichere relevante Links und Ressourcen
+
+**Vorteile:** Sofortige Orientierung, keine Link‑Suche, Zeitersparnis durch klare Fortsetzungsschritte.
+
+## 💡 Experiment: Baue dein eigenes zweites Gehirn
+
+Setze die CODE‑Methode praktisch um, speziell für deine aktuelle Haupt‑Mission (ARBEIT oder LEBEN).
+
+**Tipp:** Halte es einfach, vermeide Perfektionismus, orientiere dich an Aktion statt Optik.
+
+### ⁉️ Häufig gestellte Fragen
+
+<details>
+<summary>Muss ich alle Aspekte des zweiten Gehirns implementieren?</summary>
+Nein, nimm dir, was du brauchst. Experimentiere Schritt für Schritt und entwickle ein System, das für dich passt.
+</details>
+
+<details>
+<summary>Welche Informationen sollte ich erfassen?</summary>
+Erfasse, was mit deinen Gefühlen im Einklang ist und was du für dein zukünftiges Ich als wichtig erachtest. Vertraue auf deine intuitive Resonanz statt nur auf Analysen.
+</details>
+
+<details>
+<summary>Wie viel Zeit sollte ich fürs Organisieren einplanen?</summary>
+Halte den Prozess so einfach wie möglich. Ziel ist kein perfektes, sondern ein aktionsorientiertes System, das dich unterstützt.
+</details>
+
+<details>
+<summary>Wo finde ich mehr Informationen über das zweite Gehirn?</summary>
+Zum Beispiel in meinem Blogpost (siehe verlinkte Ressource im Kurs).
+</details>

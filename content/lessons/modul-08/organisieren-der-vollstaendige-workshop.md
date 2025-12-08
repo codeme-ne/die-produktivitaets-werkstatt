@@ -1,7 +1,5 @@
 ## **📁 Organisieren - Der vollständige Workshop**
 
-## **🗂️ Organisieren: Ein System für die Verwaltung deiner Missionen und Informationen**
-
 Diese Woche beschäftigen wir uns mit dem Organisieren unserer Missionen und Informationen. Du lernst, wie du ein effektives System aufbaust, um deine Quartalsmissionen zu verfolgen und wichtige Informationen zentral zu erfassen und zu verwalten.
 
 ## **🥜 Auf den Punkt gebracht**
@@ -84,4 +82,3 @@ Schließe offene Arbeitsschleifen und erleichtere den Wiedereinstieg:
 - Sofortige Orientierung beim Wiedereinstieg  
 - Keine zeitraubende Suche  
 - Zeitersparnis durch klare Fortsetzungsschritte
-

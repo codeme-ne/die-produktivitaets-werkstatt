@@ -99,22 +99,22 @@ Echte Erholung ist kein passiver, sondern ein aktiver Prozess. Das FAKE-Konzept 
 
 ## **⁉ Häufig gestellte Fragen**
 
-❓ **Ist ein Spaziergang im Wald wirklich effektiv gegen Burnout?**
-
+<details>
+<summary>Ist ein Spaziergang im Wald wirklich effektiv gegen Burnout?</summary>
 Ja, Naturaufenthalte ohne digitale Geräte haben nachweislich positive Effekte auf Stressreduktion und kognitive Erholung. Es geht dabei um bewusstes Erleben ohne Reizüberflutung.
+</details>
 
-❓ **Warum soll ich meine Hobbys nicht monetarisieren?**
-
+<details>
+<summary>Warum soll ich meine Hobbys nicht monetarisieren?</summary>
 Wenn Aktivitäten mit Leistungsdruck oder finanziellen Zielen verbunden werden, verlieren sie oft ihren regenerativen Charakter. Für echte FAKE-Aktivitäten ist es wichtig, dass "nichts auf dem Spiel steht".
+</details>
 
-**❓ Was ist der Unterschied zwischen "normaler" Erholung und diesen FAKE-Aktivitäten?**
-
+<details>
+<summary>Was ist der Unterschied zwischen "normaler" Erholung und diesen FAKE-Aktivitäten?</summary>
 Normale Erholung wird oft als passiv verstanden (z.B. auf dem Sofa liegen). FAKE-Aktivitäten sind eine Form der *aktiven* Erholung ("Deep Play"). Du tust etwas, das dich fesselt und engagiert, und fühlst dich danach energetisiert und aufgeladen, nicht nur "weniger müde".
+</details>
 
-**❓ Müssen FAKE-Aktivitäten immer nur Spaß machen und entspannend sein?**
-
+<details>
+<summary>Müssen FAKE-Aktivitäten immer nur Spaß machen und entspannend sein?</summary>
 Nicht ausschließlich. Der Aspekt "Kompetenz" (K) beinhaltet, dass auch Aktivitäten dazugehören können, die dich herausfordern und bei denen du dazulernst (z.B. ein Instrument lernen, eine neue Sportart). Das Erfolgserlebnis und der Fortschritt dabei geben auch Energie, auch wenn es Anstrengung kostet. Wichtig ist, dass es ohne externen Druck geschieht.
-
----
-
----
+</details>

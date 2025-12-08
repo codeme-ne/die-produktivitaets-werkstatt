@@ -4,17 +4,15 @@
 
 🎨 Deine Zukunftsskizze Dokument [öffentlich] (Word)
 
-## **🎨 Zukunftsskizze Überblick**
-
 Erstelle eine überzeugende Vision, die deine Zukunft in drei Jahren im Einklang mit deinem Lebenskompass darstellt. Indem du deine Richtung festlegst, kannst du effektivere Schritte unternehmen, um deine Meilensteine zu erreichen.
 
 ## **🥜 In Kürze**
 
-* Die Zukunftsskizze besteht aus drei Schlüsselkomponenten:  
-  * **Odyssee-Plan**: Erkunde verschiedene Lebensrichtungen, um neue Möglichkeiten kennenzulernen  
-  * **3-Jahres-Traum**: Visualisiere dein ideales Leben in drei Jahren  
-  * **Vision Board**: Erstellung einer visuellen Darstellung deines Traumlebens  
-* Ergebnis: Klarheit darüber, wohin du gehst und was du jetzt priorisieren solltest
+- Die Zukunftsskizze besteht aus drei Schlüsselkomponenten:
+  - **Odyssee-Plan**: Erkunde verschiedene Lebensrichtungen, um neue Möglichkeiten kennenzulernen
+  - **3-Jahres-Traum**: Visualisiere dein ideales Leben in drei Jahren
+  - **Vision Board**: Erstellung einer visuellen Darstellung deines Traumlebens
+- Ergebnis: Klarheit darüber, wohin du gehst und was du jetzt priorisieren solltest
 
 ## **🎨 Zukunftsskizze: Visualisierung der nächsten 3 Jahre**
 
@@ -25,7 +23,7 @@ Damit deine Träume dich stark beeinflussen und die Zukunft dich mitreißen kann
 
 Wir versuchen, unseren eigenen Lebensstil zu entwickeln. Wir versuchen, unsere eigene Karte zu erstellen, um ungefähr zu bestimmen, wohin wir im Laufe unseres Lebens gehen möchten.
 
-## **⁉️F&A**
+## **⁉️ Häufige Fragen**
 
 <details>
   <summary>❓ Aber das Leben verläuft nicht nach Plan!</summary>
@@ -36,9 +34,9 @@ Wir versuchen, unseren eigenen Lebensstil zu entwickeln. Wir versuchen, unsere e
 
 Es ist sehr schwierig, 10 Jahre in die Zukunft zu denken. Wer weiß schon wie die Welt und unser Leben in 10 Jahren aussehen wird? Aber du kannst dir wahrscheinlich vorstellen, was sich in drei Jahren in deinem Leben ändern könnte. Das ist etwas einfacher vorstellbar als in fünf oder zehn Jahren. Drei Jahre sind die Obergrenze dessen, wie weit die meisten Menschen ihr Leben realistisch vorhersehen können, bevor sich die Dinge wirklich ändern.
 
-* Ein Zeithorizont von drei Jahren bietet Raum für Wachstum und bleibt gleichzeitig realistisch  
-* Schließt die Lücke zwischen deinem Lebenskompass (langfristige Vision) und Quartals-Missionen (kurzfristige Ziele)  
-* Ein klares Ziel hält dich inspiriert und fokussiert  
-* Wenn du weißt, was dir mittelfristig am wichtigsten ist, weißt du auch, was jetzt Priorität hat
+- Ein Zeithorizont von drei Jahren bietet Raum für Wachstum und bleibt gleichzeitig realistisch
+- Schließt die Lücke zwischen deinem Lebenskompass (langfristige Vision) und Quartals-Missionen (kurzfristige Ziele)
+- Ein klares Ziel hält dich inspiriert und fokussiert
+- Wenn du weißt, was dir mittelfristig am wichtigsten ist, weißt du auch, was jetzt Priorität hat
 
 Es gibt verschiedene Übungen, die uns dabei helfen, uns vorzustellen, wie unser Leben in drei Jahren aussehen soll. Wir werden sie in den kommenden Videos gemeinsam durchgehen.

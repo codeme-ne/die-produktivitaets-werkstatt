@@ -4,7 +4,6 @@ import { getLesson, loadCourse } from "@/libs/pwCourse";
 import { isLessonDone } from "@/libs/pwProgress";
 import { verifyAccess } from "@/libs/jwt";
 import { getReleaseMapForProduct } from "@/libs/releases";
-import { VideoHero } from "@/components/course/VideoHero";
 import { VideoBody } from "@/components/course/VideoBody";
 import { LessonActions } from "@/components/course/LessonActions";
 import { KeyboardShortcuts } from "@/components/course/KeyboardShortcuts";
@@ -85,21 +84,71 @@ export default async function VideoPage({ params }: Props) {
       <KeyboardShortcuts prev={prev} next={next} />
       <div className="flex flex-col h-full">
         <div className="flex-1 overflow-y-auto">
-          <div className="container mx-auto px-4 py-6 max-w-7xl">
-            <VideoHero title={lesson.title} video={lesson.video} />
-            <VideoBody description={lesson.description} />
+          <div className="container mx-auto px-4 py-6 max-w-screen-2xl">
+            {/* Title row with Erledigt button */}
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <h1 className="text-3xl md:text-4xl font-bold break-words whitespace-normal flex-1 min-w-0">
+                {lesson.title}
+              </h1>
+              <div className="shrink-0">
+                <LessonActions
+                  moduleSlug={module}
+                  lessonSlug={video}
+                  initialDone={isDone}
+                  prev={prev}
+                  next={next}
+                  layout="done-only"
+                />
+              </div>
+            </div>
+
+            {/* Video + Nav buttons (only when video exists) */}
+            {lesson.video && (
+              <div className="w-full">
+                <div className="w-full aspect-video rounded-xl overflow-hidden border border-base-300 bg-base-100/60 shadow-xl mb-4">
+                  <iframe
+                    src={`https://iframe.mediadelivery.net/embed/${lesson.video.libraryId}/${lesson.video.guid}?autoplay=false&preload=true`}
+                    className="w-full h-full"
+                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+
+                {/* Navigation buttons directly under video */}
+                <LessonActions
+                  moduleSlug={module}
+                  lessonSlug={video}
+                  initialDone={isDone}
+                  prev={prev}
+                  next={next}
+                  layout="nav-only"
+                />
+              </div>
+            )}
+
+            <div className="mt-8">
+              <VideoBody description={lesson.description} />
+            </div>
+
+            {/* Navigation buttons under description (only when NO video) */}
+            {!lesson.video && (
+              <div className="w-full mt-8">
+                <LessonActions
+                  moduleSlug={module}
+                  lessonSlug={video}
+                  initialDone={isDone}
+                  prev={prev}
+                  next={next}
+                  layout="nav-only"
+                />
+              </div>
+            )}
+
             {isLastInModule ? (
               <LessonFeedbackForm moduleSlug={module} lessonSlug={video} />
             ) : null}
           </div>
         </div>
-        <LessonActions
-          moduleSlug={module}
-          lessonSlug={video}
-          initialDone={isDone}
-          prev={prev}
-          next={next}
-        />
       </div>
     </>
   );

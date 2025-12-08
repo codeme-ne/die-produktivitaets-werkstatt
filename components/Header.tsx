@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import config from "@/config";
-import WhoamiBadge from "@/components/WhoamiBadge";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 // Boat Icon matching the landing page
@@ -94,7 +93,6 @@ const Header = () => {
         {/* Desktop CTA */}
         <div className="hidden lg:flex lg:justify-end lg:flex-1 lg:gap-3 lg:items-center">
           <ThemeToggle className="text-base-content/70 hover:bg-base-200 hover:text-primary" />
-          <WhoamiBadge className="hidden xl:inline-flex" />
           <Link
             href="/login"
             className="btn btn-ghost"
@@ -180,8 +178,7 @@ const Header = () => {
 
           {/* Mobile footer */}
           <div className="px-6 py-6 border-t border-base-300 bg-base-200 space-y-4 mt-auto">
-            <div className="flex items-center justify-between">
-              <WhoamiBadge />
+            <div className="flex items-center justify-end">
               <ThemeToggle className="text-base-content/70 hover:bg-base-300" />
             </div>
             <Link

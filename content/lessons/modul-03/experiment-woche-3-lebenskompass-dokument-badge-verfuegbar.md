@@ -2,19 +2,16 @@
 
 Der Lebenskompass ist ein kraftvolles Werkzeug zur Selbstreflexion, das dir hilft, deine Kernwerte und authentischen Bestrebungen zu entdecken. Durch langfristige Visualisierungsübungen kannst du einen "Kompass" erstellen, der dich in die richtige Richtung leitet und sicherstellt, dass deine täglichen Handlungen mit deinen tiefsten Werten übereinstimmen.
 
-## **🧪 Experiment Woche 3:**
+## **So setzt du die Übung um**
 
 ## **Reserviere 1-2 Stunden für diese Übung. Finde einen ruhigen Ort, stelle sicher, dass du nicht gestört wirst, und bereite dir etwas zum Schreiben vor. Idealerweise nimmst du am Umsetzungs-Workshop teil 🙂**
 
 ## **Die vier Komponenten**
 
-1\. Die Grabrede
-
-2\. Die Löffelliste
-
-3\. Die Mission
-
-4\. Definition von Erfolg
+1. Die Grabrede
+2. Die Löffelliste
+3. Die Mission
+4. Definition von Erfolg
 
 ## **Nachbereitung**
 
@@ -36,5 +33,3 @@ Der Lebenskompass ist wie ein Finger, der auf deinen "Nordstern" zeigt \- die pe
 [![PDF preview][image15]](https://assets-v2.circle.so/v7y34gao3zw3ltfv05ulxjwjqs3x)
 
 [🧭 Lebenskompass Dokument \[öffent...1.86 MiB](https://assets-v2.circle.so/xj9b8afljkvehiponkc6exulpchd)
-
----

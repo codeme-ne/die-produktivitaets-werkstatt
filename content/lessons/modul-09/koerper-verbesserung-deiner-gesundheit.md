@@ -52,35 +52,34 @@ In diesem Video teile ich wertvolle Einblicke zum Thema Gesundheit als grundlege
 
 **3\. Monatliches Gesundheits-Tracking**
 
-* Tägliche Bewertung mit W (Win) oder L (Learning) \- Regel: Nicht mehr als 2 Ls hintereinander und maximal 6 Ls pro Monat  
-* Öffentliches Teilen des Tracking-Sheets erhöht Verbindlichkeit
+- Tägliche Bewertung mit W (Win) oder L (Learning) – Regel: Nicht mehr als 2 Ls hintereinander und maximal 6 Ls pro Monat
+- Öffentliches Teilen des Tracking-Sheets erhöht Verbindlichkeit
 
 ## **Deine Aktion 🚀**
 
 Welche konkrete gesundheitsbezogene Aktion wirst du in deinen Kalender eintragen?
 
-* Schwimmeinheiten planen?  
-* Yogastunden buchen?  
-* Morgentraining etablieren?
+- Schwimmeinheiten planen?
+- Yogastunden buchen?
+- Morgentraining etablieren?
 
 **Wichtig:** Was nicht im Kalender steht, wird nicht passieren. Plane deine gesundheitlichen Aktivitäten konkret ein und trage sie bei deiner wöchentlichen Reflexion ein.
 
 ## **⁉️ Häufig gestellte Fragen**
 
-❓**Sind teure Gesundheitsinvestitionen wie DEXA-Scans wirklich notwendig?**
-
+<details>
+<summary>Sind teure Gesundheitsinvestitionen wie DEXA-Scans wirklich notwendig?</summary>
 Nein, aber die Quantifizierung deiner Gesundheit kann stark motivierend wirken. Es gibt auch günstigere Alternativen für Körperanalysen.
+</details>
 
-❓**Ist es realistisch, jeden Morgen zu trainieren?**
-
+<details>
+<summary>Ist es realistisch, jeden Morgen zu trainieren?</summary>
 Es mag anfangs schwierig erscheinen, aber sobald es zur Gewohnheit wird, wirst du die positiven Auswirkungen auf Energie, Stimmung und Ernährungsentscheidungen den ganzen Tag über spüren.
+</details>
 
-❓**Wie kann ich mein Gesundheits-Tracking mit meinem Produktivitätssystem verbinden?**
-
+<details>
+<summary>Wie kann ich mein Gesundheits-Tracking mit meinem Produktivitätssystem verbinden?</summary>
 Integriere es in dein wöchentliches Planungsritual und dein Morgen-Manifest, um Gesundheit als zentralen Bestandteil deiner Produktivität zu verankern.
+</details>
 
 Gesundheit ist nicht nur ein separater Lebensbereich, sondern das Fundament deiner Produktivität. Setze diese Strategien um, und du wirst spüren, wie sich alle anderen Bereiche deines Lebens verbessern.
-
----
-
----

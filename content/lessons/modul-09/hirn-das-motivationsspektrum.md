@@ -4,10 +4,10 @@ In diesem Video erfährst du alles über die verschiedenen Arten der Motivation 
 
 ## **🥜 Zusammengefasst**
 
-* Kennenlerne der vier Hauptformen der Motivation: extern, introjiziert, identifiziert und intrinsisch  
-* Verstehe, warum identifizierte und intrinsische Motivation kraftvoller und nachhaltiger sind  
-* Erfahre praktische Wege, um deine Motivation durch Identitätsveränderung zu stärken  
-* Lerne die wissenschaftlichen Grundlagen der Motivation, einschließlich des Pygmalion-Effekts
+- Kennenlerne der vier Hauptformen der Motivation: extern, introjiziert, identifiziert und intrinsisch
+- Verstehe, warum identifizierte und intrinsische Motivation kraftvoller und nachhaltiger sind
+- Erfahre praktische Wege, um deine Motivation durch Identitätsveränderung zu stärken
+- Lerne die wissenschaftlichen Grundlagen der Motivation, einschließlich des Pygmalion-Effekts
 
 ## **📊 Die vier Arten der Motivation**
 
@@ -65,12 +65,17 @@ Die wissenschaftliche Bestätigung für die Kraft der Identität:
 
 ## **⁉️ Häufig gestellte Fragen**
 
-❓**Kann ich wirklich meine Identität einfach so verändern?** Ja\! Identität ist formbar und beginnt mit bewussten Entscheidungen. Wenn du beginnst, dich als "jemand, der X tut" zu sehen, wirst du allmählich entsprechend handeln.
+<details>
+<summary>Kann ich wirklich meine Identität einfach so verändern?</summary>
+Ja! Identität ist formbar und beginnt mit bewussten Entscheidungen. Wenn du beginnst, dich als "jemand, der X tut" zu sehen, wirst du allmählich entsprechend handeln.
+</details>
 
-❓**Was ist, wenn ich bestimmte Aufgaben wirklich nicht mag?** Nicht alles kann intrinsisch motivierend sein. Identifizierte Motivation ist hier der Schlüssel \- verbinde die Aufgabe mit einem Wert oder Ziel, das dir wirklich wichtig ist.
+<details>
+<summary>Was ist, wenn ich bestimmte Aufgaben wirklich nicht mag?</summary>
+Nicht alles kann intrinsisch motivierend sein. Identifizierte Motivation ist hier der Schlüssel – verbinde die Aufgabe mit einem Wert oder Ziel, das dir wirklich wichtig ist.
+</details>
 
-❓**Wie überwinde ich das "Sollte"-Gefühl?** Hinterfrage "Sollte"-Aussagen: Sind sie von außen auferlegt oder entspringen sie deinen eigenen Werten? Formuliere sie um in *"Ich werde... weil..."* Aussagen.
-
----
-
----
+<details>
+<summary>Wie überwinde ich das "Sollte"-Gefühl?</summary>
+Hinterfrage "Sollte"-Aussagen: Sind sie von außen auferlegt oder entspringen sie deinen eigenen Werten? Formuliere sie um in *"Ich werde... weil..."* Aussagen.
+</details>

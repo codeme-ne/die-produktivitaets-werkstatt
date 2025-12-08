@@ -6,19 +6,19 @@
 
 ## **🥜 Zusammengefasst**
 
-* 90% unserer Ablenkungen kommen nicht von außen, sondern von innen – ausgelöst durch unangenehme Gefühle  
-* Ohne klaren Plan kannst du nicht wirklich "abgelenkt" werden – du driftest einfach ziellos  
-* Der "Surf the Urge"-Trick verzögert Ablenkungsimpulse um 10 Minuten und lässt sie meist verschwinden  
-* Mit dem Prokrastinations-Protokoll entschlüsselst du deine persönlichen Ablenkungs-Muster  
-* Durch Reframing kannst du deine Beziehung zu schwierigen Gefühlen grundlegend verändern
+- 90% unserer Ablenkungen kommen nicht von außen, sondern von innen – ausgelöst durch unangenehme Gefühle
+- Ohne klaren Plan kannst du nicht wirklich "abgelenkt" werden – du driftest einfach ziellos
+- Der "Surf the Urge"-Trick verzögert Ablenkungsimpulse um 10 Minuten und lässt sie meist verschwinden
+- Mit dem Prokrastinations-Protokoll entschlüsselst du deine persönlichen Ablenkungs-Muster
+- Durch Reframing kannst du deine Beziehung zu schwierigen Gefühlen grundlegend verändern
 
 ## **Dein produktiver Tag: Die emotionale Basis deiner Produktivität**
 
 **❓ Wie willst du dich an deinem idealen, produktiven Tag fühlen?**
 
-* Voller Energie?  
-* Zufrieden?  
-* Im Flow?
+- Voller Energie?
+- Zufrieden?
+- Im Flow?
 
 Nimm dir 10 Sekunden und notiere deine Wunsch-Gefühle\!
 
@@ -34,10 +34,10 @@ Es ist nicht das Handy, das Schuld ist – es ist das unangenehme Gefühl, das u
 
 Was sind das für Gefühle? In der Regel die, die sich nicht so gut anfühlen:
 
-* 😑 **Langeweile**: "Boah, diese Aufgabe ist so blöd..."  
-* 😤 **Frust**: "Ich komm hier einfach nicht weiter\!"  
-* 😰 **Angst**: "Was, wenn ich das total vermassele?"  
-* 😟 **Unsicherheit**: "Kann ich das überhaupt schaffen?"
+- 😑 **Langeweile**: "Boah, diese Aufgabe ist so blöd..."
+- 😤 **Frust**: "Ich komm hier einfach nicht weiter!"
+- 😰 **Angst**: "Was, wenn ich das total vermassele?"
+- 😟 **Unsicherheit**: "Kann ich das überhaupt schaffen?"
 
 Nicht das Handy ist schuld, sondern das Gefühl, das uns dazu bringt, danach zu greifen.
 
@@ -123,15 +123,17 @@ Indem du lernst, deine inneren Trigger zu verstehen und zu lenken, übernimmst d
 
 ## **⁉️ Häufig gestellte Fragen**
 
-**❓ Muss ich wirklich ein Protokoll führen? Das kostet doch auch Zeit\!**  
-Das Protokoll kostet dich 20 Sekunden – aber kann dir Stunden an vergeudeter Zeit sparen\! Denk dran: Was gemessen wird, wird auch verbessert. Nach 1-2 Wochen kennst du deine Muster und brauchst es vielleicht nicht mehr täglich.
+<details>
+<summary>Muss ich wirklich ein Protokoll führen? Das kostet doch auch Zeit!</summary>
+Das Protokoll kostet dich 20 Sekunden – spart aber Stunden an vergeudeter Zeit. Was gemessen wird, wird verbessert. Nach 1–2 Wochen kennst du deine Muster und brauchst es vielleicht nicht mehr täglich.
+</details>
 
-**❓ Funktioniert "Surf the Urge" auch bei Social Media? Die Apps sind doch darauf optimiert, uns süchtig zu machen\!**  
-Absolut\! Gerade bei Social Media ist die 10-Minuten-Verzögerung besonders effektiv. Probier's aus – oft wird dir klar, dass der Drang, zu scrollen, eigentlich nur ein flüchtiges Gefühl war.
+<details>
+<summary>Funktioniert „Surf the Urge“ auch bei Social Media?</summary>
+Ja. Gerade bei Social Media ist die 10-Minuten-Verzögerung besonders effektiv. Oft merkst du, dass der Drang zu scrollen nur ein flüchtiges Gefühl war.
+</details>
 
-**❓ Kann Stress wirklich gut für meine Produktivität sein?**  
-Ja\! Die Forschung zeigt, dass ein positives Stress-Mindset tatsächlich zu besserer Leistungsfähigkeit führt. Der Schlüssel liegt nicht darin, Stress zu vermeiden, sondern deine Einstellung zu ihm zu verändern. Wenn du Stress als Zeichen dafür siehst, dass du dich um etwas Wichtiges kümmerst, aktiviert er dich statt dich zu lähmen.
-
----
-
----
+<details>
+<summary>Kann Stress wirklich gut für meine Produktivität sein?</summary>
+Ja. Ein positives Stress-Mindset steigert die Leistungsfähigkeit. Der Schlüssel ist nicht, Stress zu vermeiden, sondern die Einstellung zu ihm zu verändern: Stress als Zeichen sehen, dass du dich um etwas Wichtiges kümmerst.
+</details>

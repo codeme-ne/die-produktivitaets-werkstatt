@@ -6,10 +6,10 @@ In diesem Reflexionsvideo vertiefst du dein Verständnis des Lebenskompass-Konze
 
 Dieses Video führt dich durch eine strukturierte Reflexion mit vier Kernfragen:
 
-* Die Hauptfunktion des Lebenskompass als flexibles Navigationssystem
-* Der Unterschied zwischen Grabredenperspektive und klassischem Fünf-Jahres-Plan
-* Ein praktisches Fallbeispiel zur Integration persönlicher Leidenschaften
-* Konkrete Umsetzungsschritte, um dein Leben mit deinen Werten in Einklang zu bringen
+- Die Hauptfunktion des Lebenskompass als flexibles Navigationssystem
+- Der Unterschied zwischen Grabredenperspektive und klassischem Fünf-Jahres-Plan
+- Ein praktisches Fallbeispiel zur Integration persönlicher Leidenschaften
+- Konkrete Umsetzungsschritte, um dein Leben mit deinen Werten in Einklang zu bringen
 
 ## **❓ Vier zentrale Fragen zur Reflexion**
 
@@ -22,18 +22,18 @@ Während ein Fünf-Jahres-Plan karriere- und zielorientiert ist, bietet die Grab
 **Frage 3: Praktisches Fallbeispiel mit Maria**
 Maria liebt es, mit Kindern kreativ zu arbeiten, ist aber als Buchhalterin tätig. Statt ihren Job sofort zu kündigen, könnte sie:
 
-* Kreativkurse für Kinder in ihrer Freizeit anbieten (2-3 Stunden pro Woche)
-* Finanzworkshops für Kinder in ihrer Firma entwickeln
-* Ihre beruflichen Fähigkeiten mit ihrer Leidenschaft verbinden
+- Kreativkurse für Kinder in ihrer Freizeit anbieten (2-3 Stunden pro Woche)
+- Finanzworkshops für Kinder in ihrer Firma entwickeln
+- Ihre beruflichen Fähigkeiten mit ihrer Leidenschaft verbinden
 
 Diese Herangehensweise bietet finanzielle Sicherheit und die Möglichkeit, die nächsten Schritte ohne Risiko zu evaluieren.
 
 **Frage 4: Erkenntnisse zur konkreten Umsetzung**
 Statt alles auf einmal ändern zu wollen, sind kleine, kontinuierliche Schritte effektiver:
 
-* Wöchentliches Planungsritual (30 Minuten): Drei Prioritäten setzen, die dich deiner Vision näherbringen
-* Fokus-Stunden fest im Kalender einplanen
-* Das Morgenmanifest nutzen, um jeden Tag an deinen Werten auszurichten
+- Wöchentliches Planungsritual (30 Minuten): Drei Prioritäten setzen, die dich deiner Vision näherbringen
+- Fokus-Stunden fest im Kalender einplanen
+- Das Morgenmanifest nutzen, um jeden Tag an deinen Werten auszurichten
 
 ## **👉 Ausblick**
 

@@ -4,8 +4,6 @@
 
 🎨 Deine Zukunftsskizze Dokument [öffentlich] (Word)
 
-## **🛶 Dein Odyssee Plan**
-
 Ich habe diese Übung zum ersten Mal im April 2020 gemacht und es war mein erster ernsthafter Versuch, mein Leben zu visualisieren und zu gestalten. Ich habe sie durch ein YouTube-Video entdeckt, der auf das Buch [*„Designing Your Life*“ von Bill Burnett und Dave Evans](https://amzn.to/3DLSLbR) verwies, Professoren der Stanford Business School, die einen Kurs über die Anwendung von Design-Thinking-Prinzipien auf die Lebensplanung unterrichten. Bei dieser Übung sollst du dir drei verschiedene Versionen deines Lebens in fünf Jahren vorstellen.
 
 ### **💡Übung: Der Odyssee-Plan**

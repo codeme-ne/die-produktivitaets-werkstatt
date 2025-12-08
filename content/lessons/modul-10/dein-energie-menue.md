@@ -64,18 +64,17 @@ Die Regeneration wird fest in dein bestehendes System eingebaut:
 
 ## **⁉ Häufig gestellte Fragen**
 
-❓ **Muss eine FAKE-Aktivität lange dauern?**
-
+<details>
+<summary>Muss eine FAKE-Aktivität lange dauern?</summary>
 Nein, oft reichen schon 15-30 Minuten aus. Es geht nicht um die Dauer, sondern um die Qualität der Erholung.
+</details>
 
-❓ **Warum sollte ich Regenerationsblöcke in den Kalender eintragen?**
+<details>
+<summary>Warum sollte ich Regenerationsblöcke in den Kalender eintragen?</summary>
+Ohne feste Terminierung werden Regenerationsaktivitäten oft verdrängt. Der Kalendereintrag macht es deutlich wahrscheinlicher, dass du dir die Zeit wirklich nimmst. Gerade Gesundheit und Beziehungen sind Bereiche, die gerne aufgeschoben werden und deshalb umso mehr in den Kalender eingetragen werden sollten.
+</details>
 
-Ohne feste Terminierung werden Regenerationsaktivitäten oft verdrängt. Der Kalendereintrag macht es deutlich wahrscheinlicher, dass du dir die Zeit wirklich nimmst. Gerade Gesundheit und Beziehungen sind Bereiche welche gerne aufgeschoben werden und deshalb umso mehr in den Kalender eingetragen werden sollen.
-
-❓ **Was, wenn mir keine Zeit für FAKE-Aktivitäten bleibt?**
-
+<details>
+<summary>Was, wenn mir keine Zeit für FAKE-Aktivitäten bleibt?</summary>
 Die Integration von FAKE-Aktivitäten ist keine zusätzliche Last, sondern ein Investment in deine Energie und Produktivität. Durch das Ersetzen von Energieräubern (wie passivem Medienkonsum) durch echte Energiegeber gewinnst du insgesamt mehr Zeit und Leistungsfähigkeit.
-
----
-
----
+</details>

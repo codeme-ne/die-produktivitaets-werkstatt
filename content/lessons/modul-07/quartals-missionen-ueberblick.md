@@ -1,7 +1,5 @@
 ## **🚀 Quartals-Missionen Überblick**
 
-## **🚀 Quartals-Missionen**
-
 Richte deine täglichen Handlungen durch Quartals-Missionen auf deine langfristigen Ziele aus. In den Bereichen Arbeit und Leben wählen wir ein einziges, äußerst wichtiges Prioritätsprojekt aus, an dem wir in den nächsten 90 Tagen arbeiten werden – ein Zeitrahmen, der kurz genug ist, um bedeutende Fortschritte zu erzielen, die uns unserer Vision näher bringen.
 
 ### **🥜 Kurz und bündig**
@@ -38,15 +36,17 @@ Auf dem Weg zu unserer überzeugenden 3-Jahres-Zukunftsskizze werden wir unsere 
 
 ### **⁉️ Häufig gestellte Fragen**
 
-❓**Warum denken wir an 90 Tage?**
-
+<details>
+<summary>Warum denken wir an 90 Tage?</summary>
 Es ist lang genug, um etwas Sinnvolles zu erreichen, aber kurz genug, um den Fokus und die Motivation aufrechtzuerhalten.
+</details>
 
-**❓ Warum nur 1 Hauptaufgabe und 3 Nebenmissionen?**
-
+<details>
+<summary>Warum nur 1 Hauptaufgabe und 3 Nebenmissionen?</summary>
 Der Grund liegt in der Wissenschaft von Aufmerksamkeit und Produktivität (z. B. „Essentialism“ von Greg McKeown, „Slow Productivity“ von Cal Newport). Einschränkung erzeugt Fokus.
+</details>
 
-❓**Ist das nicht nur ein weiteres System? Was unterscheidet es von herkömmlicher Zielsetzung?**
-
+<details>
+<summary>Ist das nicht nur ein weiteres System? Was unterscheidet es von herkömmlicher Zielsetzung?</summary>
 Der 90-Tage-Fokus plus harte Begrenzung auf EINE Hauptmission pro Bereich verhindert Überladung und erhält Momentum. Wie im Videospiel: nicht alle Nebenquests zugleich erledigen.
-
+</details>

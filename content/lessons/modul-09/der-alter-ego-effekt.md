@@ -9,10 +9,10 @@
 
 ## **🥜 Zusammengefasst**
 
-* Der Alter Ego-Effekt nutzt die Kraft einer angenommenen Identität zur Leistungssteigerung  
-* Wissenschaftliche Studien wie “The Batman Effect” (DOI: [10.1111/cdev.12695](https://doi.org/10.1111/cdev.12695)) zeigen, dass Kinder besser abschneiden, wenn sie sich als ihre Lieblingscharaktere vorstellen  
-* Eric Partaker's persönliche Geschichte und sein Buch [The 3 Alarms](https://amzn.to/3EyKpoi) (gibt es leider nur auf Englisch) bieten praktische Anwendungsbeispiele  
-* Diese Technik ermöglicht es, Selbstbewusstsein und Motivation zu steigern, indem man in eine bestimmte Identität eintaucht
+- Der Alter Ego-Effekt nutzt die Kraft einer angenommenen Identität zur Leistungssteigerung
+- Wissenschaftliche Studien wie “The Batman Effect” (DOI: [10.1111/cdev.12695](https://doi.org/10.1111/cdev.12695)) zeigen, dass Kinder besser abschneiden, wenn sie sich als ihre Lieblingscharaktere vorstellen
+- Eric Partaker's persönliche Geschichte und sein Buch [The 3 Alarms](https://amzn.to/3EyKpoi) (gibt es leider nur auf Englisch) bieten praktische Anwendungsbeispiele
+- Diese Technik ermöglicht es, Selbstbewusstsein und Motivation zu steigern, indem man in eine bestimmte Identität eintaucht
 
 ## **🧠 Den Alter Ego-Effekt verstehen**
 
@@ -48,18 +48,17 @@ Der Alter Ego-Effekt lässt sich auf verschiedene Lebensbereiche anwenden:
 
 ## **⁉ Häufig gestellte Fragen**
 
-❓**Ist es nicht seltsam, so zu tun, als wäre ich jemand anderes?**
-
+<details>
+<summary>Ist es nicht seltsam, so zu tun, als wäre ich jemand anderes?</summary>
 Es geht nicht darum, deine Identität vollständig aufzugeben, sondern bestimmte Eigenschaften zu verstärken, die bereits in dir angelegt sind. Denke daran, dass selbst erfolgreiche Persönlichkeiten wie Beyoncé (mit ihrem Alter Ego "Sasha Fierce") diese Technik nutzen.
+</details>
 
-❓**Wie wähle ich das richtige Alter Ego?**
-
+<details>
+<summary>Wie wähle ich das richtige Alter Ego?</summary>
 Wähle eine Figur oder Persönlichkeit, die die Eigenschaften verkörpert, die du in einer bestimmten Situation benötigst. Für kreative Aufgaben könnte es ein anderes Alter Ego sein als für analytische Herausforderungen.
+</details>
 
-❓**Kann ich mehrere Alter Egos haben?**
-
-Absolut\! Verschiedene Situationen erfordern unterschiedliche Stärken. Du kannst für verschiedene Lebensbereiche unterschiedliche Alter Egos entwickeln.
-
----
-
----
+<details>
+<summary>Kann ich mehrere Alter Egos haben?</summary>
+Absolut! Verschiedene Situationen erfordern unterschiedliche Stärken. Du kannst für verschiedene Lebensbereiche unterschiedliche Alter Egos entwickeln.
+</details>

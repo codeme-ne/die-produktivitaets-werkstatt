@@ -4,8 +4,6 @@
 
 🎨 Deine Zukunftsskizze Dokument [öffentlich] (Word)
 
-## **🖼️ Dein Vision Board**
-
 Ein Vision Board ist eine aussagekräftige bildliche Darstellung, die deine Ziele, Träume und Bestrebungen zeigt und dich täglich daran erinnert, worauf du hinarbeitest.
 
 Dein Vision Board kann analog (z. B. neben deinem Bett aufgehängt) oder digital (als Sperrbildschirm eingerichtet) sein. Wichtig ist, dass du es im Blick behältst.
@@ -23,18 +21,18 @@ Deshalb kann es so wirkungsvoll sein, sich täglich ein Vision Board anzusehen. 
 ### **Suche nach Bildern, die dein Traumleben wiedergeben.**
 
 1. Wähle deine Vision Board Fläche  
-   * Digitale Optionen: Google Slides, PowerPoint, Canva, Figma  
-   * Halte es einfach. Jedes Tool, mit dem du Bilder anordnen kannst, funktioniert  
+   - Digitale Optionen: Google Slides, PowerPoint, Canva, Figma  
+   - Halte es einfach. Jedes Tool, mit dem du Bilder anordnen kannst, funktioniert  
 2. Finde inspirierende Bilder  
-   * Verwende Pinterest, um ästhetische Bilder zu finden  
-   * (Beziehe dich auf deinen 3-Jahres-Traum)  
-   * Finde Bilder, die dich ansprechen  
+   - Verwende Pinterest, um ästhetische Bilder zu finden  
+   - (Beziehe dich auf deinen 3-Jahres-Traum)  
+   - Finde Bilder, die dich ansprechen  
 3. Ordne die Bilder auf deinem Board an  
-   * Du kannst Bilder zu einem bestimmten Thema gruppieren  
-   * Aktualisiere es regelmäßig, wenn sich deine Vision weiterentwickelt  
+   - Du kannst Bilder zu einem bestimmten Thema gruppieren  
+   - Aktualisiere es regelmäßig, wenn sich deine Vision weiterentwickelt  
 4. Wähle einen Ort für dein Board, wo du es täglich sehen kannst  
-   * Du kannst es ausdrucken und an deine Schlafzimmertür oder in die Dusche hängen  
-   * Du kannst es auch als Hintergrundbild oder Sperrbildschirm für dein Handy, deinen Computer und/oder dein Tablet einrichten
+   - Du kannst es ausdrucken und an deine Schlafzimmertür oder in die Dusche hängen  
+   - Du kannst es auch als Hintergrundbild oder Sperrbildschirm für dein Handy, deinen Computer und/oder dein Tablet einrichten
 
 ### **Beispiel: Lukas Vision Board (März 2025)![][image2]**
 
@@ -42,11 +40,12 @@ Deshalb kann es so wirkungsvoll sein, sich täglich ein Vision Board anzusehen. 
 
 ### **⁉️Häufig gestellte Fragen**
 
-❓**Fühle ich mich nicht schlecht, wenn ich mir unrealistische Bilder ansehe?**
-
+<details>
+<summary>Fühle ich mich nicht schlecht, wenn ich mir unrealistische Bilder ansehe?</summary>
 Wähle Bilder, die zum Handeln anregen, statt Neid. Wähle Bilder, die zeigen, wie du dich fühlen und was du erschaffen möchtest, nicht nur materielle Dinge.
+</details>
 
-❓**Ich habe schon einmal ein Vision Board erstellt und nichts davon ist wahr geworden. Wozu das Ganze?**
-
+<details>
+<summary>Ich habe schon einmal ein Vision Board erstellt und nichts davon ist wahr geworden. Wozu das Ganze?</summary>
 Ein Visionboard ist kein magisches Manifestationswerkzeug. Es ist ein Fokuswerkzeug. Es hilft dir, zu klären, was du willst, und auf diese Ziele ausgerichtet zu bleiben. Die Maßnahmen, die du ergreifst, sind wichtiger als die Bilder.
-
+</details>

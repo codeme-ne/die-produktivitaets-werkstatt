@@ -4,29 +4,27 @@
 
 ### [**Produktive Tage Dokument (Google Docs)**](https://docs.google.com/document/d/1jNuy9uE_QzUStfE-NLe9n0BYbVDToJkMVc89bAZSIno/edit?usp=sharing)
 
-## **☀️ Dein Morgen-Manifest**
-
 **Primen – Ich nimm mir einen Moment der Dankbarkeit und Freude**
 
-* 🫶 Ich bin dankbar für …
+- 🫶 Ich bin dankbar für …
 
 **Planen – Ich richte meinen Fokus auf meine Prioritäten und Ziele aus**
 
-* 🎯 Was sind meine 3 Wochenziele? Wie «läuft» es auf dem Weg dorthin?  
-* 🔦 Was ist mein heutiges Highlight? Steht es im Kalender?
+- 🎯 Was sind meine 3 Wochenziele? Wie «läuft» es auf dem Weg dorthin?
+- 🔦 Was ist mein heutiges Highlight? Steht es im Kalender?
 
 **Organisieren – Ich organisiere mich um Überforderung zu vermeiden**
 
-* 🌞 So sorge ich für einen guten Tag …
-* 🎉 Wann ist heute meine Mini-Admin-Party? Steht es im Kalender?![][image3]
+- 🌞 So sorge ich für einen guten Tag …
+- 🎉 Wann ist heute meine Mini-Admin-Party? Steht es im Kalender?![][image3]
 
 ## **💡Übung: Erstelle dein eigenes Morgen-Manifest (3 Minuten)**
 
 Welche 1-3 Fragen wirst du dir jeden Morgen unter jeder dieser Kategorien stellen?
 
-* Primen  
-* Planen  
-* Organisieren
+- Primen
+- Planen
+- Organisieren
 
 🔥**Heißer Tipp**: Gib deine Morgen-Manifeste in [ChatGPT](https://chatgpt.com/) oder [Claude](https://claude.ai/) ein, um daraus Erkenntnisse zu gewinnen
 

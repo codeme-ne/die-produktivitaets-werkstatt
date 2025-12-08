@@ -62,5 +62,3 @@ Früher habe ich versucht, mir alles zu merken, aber ich habe festgestellt, dass
 Übung: Erstelle deine eigene Erfassungsmethode
 
 Ob es sich um eine digitale Methode (z.B. mit Apps wie Things) oder eine analoge Methode (z.B. Notizen in einem Notizbuch) handelt, entwickle eine Erfassungsmethode für deine zufälligen Gedanken und Aufgaben, die dir während einer Fokussitzung in den Sinn kommen.
-
----

@@ -79,10 +79,17 @@ Ein Prinzip aus der Improvisation: **„Ja, und …“** – akzeptiere, was ist
 
 ## ⁉️ Häufig gestellte Fragen
 
-**Bedeutet „aufrichtig“ sein, dass ich meine Arbeit nicht mehr ernst nehme?**
+<details>
+<summary>Bedeutet „aufrichtig“ sein, dass ich meine Arbeit nicht mehr ernst nehme?</summary>
 Nein. Aufrichtigkeit heißt tiefes Engagement – ohne die lähmende Schwere verkrampften Ernsts. Du kannst hochkonzentriert und zielorientiert arbeiten, ohne dich zu zerdrücken.
+</details>
 
-**Wie vermeide ich den Ernst-Modus bei wichtigen Deadlines?**
+<details>
+<summary>Wie vermeide ich den Ernst-Modus bei wichtigen Deadlines?</summary>
 Baue bewusste „Perspektivwechsel-Momente“ ein: kurze Pausen, in denen du fragst, „Wird das in einem Monat noch so wichtig sein?“ Das ordnet die Relation neu.
-**Gilt das auch für sehr anspruchsvolle oder kritische Aufgaben?**
+</details>
+
+<details>
+<summary>Gilt das auch für sehr anspruchsvolle oder kritische Aufgaben?</summary>
 Ja. Gerade dort ist die geistige Flexibilität aufrichtiger Präsenz wertvoll. Chirurgen, Piloten und andere Profis arbeiten mit voller Konzentration – und ruhiger Klarheit statt panischer Anspannung.
+</details>

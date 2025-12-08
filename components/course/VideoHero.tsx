@@ -14,7 +14,7 @@ export function VideoHero({ title, video }: Props) {
       </h1>
 
       {video && (
-        <div className="w-full aspect-video bg-base-300 rounded-lg overflow-hidden shadow-xl">
+        <div className="w-full aspect-video rounded-xl overflow-hidden border border-base-300 bg-base-100/60 shadow-xl">
           <VideoEmbed libraryId={video.libraryId} videoId={video.guid} />
         </div>
       )}

@@ -1,20 +1,54 @@
 # 🧘 Das Selbst - Hirn, Herz und Körper
 
-In dieser Woche tauchen wir tief in das innere Spiel der Produktivität ein. Wir erkunden, wie dein Geist, deine Emotionen und dein physischer Körper die Grundlage für nachhaltige Produktivität bilden. 🥜 Zusammengefasst. Das Selbst besteht aus drei miteinander verbundenen Bereichen: Hirn, Herz und Körper. Diese Woche lernst du, wie innere Stürme deine Produktivität beeinflussen. Du entwickelst konkrete Strategien, um Prokrastination zu überwinden und emotionale Muster zu erkennen. Du optimierst die physischen Grundlagen für Höchstleistung: Schlaf, Ernährung und Bewegung. Du transformierst dein Mindset von Ernsthaftigkeit zu spielerischer Aufrichtigkeit. 🔄 Reflexion: Woche 8 - Organisieren. Bevor wir ins Neue starten, lass uns kurz überprüfen, was du letzte Woche gelernt hast. Fülle diese Lückentexte gedanklich aus oder notiere deine Antworten auf einem separaten Blatt: Beim wöchentlichen Planungsritual nutze ich __________________ um visuell/farblich festzustellen, ob ich bei meinen Quartals-Missionen auf Kurs bin. Das ___________ Framework, welches in folgende vier Schritte aufgeteilt ist: ______, _______, _______ und _______ hilft Informationen aktionsorientiert aufzubereiten und Projekte rasch zu beenden. Das __________________ Framework hilft mir offene Arbeitsschleifen zu schließen und den Wiedereinstieg in die Aufgabe zu erleichtern. Dabei notiere ich mir folgende Dinge: _________________________. Die Antworten findest du am Ende dieser Lektion. 🧭 Überblick: Der Kapitän und das Boot. Du hast dein Boot gebaut und kennst den Kurs. Doch was passiert, wenn auf hoher See plötzlich ein Sturm aufzieht – in dir selbst? Gedankenkreisen, unerwünschte Emotionen oder körperliche Erschöpfung können selbst das beste Produktivitätssystem sabotieren. Das beste Boot nützt wenig, wenn der Kapitän nicht innerlich zentriert und fokussiert ist. Erinnerst du dich an unser Modell aus Woche 1? ➡️ Hier kommst du zur Lektion um dein Wissen aufzufrischen. Das Lebensproduktivitätssystem besteht aus vier integrierten Teilen: 1. System (Aktion & Vision) ✅ Erledigt in Wochen 1-7. 2. Schlüsselfähigkeiten (Organisieren, Planen, Fokussieren, Regenerieren, Reflektieren) ✅ Teilweise erledigt. 3. Raum (Physisch, Virtuell & Gemeinschaft) 🔜 Kommt in Woche 11. 4. Selbst (Hirn, Herz & Körper) 👈 Unser Fokus diese Woche.
+Diese Woche tauchen wir ins innere Spiel der Produktivität ein: Geist, Emotionen und Körper als Basis für nachhaltige Produktivität.
 
-Das Selbst ist ein komplexes Thema, das aus drei Teilen besteht: Das Hirn, das Herz und der Körper. Diese drei Teilen sind eng miteinander verflochten und beeinflussen sich gegenseitig. Jeder Teil des Selbstes spielt eine wichtige Rolle für deine Produktivität.
+### 🥜 Zusammengefasst
 
-🧠 Das Hirn: Die Denkweise, das Mindset, die innere Haltung zur Arbeit & zum Leben. Deine inneren Dialoge und Glaubenssätze. Deine mentalen Strategien und Denkmuster.
+- Drei Bereiche: Hirn, Herz und Körper  
+- Innere Stürme erkennen und ihre Wirkung auf Produktivität verstehen  
+- Strategien gegen Prokrastination und emotionale Muster aufbauen  
+- Physische Grundlagen optimieren: Schlaf, Ernährung, Bewegung  
+- Mindset hin zu spielerischer Aufrichtigkeit entwickeln
 
-🫀 Das Herz: Die emotionale Landschaft, die dein Handeln antreibt oder hemmt. Bewusstsein für deine Emotionen und ihre Ursachen. Die Kunst, Gefühle wie Angst, Frustration oder Langeweile zu navigieren. Die Quelle deiner Motivation und Inspiration.
+### 🔄 Reflexion: Woche 8 - Organisieren
 
-💪 Der Körper: Deine physische Basis, der Treibstoff für alles, was du tust. Energiemanagement statt reinem Zeitmanagement. Der Körper als Sensor für Überanstrengung und Unterforderung.
+Fülle die Lückentexte (gedanklich oder schriftlich):
 
-🎯 Lernziele dieser Woche. Am Ende dieser Woche wirst du:
-- Ernsthaftigkeit durch Aufrichtigkeit ersetzen und das Leben mehr als Spiel betrachten.
-- Ein Anti-Prokrastinations-Protokoll führen, um Ablenkungen bewusst zu machen und Emotionsmuster zu erkennen.
-- Die Technik "Surfe die Welle der Versuchung" beherrschen, indem du Ablenkungen 10 Minuten in die Zukunft verschiebst.
-- Eine Schlafroutine entwickeln, die dir regelmäßig 7-9 Stunden erholsamen Schlaf ermöglicht.
-- Einen einfachen Plan erstellen, um dich überwiegend von nicht-verarbeiteten Lebensmitteln zu ernähren und dich täglich (mindestens eine Stunde) zu bewegen.
+1. Beim wöchentlichen Planungsritual nutze ich ________, um farblich zu sehen, ob ich auf Kurs bin.  
+2. Das _______ Framework mit den Schritten ______, _______, _______ und _______ hilft, Informationen aktionsorientiert aufzubereiten.  
+3. Das ________ Framework schließt Arbeitsschleifen. Ich notiere: ________, ________, ________, ________, ________.
 
-‼️ Wichtig: Passe diese Lernziele so an, dass sie für dich machbar und sinnvoll sind. Nicht jeder braucht dieselbe Strategie – finde heraus, was für dich funktioniert. Antworten: 1.) Das Ampelsystem. 2.) C.O.D.E., (Capture) Erfassen, Organisieren, Destillieren, Entfalten. 3.) Ready-to-Resume, Notiere nach jeder Arbeitssitzung, wo du stehen geblieben bist. Halte fest, was du geschafft hast. Definiere den nächsten konkreten Schritt. Dokumentiere mögliche Hindernisse. Speichere relevante Links und Ressourcen.
+<details>
+<summary>Antworten</summary>
+1) Ampelsystem  
+2) C.O.D.E. – Capture, Organize, Distill, Express  
+3) Ready-to-Resume: Wo stehengeblieben, geschafft, nächster Schritt, Hindernisse, Links/Ressourcen
+</details>
+
+### 🧭 Überblick: Der Kapitän und das Boot
+
+Du hast dein Boot gebaut und kennst den Kurs. Bei inneren Stürmen (Gedankenkreisen, Emotionen, Erschöpfung) hilft selbst das beste System wenig, wenn der Kapitän nicht zentriert bleibt.  
+[➡️ Zur Auffrischung der Woche 1](https://produktivitats-werkstatt.circle.so/c/module-1/sections/488397/lessons/1820446)
+
+Das Lebensproduktivitätssystem besteht aus vier integrierten Teilen:
+
+1. System (Aktion & Vision) – erledigt in Wochen 1–7  
+2. Schlüsselfähigkeiten (Organisieren, Planen, Fokussieren, Regenerieren, Reflektieren) – teilweise erledigt  
+3. Raum (physisch, virtuell & Gemeinschaft) – kommt in Woche 11  
+4. Selbst (Hirn, Herz & Körper) – Fokus dieser Woche
+
+### 🍁 Die drei Dimensionen des Selbst
+
+- 🧠 Hirn: Denkweise, Mindset, Haltung zu Arbeit & Leben; innere Dialoge, Glaubenssätze, Strategien  
+- 🫀 Herz: Emotionale Landschaft, die Handeln antreibt oder hemmt; Bewusstsein für Gefühle und ihre Ursachen  
+- 💪 Körper: Physische Basis; Energiemanagement statt reinem Zeitmanagement; Sensor für Über- und Unterforderung
+
+### 🎯 Lernziele dieser Woche
+
+- Ernsthaftigkeit durch Aufrichtigkeit ersetzen, das Leben als Spiel betrachten  
+- Anti-Prokrastinations-Protokoll führen, um Ablenkungen und Emotionsmuster sichtbar zu machen  
+- „Surfe die Welle der Versuchung“: Ablenkungen um 10 Minuten verschieben  
+- Schlafroutine für 7–9 Stunden Erholung etablieren  
+- Einfachen Plan für überwiegend unverarbeitete Lebensmittel und tägliche Bewegung (mind. 1h) erstellen
+
+**Wichtig:** Passe die Lernziele so an, dass sie für dich machbar und sinnvoll sind. Finden, was für dich funktioniert, hat Priorität.

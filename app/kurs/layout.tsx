@@ -46,7 +46,7 @@ export default async function CourseLayout({
       productType={productType}
       releaseMap={releaseMap}
     >
-      <CourseLayoutClient email={email}>{children}</CourseLayoutClient>
+      <CourseLayoutClient>{children}</CourseLayoutClient>
     </CourseProvider>
   );
 }

@@ -11,26 +11,27 @@ Zwei prägnante Zitate unterstreichen die Kernbotschaft:
 
 ## **⁉ Häufig gestellte Fragen**
 
-❓ **Bedeutet diese Priorisierung, dass ich meine anderen Ziele aufgeben muss?**
+<details>
+<summary>Bedeutet Priorisierung, dass ich andere Ziele aufgeben muss?</summary>
+Nein. Nicht aufgeben, sondern aufschieben. Die anderen Ziele kommen später, wenn die Top-Prioritäten erledigt sind.
+</details>
 
-Nicht aufgeben, sondern aufschieben. Die anderen Ziele können später verfolgt werden, nachdem die Top-Prioritäten erreicht sind. Sonst riskierst du, bei zu vielen Projekten nur mittelmäßige Ergebnisse zu erzielen.
+<details>
+<summary>Wie unterscheide ich wichtige und dringende Aufgaben?</summary>
+Wichtige Aufgaben bringen dich langfristig voran, dringende erfordern sofortige Aufmerksamkeit. Fokussiere wichtige/nicht dringende Aufgaben, bevor sie zu dringenden werden.
+</details>
 
-❓ **Wie unterscheide ich zwischen wichtigen und dringenden Aufgaben?**
+<details>
+<summary>Was lerne ich vom LeBron-Beispiel?</summary>
+Energie managen: Wie LeBron Kräfte für Schlüsselmomente spart (strategisches Pacing) und Mikropausen nutzt, kannst du Fokus- und Regenerationsphasen planen.
+</details>
 
-Wichtige Aufgaben bringen dich deinen langfristigen Zielen näher, während dringende Aufgaben sofortige Aufmerksamkeit erfordern. Um Überanstrengung zu vermeiden, konzentriere dich auf wichtige, nicht dringende Aufgaben, bevor sie zu wichtigen und dringenden werden.
+<details>
+<summary>Wie funktioniert die 25/5-Regel von Warren Buffett?</summary>
+Liste 25 Ziele, wähle die 5 wichtigsten und fokussiere ausschließlich diese. Die restlichen 20 wandern auf die „vermeiden“-Liste, bis die Top 5 erledigt sind.
+</details>
 
-❓ **Was kann ich von dem Beispiel mit LeBron James für meinen Alltag lernen?**
-
-Du kannst lernen, deine Energie bewusster zu managen. So wie LeBron nicht die ganze Zeit Vollgas gibt, sondern seine Kräfte für die wichtigen Momente spart (strategisches Pacing) und Mikropausen nutzt, kannst auch du überlegen, wann du deine volle Konzentration brauchst und wann du bewusst etwas lockerer lassen kannst, um Energie zu sparen.
-
-❓ **Kannst du die 25/5-Regel von Warren Buffett nochmal erklären?**
-
-Klar: Schreib eine Liste mit deinen 25 wichtigsten Karrierezielen (oder aktuellen Projekten/Aufgaben). Dann wähle die 5 absolut wichtigsten davon aus und kreise sie ein. Konzentriere dich mit deiner vollen Energie nur auf diese 5\. Die anderen 20 kommen auf deine "Auf-jeden-Fall-vermeiden"-Liste und werden erst angegangen, wenn die Top 5 erledigt sind.
-
-❓ **Was hat die "Sterile Cockpit Rule" mit meinem Arbeitsalltag zu tun?**
-
-Sie verdeutlicht das Prinzip, dass es Phasen gibt, die absolute Konzentration erfordern (wie Start und Landung beim Fliegen). In diesen Phasen solltest du Ablenkungen minimieren (keine unwichtigen Gespräche, keine Nebentätigkeiten). Genauso wichtig ist es aber auch, die Phasen *dazwischen* bewusst zur Regeneration zu nutzen und nicht sofort weiterzuhetzen.
-
----
-
----
+<details>
+<summary>Was hat die „Sterile Cockpit Rule“ mit meinem Alltag zu tun?</summary>
+Es gibt Phasen mit absolutem Fokus (keine Ablenkungen), z. B. bei wichtigen Aufgabenstarts. Dazwischen bewusst regenerieren statt sofort weiterzuhetzen.
+</details>

@@ -48,18 +48,19 @@ Das Leuchten von echtem Frieden und Zufriedenheit:
 - Racketsport mit Freunden
 - Gastgeber sein
 
-## **⁉️F\&A**
+## **⁉️ Häufige Fragen**
 
-❓**Wie trenne ich meine wahre Definition von Erfolg von dem, was die Gesellschaft erwartet?**
-
+<details>
+<summary>Wie trenne ich meine wahre Definition von Erfolg von dem, was die Gesellschaft erwartet?</summary>
 Wenn du niemandem von dem erzählen könntest, was du tust, was würde dir dann ein Gefühl des Friedens geben?
+</details>
 
-❓**Was ist, wenn ich nicht weiß, was mir das Gefühl von Erfolg gibt?**
-
+<details>
+<summary>Was ist, wenn ich nicht weiß, was mir das Gefühl von Erfolg gibt?</summary>
 Beginne mit dem, von dem du weißt, dass es sich für dich nicht wie Erfolg anfühlt. Manchmal ist es einfacher, zuerst zu erkennen, was du nicht willst, und dann rückwärts zu arbeiten, um herauszufinden, was du willst.
+</details>
 
-❓**Meine Vorstellung von Erfolg unterscheidet sich stark von der Definition meiner Familie oder meiner Kultur. Ist das in Ordnung?**
-
-Absolut\! Es geht darum, deine eigene Definition von Erfolg zu finden. Es ist in Ordnung, wenn diese von den Erwartungen anderer abweicht. Das ist sogar ein Zeichen dafür, dass du das findest, was dir wirklich wichtig ist.
-
----
+<details>
+<summary>Meine Vorstellung von Erfolg unterscheidet sich stark von der Definition meiner Familie oder meiner Kultur. Ist das in Ordnung?</summary>
+Absolut! Es geht darum, deine eigene Definition von Erfolg zu finden. Es ist in Ordnung, wenn diese von den Erwartungen anderer abweicht. Das ist sogar ein Zeichen dafür, dass du das findest, was dir wirklich wichtig ist.
+</details>

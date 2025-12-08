@@ -37,22 +37,22 @@ Wir neigen dazu, Erholung zu vernachlässigen, bis unsere "Akkuleistung" kritisc
 
 ## **⁉ Häufig gestellte Fragen**
 
-❓ **Kann ich gleichzeitig unter mehreren Burnout-Arten leiden?**
-
+<details>
+<summary>Kann ich gleichzeitig unter mehreren Burnout-Arten leiden?</summary>
 Ja, die drei Burnout-Arten können sich überschneiden und verstärken. Häufig beginnt es mit einer Form, die dann andere Formen nach sich zieht.
+</details>
 
-❓ **Muss ich einen Burnout komplett entwickeln, um die Symptome zu spüren?**
-
+<details>
+<summary>Muss ich einen Burnout komplett entwickeln, um die Symptome zu spüren?</summary>
 Nein, Burnout entwickelt sich meist schleichend. Die Symptome können bereits in frühen Phasen auftreten. Je früher du sie erkennst, desto leichter ist die Intervention.
+</details>
 
-❓ **Was ist der Hauptunterschied zwischen Überanstrengungs-Burnout und Erschöpfungs-Burnout? Die klingen ähnlich.**
+<details>
+<summary>Was ist der Hauptunterschied zwischen Überanstrengungs-Burnout und Erschöpfungs-Burnout?</summary>
+Überanstrengungs-Burnout entsteht durch eine reine Überlastung – zu viele Aufgaben, keine Grenzen. Erschöpfungs-Burnout entsteht, weil die Erholung nicht wirksam ist. Du machst vielleicht Pausen, aber lädst deinen Akku nicht richtig auf (z.B. durch passives Scrollen statt echter Erholung).
+</details>
 
-Überanstrengungs-Burnout entsteht durch eine reine Überlastung – zu viele Aufgaben, keine Grenzen. Erschöpfungs-Burnout entsteht, weil die Erholung nicht *wirksam* ist. Du machst vielleicht Pausen, aber lädst deinen Akku nicht richtig auf (z.B. durch passives Scrollen statt echter Erholung)
-
-❓ **Was ist der wichtigste Punkt, den ich aus der Unterscheidung dieser drei Burnout-Arten für mich mitnehmen sollte?**
-
-Der wichtigste Punkt ist: Burnout ist nicht gleich Burnout. Zu verstehen, *welche* Hauptursache(n) bei dir im Vordergrund stehen – die reine Menge der Arbeit (Überanstrengung), die fehlende Sinnhaftigkeit (Disharmonie) oder die mangelnde Qualität deiner Erholung (Erschöpfung) – ist entscheidend. Denn nur wenn du die Wurzel des Problems kennst, kannst du gezielt nach den passenden Lösungen suchen, die dir wirklich helfen
-
----
-
----
+<details>
+<summary>Was ist der wichtigste Punkt, den ich aus der Unterscheidung dieser drei Burnout-Arten mitnehmen sollte?</summary>
+Der wichtigste Punkt ist: Burnout ist nicht gleich Burnout. Zu verstehen, welche Hauptursache bei dir im Vordergrund steht – Menge der Arbeit (Überanstrengung), fehlende Sinnhaftigkeit (Disharmonie) oder mangelnde Qualität deiner Erholung (Erschöpfung) – ist entscheidend. Nur wenn du die Wurzel kennst, findest du passende Lösungen.
+</details>

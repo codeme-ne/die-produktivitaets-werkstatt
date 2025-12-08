@@ -6,11 +6,10 @@ import { CourseSidebar } from "@/components/course/CourseSidebar";
 import { FocusModeToggle } from "@/components/course/FocusModeToggle";
 
 interface Props {
-  email: string;
   children: ReactNode;
 }
 
-export function CourseLayoutClient({ email, children }: Props) {
+export function CourseLayoutClient({ children }: Props) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
@@ -23,7 +22,7 @@ export function CourseLayoutClient({ email, children }: Props) {
       </div>
 
       <FocusModeToggle />
-      <CourseHeader email={email} onMenuClick={() => setDrawerOpen(true)} />
+      <CourseHeader onMenuClick={() => setDrawerOpen(true)} />
 
       {/* Desktop: Side-by-side layout, Mobile: Drawer */}
       <div className="flex-1 flex overflow-hidden relative z-10">

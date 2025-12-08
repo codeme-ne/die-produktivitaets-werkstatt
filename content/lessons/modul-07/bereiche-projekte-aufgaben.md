@@ -6,7 +6,8 @@ Viele Zielsetzungssysteme tappen in eine von zwei Fallen: Sie sind entweder zu a
 
 Vision → Quartals-Missionen → Bereiche → Projekte → Aufgaben
 
-Diese Hierarchie stellt sicher, dass deine täglichen Aktionen (Aufgaben) in sinnvolle Gruppen (Projekte) (Bereich) organisiert werden, wobei die wichtigsten Initiativen in den Status einer Mission erhoben werden, die alle auf dein größeres Ziel (Vision) ausgerichtet sind.![][image1]
+Diese Hierarchie stellt sicher, dass deine täglichen Aktionen (Aufgaben) in sinnvolle Gruppen (Projekte) pro Bereich organisiert werden, wobei die wichtigsten Initiativen den Status einer Mission erhalten – alle ausgerichtet auf dein größeres Ziel (Vision).  
+![][image1]
 
 ### **🧰 Bereiche: Sammlungen von Projekten**
 
@@ -38,4 +39,3 @@ Beispiele:
 - Planung der Sommerferien für die Familie
 
 ### **✅ Aufgaben: Die Bausteine**
-

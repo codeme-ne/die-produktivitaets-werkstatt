@@ -2,36 +2,34 @@
 
 [Der ideale Dienstag Dokument](https://docs.google.com/document/d/10NHG84BA923BLZRGIF8NKB4KgzmGo4fxX77kPgfJE5U/edit?usp=sharing) (Google Docs)
 
-## **🌙 Dein Abendliches Abschalten**
-
 Das Abendliche Abschalten ist eine kurze Auszeit am Ende des Arbeitstags, in der du den „Arbeitsmodus“ ausschaltest und den „Lebensmodus“ einschaltest. Diese Idee stammt von Cal Newport, der schon seit Ewigkeiten darüber schreibt (und dessen Arbeit ich absolut liebe). Ich fange gerade erst an, dies selbst umzusetzen, aber die Kraft des Abend-Shutdowns liegt darin, dass er eine klare Grenze zwischen Arbeit und Privatleben schafft.
 
 🌙 Der „Abend-Shutdown“ ist ein **5-minütiges Ritual mit drei Komponenten**:
 
-* **Organisieren**: Aktualisiere deine Aufgaben- und Projektliste (mehr dazu in Modul 8 - Organisieren)  
-* **Planen:** Trage deine morgigen Prioritäten in deinen Kalender ein  
-* **Reflektieren**: Reflektiere über deinen Tag
+- **Organisieren**: Aktualisiere deine Aufgaben- und Projektliste (mehr dazu in Modul 8 - Organisieren)
+- **Planen:** Trage deine morgigen Prioritäten in deinen Kalender ein
+- **Reflektieren**: Reflektiere über deinen Tag
 
 > Beispiel: Abendliches Abschalten – Vorlage von Lukas
 >
-> * **Organisieren**  
->   * ✅ Habe ich meine Aufgaben- und Projektliste aktualisiert?  
->   * 🗓️ Habe ich meinen Kalender nach dem Ist-Zustand aktualisiert?  
-> * **Planen**  
->   * 🔦 Was ist mein morgiges Highlight? Stehen es im Kalender?  
->   * 🔥 Was sind meine zwei Nebenmissionen für morgen? Stehen sie im Kalender?  
-> * **Reflektieren**  
->   * ♥️ Was habe ich heute Gutes für jemanden getan?  
->   * 💡 Was habe ich heute gelernt?  
->   * 🌍 Tolle Dinge die ich heute erlebt habe ...
+> - **Organisieren**
+>   - ✅ Habe ich meine Aufgaben- und Projektliste aktualisiert?
+>   - 🗓️ Habe ich meinen Kalender nach dem Ist-Zustand aktualisiert?
+> - **Planen**
+>   - 🔦 Was ist mein morgiges Highlight? Stehen es im Kalender?
+>   - 🔥 Was sind meine zwei Nebenmissionen für morgen? Stehen sie im Kalender?
+> - **Reflektieren**
+>   - ♥️ Was habe ich heute Gutes für jemanden getan?
+>   - 💡 Was habe ich heute gelernt?
+>   - 🌍 Tolle Dinge die ich heute erlebt habe ...
 
 ## **💡Übung: Erstelle deine eigene Abschaltroutine (3 Minuten)![][image1]**
 
 **Welche 1–3 Fragen wirst du dir am Ende des Arbeitstages in jeder dieser Kategorien stellen?**
 
-* Organisieren  
-* Planen  
-* Reflektieren
+- Organisieren
+- Planen
+- Reflektieren
 
 ### **⁉️Häufig gestellte Fragen**
 

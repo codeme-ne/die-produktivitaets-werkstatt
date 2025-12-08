@@ -126,8 +126,42 @@
   --animate-slideIn: slideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   --animate-pulse-soft: pulse-soft 4s ease-in-out infinite;
   --animate-wiggle: wiggle 1.5s ease-in-out infinite;
+  --animate-text-rotate: textRotate 8s ease-in-out infinite;
 
-  @keyframes shimmer {
+  @keyframes textRotate {
+    0%, 20% { opacity: 1; transform: translateY(0); }
+    25%, 100% { opacity: 0; transform: translateY(-100%); }
+  }
+}
+
+/* Text Rotation Animation Classes */
+.text-rotate-wrapper {
+  position: relative;
+  display: inline-block;
+  height: 1.2em;
+  overflow: hidden;
+}
+
+.text-rotate-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  animation: textFade 8s ease-in-out infinite;
+}
+
+.text-rotate-item:nth-child(1) { animation-delay: 0s; }
+.text-rotate-item:nth-child(2) { animation-delay: 2s; }
+.text-rotate-item:nth-child(3) { animation-delay: 4s; }
+.text-rotate-item:nth-child(4) { animation-delay: 6s; }
+
+@keyframes textFade {
+  0%, 5% { opacity: 0; transform: translateY(50%); }
+  10%, 20% { opacity: 1; transform: translateY(0); }
+  25%, 100% { opacity: 0; transform: translateY(-50%); }
+}
+
+@keyframes shimmer {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
   }
@@ -211,6 +245,14 @@
     70% { transform: translate(9%, 4%); }
     90% { transform: translate(-1%, 7%); }
   }
+
+/* Text Rotate Animation for Hero - 4 words */
+@keyframes text-rotate {
+  0%, 20% { transform: translateY(0); }
+  25%, 45% { transform: translateY(-25%); }
+  50%, 70% { transform: translateY(-50%); }
+  75%, 95% { transform: translateY(-75%); }
+  100% { transform: translateY(0); }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -499,6 +541,83 @@ h1, h2, h3, h4, h5, h6, .heading {
   display: none !important;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   Text Rotate Component (cora.computer inspired)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.text-rotate {
+  display: inline-block;
+  position: relative;
+  height: 1.15em;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.text-rotate-inner {
+  display: flex;
+  flex-direction: column;
+  animation: text-rotate 12s infinite;
+}
+
+.text-rotate-inner span {
+  height: 1.15em;
+  display: flex;
+  align-items: center;
+  color: var(--color-accent);
+}
+
+/* Highlight underline effect */
+.highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: color-mix(in oklch, var(--color-accent) 25%, transparent);
+  z-index: -1;
+  transform: skewX(-3deg);
+  border-radius: 2px;
+}
+
+/* Hover 3D effect */
+.hover-3d {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.hover-3d:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+  box-shadow: 0 20px 40px -15px color-mix(in oklch, var(--color-base-content) 15%, transparent);
+}
+
+/* Chat bubble squircle mask */
+.mask-squircle {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+/* Stats mono styling */
+.stat-value-mono {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+/* Pulse CTA animation */
+.pulse-cta {
+  animation: pulse-cta 3s ease-in-out infinite;
+}
+
+@keyframes pulse-cta {
+  0%, 100% { transform: scale(1); box-shadow: 0 4px 20px color-mix(in oklch, var(--color-accent) 30%, transparent); }
+  50% { transform: scale(1.02); box-shadow: 0 8px 30px color-mix(in oklch, var(--color-accent) 40%, transparent); }
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -532,4 +651,21 @@ h1, h2, h3, h4, h5, h6, .heading {
 /* Ensure drawer overlay is opaque on mobile */
 .drawer-side > .drawer-overlay {
   background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Testimonial Marquee Animation
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

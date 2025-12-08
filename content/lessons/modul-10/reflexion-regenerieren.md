@@ -16,10 +16,7 @@ In diesem Video lernst du, wie dein physischer, virtueller und gemeinschaftliche
 
 **👥 Gemeinschaft:** Die Bedeutung einer unterstützenden Gemeinschaft für nachhaltige Produktivität
 
-**❓ Muss ich alle drei Räume gleichzeitig optimieren?**
-
-Nein, beginne mit dem Bereich, der dir am wichtigsten erscheint oder wo du die größten Herausforderungen siehst. Oft führen kleine Änderungen in einem Bereich bereits zu spürbaren Verbesserungen, die dich motivieren, auch die anderen Räume anzupassen.
-
----
-
----
+<details>
+<summary>Muss ich alle drei Räume gleichzeitig optimieren?</summary>
+Nein, beginne mit dem Bereich, der dir am wichtigsten erscheint oder wo du die größten Herausforderungen siehst. Kleine Änderungen in einem Bereich bringen oft spürbare Verbesserungen und motivieren, die anderen Räume anzupassen.
+</details>

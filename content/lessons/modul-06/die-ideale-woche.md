@@ -1,5 +1,3 @@
-## **📅 Die ideale Woche**
-
 ## **🗓️ Der ideale Wochenkalender**
 
 Eine ideale, ausgeglichene Woche besteht aus einer harmonischen Aufteilung der Zeit zwischen Arbeit (konzentrierte Stunden, Besprechungen, Aufgaben, Verwaltung) und Leben (Ruhe, Hobbys, Beziehungen, Gesundheit, persönliches Wachstum). Dein idealer Wochenkalender ist eine Blaupause für eine nachhaltige, angenehme und ausgewogene Zeiteinteilung.
@@ -20,29 +18,29 @@ Ich habe im Laufe der Jahre viele ideale Wochen erlebt. Ich wiederhole sie jedes
 
 ## **💡Übung: Erstelle deinen idealen Wochenkalender**
 
-1. Beginne mit einem leeren Kalender  
-2. Öffne deine bevorzugte Kalender-App (Google Kalender funktioniert gut). Erstelle einen neuen, leeren Kalender, der ausschließlich dazu dient, deine ideale Woche zu planen – und halte ihn getrennt von deinem tatsächlichen Zeitplan.  
-3. Bestimme deine insgesamt verfügbare Zeit  
-4. Eine Woche hat 168 Stunden. Nach Abzug der Schlafzeit (ca. 56 Stunden) bleiben dir 112 Stunden, mit denen du spielen kannst.  
-5. Unverzichtbare Dinge festlegen  
-6. Blockieren Sie wichtige Aktivitäten wie:  
-   * Schlaf: Legen deine Schlafenszeit und Aufstehzeit fest.  
-   * Mahlzeiten: Plane regelmäßige Blöcke für Frühstück, Mittag- und Abendessen ein.  
-   * Körperpflege: Berücksichtige morgendliche und abendliche Routinen, Trainingseinheiten oder Körperpflege.  
-7. Planen deine Arbeitsblöcke  
-8. Identifiziere deine energiegeladensten Phasen (z. B. morgens für konzentriertes Arbeiten). Reserviere ununterbrochene Blöcke für kritische Aufgaben wie Schreiben, kreative Projekte und strategische Planung. Lege feste Zeitfenster für Routineaktivitäten wie Besprechungen, Team-Check-ins und Adminarbeit fest. Fasse ähnliche Aufgaben zusammen, um zu häufige Kontextwechsel zu vermeiden.  
-9. Nimm dir Zeit für persönliche und zwischenmenschliche Beziehungen  
-10. Plane Zeit für persönliche Hobbys, soziale Kontakte und Familie ein:  
-    * Plane wöchentliche Verabredungen oder gemeinsame Abendessen.  
-    * Plane Zeit für persönliche Interessen wie das Erlernen eines Instruments oder einer Sportart ein.  
-    * Halte dir Wochenenden oder bestimmte Abende für Entspannung oder Familienaktivitäten frei.
+1. Beginne mit einem leeren Kalender.
+2. Öffne deine bevorzugte Kalender-App (Google Kalender funktioniert gut). Erstelle einen neuen, leeren Kalender, der ausschließlich dazu dient, deine ideale Woche zu planen – getrennt von deinem tatsächlichen Zeitplan.
+3. Bestimme deine insgesamt verfügbare Zeit.
+4. Rechne deine Woche durch: 168 Stunden minus Schlaf (ca. 56 Stunden) lassen 112 Stunden zum Gestalten.
+5. Lege unverzichtbare Blöcke fest.
+6. Blocke wichtige Aktivitäten wie:
+   - Schlaf: Lege Schlafens- und Aufstehzeiten fest.
+   - Mahlzeiten: Plane regelmäßige Blöcke für Frühstück, Mittag- und Abendessen ein.
+   - Körperpflege: Berücksichtige Routinen, Trainingseinheiten oder Körperpflege.
+7. Plane deine Arbeitsblöcke.
+8. Identifiziere deine energiegeladensten Phasen (z. B. morgens für konzentriertes Arbeiten). Reserviere ununterbrochene Blöcke für kritische Aufgaben wie Schreiben, kreative Projekte und strategische Planung. Lege feste Zeitfenster für Routineaktivitäten wie Besprechungen, Team-Check-ins und Adminarbeit fest. Fasse ähnliche Aufgaben zusammen, um Kontextwechsel zu vermeiden.
+9. Plane Zeit für persönliche und zwischenmenschliche Beziehungen.
+10. Plane Zeit für persönliche Hobbys, soziale Kontakte und Familie:
+    - Plane wöchentliche Verabredungen oder gemeinsame Abendessen.
+    - Plane Zeit für persönliche Interessen wie das Erlernen eines Instruments oder einer Sportart ein.
+    - Halte dir Wochenenden oder bestimmte Abende für Entspannung oder Familienaktivitäten frei.
 
 ### **‼️ Häufige Stolperfallen, die es zu vermeiden gilt ‼️**
 
-1. **Überplanung**: Lass etwas Platz in deinem Kalender. Plane nicht jede Minute und rechne mit natürlichen Energieschwankungen  
-1. **Sage „Hell yeah“ zu Dingen, die mit deiner idealen Woche** kollidieren. Entweder setzt du klare Grenzen und hältst dich an deinen Plan oder du sagst „Hell yeah“ und passt deine ideale Woche an.  
-2. **Übergänge ignorieren**. Füge zwischen den Aktivitäten Pufferzeiten ein. Rechne Reise-/Einrichtungszeit ein. Plane Kontextwechsel ein.  
-3. **Zu starr sein**. Betrachten die ideale Woche als flexiblen Rahmen. Das Leben passiert. Strebe eine 80-prozentige Einhaltung an, statt Perfektion.
+1. **Überplanung**: Lass etwas Platz in deinem Kalender. Plane nicht jede Minute und rechne mit natürlichen Energieschwankungen.
+2. **Sage „Hell yeah“ zu Dingen, die mit deiner idealen Woche kollidieren**. Entweder setzt du klare Grenzen und hältst dich an deinen Plan oder du sagst „Hell yeah“ und passt deine ideale Woche an.
+3. **Übergänge ignorieren**: Füge zwischen den Aktivitäten Pufferzeiten ein. Rechne Reise-/Einrichtungszeit ein. Plane Kontextwechsel ein.
+4. **Zu starr sein**: Betrachte die ideale Woche als flexiblen Rahmen. Das Leben passiert. Strebe eine 80-prozentige Einhaltung an, statt Perfektion.
 
 Die Planung einer idealen Woche gibt uns eine realistische Vorstellung davon, was möglich ist. In einer Traumwelt würde ich gerne Kunstunterricht nehmen und vielleicht auch Gitarren- und Klavierunterricht. Aber wo soll das alles reinpassen? Was muss dafür aufgegeben werden? Das Schöne am Kalender für die ideale Woche ist, dass er mich auf die 168 Stunden beschränkt, die in der Woche zur Verfügung stehen, und mich dazu zwingt, bewusst zu entscheiden, wie ich meine Zeit verbringe.
 

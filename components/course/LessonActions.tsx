@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { useCourse } from "@/app/kurs/CourseContext";
+import type { ReactNode } from "react";
 
 interface Props {
   moduleSlug: string;
@@ -12,6 +13,8 @@ interface Props {
   initialDone: boolean;
   prev: { moduleSlug: string; lessonSlug: string } | null;
   next: { moduleSlug: string; lessonSlug: string } | null;
+  layout?: "default" | "split" | "done-only" | "nav-only";
+  children?: ReactNode;
 }
 
 // Confetti colors matching the Werkstatt theme
@@ -172,6 +175,8 @@ export function LessonActions({
   initialDone,
   prev,
   next,
+  layout = "default",
+  children,
 }: Props) {
   const [done, setDone] = useState(initialDone);
   const [loading, setLoading] = useState(false);
@@ -231,97 +236,127 @@ export function LessonActions({
     }
   }, [done, moduleSlug, lessonSlug, next, router, updateProgress]);
 
+  const DoneButton = (
+    <button
+      ref={buttonRef}
+      onClick={handleToggleDone}
+      disabled={loading || done}
+      aria-busy={loading}
+      className={`btn gap-2 ${done ? "btn-success cursor-default" : "btn-primary"}`}
+    >
+      {loading ? (
+        <span className="loading loading-spinner loading-sm"></span>
+      ) : done ? (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fillRule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ) : (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+      )}
+      Erledigt
+    </button>
+  );
+
+  const PrevButton =
+    prev && (
+      <Link
+        href={`/kurs/${prev.moduleSlug}/${prev.lessonSlug}`}
+        className="btn btn-ghost gap-2"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+        Zurück
+      </Link>
+    );
+
+  const NextButton =
+    next && (
+      <Link
+        href={`/kurs/${next.moduleSlug}/${next.lessonSlug}`}
+        className="btn btn-primary gap-2"
+      >
+        Weiter
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </Link>
+    );
+
+  if (layout === "done-only") {
+    return <div className="flex items-center justify-end">{DoneButton}</div>;
+  }
+
+  if (layout === "nav-only") {
+    return (
+      <div className="flex items-center justify-between gap-2 mt-4 w-full">
+        <div>{PrevButton}</div>
+        <div>{NextButton}</div>
+      </div>
+    );
+  }
+
+  if (layout === "split") {
+    return (
+      <div className="space-y-4">
+        {children}
+        <div className="flex items-center justify-between gap-2 flex-wrap">
+          <div>{PrevButton}</div>
+          <div className="ml-auto">{NextButton}</div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-base-100 border-t border-base-300 py-3 px-4 flex items-center justify-center gap-2">
-      {/* Left: Zurück */}
-      {prev && (
-        <Link
-          href={`/kurs/${prev.moduleSlug}/${prev.lessonSlug}`}
-          className="btn btn-ghost gap-2"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Zurück
-        </Link>
-      )}
-
-      {/* Center: Completed */}
-      <button
-        ref={buttonRef}
-        onClick={handleToggleDone}
-        disabled={loading || done}
-        aria-busy={loading}
-        className={`btn gap-2 ${done ? "btn-success cursor-default" : "btn-primary"}`}
-      >
-        {loading ? (
-          <span className="loading loading-spinner loading-sm"></span>
-        ) : done ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clipRule="evenodd"
-            />
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        )}
-        Erledigt
-      </button>
-
-      {/* Right: Weiter */}
-      {next && (
-        <Link
-          href={`/kurs/${next.moduleSlug}/${next.lessonSlug}`}
-          className="btn btn-primary gap-2"
-        >
-          Weiter
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </Link>
-      )}
+      {PrevButton}
+      {DoneButton}
+      {NextButton}
     </div>
   );
 }

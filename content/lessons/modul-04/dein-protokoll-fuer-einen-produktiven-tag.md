@@ -10,11 +10,11 @@ Hattest du jemals das Gefühl, dass deine Tage dich beherrschen, anstatt dass du
 
 ## **🥜 Zusammenfassung**
 
-* Das Protokoll für einen produktiven Tag besteht aus drei Komponenten:
-  * **Das Morgen-Manifest**: Ein 5-minütiger Check-in, um den Tag zu beginnen
-  * **Fokus-Stunden**: 3–5 Blöcke intensiver Arbeit
-  * **Abendliches Abschalten**: Schalte den „Arbeitsmodus" aus und den „Lebensmodus" ein
-* Ergebnis: Tiefgründige Arbeit, die dich deinen Zielen näher bringt
+- Das Protokoll für einen produktiven Tag besteht aus drei Komponenten:
+  - **Das Morgen-Manifest**: Ein 5-minütiger Check-in, um den Tag zu beginnen
+  - **Fokus-Stunden**: 3–5 Blöcke intensiver Arbeit
+  - **Abendliches Abschalten**: Schalte den „Arbeitsmodus" aus und den „Lebensmodus" ein
+- Ergebnis: Tiefgründige Arbeit, die dich deinen Zielen näher bringt
 
 ## **🧠 Dein Protokoll für einen produktiven Tag**
 
@@ -28,10 +28,12 @@ Ein produktiver Tag beginnt mit dem Morgen-Manifest, um unsere Absichten festzul
 
 ### **⁉️Häufig gestellte Fragen**
 
-❓**Warum steht unter „Fokusstunden" acht Stunden?**
-
+<details>
+<summary>Warum steht unter „Fokusstunden" acht Stunden?</summary>
 Die meisten Arbeitstage dauern etwa acht Stunden, aber die meisten Menschen arbeiten an einem Arbeitstag nicht acht Stunden lang konzentriert. Es gibt viel Verwaltungsarbeit und Besprechungen, die nicht als konzentrierte Stunden zählen.
+</details>
 
-❓**Ich bin Therapeut und führe sieben Sitzungen durch. Muss ich dann noch vier zusätzliche konzentrierte Stunden einhalten?**
-
+<details>
+<summary>Ich bin Therapeut und führe sieben Sitzungen durch. Muss ich dann noch vier zusätzliche konzentrierte Stunden einhalten?</summary>
 Super! Darüber hinaus musst du keine weiteren Fokusstunden leisten. Du bist bereits sieben Stunden lang als Therapeutin konzentriert.
+</details>

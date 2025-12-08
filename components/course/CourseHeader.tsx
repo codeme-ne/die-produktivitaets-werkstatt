@@ -3,16 +3,14 @@
 import Link from "next/link";
 import { useMemo } from "react";
 import { useCourse } from "@/app/kurs/CourseContext";
-import { UserMenu } from "./UserMenu";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { SettingsMenu } from "./SettingsMenu";
 import config from "@/config";
 
 interface Props {
-  email: string;
   onMenuClick: () => void;
 }
 
-export function CourseHeader({ email, onMenuClick }: Props) {
+export function CourseHeader({ onMenuClick }: Props) {
   const { totalLessons, completedLessons, percentage, nextOpenLesson } =
     useCourse();
   const progressText = useMemo(() => {
@@ -99,10 +97,9 @@ export function CourseHeader({ email, onMenuClick }: Props) {
           )}
         </div>
 
-        {/* Right: Theme Toggle + User Menu */}
+        {/* Right: Settings Menu (Logout, Captions, Focus, Theme) */}
         <div className="flex items-center gap-1 flex-shrink-0">
-          <ThemeToggle className="btn-sm" />
-          <UserMenu email={email} />
+          <SettingsMenu />
         </div>
       </div>
 
