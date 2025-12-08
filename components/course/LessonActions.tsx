@@ -137,25 +137,29 @@ function createConfettiParticle(x: number, y: number, direction: "up" | "left" |
   requestAnimationFrame(animate);
 }
 
-function fireConfetti(_buttonElement: HTMLButtonElement) {
+function fireConfetti(buttonElement: HTMLButtonElement) {
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
+  const rect = buttonElement.getBoundingClientRect();
+  const buttonCenterX = Math.min(Math.max(rect.left + rect.width / 2, 16), screenWidth - 16);
+  const buttonCenterY = Math.min(Math.max(rect.top + rect.height / 2, 16), screenHeight - 16);
 
   // Massive celebration burst from multiple points!
   const particleCount = 120; // Even more particles for full coverage
 
-  // Bottom center burst (main celebration) - spread across entire bottom
+  // Burst around the button for immediate feedback
   for (let i = 0; i < particleCount * 0.4; i++) {
     setTimeout(() => {
-      const x = screenWidth * 0.2 + Math.random() * screenWidth * 0.6; // 20-80% of screen width
-      createConfettiParticle(x, screenHeight + 10, "up");
+      const x = buttonCenterX + (Math.random() - 0.5) * rect.width * 2;
+      const y = buttonCenterY + (Math.random() - 0.5) * rect.height * 2;
+      createConfettiParticle(x, y, "up");
     }, i * 10);
   }
 
   // Left side burst - shoots toward center
   for (let i = 0; i < particleCount * 0.3; i++) {
     setTimeout(() => {
-      const y = screenHeight * 0.5 + (Math.random() - 0.5) * screenHeight * 0.6;
+      const y = buttonCenterY + (Math.random() - 0.5) * screenHeight * 0.4;
       createConfettiParticle(-20, y, "left");
     }, i * 15 + 50);
   }
@@ -163,7 +167,7 @@ function fireConfetti(_buttonElement: HTMLButtonElement) {
   // Right side burst - shoots toward center
   for (let i = 0; i < particleCount * 0.3; i++) {
     setTimeout(() => {
-      const y = screenHeight * 0.5 + (Math.random() - 0.5) * screenHeight * 0.6;
+      const y = buttonCenterY + (Math.random() - 0.5) * screenHeight * 0.4;
       createConfettiParticle(screenWidth + 20, y, "right");
     }, i * 15 + 50);
   }

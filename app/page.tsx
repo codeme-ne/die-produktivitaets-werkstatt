@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import ButtonCheckout from "@/components/ButtonCheckout";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { getCourseOverview } from "@/libs/pwCourse";
 import {
   ArrowRight,
@@ -165,65 +166,14 @@ export default function Page() {
         </section>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            TESTIMONIALS - DaisyUI Carousel
+            TESTIMONIALS - Auto-Play Carousel
         ═══════════════════════════════════════════════════════════════════ */}
-        <section className="py-20 bg-base-200">
+        <section className="py-12 bg-base-200">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">
-              Was Teilnehmer sagen
-            </h2>
-
-            {/* DaisyUI Carousel - mit extra padding rechts für letztes Element */}
-            <div className="carousel carousel-center w-full space-x-4 p-4">
-              {testimonials.map((testimonial, i) => (
-                <div key={i} className={`carousel-item ${i === testimonials.length - 1 ? 'mr-8' : ''}`}>
-                  <div className="card bg-base-100 shadow-xl w-96">
-                    <div className="card-body">
-                      {/* Avatar + Rating */}
-                      <div className="flex items-start gap-4 mb-4">
-                        <div className="avatar">
-                          <div className="w-16 rounded-full">
-                            {testimonial.image ? (
-                              <Image
-                                src={testimonial.image}
-                                alt={testimonial.name}
-                                width={64}
-                                height={64}
-                              />
-                            ) : (
-                              <div className="bg-accent/10 flex items-center justify-center h-full">
-                                <span className="text-2xl text-accent">{testimonial.name[0]}</span>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                        <div>
-                          <h3 className="font-bold">{testimonial.name}</h3>
-                          {testimonial.title && (
-                            <p className="text-sm text-base-content/60">{testimonial.title}</p>
-                          )}
-                          {/* DaisyUI Rating */}
-                          <div className="rating rating-sm mt-1">
-                            <input type="radio" className="mask mask-star-2 bg-warning" defaultChecked disabled />
-                            <input type="radio" className="mask mask-star-2 bg-warning" defaultChecked disabled />
-                            <input type="radio" className="mask mask-star-2 bg-warning" defaultChecked disabled />
-                            <input type="radio" className="mask mask-star-2 bg-warning" defaultChecked disabled />
-                            <input type="radio" className="mask mask-star-2 bg-warning" defaultChecked disabled />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Quote */}
-                      <p className="text-base-content/70">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              {/* Spacer für sichtbares letztes Element */}
-              <div className="carousel-item w-4 shrink-0" aria-hidden="true" />
-            </div>
+            <TestimonialsCarousel
+              testimonials={testimonials}
+              speed={40}
+            />
           </div>
         </section>
 
