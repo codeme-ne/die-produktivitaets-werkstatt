@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useCallback, useRef, useState } from "react";
+import { type PointerEvent, useCallback, useRef, useState } from "react";
 
 type Props = {
   beforeSrc: string;
@@ -22,7 +22,7 @@ export function DiffSlider({ beforeSrc, beforeAlt, afterSrc, afterAlt }: Props) 
   }, []);
 
   const handlePointerMove = useCallback(
-    (e: React.PointerEvent<HTMLDivElement>) => {
+    (e: PointerEvent<HTMLDivElement>) => {
       if (e.buttons !== 1) return;
       updatePosition(e.clientX);
     },
@@ -30,7 +30,7 @@ export function DiffSlider({ beforeSrc, beforeAlt, afterSrc, afterAlt }: Props) 
   );
 
   const handlePointerDown = useCallback(
-    (e: React.PointerEvent<HTMLDivElement>) => {
+    (e: PointerEvent<HTMLDivElement>) => {
       updatePosition(e.clientX);
     },
     [updatePosition],
