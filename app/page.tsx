@@ -1,11 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import OfferCountdown from "@/components/OfferCountdown";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { ProductivityToggle } from "@/components/ProductivityToggle";
 import { DiffSlider } from "@/components/DiffSlider";
+import { ImageWithSkeleton } from "@/components/ImageWithSkeleton";
 import ButtonCheckout from "@/components/ButtonCheckout";
 import { getCourseOverview } from "@/libs/pwCourse";
 import {
@@ -380,12 +380,13 @@ export default function Page() {
                   { src: "/5.jpg", title: "80/20 Prinzip", desc: "Weniger tun, mehr erreichen durch radikalen Fokus" },
                 ].map((item, i) => (
                   <div key={i} className="carousel-item relative group w-[28rem]">
-                    <figure className="relative aspect-video w-full rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-                      <Image
+                    <figure className="relative aspect-video w-full rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-base-300">
+                      <ImageWithSkeleton
                         src={item.src}
                         alt={item.title}
                         fill
                         className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        priority={i < 2}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -410,12 +411,13 @@ export default function Page() {
                 ].map((item, i) => (
                   <div key={i} className="flex-none w-72 snap-center">
                     <div className="card bg-base-200 shadow-lg">
-                      <figure className="relative aspect-video">
-                        <Image
+                      <figure className="relative aspect-video bg-base-300">
+                        <ImageWithSkeleton
                           src={item.src}
                           alt={item.title}
                           fill
                           className="object-cover object-top"
+                          priority={i < 2}
                         />
                       </figure>
                       <div className="card-body p-4">
@@ -440,13 +442,13 @@ export default function Page() {
         <section className="py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-base-200">
           <div className="max-w-4xl mx-auto">
             <div className="card lg:card-side bg-base-100 shadow-xl max-w-3xl mx-auto overflow-hidden">
-              <figure className="lg:w-1/3 h-64 lg:h-auto">
-                <Image
+              <figure className="lg:w-1/3 h-64 lg:h-auto relative bg-base-300">
+                <ImageWithSkeleton
                   src="/trainer-lukas.jpg"
                   alt="Lukas Zangerl"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover object-[center_20%]"
+                  fill
+                  className="object-cover object-[center_20%]"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
                 />
               </figure>
               <div className="card-body p-5 md:p-8 lg:w-2/3">

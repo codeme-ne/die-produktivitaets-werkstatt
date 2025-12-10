@@ -12,7 +12,10 @@ type Props = {
 
 export function DiffSlider({ beforeSrc, beforeAlt, afterSrc, afterAlt }: Props) {
   const [pos, setPos] = useState(50);
+  const [loadedImages, setLoadedImages] = useState({ before: false, after: false });
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const allLoaded = loadedImages.before && loadedImages.after;
 
   const updatePosition = useCallback((clientX: number) => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -40,20 +43,31 @@ export function DiffSlider({ beforeSrc, beforeAlt, afterSrc, afterAlt }: Props) 
     <div className="space-y-3">
       <div
         ref={containerRef}
-        className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border-4 border-base-100 bg-white"
+        className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border-4 border-base-100 bg-base-300"
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         role="group"
         aria-label="Vorher/Nachher Vergleich"
       >
+        {/* Skeleton Loading State */}
+        {!allLoaded && (
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-base-300">
+            <div className="flex flex-col items-center gap-3">
+              <span className="loading loading-spinner loading-lg text-accent"></span>
+              <span className="text-sm text-base-content/60">Bilder werden geladen...</span>
+            </div>
+          </div>
+        )}
+
         {/* Nachher (hinten) */}
         <Image
           src={afterSrc}
           alt={afterAlt}
           fill
-          className="object-contain"
+          className={`object-contain transition-opacity duration-300 ${allLoaded ? 'opacity-100' : 'opacity-0'}`}
           sizes="100vw"
           priority
+          onLoad={() => setLoadedImages(prev => ({ ...prev, after: true }))}
         />
 
         {/* Vorher (vorn, geklippt aber ohne Resize des Bildes) */}
@@ -65,15 +79,16 @@ export function DiffSlider({ beforeSrc, beforeAlt, afterSrc, afterAlt }: Props) 
             src={beforeSrc}
             alt={beforeAlt}
             fill
-            className="object-contain"
+            className={`object-contain transition-opacity duration-300 ${allLoaded ? 'opacity-100' : 'opacity-0'}`}
             sizes="100vw"
             priority
+            onLoad={() => setLoadedImages(prev => ({ ...prev, before: true }))}
           />
         </div>
 
-        {/* Slider Linie mit Pfeil-Symbol */}
+        {/* Slider Linie mit Pfeil-Symbol - nur zeigen wenn geladen */}
         <div
-          className="absolute top-0 bottom-0 w-0.5 bg-base-content/80 cursor-ew-resize"
+          className={`absolute top-0 bottom-0 w-0.5 bg-base-content/80 cursor-ew-resize transition-opacity duration-300 ${allLoaded ? 'opacity-100' : 'opacity-0'}`}
           style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
           aria-hidden="true"
         >
@@ -85,11 +100,11 @@ export function DiffSlider({ beforeSrc, beforeAlt, afterSrc, afterAlt }: Props) 
           </div>
         </div>
 
-        {/* Labels unten - Theme-Farben */}
-        <div className="absolute bottom-4 left-4 z-10 text-sm font-semibold bg-base-200/90 text-base-content px-3 py-1.5 rounded border border-base-300">
+        {/* Labels unten - nur zeigen wenn geladen */}
+        <div className={`absolute bottom-4 left-4 z-10 text-sm font-semibold bg-base-200/90 text-base-content px-3 py-1.5 rounded border border-base-300 transition-opacity duration-300 ${allLoaded ? 'opacity-100' : 'opacity-0'}`}>
           Woche 1
         </div>
-        <div className="absolute bottom-4 right-4 z-10 text-sm font-semibold bg-accent/90 text-accent-content px-3 py-1.5 rounded">
+        <div className={`absolute bottom-4 right-4 z-10 text-sm font-semibold bg-accent/90 text-accent-content px-3 py-1.5 rounded transition-opacity duration-300 ${allLoaded ? 'opacity-100' : 'opacity-0'}`}>
           Woche 8
         </div>
       </div>
