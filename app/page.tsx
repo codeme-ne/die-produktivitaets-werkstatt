@@ -3,7 +3,6 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import OfferCountdown from "@/components/OfferCountdown";
-import ProductCard from "@/components/ProductCard";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { ProductivityToggle } from "@/components/ProductivityToggle";
 import { DiffSlider } from "@/components/DiffSlider";
@@ -19,11 +18,6 @@ import {
   Users,
   Clock,
   RefreshCw,
-  Target,
-  FolderOpen,
-  Zap,
-  BarChart2,
-  BatteryCharging,
 } from "lucide-react";
 
 /* ═══════════════════════════════════════════════════════════════════════════
