@@ -84,6 +84,9 @@ const Footer = () => {
                 <Link href="/#pricing" className="link link-hover">
                   Pricing
                 </Link>
+                <Link href="/login" className="link link-hover">
+                  Anmelden
+                </Link>
                 <Link href="/blog" className="link link-hover">
                   Blog
                 </Link>
