@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 
 export function ChatCountdown() {
   const [timeLeft, setTimeLeft] = useState({ hours: 10, minutes: 24, seconds: 59 });
@@ -26,9 +26,9 @@ export function ChatCountdown() {
 
   return (
     <span className="countdown font-mono text-2xl">
-      <span style={{"--value":timeLeft.hours} as React.CSSProperties}></span>:
-      <span style={{"--value":timeLeft.minutes} as React.CSSProperties}></span>:
-      <span style={{"--value":timeLeft.seconds} as React.CSSProperties}></span>
+      <span style={{"--value":timeLeft.hours} as CSSProperties}></span>:
+      <span style={{"--value":timeLeft.minutes} as CSSProperties}></span>:
+      <span style={{"--value":timeLeft.seconds} as CSSProperties}></span>
     </span>
   );
 }

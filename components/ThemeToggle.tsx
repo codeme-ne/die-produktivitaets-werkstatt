@@ -8,7 +8,6 @@ interface Props {
 
 export function ThemeToggle({ className = "" }: Props) {
   const { theme, toggleTheme } = useTheme();
-  const isLightTheme = theme === "werkstatt";
 
   return (
     <label className={`swap swap-rotate btn btn-circle btn-sm bg-base-200 text-base-content hover:bg-base-300 border-none ${className}`}>
