@@ -382,8 +382,8 @@ export default function Page() {
                   { src: "/4.png", title: "Anti-Prokrastination", desc: "Die wissenschaftliche Formel gegen Aufschieberitis" },
                   { src: "/5.jpg", title: "80/20 Prinzip", desc: "Weniger tun, mehr erreichen durch radikalen Fokus" },
                   { src: "/6.jpg", title: "Dein idealer Tag", desc: "So sieht ein produktiver Tagesablauf aus" },
-                  { src: "/7.jpg", title: "Woche 12 Präsentation", desc: "Abschluss-Folien für deinen Erfolg" },
-                  { src: "/8.jpg", title: "Präsentations-Vorlage", desc: "Professionelle Folien für deine Projekte" },
+                  { src: "/7.jpg", title: "Das Lebensproduktivitätssystem", desc: "Das System das wir in der Werkstatt lernen" },
+                  { src: "/8.jpg", title: "Von Reaktiv zu Produktiv", desc: "Werde zum Gestalter deiner Tage" },
                 ].map((item, i) => (
                   <div key={i} className="carousel-item relative group w-[28rem]">
                     <figure className="relative aspect-video w-full rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-base-300">
@@ -415,8 +415,8 @@ export default function Page() {
                   { src: "/4.png", title: "Anti-Prokrastination", desc: "Überwinde Aufschieberitis" },
                   { src: "/5.jpg", title: "80/20 Prinzip", desc: "Fokus auf das Wesentliche" },
                   { src: "/6.jpg", title: "Dein idealer Tag", desc: "So sieht ein produktiver Tag aus" },
-                  { src: "/7.jpg", title: "Woche 12 Präsentation", desc: "Abschluss-Folien für deinen Erfolg" },
-                  { src: "/8.jpg", title: "Präsentations-Vorlage", desc: "Professionelle Folien für deine Projekte" },
+                  { src: "/7.jpg", title: "Das Lebensproduktivitätssystem", desc: "Das System der Werkstatt" },
+                  { src: "/8.jpg", title: "Von Reaktiv zu Produktiv", desc: "Werde zum Gestalter" },
                 ].map((item, i) => (
                   <div key={i} className="flex-none w-72 snap-center">
                     <div className="card bg-base-200 shadow-lg">
