@@ -1,7 +1,7 @@
 "use client";
 
 import Image, { type ImageProps } from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 type Props = ImageProps & {
   wrapperClassName?: string;
@@ -17,9 +17,23 @@ export function ImageWithSkeleton({
   ...props
 }: Props) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // Check if image is already cached/loaded
+  useEffect(() => {
+    if (imgRef.current?.complete && imgRef.current?.naturalWidth > 0) {
+      setIsLoaded(true);
+    }
+  }, []);
+
+  // For fill images, wrapper needs to fill the parent container
+  const isFillImage = props.fill === true;
+  const wrapperClasses = isFillImage 
+    ? `absolute inset-0 ${wrapperClassName}` 
+    : `relative ${wrapperClassName}`;
 
   return (
-    <div className={`relative ${wrapperClassName}`}>
+    <div className={wrapperClasses}>
       {/* Skeleton loader */}
       {!isLoaded && (
         <div className="absolute inset-0 skeleton bg-base-300 animate-pulse" />
@@ -27,9 +41,15 @@ export function ImageWithSkeleton({
 
       <Image
         {...props}
+        ref={imgRef}
         alt={alt}
         className={`${className} transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-        onLoad={() => setIsLoaded(true)}
+        onLoad={(e) => {
+          const img = e.currentTarget as HTMLImageElement;
+          if (img.naturalWidth > 0) {
+            setIsLoaded(true);
+          }
+        }}
       />
     </div>
   );
