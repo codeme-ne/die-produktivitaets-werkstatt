@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import OfferCountdown from "@/components/OfferCountdown";
@@ -378,8 +379,11 @@ export default function Page() {
                   { src: "/1.jpg", title: "Kurs-Oberfläche", desc: "75 Video-Lektionen in 12 Modulen für maximale Klarheit" },
                   { src: "/2.jpg", title: "Das Workbook", desc: "Dein interaktives Arbeitsbuch für tägliche Fortschritte" },
                   { src: "/3.jpg", title: "Fokus-Logbuch", desc: "Das bewährte System um deine Produktivität zu tracken" },
-                  { src: "/4.jpg", title: "Anti-Prokrastination", desc: "Die wissenschaftliche Formel gegen Aufschieberitis" },
+                  { src: "/4.png", title: "Anti-Prokrastination", desc: "Die wissenschaftliche Formel gegen Aufschieberitis" },
                   { src: "/5.jpg", title: "80/20 Prinzip", desc: "Weniger tun, mehr erreichen durch radikalen Fokus" },
+                  { src: "/6.jpg", title: "Dein idealer Tag", desc: "So sieht ein produktiver Tagesablauf aus" },
+                  { src: "/7.jpg", title: "Von Reaktiv zu Proaktiv", desc: "Werde zum Gestalter deiner Zeit" },
+                  { src: "/8.jpg", title: "Das Framework", desc: "Fähigkeiten, System, Selbst & Raum" },
                 ].map((item, i) => (
                   <div key={i} className="carousel-item relative group w-[28rem]">
                     <figure className="relative aspect-video w-full rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-base-300">
@@ -408,8 +412,11 @@ export default function Page() {
                   { src: "/1.jpg", title: "Kurs-Oberfläche", desc: "75 Video-Lektionen in 12 Modulen" },
                   { src: "/2.jpg", title: "Das Workbook", desc: "Dein interaktives Arbeitsbuch" },
                   { src: "/3.jpg", title: "Fokus-Logbuch", desc: "Tracke deine Produktivität" },
-                  { src: "/4.jpg", title: "Anti-Prokrastination", desc: "Überwinde Aufschieberitis" },
+                  { src: "/4.png", title: "Anti-Prokrastination", desc: "Überwinde Aufschieberitis" },
                   { src: "/5.jpg", title: "80/20 Prinzip", desc: "Fokus auf das Wesentliche" },
+                  { src: "/6.jpg", title: "Dein idealer Tag", desc: "So sieht ein produktiver Tag aus" },
+                  { src: "/7.jpg", title: "Von Reaktiv zu Proaktiv", desc: "Werde Gestalter deiner Zeit" },
+                  { src: "/8.jpg", title: "Das Framework", desc: "Fähigkeiten, System, Selbst & Raum" },
                 ].map((item, i) => (
                   <div key={i} className="flex-none w-72 snap-center">
                     <div className="card bg-base-200 shadow-lg">
@@ -675,6 +682,48 @@ export default function Page() {
                 <Check className="w-4 h-4 text-success" />
                 Sichere Zahlung
               </span>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            ABSCHLUSS BANNER - Wir sehen uns in der Werkstatt
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section className="bg-base-200 py-16 md:py-24 overflow-hidden relative">
+          {/* Background decoration */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+            {/* Lukas Bild mit transparentem Hintergrund */}
+            <div className="relative mb-8 md:mb-10 inline-block group">
+              {/* Theme-adaptive Glow behind image */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 rounded-full blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 scale-90 translate-y-4" />
+              
+              <Image
+                src="/lukas_wirsehenunsbald.svg"
+                alt="Lukas Zangerl winkt zum Abschied"
+                width={800}
+                height={800}
+                className="relative w-full h-auto max-w-[400px] sm:max-w-[500px] md:max-w-[600px] mx-auto drop-shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                priority={false}
+              />
+            </div>
+            
+            {/* Abschluss-Text mit schönem Styling */}
+            <div className="space-y-4">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-base-content">
+                Wir sehen uns in der{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary inline-block transform hover:scale-105 transition-transform duration-300 cursor-default">
+                  Werkstatt
+                </span>
+              </h2>
+              
+              {/* Subtile Dekoration */}
+              <div className="flex items-center justify-center gap-3 opacity-60">
+                <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-primary"></div>
+                <span className="text-primary text-xl">✦</span>
+                <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-primary"></div>
+              </div>
             </div>
           </div>
         </section>
