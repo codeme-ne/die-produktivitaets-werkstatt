@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import OfferCountdown from "@/components/OfferCountdown";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { ProductivityToggle } from "@/components/ProductivityToggle";
-import { DiffSlider } from "@/components/DiffSlider";
+import { TransformationComparison } from "@/components/TransformationComparison";
 import { ImageWithSkeleton } from "@/components/ImageWithSkeleton";
 import ButtonCheckout from "@/components/ButtonCheckout";
 import { getCourseOverview } from "@/libs/pwCourse";
@@ -106,7 +106,7 @@ export default function Page() {
               {/* Rotating Headline with CSS Animation */}
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-primary-content mb-6 leading-tight">
                 Verdopple deine<br />
-                <span className="text-rotate text-5xl md:text-6xl lg:text-8xl text-accent mt-2 block">
+                <span className="text-rotate text-5xl md:text-6xl lg:text-8xl text-honey-dark mt-2 block drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
                   <span className="text-rotate-inner">
                     <span>Produktivität</span>
                     <span>Effizienz</span>
@@ -246,15 +246,17 @@ export default function Page() {
               </h2>
             </div>
 
-            <div className="w-full max-w-5xl mx-auto mt-8 space-y-4">
-              <DiffSlider
+            <div className="w-full max-w-5xl mx-auto mt-8 pt-4">
+              <TransformationComparison
                 beforeSrc="/Generated Image December 10, 2025 - 4_42AM.jpeg"
-                beforeAlt="Vorher: Test 1 (Start)"
+                beforeAlt="Vorher: Fragebogen Woche 1"
                 afterSrc="/Generated Image December 10, 2025 - 4_43AM.jpeg"
-                afterAlt="Nachher: Test 2 (Ergebnis)"
+                afterAlt="Nachher: Fragebogen Woche 12"
               />
-              <p className="text-center text-sm text-base-content/60">
-                Schiebe den Regler, um die Transformation zu erleben.
+              <p className="text-center text-sm md:text-base text-base-content/70 mt-6">
+                <span className="font-semibold text-accent">92% produktiver in nur 18 Tagen?</span>
+                <br className="hidden sm:block" />{" "}
+                Dies ist nur einer der zahlreichen Teilnehmer, der seine Produktivität deutlich verbessert hat.
               </p>
             </div>
           </div>
