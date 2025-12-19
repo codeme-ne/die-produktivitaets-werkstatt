@@ -382,8 +382,8 @@ export default function Page() {
                   { src: "/4.png", title: "Anti-Prokrastination", desc: "Die wissenschaftliche Formel gegen Aufschieberitis" },
                   { src: "/5.jpg", title: "80/20 Prinzip", desc: "Weniger tun, mehr erreichen durch radikalen Fokus" },
                   { src: "/6.jpg", title: "Dein idealer Tag", desc: "So sieht ein produktiver Tagesablauf aus" },
-                  { src: "/7.jpg", title: "Von Reaktiv zu Proaktiv", desc: "Werde zum Gestalter deiner Zeit" },
-                  { src: "/8.jpg", title: "Das Framework", desc: "Fähigkeiten, System, Selbst & Raum" },
+                  { src: "/7.jpg", title: "Woche 12 Präsentation", desc: "Abschluss-Folien für deinen Erfolg" },
+                  { src: "/8.jpg", title: "Präsentations-Vorlage", desc: "Professionelle Folien für deine Projekte" },
                 ].map((item, i) => (
                   <div key={i} className="carousel-item relative group w-[28rem]">
                     <figure className="relative aspect-video w-full rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-base-300">
@@ -415,8 +415,8 @@ export default function Page() {
                   { src: "/4.png", title: "Anti-Prokrastination", desc: "Überwinde Aufschieberitis" },
                   { src: "/5.jpg", title: "80/20 Prinzip", desc: "Fokus auf das Wesentliche" },
                   { src: "/6.jpg", title: "Dein idealer Tag", desc: "So sieht ein produktiver Tag aus" },
-                  { src: "/7.jpg", title: "Von Reaktiv zu Proaktiv", desc: "Werde Gestalter deiner Zeit" },
-                  { src: "/8.jpg", title: "Das Framework", desc: "Fähigkeiten, System, Selbst & Raum" },
+                  { src: "/7.jpg", title: "Woche 12 Präsentation", desc: "Abschluss-Folien für deinen Erfolg" },
+                  { src: "/8.jpg", title: "Präsentations-Vorlage", desc: "Professionelle Folien für deine Projekte" },
                 ].map((item, i) => (
                   <div key={i} className="flex-none w-72 snap-center">
                     <div className="card bg-base-200 shadow-lg">
@@ -687,45 +687,43 @@ export default function Page() {
         </section>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            ABSCHLUSS BANNER - Wir sehen uns in der Werkstatt
+            ABSCHLUSS BANNER - Die Werkstatt bei Nacht (Story: Tag → Nacht)
         ═══════════════════════════════════════════════════════════════════ */}
-        <section className="bg-base-200 py-16 md:py-24 overflow-hidden relative">
-          {/* Background decoration */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+        <section className="relative min-h-[60vh] md:min-h-[70vh] overflow-hidden flex items-center justify-center">
+          {/* Fullscreen Background Image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/werkstatt-nacht.png"
+              alt="Die Produktivitäts-Werkstatt bei Nacht"
+              fill
+              className="object-cover object-center"
+              priority={false}
+            />
+            {/* Gradient Overlays für bessere Lesbarkeit */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-b from-base-200/30 to-transparent h-32" />
+          </div>
           
-          <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-            {/* Lukas Bild mit transparentem Hintergrund */}
-            <div className="relative mb-8 md:mb-10 inline-block group">
-              {/* Theme-adaptive Glow behind image */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 rounded-full blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 scale-90 translate-y-4" />
-              
-              <Image
-                src="/lukas_wirsehenunsbald.svg"
-                alt="Lukas Zangerl winkt zum Abschied"
-                width={800}
-                height={800}
-                className="relative w-full h-auto max-w-[400px] sm:max-w-[500px] md:max-w-[600px] mx-auto drop-shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
-                priority={false}
-              />
-            </div>
+          {/* Content */}
+          <div className="relative z-10 text-center px-4 py-16 md:py-24">
+            {/* Headline */}
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+              Wir sehen uns in der{' '}
+              <span className="text-[#E8A94B]">
+                Werkstatt
+              </span>
+            </h2>
             
-            {/* Abschluss-Text mit schönem Styling */}
-            <div className="space-y-4">
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-base-content">
-                Wir sehen uns in der{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary inline-block transform hover:scale-105 transition-transform duration-300 cursor-default">
-                  Werkstatt
-                </span>
-              </h2>
-              
-              {/* Subtile Dekoration */}
-              <div className="flex items-center justify-center gap-3 opacity-60">
-                <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-primary"></div>
-                <span className="text-primary text-xl">✦</span>
-                <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-primary"></div>
-              </div>
+            {/* Subtile Dekoration */}
+            <div className="flex items-center justify-center gap-3 opacity-70">
+              <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-amber-400/60"></div>
+              <span className="text-amber-400 text-lg">✦</span>
+              <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-amber-400/60"></div>
             </div>
           </div>
+          
+          {/* Sanfter Übergang zum Footer */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-base-200 to-transparent" />
         </section>
       </main>
 
