@@ -33,16 +33,22 @@ function ensureLogsDir() {
 
 async function ensureDb() {
   if (!hasDb || dbInitialized) return;
-  await sql`
-    CREATE TABLE IF NOT EXISTS participants (
-      email TEXT PRIMARY KEY,
-      product_type TEXT NOT NULL,
-      stripe_customer_id TEXT,
-      status TEXT NOT NULL DEFAULT 'active',
-      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-      updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-    );
-  `;
+  try {
+    await sql`
+      CREATE TABLE IF NOT EXISTS participants (
+        email TEXT PRIMARY KEY,
+        product_type TEXT NOT NULL,
+        stripe_customer_id TEXT,
+        status TEXT NOT NULL DEFAULT 'active',
+        created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+        updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+      );
+    `;
+  } catch (error: unknown) {
+    // Ignore "already exists" errors from concurrent creation
+    const pgError = error as { code?: string };
+    if (pgError.code !== '42P07') throw error;
+  }
   dbInitialized = true;
 }
 
