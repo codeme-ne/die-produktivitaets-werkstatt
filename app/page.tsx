@@ -100,7 +100,7 @@ export default function Page() {
         {/* ═══════════════════════════════════════════════════════════════════
             HERO SECTION - Enhanced with DaisyUI 5
         ═══════════════════════════════════════════════════════════════════ */}
-        <section className="hero min-h-screen" style={{ backgroundImage: "url('/Produktivitäts-Werkstatt Hintergrund 1 - Morgenlich Bergtal(1).png')" }}>
+        <section className="hero min-h-screen" style={{ backgroundImage: "url('/Produktivitäts-Werkstatt Hintergrund 1 - Morgenlich Bergtal(1).webp')" }}>
           <div className="hero-overlay bg-opacity-60"></div>
           <div className="hero-content text-center">
             <div className="max-w-4xl px-4">
@@ -249,9 +249,9 @@ export default function Page() {
 
             <div className="w-full max-w-5xl mx-auto mt-8 pt-4">
               <TransformationComparison
-                beforeSrc="/Generated Image December 10, 2025 - 4_42AM.jpeg"
+                beforeSrc="/Generated Image December 10, 2025 - 4_42AM.webp"
                 beforeAlt="Vorher: Fragebogen Woche 1"
-                afterSrc="/Generated Image December 10, 2025 - 4_43AM.jpeg"
+                afterSrc="/Generated Image December 10, 2025 - 4_43AM.webp"
                 afterAlt="Nachher: Fragebogen Woche 12"
               />
               <p className="text-center text-sm md:text-base text-base-content/70 mt-6">
@@ -376,14 +376,14 @@ export default function Page() {
             <div className="hidden md:flex justify-center">
               <div className="carousel carousel-center p-4 space-x-4 bg-base-200 rounded-box max-w-5xl">
                 {[
-                  { src: "/1.jpg", title: "Kurs-Oberfläche", desc: "75 Video-Lektionen in 12 Modulen für maximale Klarheit" },
-                  { src: "/2.jpg", title: "Das Workbook", desc: "Dein interaktives Arbeitsbuch für tägliche Fortschritte" },
-                  { src: "/3.jpg", title: "Fokus-Logbuch", desc: "Das bewährte System um deine Produktivität zu tracken" },
-                  { src: "/4.png", title: "Anti-Prokrastination", desc: "Die wissenschaftliche Formel gegen Aufschieberitis" },
-                  { src: "/5.jpg", title: "80/20 Prinzip", desc: "Weniger tun, mehr erreichen durch radikalen Fokus" },
-                  { src: "/6.jpg", title: "Dein idealer Tag", desc: "So sieht ein produktiver Tagesablauf aus" },
-                  { src: "/7.jpg", title: "Das Lebensproduktivitätssystem", desc: "Das System das wir in der Werkstatt lernen" },
-                  { src: "/8.jpg", title: "Von Reaktiv zu Produktiv", desc: "Werde zum Gestalter deiner Tage" },
+                  { src: "/1.webp", title: "Kurs-Oberfläche", desc: "75 Video-Lektionen in 12 Modulen für maximale Klarheit" },
+                  { src: "/2.webp", title: "Das Workbook", desc: "Dein interaktives Arbeitsbuch für tägliche Fortschritte" },
+                  { src: "/3.webp", title: "Fokus-Logbuch", desc: "Das bewährte System um deine Produktivität zu tracken" },
+                  { src: "/4.webp", title: "Anti-Prokrastination", desc: "Die wissenschaftliche Formel gegen Aufschieberitis" },
+                  { src: "/5.webp", title: "80/20 Prinzip", desc: "Weniger tun, mehr erreichen durch radikalen Fokus" },
+                  { src: "/6.webp", title: "Dein idealer Tag", desc: "So sieht ein produktiver Tagesablauf aus" },
+                  { src: "/7.webp", title: "Das Lebensproduktivitätssystem", desc: "Das System das wir in der Werkstatt lernen" },
+                  { src: "/8.webp", title: "Von Reaktiv zu Produktiv", desc: "Werde zum Gestalter deiner Tage" },
                 ].map((item, i) => (
                   <div key={i} className="carousel-item relative group w-[28rem]">
                     <figure className="relative aspect-video w-full rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-base-300">
@@ -409,14 +409,14 @@ export default function Page() {
             <div className="md:hidden -mx-4 px-4">
               <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 {[
-                  { src: "/1.jpg", title: "Kurs-Oberfläche", desc: "75 Video-Lektionen in 12 Modulen" },
-                  { src: "/2.jpg", title: "Das Workbook", desc: "Dein interaktives Arbeitsbuch" },
-                  { src: "/3.jpg", title: "Fokus-Logbuch", desc: "Tracke deine Produktivität" },
-                  { src: "/4.png", title: "Anti-Prokrastination", desc: "Überwinde Aufschieberitis" },
-                  { src: "/5.jpg", title: "80/20 Prinzip", desc: "Fokus auf das Wesentliche" },
-                  { src: "/6.jpg", title: "Dein idealer Tag", desc: "So sieht ein produktiver Tag aus" },
-                  { src: "/7.jpg", title: "Das Lebensproduktivitätssystem", desc: "Das System der Werkstatt" },
-                  { src: "/8.jpg", title: "Von Reaktiv zu Produktiv", desc: "Werde zum Gestalter" },
+                  { src: "/1.webp", title: "Kurs-Oberfläche", desc: "75 Video-Lektionen in 12 Modulen" },
+                  { src: "/2.webp", title: "Das Workbook", desc: "Dein interaktives Arbeitsbuch" },
+                  { src: "/3.webp", title: "Fokus-Logbuch", desc: "Tracke deine Produktivität" },
+                  { src: "/4.webp", title: "Anti-Prokrastination", desc: "Überwinde Aufschieberitis" },
+                  { src: "/5.webp", title: "80/20 Prinzip", desc: "Fokus auf das Wesentliche" },
+                  { src: "/6.webp", title: "Dein idealer Tag", desc: "So sieht ein produktiver Tag aus" },
+                  { src: "/7.webp", title: "Das Lebensproduktivitätssystem", desc: "Das System der Werkstatt" },
+                  { src: "/8.webp", title: "Von Reaktiv zu Produktiv", desc: "Werde zum Gestalter" },
                 ].map((item, i) => (
                   <div key={i} className="flex-none w-72 snap-center">
                     <div className="card bg-base-200 shadow-lg">
@@ -453,7 +453,7 @@ export default function Page() {
             <div className="card lg:card-side bg-base-100 shadow-xl max-w-3xl mx-auto overflow-hidden">
               <figure className="lg:w-1/3 h-64 lg:h-auto relative bg-base-300">
                 <ImageWithSkeleton
-                  src="/trainer-lukas.jpg"
+                  src="/trainer-lukas.webp"
                   alt="Lukas Zangerl"
                   fill
                   className="object-cover object-[center_20%]"
@@ -693,7 +693,7 @@ export default function Page() {
           {/* Fullscreen Background Image */}
           <div className="absolute inset-0">
             <Image
-              src="/werkstatt-nacht.png"
+              src="/werkstatt-nacht.webp"
               alt="Die Produktivitäts-Werkstatt bei Nacht"
               fill
               className="object-cover object-center"
