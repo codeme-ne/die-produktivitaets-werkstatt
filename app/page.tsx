@@ -46,6 +46,8 @@ export const metadata: Metadata = {
 /* ═══════════════════════════════════════════════════════════════════════════
    TESTIMONIALS DATA - Expanded from research
    ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Oberer Slider - bewegt sich von RECHTS nach LINKS */
 const testimonials = [
   {
     name: "Jana Lakhera",
@@ -63,24 +65,64 @@ const testimonials = [
     quote: "Die Fokusstunden haben mir besonders geholfen, da ich in diesen Zeiten wirklich konzentriert an meinen Aufgaben bleiben konnte.",
   },
   {
+    name: "Anna Schmitz",
+    title: "Marketingmanagerin",
+    quote: "Durch die Zusammenarbeit mit Lukas konnte ich schlechte Gewohnheiten wie das Rauchen durch gesunde Routinen ersetzen und meine beruflichen To-dos endlich wieder mit meinem Wohlbefinden in Einklang bringen.",
+    image: "/testimonials/Anna_Schmitz.jpeg",
+  },
+  {
     name: "Peter Cremer",
     quote: "Es geht schon wesentlich effizienter voran, dank deiner strukturellen Anregungen. Ich habe schon eine wesentlich bessere Zukunftsplanung und Klarheit für meinen Weg gewonnen.",
   },
   {
+    name: "Stefanie Gralewski",
+    title: "Unternehmerin +20 Jahre",
+    quote: "Lukas ist einer der wertschätzendsten Coaches, die ich kenne. Er bringt mich auf meinem eigenen Weg voran, ohne dass es sich jemals wie ein steiniger Weg anfühlt. Absolute Empfehlung!",
+    image: "/testimonials/Stefanie_Grawleski.jpg",
+  },
+  {
+    name: "Christine Dehnel",
+    title: "lernspass-oase.de",
+    quote: "Ich kann die Teilnahme an der Werkstatt, vor allem auch aufgrund von Lukas' wertvoller Präsenz, jedem empfehlen. Jetzt habe ich ein einfaches System zur Gestaltung produktiver Zeiträume, um es im Alltag einzusetzen.",
+  },
+  {
+    name: "Dino G. Cardiano",
+    quote: "Lieber Lukas, ich möchte gerne jeden Tag Fokus-Sessions haben, da sie mich in meiner Produktivität enorm unterstützen. Super Programm!!! Vielen Dank!!!",
+  },
+];
+
+/* Unterer Slider - bewegt sich von LINKS nach RECHTS */
+const testimonials2 = [
+  {
     name: "Gabriele Thies",
     quote: "In der heutigen Session habe ich eine Aufgabe erledigt, die ich schon ewig vor mir hergeschoben habe — ein sehr sehr gutes Gefühl!",
+  },
+  {
+    name: "Martina K.",
+    quote: "Dank Lukas' wertschätzendem Coaching und seiner Produktivitätswerkstatt habe ich in nur fünf Wochen alte Glaubenssätze abgelegt und meine Ernährung sowie Bewegung so umgestellt, dass ich endlich die lang ersehnte Hexenplatte erklommen habe – ein Ziel, vor dem ich fünf Jahre lang zurückgeschreckt bin.",
+    image: "/testimonials/Martina K.jpg",
   },
   {
     name: "Steffen",
     quote: "Der Workshop bietet sehr viel Content, der aufeinander aufbaut. Zeit und Geld sind hier gut investiert.",
   },
   {
+    name: "Stephan Pilgrim",
+    title: "Dipl.-Ingenieur (BA)",
+    quote: "Besonders hilfreich im System von Lukas ist für mich das Zusammenspiel von 'Vision' und 'Aktion'.",
+  },
+  {
+    name: "Ilka Eisermann",
+    quote: "Er hat mir geholfen, meine Ziele zu definieren, realistische Pläne zu erstellen und mich regelmäßig zu motivieren. Außerdem unterstützte er mich dabei, die Ergebnisse zu überprüfen und zu reflektieren. Dank seiner Hilfe bin ich ein großes Stück weitergekommen und habe ihn bereits anderen Menschen weiterempfohlen.",
+    image: "/testimonials/Ilka Eisermann.png",
+  },
+  {
     name: "Bernd Hücker",
     quote: "Ich bin begeistert von dieser Art des Arbeitens und kann die Online-Produktivitäts-Werkstatt jedem empfehlen.",
   },
   {
-    name: "Martina K",
-    quote: "Innerhalb von fünf Wochen hast du es geschafft, dass ich in kleinen Schritten ein großes Stück weitergekommen bin.",
+    name: "Birgit W.",
+    quote: "Das Lebensproduktivitätssystem ist sehr überzeugend und hat mir geholfen, mir über meine eigenen Ziele klarzuwerden. Ich habe Deinen Kurs genossen und eine Menge für mein Leben gelernt!",
   },
 ];
 
@@ -163,10 +205,15 @@ export default function Page() {
             TESTIMONIALS - Auto-Play Carousel
         ═══════════════════════════════════════════════════════════════════ */}
         <section className="py-12 bg-base-200">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 space-y-6">
             <TestimonialsCarousel
               testimonials={testimonials}
               speed={40}
+            />
+            <TestimonialsCarousel
+              testimonials={testimonials2}
+              speed={35}
+              direction="reverse"
             />
           </div>
         </section>
@@ -178,7 +225,7 @@ export default function Page() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-10 md:mb-16">
               <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold text-base-content mb-3 md:mb-4">
-                Produktivität ohne <span className="line-through text-base-content/30">Chaos</span>
+                <span className="line-through text-base-content/30">Ohne System</span> Mit der Werkstatt
               </h2>
               <p className="text-base md:text-xl text-base-content/60">
                 Von reaktiv zu proaktiv — in 12 Wochen
@@ -243,7 +290,7 @@ export default function Page() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12 md:mb-16">
               <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold text-base-content mb-4">
-                Doppelte Produktivität in weniger als 12 Wochen
+                <span className="highlight">Doppelte Produktivität</span> in weniger als 12 Wochen
               </h2>
             </div>
 
@@ -270,11 +317,8 @@ export default function Page() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10 md:mb-16">
               <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold text-base-content mb-3 md:mb-4">
-                Dein Weg zur Produktivitäts-Meisterschaft
+                Das System dahinter
               </h2>
-              <p className="text-base md:text-lg text-base-content/60">
-                Systematisch. Praxiserprobt. Messbar.
-              </p>
             </div>
 
             {/* Responsive Timeline */}
@@ -467,10 +511,16 @@ export default function Page() {
                 </h2>
 
                 <p className="text-sm md:text-base text-base-content/70 mt-4">
-                  Ich habe die Produktivitäts-Werkstatt entwickelt, um dir zu helfen, deine Ziele systematisch zu erreichen — ohne auszubrennen.
+                  Ich bin ehemaliger Linienpilot, heutiger Unternehmer, NLP-Master-Trainer und Produktivitätsexperte. Vor einigen Jahren, als ich meine unternehmerische Reise begann, war ich ausgebrannt und gestresst. Trotz meines Wissens über Produktivität steckte ich in einem Kreislauf aus Ineffizienz und Überforderung fest.
                 </p>
                 <p className="text-sm md:text-base text-base-content/70 mt-2">
-                  <strong className="text-base-content">Produktivität ohne System ist wie Fliegen ohne Kompass.</strong> Mit meinem bewährten System bringst du Struktur in dein Chaos.
+                  Ich arbeitete als Linienpilot mit Schichten von 50 bis 60 Stunden pro Woche. An meinen freien Tagen kümmerte ich mich um meinen Blog und meine Selbstständigkeit. Ich arbeitete hart, machte aber wenig Fortschritte und hatte keinen engen Freundeskreis mit ähnlichen Interessen oder Zielen. Es war ziemlich deprimierend.
+                </p>
+                <p className="text-sm md:text-base text-base-content/70 mt-2">
+                  <strong className="text-base-content">Alles änderte sich, als ich die Philosophie der Wohlfühl-Produktivität entdeckte</strong> — die Idee, dass wir energiegeladener, kreativer und produktiver sind, wenn wir unsere Arbeit als angenehm empfinden.
+                </p>
+                <p className="text-sm md:text-base text-base-content/70 mt-2">
+                  Heute helfe ich Unternehmer*innen und Führungskräften dabei, mit einem wöchentlichen 30-minütigen Planungsritual ihre Produktivität zu verdoppeln. Zusätzlich habe ich diesen 12-wöchigen Kurs ins Leben gerufen, der dir hilft, ein persönliches Lebens-Produktivitätssystem aufzubauen. Ich bin außerdem Experte für Zielerreichungs-Apps.
                 </p>
               </div>
             </div>

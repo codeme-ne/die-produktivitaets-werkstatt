@@ -14,11 +14,13 @@ interface Testimonial {
 interface TestimonialsCarouselProps {
   testimonials: Testimonial[];
   speed?: number; // pixels per second (default: 50)
+  direction?: "normal" | "reverse"; // direction of scroll (default: normal = right to left)
 }
 
 export default function TestimonialsCarousel({
   testimonials,
   speed = 50,
+  direction = "normal",
 }: TestimonialsCarouselProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [animationDuration, setAnimationDuration] = useState(30);
@@ -35,6 +37,9 @@ export default function TestimonialsCarousel({
   // Duplicate testimonials for seamless infinite scroll
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
+  // Unique animation name based on direction to avoid conflicts
+  const animationName = direction === "reverse" ? "marquee-scroll-reverse" : "marquee-scroll";
+
   return (
     <div className="relative w-full overflow-hidden py-4">
       {/* Gradient overlays for smooth fade edges */}
@@ -44,9 +49,9 @@ export default function TestimonialsCarousel({
       {/* Scrolling Container */}
       <div
         ref={containerRef}
-        className="flex gap-6 w-max"
+        className="flex gap-4 md:gap-6 w-max"
         style={{
-          animationName: "marquee-scroll",
+          animationName,
           animationDuration: `${animationDuration}s`,
           animationTimingFunction: "linear",
           animationIterationCount: "infinite",
@@ -56,14 +61,14 @@ export default function TestimonialsCarousel({
         {duplicatedTestimonials.map((testimonial, index) => (
           <div
             key={`testimonial-${index}`}
-            className="w-80 md:w-96 shrink-0"
+            className="w-80 sm:w-96 md:w-[420px] shrink-0"
           >
             <TestimonialCard testimonial={testimonial} />
           </div>
         ))}
       </div>
 
-      {/* CSS Animation */}
+      {/* CSS Animation - supports both directions */}
       <style jsx>{`
         @keyframes marquee-scroll {
           0% {
@@ -73,6 +78,14 @@ export default function TestimonialsCarousel({
             transform: translateX(-50%);
           }
         }
+        @keyframes marquee-scroll-reverse {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
       `}</style>
     </div>
   );
@@ -80,10 +93,10 @@ export default function TestimonialsCarousel({
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full border border-base-content/5">
-      <div className="card-body p-5">
+    <div className="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full border border-base-content/5 min-h-[220px]">
+      <div className="card-body p-5 flex flex-col justify-between">
         {/* Quote */}
-        <p className="text-base-content/80 text-sm md:text-base leading-relaxed line-clamp-4 mb-4">
+        <p className="text-base-content/80 text-sm md:text-base leading-relaxed line-clamp-6 mb-4 flex-grow">
           &ldquo;{testimonial.quote}&rdquo;
         </p>
 
