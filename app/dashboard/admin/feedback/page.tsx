@@ -33,9 +33,6 @@ export default async function AdminFeedbackPage() {
     listAuditLogs(100),
   ]);
 
-  const totalSentiments =
-    stats.sentiments.positive + stats.sentiments.neutral + stats.sentiments.negative || 1;
-
   return (
     <main className="container mx-auto px-4 py-12 max-w-6xl space-y-8">
       <div className="mb-4">
@@ -60,16 +57,6 @@ export default async function AdminFeedbackPage() {
           </div>
           <div className="stat-desc">Skala 1-5 (falls gesetzt)</div>
         </div>
-        <div className="stat">
-          <div className="stat-title">Stimmung</div>
-          <div className="stat-value text-success">
-            {Math.round((stats.sentiments.positive / totalSentiments) * 100)}%
-          </div>
-          <div className="stat-desc">
-            Positiv {stats.sentiments.positive} · Neutral {stats.sentiments.neutral} · Negativ{" "}
-            {stats.sentiments.negative}
-          </div>
-        </div>
       </div>
 
       <section className="card bg-base-100 shadow">
@@ -78,7 +65,7 @@ export default async function AdminFeedbackPage() {
             <div>
               <h2 className="card-title text-2xl">Feedback (neueste 200)</h2>
               <p className="text-sm text-base-content/70">
-                Gespeichert in Postgres inkl. Sentiment-Score (OpenAI, kein Shortcut).
+                Gespeichert in Postgres.
               </p>
             </div>
           </div>
@@ -90,7 +77,6 @@ export default async function AdminFeedbackPage() {
                   <th>Modul/Lektion</th>
                   <th>Nachricht</th>
                   <th>Bewertung</th>
-                  <th>Sentiment</th>
                   <th>Email</th>
                   <th>Datum</th>
                 </tr>
@@ -130,7 +116,7 @@ export default async function AdminFeedbackPage() {
                 ))}
                 {entries.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="text-center text-base-content/60">
+                    <td colSpan={5} className="text-center text-base-content/60">
                       Noch kein Feedback eingegangen.
                     </td>
                   </tr>

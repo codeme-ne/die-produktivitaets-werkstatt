@@ -74,7 +74,6 @@ export async function POST(req: NextRequest) {
       moduleSlug: entry.moduleSlug,
       lessonSlug: entry.lessonSlug,
       rating: entry.rating,
-      sentiment: entry.sentimentLabel,
     },
   });
 

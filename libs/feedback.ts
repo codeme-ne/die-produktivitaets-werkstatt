@@ -1,5 +1,4 @@
 import { sql } from "@vercel/postgres";
-import { classifySentiment } from "./sentiment";
 
 export interface FeedbackEntry {
   id: number;
@@ -55,7 +54,9 @@ export async function submitFeedback(input: {
 }): Promise<FeedbackEntry> {
   await ensureDb();
 
-  const sentiment = await classifySentiment(input.message);
+  // Sentiment-Analyse deaktiviert - nutze Standardwerte
+  const sentimentScore = 0;
+  const sentimentLabel = "neutral";
   const rating =
     typeof input.rating === "number" && input.rating >= 1 && input.rating <= 5
       ? input.rating
@@ -63,7 +64,7 @@ export async function submitFeedback(input: {
 
   const result = await sql`
     INSERT INTO feedback (email, module_slug, lesson_slug, rating, message, sentiment_score, sentiment_label)
-    VALUES (${input.email}, ${input.moduleSlug || null}, ${input.lessonSlug || null}, ${rating}, ${input.message}, ${sentiment.score}, ${sentiment.label})
+    VALUES (${input.email}, ${input.moduleSlug || null}, ${input.lessonSlug || null}, ${rating}, ${input.message}, ${sentimentScore}, ${sentimentLabel})
     RETURNING id, email, module_slug, lesson_slug, rating, message, sentiment_score, sentiment_label, created_at;
   `;
 
