@@ -34,7 +34,10 @@ const Widerruf = () => {
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`WIDERRUFSRECHT
+          {`WIDERRUFSBELEHRUNG
+gemäß Fern- und Auswärtsgeschäfte-Gesetz (FAGG)
+
+WIDERRUFSRECHT
 
 Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen
 Vertrag zu widerrufen.
@@ -46,12 +49,9 @@ Erklärung (z. B. ein mit der Post versandter Brief oder E-Mail) über Ihren
 Entschluss, diesen Vertrag zu widerrufen, informieren.
 
 Kontakt für Widerruf:
-[FIRMENNAME]
-[ADRESSE]
-E-Mail: ${config.resend.supportEmail || "[IHRE E-MAIL]"}
-
-Sie können dafür das beigefügte Muster-Widerrufsformular verwenden, das jedoch
-nicht vorgeschrieben ist.
+Lukas Zangerl
+Jägerstätterstraße 39, 4040 Linz, Österreich
+E-Mail: ${config.resend.supportEmail || "lukas@zangerlcoachingdynamics.com"}
 
 Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über
 die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.
@@ -59,12 +59,9 @@ die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.
 FOLGEN DES WIDERRUFS
 
 Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir
-von Ihnen erhalten haben, einschließlich der Lieferkosten (mit Ausnahme der
-zusätzlichen Kosten, die sich daraus ergeben, dass Sie eine andere Art der
-Lieferung als die von uns angebotene, günstigste Standardlieferung gewählt
-haben), unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag
-zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags
-bei uns eingegangen ist.
+von Ihnen erhalten haben, unverzüglich und spätestens binnen vierzehn Tagen
+ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses
+Vertrags bei uns eingegangen ist.
 
 Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der
 ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde
@@ -73,21 +70,51 @@ dieser Rückzahlung Entgelte berechnet.
 
 VORZEITIGES ERLÖSCHEN DES WIDERRUFSRECHTS BEI DIGITALEN INHALTEN
 
-Sie stimmen ausdrücklich zu, dass wir mit der Ausführung des Vertrags über
-die Bereitstellung digitaler Inhalte (Online-Kurszugang) vor Ablauf der
-Widerrufsfrist beginnen.
+Bei Verträgen über die Lieferung digitaler Inhalte, die nicht auf einem
+körperlichen Datenträger geliefert werden, erlischt das Widerrufsrecht
+vorzeitig, wenn:
 
-Durch Ihre ausdrückliche Zustimmung beim Kaufvorgang und die Bestätigung,
-dass Sie zur Kenntnis genommen haben, dass Sie mit Beginn der Vertragserfüllung
-Ihr Widerrufsrecht verlieren, erlischt Ihr Widerrufsrecht.
+1. Sie ausdrücklich zugestimmt haben, dass wir mit der Vertragserfüllung
+   vor Ablauf der Widerrufsfrist beginnen, und
 
-Der Zugang zu den digitalen Inhalten erfolgt unmittelbar nach Kaufabschluss.
-Mit dem Abruf der Inhalte verlieren Sie daher Ihr Widerrufsrecht gemäß
-§ 356 Abs. 5 BGB.
+2. Sie Ihre Kenntnis davon bestätigt haben, dass Sie durch Ihre Zustimmung
+   mit Beginn der Vertragserfüllung Ihr Widerrufsrecht verlieren.
 
-Hinweis: Wenn Sie auf "Jetzt kaufen" klicken und beide Checkboxen aktivieren,
-stimmen Sie ausdrücklich der sofortigen Vertragserfüllung zu und nehmen zur
-Kenntnis, dass Sie dadurch Ihr Widerrufsrecht verlieren.`}
+Dies entspricht § 18 Abs. 1 Z 11 FAGG.
+
+Der Zugang zu den digitalen Kursinhalten erfolgt unmittelbar nach Kaufabschluss.
+Mit dem Abruf der Inhalte und der vorherigen ausdrücklichen Zustimmung
+verlieren Sie Ihr Widerrufsrecht.
+
+Hinweis: Beim Kauf werden Sie gebeten, der sofortigen Bereitstellung der
+digitalen Inhalte zuzustimmen und zu bestätigen, dass Sie dadurch Ihr
+Widerrufsrecht verlieren.
+
+FREIWILLIGE GELD-ZURÜCK-GARANTIE
+
+Unabhängig vom gesetzlichen Widerrufsrecht bieten wir Ihnen eine freiwillige
+30-Tage-Geld-zurück-Garantie. Wenn Sie innerhalb von 30 Tagen nach dem Kauf
+nicht zufrieden sind, erstatten wir Ihnen den vollen Kaufpreis ohne Fragen.
+
+MUSTER-WIDERRUFSFORMULAR
+
+(Wenn Sie den Vertrag widerrufen wollen, füllen Sie bitte dieses Formular aus
+und senden Sie es zurück.)
+
+An:
+Lukas Zangerl
+Jägerstätterstraße 39, 4040 Linz, Österreich
+E-Mail: lukas@zangerlcoachingdynamics.com
+
+Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag
+über den Kauf der folgenden digitalen Inhalte: ${config.appName}
+
+Bestellt am (*)/erhalten am (*):
+Name des/der Verbraucher(s):
+Anschrift des/der Verbraucher(s):
+Datum:
+
+(*) Unzutreffendes streichen.`}
         </pre>
       </div>
     </main>

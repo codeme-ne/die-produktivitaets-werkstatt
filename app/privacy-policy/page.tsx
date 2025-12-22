@@ -50,9 +50,9 @@ Website.
 
 Verantwortlich für die Datenverarbeitung auf dieser Website ist:
 
-[FIRMENNAME / VOLLSTÄNDIGER NAME]
-[ADRESSE]
-E-Mail: ${config.resend.supportEmail || "[IHRE E-MAIL]"}
+Lukas Zangerl
+Jägerstätterstraße 39, 4040 Linz, Österreich
+E-Mail: ${config.resend.supportEmail || "lukas@zangerlcoachingdynamics.com"}
 
 2. ERHOBENE DATEN
 
@@ -133,7 +133,12 @@ per E-Mail mitgeteilt.
 Wenn Sie Fragen oder Anliegen zu dieser Datenschutzerklärung haben,
 kontaktieren Sie uns bitte unter:
 
-E-Mail: ${config.resend.supportEmail || "[IHRE E-MAIL]"}
+E-Mail: ${config.resend.supportEmail || "lukas@zangerlcoachingdynamics.com"}
+
+Aufsichtsbehörde:
+Österreichische Datenschutzbehörde
+Barichgasse 40-42, 1030 Wien
+https://www.dsb.gv.at
 
 Durch die Nutzung von ${config.appName} stimmen Sie den Bedingungen dieser
 Datenschutzerklärung zu.`}

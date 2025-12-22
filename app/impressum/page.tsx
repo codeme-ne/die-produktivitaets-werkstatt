@@ -32,44 +32,51 @@ const Impressum = () => {
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Angaben gemäß § 5 TMG
+          {`Impressum gemäß § 5 ECG (E-Commerce-Gesetz)
 
+Diensteanbieter:
 Lukas Zangerl
-[IHRE STRASSE UND HAUSNUMMER]
-[IHRE PLZ STADT]
-[IHR LAND]
+Jägerstätterstraße 39
+4040 Linz
+Österreich
 
 Kontakt:
 E-Mail: lukas@zangerlcoachingdynamics.com
 
-Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
-Lukas Zangerl
-[ADRESSE WIE OBEN]
+Unternehmensgegenstand:
+Online-Kurse und digitale Bildungsangebote im Bereich Produktivität
+
+Anwendbare Rechtsvorschriften:
+E-Commerce-Gesetz (ECG), Konsumentenschutzgesetz (KSchG),
+Fern- und Auswärtsgeschäfte-Gesetz (FAGG)
+Abrufbar unter: https://www.ris.bka.gv.at
 
 Hinweis zur Online-Streitbeilegung:
 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
 https://ec.europa.eu/consumers/odr
 
-Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer
 Verbraucherschlichtungsstelle teilzunehmen.
 
 Haftung für Inhalte:
-Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten
-nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
-Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
-Informationen zu überwachen oder nach Umständen zu forschen, die auf eine
-rechtswidrige Tätigkeit hinweisen.
+Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.
+Gemäß § 16 ECG sind wir als Diensteanbieter für eigene Inhalte und bereitgestellte
+Informationen verantwortlich. Wir sind jedoch nicht verpflichtet, fremde übermittelte
+oder gespeicherte Informationen zu überwachen (§ 18 ECG).
 
 Haftung für Links:
 Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir
 keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine
-Gewähr übernehmen.
+Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige
+Anbieter oder Betreiber der Seiten verantwortlich.
 
 Urheberrecht:
-Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
-unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung,
-Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes
-bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.`}
+Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
+unterliegen dem österreichischen Urheberrecht (Urheberrechtsgesetz - UrhG).
+Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung
+außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung
+des jeweiligen Autors bzw. Erstellers.`}
         </pre>
       </div>
     </main>

@@ -571,6 +571,7 @@ h1, h2, h3, h4, h5, h6, .heading {
 .highlight {
   position: relative;
   display: inline-block;
+  isolation: isolate;
 }
 
 .highlight::after {
@@ -580,7 +581,7 @@ h1, h2, h3, h4, h5, h6, .heading {
   left: 0;
   right: 0;
   height: 12px;
-  background: color-mix(in oklch, var(--color-accent) 25%, transparent);
+  background: color-mix(in oklch, var(--color-accent) 35%, transparent);
   z-index: -1;
   transform: skewX(-3deg);
   border-radius: 2px;

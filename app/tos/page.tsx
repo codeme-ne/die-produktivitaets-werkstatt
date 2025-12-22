@@ -43,11 +43,16 @@ Website ${config.domainName} und der von ${config.appName} angebotenen
 Dienstleistungen. Durch die Nutzung unserer Website und Dienste stimmen
 Sie diesen AGB zu.
 
+ANBIETER:
+Lukas Zangerl
+Jägerstätterstraße 39, 4040 Linz, Österreich
+E-Mail: lukas@zangerlcoachingdynamics.com
+
 1. BESCHREIBUNG DER DIENSTLEISTUNG
 
-${config.appName} bietet einen Online-Kurs zum Thema künstliche Intelligenz
-und AI-Systementwicklung. Der Kurs besteht aus digitalen Inhalten, die
-online über unsere Plattform zugänglich sind.
+${config.appName} bietet einen 12-wöchigen Online-Kurs zum Thema Produktivität
+und Lebensmanagement. Der Kurs besteht aus digitalen Inhalten (Video-Lektionen,
+Workbooks, Community-Zugang), die online über unsere Plattform zugänglich sind.
 
 2. VERTRAGSSCHLUSS UND ZUGANG
 
@@ -99,8 +104,8 @@ ${config.domainName}/widerruf
 Trotz des erlöschenden Widerrufsrechts bieten wir eine freiwillige
 Geld-zurück-Garantie:
 
-Wenn Sie innerhalb von 7 Tagen nach dem Kauf nicht zufrieden sind,
-erstatten wir Ihnen den vollen Kaufpreis. Kontaktieren Sie uns dazu
+Wenn Sie innerhalb von 30 Tagen nach dem Kauf nicht zufrieden sind,
+erstatten wir Ihnen den vollen Kaufpreis ohne Fragen. Kontaktieren Sie uns dazu
 per E-Mail unter ${config.resend.supportEmail || "[IHRE E-MAIL]"}.
 
 7. DATENSCHUTZ
@@ -132,10 +137,14 @@ widersprochen wird.
 
 10. SCHLUSSBESTIMMUNGEN
 
-10.1 Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss
-des UN-Kaufrechts.
+10.1 Es gilt österreichisches Recht unter Ausschluss des UN-Kaufrechts.
+Gerichtsstand ist Linz, Österreich, sofern gesetzlich zulässig.
 
-10.2 Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden,
+10.2 Für Verbraucher im Sinne des Konsumentenschutzgesetzes (KSchG) gelten
+die zwingenden verbraucherschutzrechtlichen Bestimmungen des Staates,
+in dem der Verbraucher seinen gewöhnlichen Aufenthalt hat.
+
+10.3 Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden,
 bleibt die Wirksamkeit der übrigen Bestimmungen davon unberührt.
 
 11. KONTAKT
