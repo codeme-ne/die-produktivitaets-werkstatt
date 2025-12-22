@@ -490,21 +490,21 @@ export default function Page() {
         </section>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            TRAINER - Mobile optimized (image on top)
+            TRAINER - Image on top
         ═══════════════════════════════════════════════════════════════════ */}
         <section className="py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-base-200">
           <div className="max-w-4xl mx-auto">
-            <div className="card lg:card-side bg-base-100 shadow-xl max-w-3xl mx-auto overflow-hidden">
-              <figure className="lg:w-2/5 h-80 lg:h-auto relative bg-base-300">
+            <div className="card bg-base-100 shadow-xl max-w-3xl mx-auto overflow-hidden">
+              <figure className="h-80 md:h-96 relative bg-base-300">
                 <ImageWithSkeleton
                   src="/trainer-lukas.webp"
                   alt="Lukas Zangerl"
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  sizes="(max-width: 1024px) 100vw, 768px"
                 />
               </figure>
-              <div className="card-body p-5 md:p-8 lg:w-3/5">
+              <div className="card-body p-5 md:p-8">
                 <div className="badge badge-accent mb-2">Dein Trainer</div>
                 <h2 className="card-title text-2xl md:text-3xl">
                   Hey, ich bin Lukas 👋
