@@ -246,14 +246,14 @@ export function LessonActions({
       onClick={handleToggleDone}
       disabled={loading || done}
       aria-busy={loading}
-      className={`btn gap-2 ${done ? "btn-success cursor-default" : "btn-primary"}`}
+      className={`btn btn-sm gap-1.5 ${done ? "btn-success cursor-default" : "btn-primary"}`}
     >
       {loading ? (
-        <span className="loading loading-spinner loading-sm"></span>
+        <span className="loading loading-spinner loading-xs"></span>
       ) : done ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className="h-4 w-4"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -266,7 +266,7 @@ export function LessonActions({
       ) : (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className="h-4 w-4"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

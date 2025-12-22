@@ -8,9 +8,10 @@ import config from "@/config";
 
 interface Props {
   onMenuClick: () => void;
+  drawerOpen?: boolean;
 }
 
-export function CourseHeader({ onMenuClick }: Props) {
+export function CourseHeader({ onMenuClick, drawerOpen }: Props) {
   const { totalLessons, completedLessons, percentage, nextOpenLesson } =
     useCourse();
   const progressText = useMemo(() => {
@@ -32,31 +33,44 @@ export function CourseHeader({ onMenuClick }: Props) {
         <div className="flex items-center gap-3 flex-1 min-w-0">
           <button
             onClick={onMenuClick}
-            className="btn btn-ghost btn-square btn-sm lg:hidden flex-shrink-0"
-            aria-label="Open menu"
+            className="lg:hidden flex-shrink-0 p-2.5 rounded-xl bg-primary text-primary-content hover:bg-primary/90 transition-colors shadow-md"
+            aria-label={drawerOpen ? "Menü schließen" : "Menü öffnen"}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            <span className="sr-only">{drawerOpen ? "Menü schließen" : "Menü öffnen"}</span>
+            {drawerOpen ? (
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
                 strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
           </button>
 
-          <Link
-            href="/"
-            className="text-base md:text-lg font-display font-bold hover:text-accent transition-colors flex-shrink-0"
-          >
+          <span className="text-base md:text-lg font-display font-bold flex-shrink-0">
             {config.appName}
-          </Link>
+          </span>
 
           <span
             className="hidden md:block w-px h-6 bg-base-300 flex-shrink-0"
@@ -102,18 +116,6 @@ export function CourseHeader({ onMenuClick }: Props) {
           <SettingsMenu />
         </div>
       </div>
-
-      {/* Mobile: Continue Link */}
-      {continueHref && (
-        <Link
-          href={continueHref}
-          className="lg:hidden block mt-2 text-sm text-base-content/80 hover:text-primary transition-colors truncate"
-          title={nextOpenLesson?.title}
-          aria-label={continueLabel ?? undefined}
-        >
-          {continueLabel}
-        </Link>
-      )}
     </header>
   );
 }

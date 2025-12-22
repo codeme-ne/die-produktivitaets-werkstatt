@@ -84,10 +84,10 @@ export default async function VideoPage({ params }: Props) {
       <KeyboardShortcuts prev={prev} next={next} />
       <div className="flex flex-col h-full">
         <div className="flex-1 overflow-y-auto">
-          <div className="container mx-auto px-4 py-6 max-w-screen-2xl">
-            {/* Title row with Erledigt button */}
-            <div className="flex items-center justify-between gap-4 mb-6">
-              <h1 className="text-3xl md:text-4xl font-bold break-words whitespace-normal flex-1 min-w-0">
+          <div className="container mx-auto px-4 py-3 max-w-screen-2xl">
+            {/* Title row with Erledigt button - compact on desktop */}
+            <div className="flex items-center justify-between gap-3 mb-3">
+              <h1 className="text-base sm:text-lg md:text-xl font-semibold truncate">
                 {lesson.title}
               </h1>
               <div className="shrink-0">

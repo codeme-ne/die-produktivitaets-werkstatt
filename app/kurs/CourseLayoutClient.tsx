@@ -22,7 +22,7 @@ export function CourseLayoutClient({ children }: Props) {
       </div>
 
       <FocusModeToggle />
-      <CourseHeader onMenuClick={() => setDrawerOpen(true)} />
+      <CourseHeader onMenuClick={() => setDrawerOpen(!drawerOpen)} drawerOpen={drawerOpen} />
 
       {/* Desktop: Side-by-side layout, Mobile: Drawer */}
       <div className="flex-1 flex overflow-hidden relative z-10">
@@ -34,16 +34,20 @@ export function CourseLayoutClient({ children }: Props) {
         {/* Main Content - Scrolls independently */}
         <main className="flex-1 overflow-y-auto bg-base-100/80">{children}</main>
 
-        {/* Mobile Drawer */}
-        <div className={`lg:hidden fixed inset-0 z-50 ${drawerOpen ? '' : 'pointer-events-none'}`}>
+        {/* Mobile Drawer - positioned below header */}
+        <div className={`lg:hidden fixed inset-x-0 top-0 bottom-0 z-40 ${drawerOpen ? '' : 'pointer-events-none'}`}>
           <div
             className={`absolute inset-0 bg-base-content/60 transition-opacity ${drawerOpen ? 'opacity-100' : 'opacity-0'}`}
             onClick={() => setDrawerOpen(false)}
           />
           <aside
-            className={`absolute left-0 top-0 h-full w-80 bg-base-100 shadow-xl transform transition-transform ${drawerOpen ? 'translate-x-0' : '-translate-x-full'}`}
+            className={`absolute left-0 top-0 bottom-0 w-80 max-w-[85vw] bg-base-100 shadow-xl transform transition-transform flex flex-col ${drawerOpen ? 'translate-x-0' : '-translate-x-full'}`}
           >
-            <CourseSidebar onLinkClick={() => setDrawerOpen(false)} />
+            {/* Spacer for header - matches header height */}
+            <div className="h-24 flex-shrink-0" />
+            <div className="flex-1 min-h-0">
+              <CourseSidebar onLinkClick={() => setDrawerOpen(false)} />
+            </div>
           </aside>
         </div>
       </div>

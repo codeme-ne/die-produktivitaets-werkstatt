@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCourse } from "@/app/kurs/CourseContext";
+import { SidebarSettings } from "./SidebarSettings";
 
 /**
  * Format duration in seconds to mm:ss
@@ -62,8 +63,8 @@ export function CourseSidebar({ onLinkClick }: SidebarProps = {}) {
   };
 
   return (
-    <aside className="w-full h-full overflow-y-auto">
-      <div className="px-4 py-4">
+    <aside className="w-full h-full flex flex-col">
+      <div className="flex-1 overflow-y-auto px-4 py-4">
         <div className="space-y-2">
           {course.modules.map((module) => {
             const completedCount = module.lessons.filter(
@@ -195,6 +196,10 @@ export function CourseSidebar({ onLinkClick }: SidebarProps = {}) {
             );
           })}
         </div>
+      </div>
+      {/* Settings at bottom - only visible on mobile */}
+      <div className="lg:hidden flex-shrink-0">
+        <SidebarSettings />
       </div>
     </aside>
   );
